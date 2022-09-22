@@ -3,11 +3,11 @@
   <title>k10.</title>
   
   
-  <link href="http://example.com/atom.xml" rel="self"/>
+  <link href="https://chenzhengkai10.github.io/atom.xml" rel="self"/>
   
-  <link href="http://example.com/"/>
+  <link href="https://chenzhengkai10.github.io/"/>
   <updated>2022-09-20T06:35:16.642Z</updated>
-  <id>http://example.com/</id>
+  <id>https://chenzhengkai10.github.io/</id>
   
   <author>
     <name>ChenZhengkai10</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>我的第一篇博客文章</title>
-    <link href="http://example.com/2022/09/20/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/"/>
-    <id>http://example.com/2022/09/20/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/</id>
+    <link href="https://chenzhengkai10.github.io/2022/09/20/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/"/>
+    <id>https://chenzhengkai10.github.io/2022/09/20/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/</id>
     <published>2022-09-20T06:23:16.000Z</published>
     <updated>2022-09-20T06:35:16.642Z</updated>
     
@@ -35,8 +35,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://example.com/2022/09/20/hello-world/"/>
-    <id>http://example.com/2022/09/20/hello-world/</id>
+    <link href="https://chenzhengkai10.github.io/2022/09/20/hello-world/"/>
+    <id>https://chenzhengkai10.github.io/2022/09/20/hello-world/</id>
     <published>2022-09-20T05:12:04.556Z</published>
     <updated>2022-09-20T14:44:20.896Z</updated>
     
