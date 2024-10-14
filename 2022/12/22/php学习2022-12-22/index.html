@@ -34,13 +34,13 @@
   <!-- 页面元数据 -->
   <title>php学习2022-12-22 - Dr4x3zz</title>
   <meta name="keywords" content="php学习,null">
-  <meta desc name="description" content="php学习(三元运算、if_else、switch) - Dr4x3zz - Dr4x3zz">
+  <meta desc name="description" content="# php 学习 (三元运算、if_else、switch) - Dr4x3zz - Dr4x3zz">
   
 <meta property="og:type" content="article">
 <meta property="og:title" content="php学习2022-12-22">
 <meta property="og:url" content="https://chenzhengkai10.github.io/2022/12/22/php%E5%AD%A6%E4%B9%A02022-12-22/index.html">
 <meta property="og:site_name" content="Dr4x3zz">
-<meta property="og:description" content="php学习(三元运算、if_else、switch)">
+<meta property="og:description" content="# php 学习 (三元运算、if_else、switch)">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2022-12-22T12:54:01.000Z">
@@ -1744,7 +1744,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1728903825782),
+    lastupdate: new Date(1728904039860),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2585,31 +2585,61 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <h1 id="php学习-三元运算、if-else、switch"><a href="#php学习-三元运算、if-else、switch" class="headerlink" title="php学习(三元运算、if_else、switch)"></a>php学习(三元运算、if_else、switch)</h1><span id="more"></span>
-<h2 id="三元运算"><a href="#三元运算" class="headerlink" title="三元运算"></a>三元运算</h2><blockquote>
-<p>三元运算符的格式：(expr1) ? (expr2) : (expr3)<br>解释：<strong>如果条件”expr1”成立，则执行语句”expr2”,否则执行”expr3”</strong></p>
+    <h1 id="php学习三元运算-if_else-switch"><a class="markdownIt-Anchor" href="#php学习三元运算-if_else-switch">#</a> php 学习 (三元运算、if_else、switch)</h1>
+<span id="more"></span>
+<h2 id="三元运算"><a class="markdownIt-Anchor" href="#三元运算">#</a> 三元运算</h2>
+<blockquote>
+<p>三元运算符的格式：(expr1) ? (expr2) : (expr3)<br>
+ 解释：<strong>如果条件”expr1” 成立，则执行语句”expr2”, 否则执行”expr3”</strong></p>
 </blockquote>
 <p>例：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    $a = 666;</span><br><span class="line">    echo $a == 777 ? &quot;yes&quot; : &quot;no&quot;;  //输出no</span><br><span class="line">    echo PHP_EOL;   //换行符</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<p>同时，也可以用if来写一段作用相同的代码</p>
+<p>同时，也可以用 if 来写一段作用相同的代码</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    $a = 666;</span><br><span class="line">    if($a == 666)</span><br><span class="line">    &#123;</span><br><span class="line">        echo &quot;yes&quot;;     //输出：yes</span><br><span class="line">    &#125;</span><br><span class="line">    else</span><br><span class="line">    &#123;</span><br><span class="line">        echo &quot;no&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<p>C语言中，条件的符号用的也是 ? :<br>他的用法是  A?B:C<br>意思是：若A为非0则值为B，否则为C<br>php和C中这个符号的判断顺序还是一样的</p>
-<h2 id="if-else"><a href="#if-else" class="headerlink" title="if_else"></a>if_else</h2><p>if else的用法和语法大致都和C一样</p>
-<h3 id="if："><a href="#if：" class="headerlink" title="if："></a>if：</h3><blockquote>
-<p>  if（条件）<br>  {<br>      条件成立时要执行的代码;<br>  }</p>
+<p>C 语言中，条件的符号用的也是？:<br>
+ 他的用法是  A?B:C<br>
+ 意思是：若 A 为非 0 则值为 B，否则为 C<br>
+php 和 C 中这个符号的判断顺序还是一样的</p>
+<h2 id="if_else"><a class="markdownIt-Anchor" href="#if_else">#</a> if_else</h2>
+<p>if else 的用法和语法大致都和 C 一样</p>
+<h3 id="if"><a class="markdownIt-Anchor" href="#if">#</a> if：</h3>
+<blockquote>
+<p>if（条件）<br>
+{<br>
+条件成立时要执行的代码；<br>
+}</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    $tz = 520;</span><br><span class="line">    if($tz == 520)</span><br><span class="line">    &#123;</span><br><span class="line">        echo &quot;czk love ltx&quot;;    //输出：czk love ltx</span><br><span class="line">    &#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="if-else-1"><a href="#if-else-1" class="headerlink" title="if else"></a>if else</h3><blockquote>
-<p>  if (条件)<br>  {<br>      条件成立时执行的代码;<br>  }<br>  else<br>  {<br>      条件不成立时执行的代码;<br>  }</p>
+<h3 id="if-else"><a class="markdownIt-Anchor" href="#if-else">#</a> if else</h3>
+<blockquote>
+<p>if (条件)<br>
+{<br>
+条件成立时执行的代码；<br>
+}<br>
+else<br>
+{<br>
+条件不成立时执行的代码；<br>
+}</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    $kx = 1314;</span><br><span class="line">    if($kx != 1314)</span><br><span class="line">    &#123;</span><br><span class="line">        echo &quot;No!No!No!&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    else</span><br><span class="line">    &#123;</span><br><span class="line">        echo &quot;czk like ltx&quot;;    //输出：czk like ltx</span><br><span class="line">    &#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="if-ifelse-else"><a href="#if-ifelse-else" class="headerlink" title="if ifelse else"></a>if ifelse else</h3><blockquote>
-<p>   if (条件)<br>  {<br>      if条件成立时执行的代码;<br>  }<br>  elseif (条件)<br>  {<br>      elseif条件成立时执行的代码;<br>  }<br>  else<br>  {<br>      条件不成立时执行的代码;<br>  }</p>
+<h3 id="if-ifelse-else"><a class="markdownIt-Anchor" href="#if-ifelse-else">#</a> if ifelse else</h3>
+<blockquote>
+<p>if (条件)<br>
+{<br>
+if 条件成立时执行的代码；<br>
+}<br>
+ elseif (条件)<br>
+{<br>
+elseif 条件成立时执行的代码；<br>
+}<br>
+else<br>
+{<br>
+条件不成立时执行的代码；<br>
+}</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    $t = 30;</span><br><span class="line">    if ($t &lt; &quot;10&quot;)</span><br><span class="line">    &#123;</span><br><span class="line">        echo &quot;hello chen&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    elseif ($t &lt; &quot;20&quot;)</span><br><span class="line">    &#123;</span><br><span class="line">        echo &quot;hello lin&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    else</span><br><span class="line">    &#123;</span><br><span class="line">        echo &quot;hello chen and lin&quot;;  //输出：hello chen and lin</span><br><span class="line">    &#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h2><p>switch case语法也和C语言相差不大，这里就不给用法了，直接上例子</p>
+<h2 id="switch"><a class="markdownIt-Anchor" href="#switch">#</a> switch</h2>
+<p>switch case 语法也和 C 语言相差不大，这里就不给用法了，直接上例子</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    $color = &quot;red&quot;;</span><br><span class="line">    switch ($color)</span><br><span class="line">    &#123;</span><br><span class="line">        case &quot;red&quot;:</span><br><span class="line">            echo &quot;你最喜欢的颜色是红色！&quot;; break;     //输出：“你最喜欢的颜色是红色！</span><br><span class="line">        case &quot;blue&quot;:</span><br><span class="line">            echo &quot;你最喜欢的颜色是蓝色！&quot;; break;</span><br><span class="line">        case &quot;green&quot;:</span><br><span class="line">            echo &quot;你最喜欢的颜色是绿色！&quot;; break;</span><br><span class="line">        default:</span><br><span class="line">            echo &quot;你最喜欢的颜色不是红、蓝、绿其中之一！&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
   </div>
   
@@ -2660,7 +2690,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chenzhengkai10.github.io/2022/12/22/php%E5%AD%A6%E4%B9%A02022-12-22/&title=php学习2022-12-22 - Dr4x3zz&summary=php学习(三元运算、if_else、switch)"
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chenzhengkai10.github.io/2022/12/22/php%E5%AD%A6%E4%B9%A02022-12-22/&title=php学习2022-12-22 - Dr4x3zz&summary=# php 学习 (三元运算、if_else、switch)"
           
           >
           
@@ -2672,7 +2702,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://chenzhengkai10.github.io/2022/12/22/php%E5%AD%A6%E4%B9%A02022-12-22/&title=php学习2022-12-22 - Dr4x3zz&summary=php学习(三元运算、if_else、switch)"
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://chenzhengkai10.github.io/2022/12/22/php%E5%AD%A6%E4%B9%A02022-12-22/&title=php学习2022-12-22 - Dr4x3zz&summary=# php 学习 (三元运算、if_else、switch)"
           
           >
           
@@ -2684,7 +2714,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://chenzhengkai10.github.io/2022/12/22/php%E5%AD%A6%E4%B9%A02022-12-22/&title=php学习2022-12-22 - Dr4x3zz&summary=php学习(三元运算、if_else、switch)"
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://chenzhengkai10.github.io/2022/12/22/php%E5%AD%A6%E4%B9%A02022-12-22/&title=php学习2022-12-22 - Dr4x3zz&summary=# php 学习 (三元运算、if_else、switch)"
           
           >
           
@@ -2719,18 +2749,25 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class='prev' href='/2022/12/24/php%E5%AD%A6%E4%B9%A02022-12-24/'>
           <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>php学习2022-12-24</p>
-          <p class='content'>php学习(array)
-数值数组数组自动分配ID第一种方法是自动分配ID键，和C语言一样都是从0开始分配ID代码如下：
-12345&lt;?php    $color = array( &qu...</p>
+          <p class='content'># php 学习 (array)
+
+# 数值数组数组
+# 自动分配 ID
+第一种方法是自动分配 ID 键，和 C 语言一样都是从 0 开始分配 ID
+ 代码如下：
+12345&lt;?php  ...</p>
         </a>
       
       
         <a class='next' href='/2022/12/21/sqli-labs-1-8/'>
           <p class='title'>sqli-labs-1-8<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>sqli-labs-1-8
+          <p class='content'># sqli-labs-1-8
 
-SQL注入SQL注入常用
-information_schema：表示所有信息，包括库、表、列information_schema.tables：记录所有表名信息的表...</p>
+# SQL 注入
+# SQL 注入常用
+
+information_schema：表示所有信息，包括库、表、列
+ information_schema.table...</p>
         </a>
       
     </div>
@@ -2788,7 +2825,7 @@ information_schema：表示所有信息，包括库、表、列information_schem
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E5%85%83%E8%BF%90%E7%AE%97"><span class="toc-text">三元运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#if-else"><span class="toc-text">if_else</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#if%EF%BC%9A"><span class="toc-text">if：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#if-else-1"><span class="toc-text">if else</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#if-ifelse-else"><span class="toc-text">if ifelse else</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#switch"><span class="toc-text">switch</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E5%85%83%E8%BF%90%E7%AE%97"><span class="toc-text"> 三元运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#if_else"><span class="toc-text"> if_else</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#if"><span class="toc-text"> if：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#if-else"><span class="toc-text"> if else</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#if-ifelse-else"><span class="toc-text"> if ifelse else</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#switch"><span class="toc-text"> switch</span></a></li></ol>
     </div>
   </section>
 
@@ -3358,7 +3395,7 @@ information_schema：表示所有信息，包括库、表、列information_schem
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","sameAs":["https://github.com/volantis-x"],"description":"这是我的专属博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://chenzhengkai10.github.io/","name":"Dr4x3zz"}},{"@type":"ListItem","position":2,"item":{"@id":"https://chenzhengkai10.github.io/categories/php学习/","name":"php学习"}},{"@type":"ListItem","position":3,"item":{"@id":"https://chenzhengkai10.github.io/2022/12/22/php学习2022-12-22/","name":"php学习2022-12-22"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","keywords":null,"description":"这是我的专属博客","author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","description":"这是我的专属博客"},"publisher":{"@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://chenzhengkai10.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"php学习2022-12-22","description":"php学习(三元运算、if_else、switch)","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://chenzhengkai10.github.io/2022/12/22/php%E5%AD%A6%E4%B9%A02022-12-22/"},"author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/"},"publisher":{"@type":"Organization","name":"Dr4x3zz","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://chenzhengkai10.github.io/2022/12/22/php%E5%AD%A6%E4%B9%A02022-12-22/","wordCount":26,"datePublished":"2022-12-22T12:54:01.000Z","dateModified":"2022-12-24T04:18:28.000Z","articleSection":"php学习","keywords":"php学习","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","sameAs":["https://github.com/volantis-x"],"description":"这是我的专属博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://chenzhengkai10.github.io/","name":"Dr4x3zz"}},{"@type":"ListItem","position":2,"item":{"@id":"https://chenzhengkai10.github.io/categories/php学习/","name":"php学习"}},{"@type":"ListItem","position":3,"item":{"@id":"https://chenzhengkai10.github.io/2022/12/22/php学习2022-12-22/","name":"php学习2022-12-22"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","keywords":null,"description":"这是我的专属博客","author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","description":"这是我的专属博客"},"publisher":{"@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://chenzhengkai10.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"php学习2022-12-22","description":"# php 学习 (三元运算、if_else、switch)","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://chenzhengkai10.github.io/2022/12/22/php%E5%AD%A6%E4%B9%A02022-12-22/"},"author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/"},"publisher":{"@type":"Organization","name":"Dr4x3zz","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://chenzhengkai10.github.io/2022/12/22/php%E5%AD%A6%E4%B9%A02022-12-22/","wordCount":30,"datePublished":"2022-12-22T12:54:01.000Z","dateModified":"2022-12-24T04:18:28.000Z","articleSection":"php学习","keywords":"php学习","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

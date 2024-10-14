@@ -34,13 +34,13 @@
   <!-- 页面元数据 -->
   <title>php伪协议 - Dr4x3zz</title>
   <meta name="keywords" content="ctfweb,null">
-  <meta desc name="description" content="之前对php为协议有过初步的学习，但是学习的很拙劣，前几天buu刷题用到了php伪协议，所以打算重新学习一下 - Dr4x3zz - Dr4x3zz">
+  <meta desc name="description" content="之前对 php 为协议有过初步的学习，但是学习的很拙劣，前几天 buu 刷题用到了 php 伪协议，所以打算重新学习一下 - Dr4x3zz - Dr4x3zz">
   
 <meta property="og:type" content="article">
 <meta property="og:title" content="php伪协议">
 <meta property="og:url" content="https://chenzhengkai10.github.io/2023/04/21/php%E4%BC%AA%E5%8D%8F%E8%AE%AE/index.html">
 <meta property="og:site_name" content="Dr4x3zz">
-<meta property="og:description" content="之前对php为协议有过初步的学习，但是学习的很拙劣，前几天buu刷题用到了php伪协议，所以打算重新学习一下">
+<meta property="og:description" content="之前对 php 为协议有过初步的学习，但是学习的很拙劣，前几天 buu 刷题用到了 php 伪协议，所以打算重新学习一下">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2023-04-20T16:49:03.000Z">
@@ -1744,7 +1744,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1728903825782),
+    lastupdate: new Date(1728904039860),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2585,88 +2585,101 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <p>之前对php为协议有过初步的学习，但是学习的很拙劣，前几天buu刷题用到了php伪协议，所以打算重新学习一下</p>
+    <p>之前对 php 为协议有过初步的学习，但是学习的很拙劣，前几天 buu 刷题用到了 php 伪协议，所以打算重新学习一下</p>
 <span id="more"></span>
-
 <p>学习链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/cosmoslin/article/details/120695429">https://blog.csdn.net/cosmoslin/article/details/120695429</a></p>
-<h2 id="php支持的伪协议"><a href="#php支持的伪协议" class="headerlink" title="php支持的伪协议"></a>php支持的伪协议</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">file:// — 访问本地文件系统</span><br><span class="line">http:// — 访问 HTTP(s) 网址</span><br><span class="line">ftp:// — 访问 FTP(s) URLs</span><br><span class="line">php:// — 访问各个输入/输出流（I/O streams）</span><br><span class="line">zlib:// — 压缩流</span><br><span class="line">data:// — 数据（RFC 2397）</span><br><span class="line">glob:// — 查找匹配的文件路径模式</span><br><span class="line">phar:// — PHP 归档</span><br><span class="line">ssh2:// — Secure Shell 2</span><br><span class="line">rar:// — RAR</span><br><span class="line">ogg:// — 音频流</span><br><span class="line">expect:// — 处理交互式的流</span><br></pre></td></tr></table></figure>
-
-<h2 id="1、-php-x2F-x2F-filter"><a href="#1、-php-x2F-x2F-filter" class="headerlink" title="1、 php:&#x2F;&#x2F;filter"></a>1、 php:&#x2F;&#x2F;filter</h2><p>这个伪协议是我认为最常见最常用到的了</p>
-<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>php:&#x2F;&#x2F;filter 是一种元封装器， 设计用于数据流打开时的筛选过滤应用。 这对于一体式（all-in-one）的文件函数非常有用，类似 readfile()、 file() 和 file_get_contents()， 在数据流内容读取之前没有机会应用其他过滤器。</p>
+<h2 id="php支持的伪协议"><a class="markdownIt-Anchor" href="#php支持的伪协议">#</a> php 支持的伪协议</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">file:// — 访问本地文件系统</span><br><span class="line">http:// — 访问 HTTP(s) 网址</span><br><span class="line">ftp:// — 访问 FTP(s) URLs</span><br><span class="line">php:// — 访问各个输入/输出流（I/O streams）</span><br><span class="line">zlib:// — 压缩流</span><br><span class="line">data:// — 数据（RFC 2397）</span><br><span class="line">glob:// — 查找匹配的文件路径模式</span><br><span class="line">phar:// — PHP 归档</span><br><span class="line">ssh2:// — Secure Shell 2</span><br><span class="line">rar:// — RAR</span><br><span class="line">ogg:// — 音频流</span><br><span class="line">expect:// — 处理交互式的流</span><br></pre></td></tr></table></figure>
+<h2 id="1-phpfilter"><a class="markdownIt-Anchor" href="#1-phpfilter">#</a> 1、 php://filter</h2>
+<p>这个伪协议是我认为最常见最常用到的了</p>
+<h3 id="简介"><a class="markdownIt-Anchor" href="#简介">#</a> 简介</h3>
+<p>php://filter 是一种元封装器， 设计用于数据流打开时的筛选过滤应用。 这对于一体式（all-in-one）的文件函数非常有用，类似 readfile ()、 file () 和 file_get_contents ()， 在数据流内容读取之前没有机会应用其他过滤器。</p>
 <p>简单通俗的说，这是一个中间件，在读入或写入数据的时候对数据进行处理后输出的一个过程。</p>
-<p>php:&#x2F;&#x2F;filter可以获取指定文件源码。当它与包含函数结合时，php:&#x2F;&#x2F;filter流会被当作php文件执行。所以我们一般对其进行编码，让其不执行。从而导致 任意文件读取。</p>
-<h3 id="协议参数"><a href="#协议参数" class="headerlink" title="协议参数"></a>协议参数</h3><table>
+<p>php://filter 可以获取指定文件源码。当它与包含函数结合时，php://filter 流会被当作 php 文件执行。所以我们一般对其进行编码，让其不执行。从而导致 任意文件读取。</p>
+<h3 id="协议参数"><a class="markdownIt-Anchor" href="#协议参数">#</a> 协议参数</h3>
+<table>
 <thead>
 <tr>
-<th align="center">名称</th>
-<th align="center">描述</th>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">resource&#x3D;&lt;要过滤的数据流&gt;</td>
-<td align="center">这个参数是必须的。它指定了你要筛选过滤的数据流。</td>
+<tbody>
+<tr>
+<td style="text-align:center">resource=&lt;要过滤的数据流&gt;</td>
+<td style="text-align:center">这个参数是必须的。它指定了你要筛选过滤的数据流。</td>
 </tr>
 <tr>
-<td align="center">read&#x3D;&lt;读链的筛选列表&gt;</td>
-<td align="center">该参数可选。可以设定一个或多个过滤器名称，以管道符（&#96;</td>
+<td style="text-align:center">read=&lt;读链的筛选列表&gt;</td>
+<td style="text-align:center">该参数可选。可以设定一个或多个过滤器名称，以管道符（ <code>|</code> ）分隔。</td>
 </tr>
 <tr>
-<td align="center">write&#x3D;&lt;写链的筛选列表&gt;</td>
-<td align="center">该参数可选。可以设定一个或多个过滤器名称，以管道符（&#96;</td>
+<td style="text-align:center">write=&lt;写链的筛选列表&gt;</td>
+<td style="text-align:center">该参数可选。可以设定一个或多个过滤器名称，以管道符（ <code>|</code> ）分隔。</td>
 </tr>
 <tr>
-<td align="center">&lt;；两个链的筛选列表&gt;</td>
-<td align="center">任何没有以 <code>read=</code> 或 <code>write=</code> 作前缀 的筛选器列表会视情况应用于读或写链。</td>
+<td style="text-align:center">&lt;；两个链的筛选列表&gt;</td>
+<td style="text-align:center">任何没有以  <code>read=</code>  或  <code>write=</code>  作前缀 的筛选器列表会视情况应用于读或写链。</td>
 </tr>
-</tbody></table>
-<p>最常用的就是base64加密读取文件了</p>
+</tbody>
+</table>
+<p>最常用的就是 base64 加密读取文件了</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php://filter/read=convert.base64-encode/resource=index.php</span><br></pre></td></tr></table></figure>
-
-<p>利用filter协议读文件±，将index.php通过base64编码后进行输出。这样做的好处就是如果不进行编码，文件包含后就不会有输出结果，而是当做php文件执行了，而通过编码后则可以读取文件源码。</p>
-<p>而使用的convert.base64-encode，就是一种过滤器。</p>
-<h3 id="利用filter伪协议绕过死亡exit"><a href="#利用filter伪协议绕过死亡exit" class="headerlink" title="利用filter伪协议绕过死亡exit"></a>利用filter伪协议绕过死亡exit</h3><p>什么是死亡exit</p>
-<p>死亡exit指的是在进行写入PHP文件操作时，执行了以下函数：</p>
-<pre><code>file_put_contents($content, &#39;&lt;?php exit();&#39; . $content);
+<p>利用 filter 协议读文件 ±，将 index.php 通过 base64 编码后进行输出。这样做的好处就是如果不进行编码，文件包含后就不会有输出结果，而是当做 php 文件执行了，而通过编码后则可以读取文件源码。</p>
+<p>而使用的 convert.base64-encode，就是一种过滤器。</p>
+<h3 id="利用filter伪协议绕过死亡exit"><a class="markdownIt-Anchor" href="#利用filter伪协议绕过死亡exit">#</a> 利用 filter 伪协议绕过死亡 exit</h3>
+<p>什么是死亡 exit</p>
+<p>死亡 exit 指的是在进行写入 PHP 文件操作时，执行了以下函数：</p>
+<pre><code>file_put_contents($content, '&lt;?php exit();' . $content);
 </code></pre>
 <p>亦或者</p>
-<pre><code>file_put_contents($content, &#39;&lt;?php exit();?&gt;&#39; . $content);
+<pre><code>file_put_contents($content, '&lt;?php exit();?&gt;' . $content);
 </code></pre>
 <p>这样，当你插入一句话木马时，文件的内容是这样子的：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">exit</span>();<span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span> @<span class="keyword">eval</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;snakin&#x27;</span>]);<span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>这样即使插入了一句话木马，在被使用的时候也无法被执行。这样的死亡exit通常存在于缓存、配置文件等等不允许用户直接访问的文件当中。</p>
-<p><strong>base64decode绕过</strong></p>
-<p>利用filter协议来绕过，看下这样的代码：</p>
+<p>这样即使插入了一句话木马，在被使用的时候也无法被执行。这样的死亡 exit 通常存在于缓存、配置文件等等不允许用户直接访问的文件当中。</p>
+<p><strong>base64decode 绕过</strong></p>
+<p>利用 filter 协议来绕过，看下这样的代码：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">$content = &#x27;&lt;?php exit; ?&gt;&#x27;;</span><br><span class="line"></span><br><span class="line">$content .= $_POST[&#x27;txt&#x27;];</span><br><span class="line"></span><br><span class="line">file_put_contents($_POST[&#x27;filename&#x27;], $content);</span><br></pre></td></tr></table></figure>
-
-<p>当用户通过POST方式提交一个数据时，会与死亡exit进行拼接，从而避免提交的数据被执行。</p>
-<p>然而这里可以利用php:&#x2F;&#x2F;filter的base64-decode方法，将$content解码，利用php base64_decode函数特性去除死亡exit。</p>
-<p>base64编码中只包含64个可打印字符，当PHP遇到不可解码的字符时，会选择性的跳过，这个时候base64就相当于以下的过程：</p>
+<p>当用户通过 POST 方式提交一个数据时，会与死亡 exit 进行拼接，从而避免提交的数据被执行。</p>
+<p>然而这里可以利用 php://filter 的 base64-decode 方法，将 $content 解码，利用 php base64_decode 函数特性去除死亡 exit。</p>
+<p>base64 编码中只包含 64 个可打印字符，当 PHP 遇到不可解码的字符时，会选择性的跳过，这个时候 base64 就相当于以下的过程：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">$_GET[&#x27;txt&#x27;] = preg_replace(&#x27;|[^a-z0-9A-Z+/]|s&#x27;, &#x27;&#x27;, $_GET[&#x27;txt&#x27;]);</span><br><span class="line"></span><br><span class="line">base64_decode($_GET[&#x27;txt&#x27;]);</span><br></pre></td></tr></table></figure>
-
-<p>所以，当$content 包含 <?php exit; ?>时，解码过程会先去除识别不了的字符，&lt; ; ? &gt;和空格等都将被去除，于是剩下的字符就只有phpexit以及我们传入的字符了。由于base64是4个byte一组，再添加一个字符例如添加字符’a’后，将’phpexita’当做两组base64进行解码，也就绕过这个死亡exit了。</p>
-<p>这个时候后面再加上编码后的一句话木马，就可以getshell了。</p>
-<h2 id="2、data-x2F-x2F"><a href="#2、data-x2F-x2F" class="headerlink" title="2、data:&#x2F;&#x2F;"></a>2、data:&#x2F;&#x2F;</h2><p>数据流封装器，以传递相应格式的数据。可以让用户来控制输入流，当它与包含函数结合时，用户输入的data:&#x2F;&#x2F;流会被当作php文件执行。</p>
+<p>所以，当 $content 包含 <?php exit; ?>时，解码过程会先去除识别不了的字符，&lt;; ?&gt; 和空格等都将被去除，于是剩下的字符就只有 phpexit 以及我们传入的字符了。由于 base64 是 4 个 byte 一组，再添加一个字符例如添加字符’a’后，将’phpexita’当做两组 base64 进行解码，也就绕过这个死亡 exit 了。</p>
+<p>这个时候后面再加上编码后的一句话木马，就可以 getshell 了。</p>
+<h2 id="2-data"><a class="markdownIt-Anchor" href="#2-data">#</a> 2、data://</h2>
+<p>数据流封装器，以传递相应格式的数据。可以让用户来控制输入流，当它与包含函数结合时，用户输入的 data:// 流会被当作 php 文件执行。</p>
 <p>示例用法：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1、data://text/plain,</span><br><span class="line">http://127.0.0.1/include.php?file=data://text/plain,&lt;?php%20phpinfo();?&gt;</span><br><span class="line"> </span><br><span class="line">2、data://text/plain;base64,</span><br><span class="line">http://127.0.0.1/include.php?file=data://text/plain;base64,PD9waHAgcGhwaW5mbygpOz8%2b</span><br></pre></td></tr></table></figure>
-
 <p><strong>范例</strong></p>
-<p>Example #1 打印 data:&#x2F;&#x2F; 的内容</p>
+<p>Example #1 打印 data:// 的内容</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">// 打印 &quot;I love PHP&quot;</span><br><span class="line">echo  file_get_contents ( &#x27;data://text/plain;base64,SSBsb3ZlIFBIUAo=&#x27; );</span><br><span class="line">//SSBsb3ZlIFBIUAo=	解码后	I love PHP</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-
 <p>Example #2 获取媒体类型</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$fp    =  fopen ( &#x27;data://text/plain;base64,&#x27; ,  &#x27;r&#x27; );</span><br><span class="line">$meta  =  stream_get_meta_data ( $fp );</span><br><span class="line"></span><br><span class="line">// 打印 &quot;text/plain&quot;</span><br><span class="line">echo  $meta [ &#x27;mediatype&#x27; ];</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="3、file-x2F-x2F"><a href="#3、file-x2F-x2F" class="headerlink" title="3、file:&#x2F;&#x2F;"></a>3、file:&#x2F;&#x2F;</h2><p>用于访问本地文件系统，并且不受allow_url_fopen，allow_url_include影响<br>file:&#x2F;&#x2F;协议主要用于访问文件(绝对路径、相对路径以及网络路径)<br>比如：<a target="_blank" rel="noopener" href="http://www.xx.com/?file=file:///etc/passsword">http://www.xx.com?file=file:///etc/passsword</a></p>
-<h2 id="4、php-x2F-x2F"><a href="#4、php-x2F-x2F" class="headerlink" title="4、php:&#x2F;&#x2F;"></a>4、php:&#x2F;&#x2F;</h2><p>在allow_url_fopen，allow_url_include都关闭的情况下可以正常使用<br>php:&#x2F;&#x2F;作用为访问输入输出流</p>
-<h2 id="5、php-x2F-x2F-input"><a href="#5、php-x2F-x2F-input" class="headerlink" title="5、php:&#x2F;&#x2F;input"></a>5、php:&#x2F;&#x2F;input</h2><p>php:&#x2F;&#x2F;input可以访问请求的原始数据的只读流，将post请求的数据当作php代码执行。当传入的参数作为文件名打开时，可以将参数设为php:&#x2F;&#x2F;input,同时post想设置的文件内容，php执行时会将post内容当作文件内容。从而导致任意代码执行。</p>
-<p>例如：<br><a target="_blank" rel="noopener" href="http://127.0.0.1/cmd.php?cmd=php://input">http://127.0.0.1/cmd.php?cmd=php://input</a><br>POST数据：<?php phpinfo()?><br>注意：<br>当enctype&#x3D;”multipart&#x2F;form-data”的时候 php:&#x2F;&#x2F;input&#96; 是无效的</p>
-<p>遇到file_get_contents()要想到用php:&#x2F;&#x2F;input绕过。</p>
-<h2 id="6、zip-x2F-x2F"><a href="#6、zip-x2F-x2F" class="headerlink" title="6、zip:&#x2F;&#x2F;"></a>6、zip:&#x2F;&#x2F;</h2><p>zip:&#x2F;&#x2F; 可以访问压缩包里面的文件。当它与包含函数结合时，zip:&#x2F;&#x2F;流会被当作php文件执行。从而实现任意代码执行。</p>
+<h2 id="3-file"><a class="markdownIt-Anchor" href="#3-file">#</a> 3、file://</h2>
+<p>用于访问本地文件系统，并且不受 allow_url_fopen，allow_url_include 影响<br>
+ file:// 协议主要用于访问文件 (绝对路径、相对路径以及网络路径)<br>
+ 比如：<a target="_blank" rel="noopener" href="http://www.xx.com?file=file:///etc/passsword">http://www.xx.com?file=file:///etc/passsword</a></p>
+<h2 id="4-php"><a class="markdownIt-Anchor" href="#4-php">#</a> 4、php://</h2>
+<p>在 allow_url_fopen，allow_url_include 都关闭的情况下可以正常使用<br>
+ php:// 作用为访问输入输出流</p>
+<h2 id="5-phpinput"><a class="markdownIt-Anchor" href="#5-phpinput">#</a> 5、php://input</h2>
+<p>php://input 可以访问请求的原始数据的只读流，将 post 请求的数据当作 php 代码执行。当传入的参数作为文件名打开时，可以将参数设为 php://input, 同时 post 想设置的文件内容，php 执行时会将 post 内容当作文件内容。从而导致任意代码执行。</p>
+<p>例如：<br>
+<a target="_blank" rel="noopener" href="http://127.0.0.1/cmd.php?cmd=php://input">http://127.0.0.1/cmd.php?cmd=php://input</a><br>
+POST 数据：<?php phpinfo()?><br>
+注意：<br>
+当 enctype=&quot;multipart/form-data&quot; 的时候 php://input` 是无效的</p>
+<p>遇到 file_get_contents () 要想到用 php://input 绕过。</p>
+<h2 id="6-zip"><a class="markdownIt-Anchor" href="#6-zip">#</a> 6、zip://</h2>
+<p>zip:// 可以访问压缩包里面的文件。当它与包含函数结合时，zip:// 流会被当作 php 文件执行。从而实现任意代码执行。</p>
 <blockquote>
-<p>zip:&#x2F;&#x2F;中只能传入绝对路径。<br>要用#分隔压缩包和压缩包里的内容，并且#要用url编码%23（即下述POC中#要用%23替换）<br>只需要是zip的压缩包即可，后缀名可以任意更改。<br>相同的类型的还有zlib:&#x2F;&#x2F;和bzip2:&#x2F;&#x2F;</p>
+<p>zip:// 中只能传入绝对路径。<br>
+要用 #分隔压缩包和压缩包里的内容，并且 #要用 url 编码 %23（即下述 POC 中 #要用 %23 替换）<br>
+只需要是 zip 的压缩包即可，后缀名可以任意更改。<br>
+相同的类型的还有 zlib:// 和 bzip2://</p>
 </blockquote>
-<p><img src="/2023/04/21/php%E4%BC%AA%E5%8D%8F%E8%AE%AE/01.png" class="lazyload" data-srcset="/2023/04/21/php%E4%BC%AA%E5%8D%8F%E8%AE%AE/01.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="/2023/04/21/php%E4%BC%AA%E5%8D%8F%E8%AE%AE/01.png" class="lazyload" data-srcset="/2023/04/21/php%E4%BC%AA%E5%8D%8F%E8%AE%AE/01.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
 
   </div>
   
@@ -2717,7 +2730,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chenzhengkai10.github.io/2023/04/21/php%E4%BC%AA%E5%8D%8F%E8%AE%AE/&title=php伪协议 - Dr4x3zz&summary=之前对php为协议有过初步的学习，但是学习的很拙劣，前几天buu刷题用到了php伪协议，所以打算重新学习一下"
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chenzhengkai10.github.io/2023/04/21/php%E4%BC%AA%E5%8D%8F%E8%AE%AE/&title=php伪协议 - Dr4x3zz&summary=之前对 php 为协议有过初步的学习，但是学习的很拙劣，前几天 buu 刷题用到了 php 伪协议，所以打算重新学习一下"
           
           >
           
@@ -2729,7 +2742,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://chenzhengkai10.github.io/2023/04/21/php%E4%BC%AA%E5%8D%8F%E8%AE%AE/&title=php伪协议 - Dr4x3zz&summary=之前对php为协议有过初步的学习，但是学习的很拙劣，前几天buu刷题用到了php伪协议，所以打算重新学习一下"
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://chenzhengkai10.github.io/2023/04/21/php%E4%BC%AA%E5%8D%8F%E8%AE%AE/&title=php伪协议 - Dr4x3zz&summary=之前对 php 为协议有过初步的学习，但是学习的很拙劣，前几天 buu 刷题用到了 php 伪协议，所以打算重新学习一下"
           
           >
           
@@ -2741,7 +2754,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://chenzhengkai10.github.io/2023/04/21/php%E4%BC%AA%E5%8D%8F%E8%AE%AE/&title=php伪协议 - Dr4x3zz&summary=之前对php为协议有过初步的学习，但是学习的很拙劣，前几天buu刷题用到了php伪协议，所以打算重新学习一下"
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://chenzhengkai10.github.io/2023/04/21/php%E4%BC%AA%E5%8D%8F%E8%AE%AE/&title=php伪协议 - Dr4x3zz&summary=之前对 php 为协议有过初步的学习，但是学习的很拙劣，前几天 buu 刷题用到了 php 伪协议，所以打算重新学习一下"
           
           >
           
@@ -2776,20 +2789,24 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class='prev' href='/2023/04/21/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/'>
           <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>反序列化</p>
-          <p class='content'>PHP反序列化
+          <p class='content'># PHP 反序列化
 
-序列化与反序列化序列化可以将变量转换为字符串，并且在转换的过程中可以保存 当前变量的值 
-O:4:”Name”:2:{s:8:”username”;s:5:”admin”;s:...</p>
+# 序列化与反序列化
+序列化可以将变量转换为字符串，并且在转换的过程中可以保存 当前变量的值
+O:4:“Name”:2:
+反序列化可以将序列化生成的字符串转换回变量。
+1...</p>
         </a>
       
       
         <a class='next' href='/2023/04/08/python%E7%BC%96%E5%86%99%E7%9B%B2%E6%B3%A8%E8%84%9A%E6%9C%AC%E5%AD%A6%E4%B9%A0/'>
           <p class='title'>python编写盲注脚本学习<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>学习一下python写盲注脚本
+          <p class='content'>学习一下 python 写盲注脚本
 
-
-函数requestsPython requests 模块Python 内置了 requests 模块，该模块主要用来发 送 HTTP 请求
-12345678#...</p>
+# 函数
+# requests
+# Python requests 模块
+Python 内置了 requests 模块，该模块主要用来发 送 HTTP 请求...</p>
         </a>
       
     </div>
@@ -2847,7 +2864,7 @@ O:4:”Name”:2:{s:8:”username”;s:5:”admin”;s:...</p>
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#php%E6%94%AF%E6%8C%81%E7%9A%84%E4%BC%AA%E5%8D%8F%E8%AE%AE"><span class="toc-text">php支持的伪协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81-php-x2F-x2F-filter"><span class="toc-text">1、 php:&#x2F;&#x2F;filter</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%8F%E8%AE%AE%E5%8F%82%E6%95%B0"><span class="toc-text">协议参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A9%E7%94%A8filter%E4%BC%AA%E5%8D%8F%E8%AE%AE%E7%BB%95%E8%BF%87%E6%AD%BB%E4%BA%A1exit"><span class="toc-text">利用filter伪协议绕过死亡exit</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81data-x2F-x2F"><span class="toc-text">2、data:&#x2F;&#x2F;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81file-x2F-x2F"><span class="toc-text">3、file:&#x2F;&#x2F;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81php-x2F-x2F"><span class="toc-text">4、php:&#x2F;&#x2F;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%E3%80%81php-x2F-x2F-input"><span class="toc-text">5、php:&#x2F;&#x2F;input</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6%E3%80%81zip-x2F-x2F"><span class="toc-text">6、zip:&#x2F;&#x2F;</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#php%E6%94%AF%E6%8C%81%E7%9A%84%E4%BC%AA%E5%8D%8F%E8%AE%AE"><span class="toc-text"> php 支持的伪协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-phpfilter"><span class="toc-text"> 1、 php:&#x2F;&#x2F;filter</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-text"> 简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%8F%E8%AE%AE%E5%8F%82%E6%95%B0"><span class="toc-text"> 协议参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A9%E7%94%A8filter%E4%BC%AA%E5%8D%8F%E8%AE%AE%E7%BB%95%E8%BF%87%E6%AD%BB%E4%BA%A1exit"><span class="toc-text"> 利用 filter 伪协议绕过死亡 exit</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-data"><span class="toc-text"> 2、data:&#x2F;&#x2F;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-file"><span class="toc-text"> 3、file:&#x2F;&#x2F;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-php"><span class="toc-text"> 4、php:&#x2F;&#x2F;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-phpinput"><span class="toc-text"> 5、php:&#x2F;&#x2F;input</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-zip"><span class="toc-text"> 6、zip:&#x2F;&#x2F;</span></a></li></ol>
     </div>
   </section>
 
@@ -3417,7 +3434,7 @@ O:4:”Name”:2:{s:8:”username”;s:5:”admin”;s:...</p>
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","sameAs":["https://github.com/volantis-x"],"description":"这是我的专属博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://chenzhengkai10.github.io/","name":"Dr4x3zz"}},{"@type":"ListItem","position":2,"item":{"@id":"https://chenzhengkai10.github.io/categories/ctfweb/","name":"ctfweb"}},{"@type":"ListItem","position":3,"item":{"@id":"https://chenzhengkai10.github.io/2023/04/21/php伪协议/","name":"php伪协议"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","keywords":null,"description":"这是我的专属博客","author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","description":"这是我的专属博客"},"publisher":{"@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://chenzhengkai10.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"php伪协议","description":"之前对php为协议有过初步的学习，但是学习的很拙劣，前几天buu刷题用到了php伪协议，所以打算重新学习一下","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://chenzhengkai10.github.io/2023/04/21/php%E4%BC%AA%E5%8D%8F%E8%AE%AE/"},"author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/"},"publisher":{"@type":"Organization","name":"Dr4x3zz","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://chenzhengkai10.github.io/2023/04/21/php%E4%BC%AA%E5%8D%8F%E8%AE%AE/","wordCount":54,"datePublished":"2023-04-20T16:49:03.000Z","dateModified":"2023-04-30T15:39:46.000Z","articleSection":"ctfweb","keywords":"ctfweb","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","sameAs":["https://github.com/volantis-x"],"description":"这是我的专属博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://chenzhengkai10.github.io/","name":"Dr4x3zz"}},{"@type":"ListItem","position":2,"item":{"@id":"https://chenzhengkai10.github.io/categories/ctfweb/","name":"ctfweb"}},{"@type":"ListItem","position":3,"item":{"@id":"https://chenzhengkai10.github.io/2023/04/21/php伪协议/","name":"php伪协议"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","keywords":null,"description":"这是我的专属博客","author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","description":"这是我的专属博客"},"publisher":{"@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://chenzhengkai10.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"php伪协议","description":"之前对 php 为协议有过初步的学习，但是学习的很拙劣，前几天 buu 刷题用到了 php 伪协议，所以打算重新学习一下","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://chenzhengkai10.github.io/2023/04/21/php%E4%BC%AA%E5%8D%8F%E8%AE%AE/"},"author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/"},"publisher":{"@type":"Organization","name":"Dr4x3zz","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://chenzhengkai10.github.io/2023/04/21/php%E4%BC%AA%E5%8D%8F%E8%AE%AE/","wordCount":60,"datePublished":"2023-04-20T16:49:03.000Z","dateModified":"2023-04-30T15:39:46.000Z","articleSection":"ctfweb","keywords":"ctfweb","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

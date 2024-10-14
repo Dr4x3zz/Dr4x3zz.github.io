@@ -34,13 +34,13 @@
   <!-- 页面元数据 -->
   <title>sqli-labs-17-20 - Dr4x3zz</title>
   <meta name="keywords" content="sqli-labs,null">
-  <meta desc name="description" content="sqli-labs-17-20 - Dr4x3zz - Dr4x3zz">
+  <meta desc name="description" content="# sqli-labs-17-20 - Dr4x3zz - Dr4x3zz">
   
 <meta property="og:type" content="article">
 <meta property="og:title" content="sqli-labs-17-20">
 <meta property="og:url" content="https://chenzhengkai10.github.io/2023/01/07/sqli-labs-17-20/index.html">
 <meta property="og:site_name" content="Dr4x3zz">
-<meta property="og:description" content="sqli-labs-17-20">
+<meta property="og:description" content="# sqli-labs-17-20">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2023-01-07T05:21:15.000Z">
@@ -1744,7 +1744,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1728903825782),
+    lastupdate: new Date(1728904039860),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2585,15 +2585,15 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <h1 id="sqli-labs-17-20"><a href="#sqli-labs-17-20" class="headerlink" title="sqli-labs-17-20"></a>sqli-labs-17-20</h1><span id="more"></span>
-
-<h2 id="sqli-labs-17"><a href="#sqli-labs-17" class="headerlink" title="sqli-labs-17"></a>sqli-labs-17</h2><p>post data在uname尝试单引号、双引号亦或是加上括号都没有什么作用 </p>
-<p>我们选择查看代码，打开index.php文件可以看到uname是被加上了check_input()函数去进行过滤，具体可以自行查看函数</p>
-<p><img src="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_151057.png" class="lazyload" data-srcset="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_151057.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>我们从这里也可以看到uname被加密了但是passwd没有加密函数，所以我们可以选择从passwd注入</p>
+    <h1 id="sqli-labs-17-20"><a class="markdownIt-Anchor" href="#sqli-labs-17-20">#</a> sqli-labs-17-20</h1>
+<span id="more"></span>
+<h2 id="sqli-labs-17"><a class="markdownIt-Anchor" href="#sqli-labs-17">#</a> sqli-labs-17</h2>
+<p>post data 在 uname 尝试单引号、双引号亦或是加上括号都没有什么作用</p>
+<p>我们选择查看代码，打开 index.php 文件可以看到 uname 是被加上了 check_input () 函数去进行过滤，具体可以自行查看函数</p>
+<p><img src="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_151057.png" class="lazyload" data-srcset="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_151057.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p>我们从这里也可以看到 uname 被加密了但是 passwd 没有加密函数，所以我们可以选择从 passwd 注入</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname=admin&amp;passwd=admin&#x27;&amp;submit=Submit</span><br></pre></td></tr></table></figure>
-
-<p>post data后发现页面报错</p>
+<p>post data 后发现页面报错</p>
 <p>页面显示</p>
 <blockquote>
 <p>You have an error in your SQL syntax; check the manual that corresponds to  your MySQL server version for the right syntax to use near ‘admin’’ at  line 1</p>
@@ -2601,93 +2601,87 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>说明本题是单引号闭合</p>
 <p>直接使用报错注入</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//获取当前数据库名称</span><br><span class="line">uname=admin&amp;passwd=admin&#x27; and updatexml(1,concat(0x7e,(select database()),0x7e),3)#&amp;submit=Submit</span><br></pre></td></tr></table></figure>
-
 <p>页面显示</p>
 <blockquote>
-<p>XPATH syntax error: ‘<del>security</del>‘</p>
+<p>XPATH syntax error: ‘<sub>security</sub>’</p>
 </blockquote>
-<p>显而易见当前数据库为security</p>
+<p>显而易见当前数据库为 security</p>
 <p>剩下的就不一一列举出来了</p>
-<p>在访问users表获取username和password时</p>
+<p>在访问 users 表获取 username 和 password 时</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname=admin&amp;passwd=1&#x27; and updatexml(1,concat(0x7e,substr((select group_concat(username) from users),1,31),0x7e),3)#&amp;submit=Submit</span><br></pre></td></tr></table></figure>
-
-<p>无法访问到users</p>
-<p>刚开始还以为是我payload错误</p>
+<p>无法访问到 users</p>
+<p>刚开始还以为是我 payload 错误</p>
 <p>反复检查没有找到错误</p>
 <p>查看源代码之后发现</p>
-<p><img src="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230109_174835.png" class="lazyload" data-srcset="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230109_174835.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>本关不是select而是update</p>
+<p><img src="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230109_174835.png" class="lazyload" data-srcset="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230109_174835.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p>本关不是 select 而是 update</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UPDATE 表名称 SET 列名称 = 新值 WHERE 列名称 = 某值</span><br></pre></td></tr></table></figure>
-
 <p>查询之后发现本关需要绕过</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname=admin&amp;passwd=1&#x27; and updatexml(1,concat(0x7e,substr((select group_concat(username) from (select username from users)a),1,31),0x7e),3)#&amp;submit=Submit</span><br></pre></td></tr></table></figure>
-
 <blockquote>
-<p><strong>解释一下本关所需要绕过的语句：先查询括号里select username from users，将这里面查询出来的数据作为一个结果集取名为 a，再 select * from a 查询a ,将 结果集a 全部查询出来</strong></p>
+<p><strong>解释一下本关所需要绕过的语句：先查询括号里 select username from users，将这里面查询出来的数据作为一个结果集取名为 a，再 select * from a 查询 a , 将 结果集 a 全部查询出来</strong></p>
 </blockquote>
-<h2 id="sqli-labs-18"><a href="#sqli-labs-18" class="headerlink" title="sqli-labs-18"></a>sqli-labs-18</h2><p>在username和password折腾半天没有什么结果</p>
-<p>输入正确的username和password后发现页面显示User-Agent</p>
-<p>查看index.php文件后发现注入点在user-agent</p>
+<h2 id="sqli-labs-18"><a class="markdownIt-Anchor" href="#sqli-labs-18">#</a> sqli-labs-18</h2>
+<p>在 username 和 password 折腾半天没有什么结果</p>
+<p>输入正确的 username 和 password 后发现页面显示 User-Agent</p>
+<p>查看 index.php 文件后发现注入点在 user-agent</p>
 <blockquote>
-<p>这里一直想不明白，假设我不知道正确的username和password，我该如何去过这一关</p>
+<p>这里一直想不明白，假设我不知道正确的 username 和 password，我该如何去过这一关</p>
 <p>后面问助班，他给我提了一个情景就明白了</p>
-<p>假设我是某个网站的普通用户，持有我自己的账号密码，我可以通过sql注入去获取更高权限的账号密码</p>
-<p>通过普通用户的账号密码来获取root用户的账号密码，获取更高的权限</p>
+<p>假设我是某个网站的普通用户，持有我自己的账号密码，我可以通过 sql 注入去获取更高权限的账号密码</p>
+<p>通过普通用户的账号密码来获取 root 用户的账号密码，获取更高的权限</p>
 </blockquote>
 <p>好了，回归正题</p>
-<p>查看index.php文件</p>
+<p>查看 index.php 文件</p>
 <p>发现这两个语句</p>
-<p><img src="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_153455.png" class="lazyload" data-srcset="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_153455.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p><img src="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_153510.png" class="lazyload" data-srcset="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_153510.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>我们知道页面登录成功后会显示user-agent，所以从这里注入</p>
+<p><img src="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_153455.png" class="lazyload" data-srcset="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_153455.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p><img src="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_153510.png" class="lazyload" data-srcset="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_153510.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p>我们知道页面登录成功后会显示 user-agent，所以从这里注入</p>
 <blockquote>
-<p>$insert&#x3D;”INSERT INTO <code>security</code>.<code>uagents</code> (<code>uagent</code>, <code>ip_address</code>, <code>username</code>) VALUES (‘$uagent’, ‘$IP’, $uname)”;</p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mi>n</mi><mi>s</mi><mi>e</mi><mi>r</mi><mi>t</mi><mo>=</mo><mi mathvariant="normal">&quot;</mi><mi>I</mi><mi>N</mi><mi>S</mi><mi>E</mi><mi>R</mi><mi>T</mi><mi>I</mi><mi>N</mi><mi>T</mi><mi>O</mi><mi mathvariant="normal">‘</mi><mi>s</mi><mi>e</mi><mi>c</mi><mi>u</mi><mi>r</mi><mi>i</mi><mi>t</mi><mi>y</mi><mi mathvariant="normal">‘</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">‘</mi><mi>u</mi><mi>a</mi><mi>g</mi><mi>e</mi><mi>n</mi><mi>t</mi><mi>s</mi><mi mathvariant="normal">‘</mi><mo stretchy="false">(</mo><mi mathvariant="normal">‘</mi><mi>u</mi><mi>a</mi><mi>g</mi><mi>e</mi><mi>n</mi><mi>t</mi><mi mathvariant="normal">‘</mi><mo separator="true">,</mo><mi mathvariant="normal">‘</mi><mi>i</mi><msub><mi>p</mi><mi>a</mi></msub><mi>d</mi><mi>d</mi><mi>r</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi mathvariant="normal">‘</mi><mo separator="true">,</mo><mi mathvariant="normal">‘</mi><mi>u</mi><mi>s</mi><mi>e</mi><mi>r</mi><mi>n</mi><mi>a</mi><mi>m</mi><mi>e</mi><mi mathvariant="normal">‘</mi><mo stretchy="false">)</mo><mi>V</mi><mi>A</mi><mi>L</mi><mi>U</mi><mi>E</mi><mi>S</mi><msup><mo stretchy="false">(</mo><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup></mrow><annotation encoding="application/x-tex">insert=&quot;INSERT INTO `security`.`uagents` (`uagent`, `ip_address`, `username`) VALUES (&#x27;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathnormal">i</span><span class="mord mathnormal">n</span><span class="mord mathnormal">s</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.001892em;vertical-align:-0.25em;"></span><span class="mord">&quot;</span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mord">‘</span><span class="mord mathnormal">s</span><span class="mord mathnormal">e</span><span class="mord mathnormal">c</span><span class="mord mathnormal">u</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">i</span><span class="mord mathnormal">t</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mord">‘</span><span class="mord">.</span><span class="mord">‘</span><span class="mord mathnormal">u</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span><span class="mord mathnormal">t</span><span class="mord mathnormal">s</span><span class="mord">‘</span><span class="mopen">(</span><span class="mord">‘</span><span class="mord mathnormal">u</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span><span class="mord mathnormal">t</span><span class="mord">‘</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">‘</span><span class="mord mathnormal">i</span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">a</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal">d</span><span class="mord mathnormal">d</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">e</span><span class="mord mathnormal">s</span><span class="mord mathnormal">s</span><span class="mord">‘</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">‘</span><span class="mord mathnormal">u</span><span class="mord mathnormal">s</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">n</span><span class="mord mathnormal">a</span><span class="mord mathnormal">m</span><span class="mord mathnormal">e</span><span class="mord">‘</span><span class="mclose">)</span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mord mathnormal">A</span><span class="mord mathnormal">L</span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mopen"><span class="mopen">(</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span>uagent’, ‘$IP’, $uname)&quot;;</p>
 </blockquote>
 <p>这里我们需要闭合这一语句</p>
-<p>所以我们输入的sql语句格式应该为</p>
+<p>所以我们输入的 sql 语句格式应该为</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1&#x27;,1,sql语句) #</span><br></pre></td></tr></table></figure>
-
-<p>这里使用bp抓包，也可以使用hackbar</p>
-<p>另外，bp抓不到127.0.0.1的网站了，所以可以查询一下ip地址，然后把127.0.0.1改为ip地址就可以抓包了</p>
-<p><img src="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_154344.png" class="lazyload" data-srcset="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_154344.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p><img src="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_154042.png" class="lazyload" data-srcset="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_154042.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>也可以勾选hackbar的post data和User Agent，在post data里输入正确的用户名和密码</p>
-<p>后续的爆库就不一一列举了就把database()改掉就好了,其他就不需要改动了,但是要注意sql语句的闭合,可以把上面指出来index.php文件中的注入点的$uagent和代码替换,检查一下是否闭合</p>
-<h2 id="sqli-labs-19"><a href="#sqli-labs-19" class="headerlink" title="sqli-labs-19"></a>sqli-labs-19</h2><p>正确登录后可以看到页面显示</p>
+<p>这里使用 bp 抓包，也可以使用 hackbar</p>
+<p>另外，bp 抓不到 127.0.0.1 的网站了，所以可以查询一下 ip 地址，然后把 127.0.0.1 改为 ip 地址就可以抓包了</p>
+<p><img src="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_154344.png" class="lazyload" data-srcset="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_154344.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p><img src="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_154042.png" class="lazyload" data-srcset="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_154042.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p>也可以勾选 hackbar 的 post data 和 User Agent，在 post data 里输入正确的用户名和密码</p>
+<p>后续的爆库就不一一列举了就把 database () 改掉就好了，其他就不需要改动了，但是要注意 sql 语句的闭合，可以把上面指出来 index.php 文件中的注入点的 $uagent 和代码替换，检查一下是否闭合</p>
+<h2 id="sqli-labs-19"><a class="markdownIt-Anchor" href="#sqli-labs-19">#</a> sqli-labs-19</h2>
+<p>正确登录后可以看到页面显示</p>
 <blockquote>
-<p>Your Referer is: </p>
+<p>Your Referer is:</p>
 </blockquote>
 <p>查看代码闭合</p>
-<p><img src="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_155445.png" class="lazyload" data-srcset="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_155445.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>所以本题sql语句闭合为</p>
+<p><img src="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_155445.png" class="lazyload" data-srcset="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_155445.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p>所以本题 sql 语句闭合为</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1&#x27;,sql语句)#</span><br></pre></td></tr></table></figure>
-
-<p>bp抓包在referer中输入正确闭合的sql语句</p>
-<p><img src="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_155915.png" class="lazyload" data-srcset="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_155915.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>bp 抓包在 referer 中输入正确闭合的 sql 语句</p>
+<p><img src="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_155915.png" class="lazyload" data-srcset="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_155915.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1&#x27;,updatexml(1,concat(0x7e,(select database()),0x7e),3)) #</span><br></pre></td></tr></table></figure>
-
 <p>页面显示</p>
-<p><img src="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_160105.png" class="lazyload" data-srcset="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_160105.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>后续payload就不一一列举了,更改sql语句就好了,注意闭合</p>
-<h2 id="sqli-labs-20"><a href="#sqli-labs-20" class="headerlink" title="sqli-labs-20"></a>sqli-labs-20</h2><p>查看代码发现本关的注入点是cookie(从本关的题目也可以知道)</p>
-<p>用bp抓包</p>
-<p>发现并没有cookie,输入正确的uname和passwd后forword</p>
-<p>发现还有一个是含有cookie的需要有正确的uname才会有cookie<br><img src="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_161936.png" class="lazyload" data-srcset="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_161936.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p><img src="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_162045.png" class="lazyload" data-srcset="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_162045.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>用bp的repeater</p>
-<p>在cookie后添加单引号</p>
+<p><img src="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_160105.png" class="lazyload" data-srcset="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_160105.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p>后续 payload 就不一一列举了，更改 sql 语句就好了，注意闭合</p>
+<h2 id="sqli-labs-20"><a class="markdownIt-Anchor" href="#sqli-labs-20">#</a> sqli-labs-20</h2>
+<p>查看代码发现本关的注入点是 cookie (从本关的题目也可以知道)</p>
+<p>用 bp 抓包</p>
+<p>发现并没有 cookie, 输入正确的 uname 和 passwd 后 forword</p>
+<p>发现还有一个是含有 cookie 的需要有正确的 uname 才会有 cookie<br>
+<img src="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_161936.png" class="lazyload" data-srcset="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_161936.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p><img src="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_162045.png" class="lazyload" data-srcset="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_162045.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p>用 bp 的 repeater</p>
+<p>在 cookie 后添加单引号</p>
 <p>如下:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cookie: uname=admin&#x27;</span><br></pre></td></tr></table></figure>
-
-
-
-<p><img src="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_162627.png" class="lazyload" data-srcset="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_162627.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_162627.png" class="lazyload" data-srcset="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_162627.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
 <p>可以看到本题是单引号闭合</p>
 <p>猜字段数</p>
-<p><img src="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_162502.png" class="lazyload" data-srcset="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_162502.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>尝试联合注入但是并不能得到回显字段,所以选择使用报错注入</p>
-<p><img src="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_162918.png" class="lazyload" data-srcset="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_162918.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>后续payload就不一一列举了</p>
+<p><img src="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_162502.png" class="lazyload" data-srcset="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_162502.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p>尝试联合注入但是并不能得到回显字段，所以选择使用报错注入</p>
+<p><img src="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_162918.png" class="lazyload" data-srcset="/2023/01/07/sqli-labs-17-20/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_162918.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p>后续 payload 就不一一列举了</p>
 
   </div>
   
@@ -2738,7 +2732,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chenzhengkai10.github.io/2023/01/07/sqli-labs-17-20/&title=sqli-labs-17-20 - Dr4x3zz&summary=sqli-labs-17-20"
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chenzhengkai10.github.io/2023/01/07/sqli-labs-17-20/&title=sqli-labs-17-20 - Dr4x3zz&summary=# sqli-labs-17-20"
           
           >
           
@@ -2750,7 +2744,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://chenzhengkai10.github.io/2023/01/07/sqli-labs-17-20/&title=sqli-labs-17-20 - Dr4x3zz&summary=sqli-labs-17-20"
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://chenzhengkai10.github.io/2023/01/07/sqli-labs-17-20/&title=sqli-labs-17-20 - Dr4x3zz&summary=# sqli-labs-17-20"
           
           >
           
@@ -2762,7 +2756,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://chenzhengkai10.github.io/2023/01/07/sqli-labs-17-20/&title=sqli-labs-17-20 - Dr4x3zz&summary=sqli-labs-17-20"
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://chenzhengkai10.github.io/2023/01/07/sqli-labs-17-20/&title=sqli-labs-17-20 - Dr4x3zz&summary=# sqli-labs-17-20"
           
           >
           
@@ -2797,21 +2791,21 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class='prev' href='/2023/01/09/sqli-labs-21-22/'>
           <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>sqli-labs-21-22</p>
-          <p class='content'>sqli-labs-21-22
+          <p class='content'># sqli-labs-21-22
 
-sqli-labs-21用bp抓包，输入正确的账号密码后
-通过HTTP history能看到抓到了两个报文一个是get型一个是post型，get型
-post型用...</p>
+# sqli-labs-21
+用 bp 抓包，输入正确的账号密码后
+通过 HTTP history 能看到抓到了两个报文一个是 get 型一个是 post ...</p>
         </a>
       
       
         <a class='next' href='/2023/01/07/sqli-labs-11-16/'>
           <p class='title'>sqli-labs-11-16<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>sqli-labs-11-16
+          <p class='content'># sqli-labs-11-16
 
-sqli-labs-11前10关都是GET型，第11关是为POST型
-我们可以用hackbar也可以使用burpsuite来进行注入
-我直接使用hackbar来...</p>
+# sqli-labs-11
+前 10 关都是 GET 型，第 11 关是为 POST 型
+我们可以用 hackbar 也可以使用 burpsuite 来进...</p>
         </a>
       
     </div>
@@ -2869,7 +2863,7 @@ sqli-labs-11前10关都是GET型，第11关是为POST型
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-17"><span class="toc-text">sqli-labs-17</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-18"><span class="toc-text">sqli-labs-18</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-19"><span class="toc-text">sqli-labs-19</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-20"><span class="toc-text">sqli-labs-20</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-17"><span class="toc-text"> sqli-labs-17</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-18"><span class="toc-text"> sqli-labs-18</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-19"><span class="toc-text"> sqli-labs-19</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-20"><span class="toc-text"> sqli-labs-20</span></a></li></ol>
     </div>
   </section>
 
@@ -3439,7 +3433,7 @@ sqli-labs-11前10关都是GET型，第11关是为POST型
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","sameAs":["https://github.com/volantis-x"],"description":"这是我的专属博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://chenzhengkai10.github.io/","name":"Dr4x3zz"}},{"@type":"ListItem","position":2,"item":{"@id":"https://chenzhengkai10.github.io/categories/sqli-labs/","name":"sqli-labs"}},{"@type":"ListItem","position":3,"item":{"@id":"https://chenzhengkai10.github.io/2023/01/07/sqli-labs-17-20/","name":"sqli-labs-17-20"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","keywords":null,"description":"这是我的专属博客","author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","description":"这是我的专属博客"},"publisher":{"@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://chenzhengkai10.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"sqli-labs-17-20","description":"sqli-labs-17-20","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://chenzhengkai10.github.io/2023/01/07/sqli-labs-17-20/"},"author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/"},"publisher":{"@type":"Organization","name":"Dr4x3zz","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://chenzhengkai10.github.io/2023/01/07/sqli-labs-17-20/","wordCount":15,"datePublished":"2023-01-07T05:21:15.000Z","dateModified":"2023-01-09T10:02:10.000Z","articleSection":"sqli-labs","keywords":"sqli-labs","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","sameAs":["https://github.com/volantis-x"],"description":"这是我的专属博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://chenzhengkai10.github.io/","name":"Dr4x3zz"}},{"@type":"ListItem","position":2,"item":{"@id":"https://chenzhengkai10.github.io/categories/sqli-labs/","name":"sqli-labs"}},{"@type":"ListItem","position":3,"item":{"@id":"https://chenzhengkai10.github.io/2023/01/07/sqli-labs-17-20/","name":"sqli-labs-17-20"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","keywords":null,"description":"这是我的专属博客","author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","description":"这是我的专属博客"},"publisher":{"@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://chenzhengkai10.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"sqli-labs-17-20","description":"# sqli-labs-17-20","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://chenzhengkai10.github.io/2023/01/07/sqli-labs-17-20/"},"author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/"},"publisher":{"@type":"Organization","name":"Dr4x3zz","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://chenzhengkai10.github.io/2023/01/07/sqli-labs-17-20/","wordCount":17,"datePublished":"2023-01-07T05:21:15.000Z","dateModified":"2023-01-09T10:02:10.000Z","articleSection":"sqli-labs","keywords":"sqli-labs","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

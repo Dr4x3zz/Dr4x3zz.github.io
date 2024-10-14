@@ -34,13 +34,13 @@
   <!-- 页面元数据 -->
   <title>反序列化 - Dr4x3zz</title>
   <meta name="keywords" content="ctfweb,null">
-  <meta desc name="description" content="PHP反序列化 - Dr4x3zz - Dr4x3zz">
+  <meta desc name="description" content="# PHP 反序列化 - Dr4x3zz - Dr4x3zz">
   
 <meta property="og:type" content="article">
 <meta property="og:title" content="反序列化">
 <meta property="og:url" content="https://chenzhengkai10.github.io/2023/04/21/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/index.html">
 <meta property="og:site_name" content="Dr4x3zz">
-<meta property="og:description" content="PHP反序列化">
+<meta property="og:description" content="# PHP 反序列化">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2023-04-20T16:49:19.000Z">
@@ -1744,7 +1744,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1728903825782),
+    lastupdate: new Date(1728904039860),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2585,46 +2585,47 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <h1 id="PHP反序列化"><a href="#PHP反序列化" class="headerlink" title="PHP反序列化"></a>PHP反序列化</h1><span id="more"></span>
-
-<h2 id="序列化与反序列化"><a href="#序列化与反序列化" class="headerlink" title="序列化与反序列化"></a>序列化与反序列化</h2><p>序列化可以将变量转换为字符串，并且在转换的过程中可以保存 当前变量的值 </p>
-<p>O:4:”Name”:2:{s:8:”username”;s:5:”admin”;s:8:”password”;s:3:”100”;} </p>
+    <h1 id="php反序列化"><a class="markdownIt-Anchor" href="#php反序列化">#</a> PHP 反序列化</h1>
+<span id="more"></span>
+<h2 id="序列化与反序列化"><a class="markdownIt-Anchor" href="#序列化与反序列化">#</a> 序列化与反序列化</h2>
+<p>序列化可以将变量转换为字符串，并且在转换的过程中可以保存 当前变量的值</p>
+<p s:8:username;s:5:admin;s:8:password;s:3:100;>O:4:“Name”:2:</p>
 <p>反序列化可以将序列化生成的字符串转换回变量。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> object(Name)#2 (2) &#123; </span><br><span class="line">	[&quot;username&quot;]=&gt; </span><br><span class="line">	string(5) &quot;admin&quot; </span><br><span class="line">	[&quot;password&quot;]=&gt; </span><br><span class="line">	string(3) &quot;100&quot; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <ul>
-<li>布尔型：b:value &#x3D;&gt; b:0</li>
-<li>整数型：i:value &#x3D;&gt; i:1 </li>
-<li>字符串型：s:length:value &#x3D;&gt;s:4 “aaaa” </li>
-<li>数组型：a::{key, value pairs} &#x3D;&gt;a:1:{i:1;s:1 “a”} </li>
-<li>对象型：O: </li>
-<li>NULL型：</li>
+<li>布尔型：b:value =&gt; b:0</li>
+<li>整数型：i:value =&gt; i:1</li>
+<li>字符串型：s:length:value =&gt;s:4 “aaaa”</li>
+<li i:1;s:1 a>数组型：a::{key, value pairs} =&gt;a:1:</li>
+<li>对象型：O:</li>
+<li>NULL 型：</li>
 </ul>
-<h3 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h3><p>序列化说通俗点就是把一个对象变成可以传输的字符串。</p>
-<p>序列化实际是为了传输的方便,以整个对象为单位进行传输, 而序列化一个对象将会保存对象的所有变量，但是不会保存对象的方法，只会保存类的名字。如果了解底层的同学可以知道,类中的方法本就不在类中。</p>
-<p>而在php中,使用函数serialize()来返回一个包含字节流的字符串来表示</p>
+<h3 id="序列化"><a class="markdownIt-Anchor" href="#序列化">#</a> 序列化</h3>
+<p>序列化说通俗点就是把一个对象变成可以传输的字符串。</p>
+<p>序列化实际是为了传输的方便，以整个对象为单位进行传输，而序列化一个对象将会保存对象的所有变量，但是不会保存对象的方法，只会保存类的名字。如果了解底层的同学可以知道，类中的方法本就不在类中。</p>
+<p>而在 php 中，使用函数 serialize () 来返回一个包含字节流的字符串来表示</p>
 <p>比如:</p>
 <p>class S{</p>
-<p>public $test&#x3D;”sd”;</p>
+<p>public $test=“sd”;</p>
 <p>}</p>
-<p>$s&#x3D;new S(); &#x2F;&#x2F;创建一个对象</p>
-<p>serialize($s); &#x2F;&#x2F;把这个对象进行序列化</p>
+<p>$s=new S (); // 创建一个对象</p>
+<p>serialize ($s); // 把这个对象进行序列化</p>
 <p>序列化的结果是:</p>
-<p>O:1:”S”:1:{s:4:”test”;s:2:”sd”;}</p>
+<p s:4:test;s:2:sd;>O:1:“S”:1:</p>
 <p>代表的含义依次是:</p>
 <ul>
-<li>O:代表object</li>
-<li>1:代表对象名字长度为一个字符</li>
-<li>S:对象的名称</li>
-<li>1:代表对象里面有一个变量</li>
-<li>s:数据类型(string)</li>
-<li>4:变量名称的长度</li>
-<li>test:变量名称</li>
-<li>s:数据类型</li>
-<li>2:变量值的长度</li>
-<li>sd:变量值</li>
+<li>O: 代表 object</li>
+<li>1: 代表对象名字长度为一个字符</li>
+<li>S: 对象的名称</li>
+<li>1: 代表对象里面有一个变量</li>
+<li>s: 数据类型 (string)</li>
+<li>4: 变量名称的长度</li>
+<li>test: 变量名称</li>
+<li>s: 数据类型</li>
+<li>2: 变量值的长度</li>
+<li>sd: 变量值</li>
 </ul>
-<p>顺便说一下PHP 对不同类型的数据用不同的字母进行标示</p>
+<p>顺便说一下 PHP 对不同类型的数据用不同的字母进行标示</p>
 <ul>
 <li>a - array</li>
 <li>b - boolean</li>
@@ -2639,29 +2640,31 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>R - pointer reference</li>
 <li>U - unicode string</li>
 </ul>
-<h3 id="反序列化"><a href="#反序列化" class="headerlink" title="反序列化"></a>反序列化</h3><p><strong>反序列化</strong></p>
-<p>就是把被序列化的字符串还原为对象,然后在接下来的代码中继续使用。</p>
-<p>使用unserialize()函数</p>
-<p>$u&#x3D;unserialize(“O:1:”S”:1:{s:4:”test”;s:2:”sd”;}”);</p>
-<p>echo $u-&gt;test; &#x2F;&#x2F;得到的结果为sd</p>
-<h2 id="魔术方法"><a href="#魔术方法" class="headerlink" title="魔术方法"></a>魔术方法</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">__construct() //类的构造函数</span><br><span class="line">__wakeup() //执行unserialize()时，先会调用这个函数</span><br><span class="line">__sleep() //执行serialize()时，先会调用这个函数</span><br><span class="line">__destruct() //对象被销毁时触发</span><br><span class="line">__call() //在对象上下文中调用不可访问的方法时触发</span><br><span class="line">__callStatic() //在静态上下文中调用不可访问的方法时触发</span><br><span class="line">__get() //用于从不可访问的属性读取数据或者不存在这个键都会调用此方法</span><br><span class="line">__set() //用于将数据写入不可访问的属性</span><br><span class="line">__isset() //在不可访问的属性上调用isset()或empty()触发</span><br><span class="line">__unset() //在不可访问的属性上使用unset()时触发</span><br><span class="line">__toString() //把类当作字符串使用时触发</span><br><span class="line">__invoke() //当尝试将对象调用为函数时触发</span><br></pre></td></tr></table></figure>
-
-<h2 id="原生类"><a href="#原生类" class="headerlink" title="原生类"></a>原生类</h2><p>遍历目录： </p>
-<p>1、DirectoryIterator </p>
-<p>2、FilesystemIterator </p>
-<p>3、GlobIterator </p>
-<p>读取文件： </p>
-<p>4、SplFileObject </p>
-<p>错误类（绕过hash比较）：</p>
-<p>5、Error </p>
-<p>6、Exception </p>
-<p>压缩处理类（删除文件）： </p>
-<p>7、ZipArchive </p>
-<p>进行SSRF： </p>
+<h3 id="反序列化"><a class="markdownIt-Anchor" href="#反序列化">#</a> 反序列化</h3>
+<p><strong>反序列化</strong></p>
+<p>就是把被序列化的字符串还原为对象，然后在接下来的代码中继续使用。</p>
+<p>使用 unserialize () 函数</p>
+<p>$u=unserialize(“O:1:“S”:1:{s:4:“test”;s:2:“sd”;}”);</p>
+<p>echo $u-&gt;test; // 得到的结果为 sd</p>
+<h2 id="魔术方法"><a class="markdownIt-Anchor" href="#魔术方法">#</a> 魔术方法</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">__construct() //类的构造函数</span><br><span class="line">__wakeup() //执行unserialize()时，先会调用这个函数</span><br><span class="line">__sleep() //执行serialize()时，先会调用这个函数</span><br><span class="line">__destruct() //对象被销毁时触发</span><br><span class="line">__call() //在对象上下文中调用不可访问的方法时触发</span><br><span class="line">__callStatic() //在静态上下文中调用不可访问的方法时触发</span><br><span class="line">__get() //用于从不可访问的属性读取数据或者不存在这个键都会调用此方法</span><br><span class="line">__set() //用于将数据写入不可访问的属性</span><br><span class="line">__isset() //在不可访问的属性上调用isset()或empty()触发</span><br><span class="line">__unset() //在不可访问的属性上使用unset()时触发</span><br><span class="line">__toString() //把类当作字符串使用时触发</span><br><span class="line">__invoke() //当尝试将对象调用为函数时触发</span><br></pre></td></tr></table></figure>
+<h2 id="原生类"><a class="markdownIt-Anchor" href="#原生类">#</a> 原生类</h2>
+<p>遍历目录：</p>
+<p>1、DirectoryIterator</p>
+<p>2、FilesystemIterator</p>
+<p>3、GlobIterator</p>
+<p>读取文件：</p>
+<p>4、SplFileObject</p>
+<p>错误类（绕过 hash 比较）：</p>
+<p>5、Error</p>
+<p>6、Exception</p>
+<p>压缩处理类（删除文件）：</p>
+<p>7、ZipArchive</p>
+<p>进行 SSRF：</p>
 <p>8、SoapClient</p>
 <p>目前还没有使用过只是蛮记录一下</p>
 <p>学习链接：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/458866772">https://zhuanlan.zhihu.com/p/458866772</a></p>
-<p>根据链接里面学习，我的理解是原生类就是php自带的大类，可以理解为不用我们class定义的一个类，php自带的</p>
+<p>根据链接里面学习，我的理解是原生类就是 php 自带的大类，可以理解为不用我们 class 定义的一个类，php 自带的</p>
 <p>等遇到了再回来补充学习一下</p>
 
   </div>
@@ -2713,7 +2716,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chenzhengkai10.github.io/2023/04/21/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/&title=反序列化 - Dr4x3zz&summary=PHP反序列化"
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chenzhengkai10.github.io/2023/04/21/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/&title=反序列化 - Dr4x3zz&summary=# PHP 反序列化"
           
           >
           
@@ -2725,7 +2728,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://chenzhengkai10.github.io/2023/04/21/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/&title=反序列化 - Dr4x3zz&summary=PHP反序列化"
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://chenzhengkai10.github.io/2023/04/21/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/&title=反序列化 - Dr4x3zz&summary=# PHP 反序列化"
           
           >
           
@@ -2737,7 +2740,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://chenzhengkai10.github.io/2023/04/21/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/&title=反序列化 - Dr4x3zz&summary=PHP反序列化"
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://chenzhengkai10.github.io/2023/04/21/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/&title=反序列化 - Dr4x3zz&summary=# PHP 反序列化"
           
           >
           
@@ -2774,18 +2777,16 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>无参数读取文件和rce总结</p>
           <p class='content'>做鲲鹏杯测试平台时遇到了一道无参数读取文件，学习一下相关知识，做个总结
 
-
 学习链接：https://zhuanlan.zhihu.com/p/157431794
-感觉全篇都是精华，而且很具体，...</p>
+感觉全篇都是精华，而且很具体，没...</p>
         </a>
       
       
         <a class='next' href='/2023/04/21/php%E4%BC%AA%E5%8D%8F%E8%AE%AE/'>
           <p class='title'>php伪协议<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>之前对php为协议有过初步的学习，但是学习的很拙劣，前几天buu刷题用到了php伪协议，所以打算重新学习一下
+          <p class='content'>之前对 php 为协议有过初步的学习，但是学习的很拙劣，前几天 buu 刷题用到了 php 伪协议，所以打算重新学习一下
 
-
-学习链接：https://blog.csdn.net/cosmoslin/art...</p>
+学习链接：https://blog.csdn.net/cosmosli...</p>
         </a>
       
     </div>
@@ -2843,7 +2844,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-text">序列化与反序列化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-text">序列化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-text">反序列化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AD%94%E6%9C%AF%E6%96%B9%E6%B3%95"><span class="toc-text">魔术方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E7%94%9F%E7%B1%BB"><span class="toc-text">原生类</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-text"> 序列化与反序列化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-text"> 序列化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-text"> 反序列化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AD%94%E6%9C%AF%E6%96%B9%E6%B3%95"><span class="toc-text"> 魔术方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E7%94%9F%E7%B1%BB"><span class="toc-text"> 原生类</span></a></li></ol>
     </div>
   </section>
 
@@ -3413,7 +3414,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","sameAs":["https://github.com/volantis-x"],"description":"这是我的专属博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://chenzhengkai10.github.io/","name":"Dr4x3zz"}},{"@type":"ListItem","position":2,"item":{"@id":"https://chenzhengkai10.github.io/categories/ctfweb/","name":"ctfweb"}},{"@type":"ListItem","position":3,"item":{"@id":"https://chenzhengkai10.github.io/2023/04/21/反序列化/","name":"反序列化"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","keywords":null,"description":"这是我的专属博客","author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","description":"这是我的专属博客"},"publisher":{"@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://chenzhengkai10.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"反序列化","description":"PHP反序列化","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://chenzhengkai10.github.io/2023/04/21/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/"},"author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/"},"publisher":{"@type":"Organization","name":"Dr4x3zz","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://chenzhengkai10.github.io/2023/04/21/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/","wordCount":7,"datePublished":"2023-04-20T16:49:19.000Z","dateModified":"2023-04-30T15:40:30.000Z","articleSection":"ctfweb","keywords":"ctfweb","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","sameAs":["https://github.com/volantis-x"],"description":"这是我的专属博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://chenzhengkai10.github.io/","name":"Dr4x3zz"}},{"@type":"ListItem","position":2,"item":{"@id":"https://chenzhengkai10.github.io/categories/ctfweb/","name":"ctfweb"}},{"@type":"ListItem","position":3,"item":{"@id":"https://chenzhengkai10.github.io/2023/04/21/反序列化/","name":"反序列化"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","keywords":null,"description":"这是我的专属博客","author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","description":"这是我的专属博客"},"publisher":{"@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://chenzhengkai10.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"反序列化","description":"# PHP 反序列化","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://chenzhengkai10.github.io/2023/04/21/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/"},"author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/"},"publisher":{"@type":"Organization","name":"Dr4x3zz","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://chenzhengkai10.github.io/2023/04/21/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/","wordCount":10,"datePublished":"2023-04-20T16:49:19.000Z","dateModified":"2023-04-30T15:40:30.000Z","articleSection":"ctfweb","keywords":"ctfweb","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

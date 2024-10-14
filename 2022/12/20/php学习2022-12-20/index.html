@@ -34,13 +34,14 @@
   <!-- 页面元数据 -->
   <title>php学习2022-12-20 - Dr4x3zz</title>
   <meta name="keywords" content="php学习,null">
-  <meta desc name="description" content="php学习(EOF、数据变量) - Dr4x3zz - Dr4x3zz">
+  <meta desc name="description" content="# php 学习 (EOF、数据变量)
+# - Dr4x3zz - Dr4x3zz">
   
 <meta property="og:type" content="article">
 <meta property="og:title" content="php学习2022-12-20">
 <meta property="og:url" content="https://chenzhengkai10.github.io/2022/12/20/php%E5%AD%A6%E4%B9%A02022-12-20/index.html">
 <meta property="og:site_name" content="Dr4x3zz">
-<meta property="og:description" content="php学习(EOF、数据变量)">
+<meta property="og:description" content="# php 学习 (EOF、数据变量) #">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2022-12-20T09:24:03.000Z">
@@ -1744,7 +1745,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1728903825782),
+    lastupdate: new Date(1728904039860),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2585,19 +2586,25 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <h1 id="php学习-EOF、数据变量"><a href="#php学习-EOF、数据变量" class="headerlink" title="php学习(EOF、数据变量)"></a>php学习(EOF、数据变量)</h1><span id="more"></span>
-<hr>
-<h2 id="打印Hello-World！"><a href="#打印Hello-World！" class="headerlink" title="打印Hello World！"></a>打印Hello World！</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    echo &quot;Hello World!&quot;;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="php-EOF"><a href="#php-EOF" class="headerlink" title="php EOF"></a>php EOF</h2><p>输出一段要输出的字符可以用</p>
+    <h1 id="php学习eof-数据变量"><a class="markdownIt-Anchor" href="#php学习eof-数据变量">#</a> php 学习 (EOF、数据变量)</h1>
+<h2 id="-more-"><a class="markdownIt-Anchor" href="#-more-">#</a> <span id="more"></span></h2>
+<h2 id="打印hello-world"><a class="markdownIt-Anchor" href="#打印hello-world">#</a> 打印 Hello World！</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    echo &quot;Hello World!&quot;;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="php-eof"><a class="markdownIt-Anchor" href="#php-eof">#</a> php EOF</h2>
+<p>输出一段要输出的字符可以用</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo &lt;&lt;&lt;EOF</span><br><span class="line">//要输出的字符</span><br><span class="line">EOF;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>1、EOF也可以运用其他字母来表示，例如(EOT、EOD、EOF等)<br>2、结尾’;’必须要输入<br>例子如下：</p>
+<p>1、EOF 也可以运用其他字母来表示，例如 (EOT、EOD、EOF 等)<br>
+ 2、结尾’;' 必须要输入<br>
+例子如下：</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    $name = &quot;runoob&quot;;</span><br><span class="line">    $a = &lt;&lt;&lt;EOF</span><br><span class="line">        &quot;abc&quot;$name</span><br><span class="line">        &quot;123&quot;</span><br><span class="line">    EOF;</span><br><span class="line"></span><br><span class="line">    /*</span><br><span class="line">    1、以 &lt;&lt;&lt;EOF 开始标记开始，以 EOF 结束标记结束，结束标记必须顶头写，</span><br><span class="line">       不能有缩进和空格，且在结束标记末尾要有分号 。</span><br><span class="line">    2、开始标记和结束标记相同，比如常用大写的 EOT、EOD、EOF 来表示，</span><br><span class="line">       但是不只限于那几个(也可以用：JSON、HTML等)，</span><br><span class="line">       只要保证开始标记和结束标记不在正文中出现即可。</span><br><span class="line">    3、位于开始标记和结束标记之间的变量可以被正常解析，但是函数则不可以。</span><br><span class="line">       在 heredoc 中，变量不需要用连接符 . 或 , 来拼接。</span><br><span class="line">    */</span><br><span class="line">    echo $a;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="php中支持以下几种数据类型"><a href="#php中支持以下几种数据类型" class="headerlink" title="php中支持以下几种数据类型"></a>php中支持以下几种数据类型</h2><p><strong>String（字符串）</strong> <strong>Integer（整型）</strong> <strong>Float（浮点型）</strong> <strong>Boolean（布尔型）</strong><br><strong>Array（数组）</strong> <strong>Object（对象）</strong> <strong>NULL（空值）</strong> <strong>Resource（资源类型）</strong></p>
+<h2 id="php中支持以下几种数据类型"><a class="markdownIt-Anchor" href="#php中支持以下几种数据类型">#</a> php 中支持以下几种数据类型</h2>
+<p><strong>String（字符串）</strong> <strong>Integer（整型）</strong> <strong>Float（浮点型）</strong> <strong>Boolean（布尔型）</strong><br>
+<strong>Array（数组）</strong> <strong>Object（对象）</strong> <strong>NULL（空值）</strong> <strong>Resource（资源类型）</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//php字符串</span><br><span class="line">    $x = &quot;Hello World!&quot;;    //可以将任意文本放入单、双引号中</span><br><span class="line">    echo $x;</span><br><span class="line">    echo &quot;&lt;br&gt;&quot;;</span><br><span class="line"></span><br><span class="line">//php整型</span><br><span class="line">    $y = 678;</span><br><span class="line">    var_dump($y);</span><br><span class="line">    echo &quot;&lt;br&gt;&quot;;</span><br><span class="line">    </span><br><span class="line">    $y = -123;  //负数</span><br><span class="line">    var_dump($y);  </span><br><span class="line">    echo &quot;&lt;br&gt;&quot;;</span><br><span class="line"></span><br><span class="line">    $y = 0x8C;  //十六进制</span><br><span class="line">    var_dump($y);</span><br><span class="line">    echo &quot;&lt;br&gt;&quot;;</span><br><span class="line">    </span><br><span class="line">    $y = 047;   //八进制</span><br><span class="line">    var_dump($y);</span><br><span class="line">    echo &quot;&lt;br&gt;&quot;;</span><br><span class="line">    </span><br><span class="line">//php浮点型</span><br><span class="line">    $z = 10.365;</span><br><span class="line">    var_dump($z);</span><br><span class="line">    echo &quot;&lt;br&gt;&quot;;</span><br><span class="line">    </span><br><span class="line">    $z = 2.4e3;</span><br><span class="line">    var_dump($z);</span><br><span class="line">    echo &quot;&lt;br&gt;&quot;;</span><br><span class="line"></span><br><span class="line">    $z = 8E-5;</span><br><span class="line">    var_dump($z);</span><br><span class="line">    echo &quot;&lt;br&gt;&quot;;</span><br><span class="line"></span><br><span class="line">//php布尔型</span><br><span class="line">    $x = true;</span><br><span class="line">    $y = false;</span><br><span class="line">    //布尔型通常用于条件判断。</span><br><span class="line"></span><br><span class="line">//php数组</span><br><span class="line">    $cars = array(&quot;Volvo&quot;,&quot;BMW&quot;,&quot;Toyota&quot;);</span><br><span class="line">    var_dump($cars);</span><br><span class="line">    echo &quot;&lt;br&gt;&quot;;</span><br><span class="line"></span><br><span class="line">//php对象</span><br><span class="line">    class Car</span><br><span class="line">    &#123;</span><br><span class="line">        var $color;</span><br><span class="line">        function __construct($color = &quot;green&quot;)</span><br><span class="line">        &#123;</span><br><span class="line">            $this-&gt;color = $color;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        function what_color()</span><br><span class="line">        &#123;            </span><br><span class="line">            return $this-&gt;color;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">//php NULL值</span><br><span class="line">    $x = &quot;Hello World!&quot;;</span><br><span class="line">    $x = NULL;</span><br><span class="line">    var_dump($x);</span><br><span class="line">    echo &quot;&lt;br&gt;&quot;;</span><br><span class="line"></span><br><span class="line">//php资源类型</span><br><span class="line">    /*</span><br><span class="line">    1、PHP 资源 resource 是一种特殊变量，保存了到外部资源的一个引用。</span><br><span class="line">    2、常见资源数据类型有打开文件、数据库连接、图形画布区域等。</span><br><span class="line">    3、由于资源类型变量保存有为打开文件、数据库连接、图形画布区域等的特殊句柄，</span><br><span class="line">       因此将其它类型的值转换为资源没有意义。</span><br><span class="line">    4、使用 get_resource_type() 函数可以返回资源（resource）类型：</span><br><span class="line">    */</span><br><span class="line"></span><br><span class="line">    get_resource_type(resource $handle): string</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="this-gt-的使用"><a href="#this-gt-的使用" class="headerlink" title="$this-&gt;的使用"></a>$this-&gt;的使用</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">    //‘-&gt;’符号是“插入式解引用操作符</span><br><span class="line">    class User</span><br><span class="line">    &#123;</span><br><span class="line">        public $_name;</span><br><span class="line">        function getName()</span><br><span class="line">        &#123;</span><br><span class="line">            echo $this-&gt;name;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    $user1 = new User();</span><br><span class="line">    $user1-&gt;name = &#x27;张三&#x27;;</span><br><span class="line">    $user1-&gt;getName();      //输出张三</span><br><span class="line">    echo &#x27;&lt;br&gt;&#x27;;</span><br><span class="line">    $user2 = new User();</span><br><span class="line">    $user2-&gt;name = &#x27;李四&#x27;;</span><br><span class="line">    $user2-&gt;getName();      //输出李四</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="this-的使用"><a class="markdownIt-Anchor" href="#this-的使用">#</a> $this-&gt; 的使用</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">    //‘-&gt;’符号是“插入式解引用操作符</span><br><span class="line">    class User</span><br><span class="line">    &#123;</span><br><span class="line">        public $_name;</span><br><span class="line">        function getName()</span><br><span class="line">        &#123;</span><br><span class="line">            echo $this-&gt;name;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    $user1 = new User();</span><br><span class="line">    $user1-&gt;name = &#x27;张三&#x27;;</span><br><span class="line">    $user1-&gt;getName();      //输出张三</span><br><span class="line">    echo &#x27;&lt;br&gt;&#x27;;</span><br><span class="line">    $user2 = new User();</span><br><span class="line">    $user2-&gt;name = &#x27;李四&#x27;;</span><br><span class="line">    $user2-&gt;getName();      //输出李四</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
   </div>
   
   
@@ -2647,7 +2654,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chenzhengkai10.github.io/2022/12/20/php%E5%AD%A6%E4%B9%A02022-12-20/&title=php学习2022-12-20 - Dr4x3zz&summary=php学习(EOF、数据变量)"
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chenzhengkai10.github.io/2022/12/20/php%E5%AD%A6%E4%B9%A02022-12-20/&title=php学习2022-12-20 - Dr4x3zz&summary=# php 学习 (EOF、数据变量)
+#"
           
           >
           
@@ -2659,7 +2667,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://chenzhengkai10.github.io/2022/12/20/php%E5%AD%A6%E4%B9%A02022-12-20/&title=php学习2022-12-20 - Dr4x3zz&summary=php学习(EOF、数据变量)"
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://chenzhengkai10.github.io/2022/12/20/php%E5%AD%A6%E4%B9%A02022-12-20/&title=php学习2022-12-20 - Dr4x3zz&summary=# php 学习 (EOF、数据变量)
+#"
           
           >
           
@@ -2671,7 +2680,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://chenzhengkai10.github.io/2022/12/20/php%E5%AD%A6%E4%B9%A02022-12-20/&title=php学习2022-12-20 - Dr4x3zz&summary=php学习(EOF、数据变量)"
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://chenzhengkai10.github.io/2022/12/20/php%E5%AD%A6%E4%B9%A02022-12-20/&title=php学习2022-12-20 - Dr4x3zz&summary=# php 学习 (EOF、数据变量)
+#"
           
           >
           
@@ -2706,18 +2716,20 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class='prev' href='/2022/12/21/php%E5%AD%A6%E4%B9%A02022-12-21/'>
           <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>php学习2022-12-21</p>
-          <p class='content'>php学习(常量、运算符、字符串函数)
+          <p class='content'># php 学习 (常量、运算符、字符串函数)
+# 
+# 常量
 
-常量
-设置常量通常用define()函数define(“常量的名称”,”常量的值”,(可定义为true也可不写));例：
-
-12345678910111...</p>
+设置常量通常用 define () 函数
+ define (“常量的名称”,“常量的值”,(可定义为 true 也可不写));
+...</p>
         </a>
       
       
         <a class='next' href='/2022/10/30/php%E4%BC%AA%E5%8D%8F%E8%AE%AE%E5%AD%A6%E4%B9%A0/'>
           <p class='title'>php伪协议学习<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>php伪协议学习笔记
+          <p class='content'># php 伪协议学习笔记
+
 
 
 
@@ -2726,8 +2738,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-file:&#x2F;&#x2F;
-?file&#x3D;file:&#x2F;&#x2F;D:phpstuy&#x2F;WWW&#x2F;phpc...</p>
+
+file://
+?file=file://D:phpstuy/WWW/phpcode.txt
+
+
+php://filter
+?file=p...</p>
         </a>
       
     </div>
@@ -2785,7 +2802,7 @@ file:&#x2F;&#x2F;
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%93%E5%8D%B0Hello-World%EF%BC%81"><span class="toc-text">打印Hello World！</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#php-EOF"><span class="toc-text">php EOF</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#php%E4%B8%AD%E6%94%AF%E6%8C%81%E4%BB%A5%E4%B8%8B%E5%87%A0%E7%A7%8D%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">php中支持以下几种数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#this-gt-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">$this-&gt;的使用</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#-more-"><span class="toc-text"> </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%93%E5%8D%B0hello-world"><span class="toc-text"> 打印 Hello World！</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#php-eof"><span class="toc-text"> php EOF</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#php%E4%B8%AD%E6%94%AF%E6%8C%81%E4%BB%A5%E4%B8%8B%E5%87%A0%E7%A7%8D%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text"> php 中支持以下几种数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#this-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text"> $this-&gt; 的使用</span></a></li></ol>
     </div>
   </section>
 
@@ -3355,7 +3372,7 @@ file:&#x2F;&#x2F;
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","sameAs":["https://github.com/volantis-x"],"description":"这是我的专属博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://chenzhengkai10.github.io/","name":"Dr4x3zz"}},{"@type":"ListItem","position":2,"item":{"@id":"https://chenzhengkai10.github.io/categories/php学习/","name":"php学习"}},{"@type":"ListItem","position":3,"item":{"@id":"https://chenzhengkai10.github.io/2022/12/20/php学习2022-12-20/","name":"php学习2022-12-20"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","keywords":null,"description":"这是我的专属博客","author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","description":"这是我的专属博客"},"publisher":{"@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://chenzhengkai10.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"php学习2022-12-20","description":"php学习(EOF、数据变量)","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://chenzhengkai10.github.io/2022/12/20/php%E5%AD%A6%E4%B9%A02022-12-20/"},"author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/"},"publisher":{"@type":"Organization","name":"Dr4x3zz","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://chenzhengkai10.github.io/2022/12/20/php%E5%AD%A6%E4%B9%A02022-12-20/","wordCount":15,"datePublished":"2022-12-20T09:24:03.000Z","dateModified":"2022-12-24T04:18:32.000Z","articleSection":"php学习","keywords":"php学习","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","sameAs":["https://github.com/volantis-x"],"description":"这是我的专属博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://chenzhengkai10.github.io/","name":"Dr4x3zz"}},{"@type":"ListItem","position":2,"item":{"@id":"https://chenzhengkai10.github.io/categories/php学习/","name":"php学习"}},{"@type":"ListItem","position":3,"item":{"@id":"https://chenzhengkai10.github.io/2022/12/20/php学习2022-12-20/","name":"php学习2022-12-20"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","keywords":null,"description":"这是我的专属博客","author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","description":"这是我的专属博客"},"publisher":{"@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://chenzhengkai10.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"php学习2022-12-20","description":"# php 学习 (EOF、数据变量)\n#","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://chenzhengkai10.github.io/2022/12/20/php%E5%AD%A6%E4%B9%A02022-12-20/"},"author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/"},"publisher":{"@type":"Organization","name":"Dr4x3zz","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://chenzhengkai10.github.io/2022/12/20/php%E5%AD%A6%E4%B9%A02022-12-20/","wordCount":21,"datePublished":"2022-12-20T09:24:03.000Z","dateModified":"2022-12-24T04:18:32.000Z","articleSection":"php学习","keywords":"php学习","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

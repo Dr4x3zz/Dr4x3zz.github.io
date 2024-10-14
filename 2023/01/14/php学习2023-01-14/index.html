@@ -34,13 +34,13 @@
   <!-- 页面元数据 -->
   <title>php学习2023-01-14 - Dr4x3zz</title>
   <meta name="keywords" content="php学习,null">
-  <meta desc name="description" content="php学习(while、for循环) - Dr4x3zz - Dr4x3zz">
+  <meta desc name="description" content="# php 学习 (while、for 循环) - Dr4x3zz - Dr4x3zz">
   
 <meta property="og:type" content="article">
 <meta property="og:title" content="php学习2023-01-14">
 <meta property="og:url" content="https://chenzhengkai10.github.io/2023/01/14/php%E5%AD%A6%E4%B9%A02023-01-14/index.html">
 <meta property="og:site_name" content="Dr4x3zz">
-<meta property="og:description" content="php学习(while、for循环)">
+<meta property="og:description" content="# php 学习 (while、for 循环)">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2023-01-14T11:00:21.000Z">
@@ -1744,7 +1744,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1728903825782),
+    lastupdate: new Date(1728904039860),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2585,8 +2585,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <h1 id="php学习-while、for循环"><a href="#php学习-while、for循环" class="headerlink" title="php学习(while、for循环)"></a>php学习(while、for循环)</h1><span id="more"></span>
-
+    <h1 id="php学习while-for循环"><a class="markdownIt-Anchor" href="#php学习while-for循环">#</a> php 学习 (while、for 循环)</h1>
+<span id="more"></span>
 <p>在 PHP 中，提供了下列循环语句：</p>
 <ul>
 <li><strong>while</strong> - 只要指定的条件成立，则循环执行代码块</li>
@@ -2594,73 +2594,87 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li><strong>for</strong> - 循环执行代码块指定的次数</li>
 <li><strong>foreach</strong> - 根据数组中每个元素来循环代码块</li>
 </ul>
-<h2 id="while"><a href="#while" class="headerlink" title="while"></a>while</h2><p>语法：</p>
+<h2 id="while"><a class="markdownIt-Anchor" href="#while">#</a> while</h2>
+<p>语法：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">while(条件)</span><br><span class="line">&#123;</span><br><span class="line">	要执行的代码;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>示例：</p>
-<p>下面的实例首先设置变量 <em>i</em> 的值为 1 ($i&#x3D;1;)。</p>
+<p>下面的实例首先设置变量 <em>i</em> 的值为 1 ($i=1;)。</p>
 <p>然后，只要 <em>i</em> 小于或者等于 5，while 循环将继续运行。循环每运行一次，<em>i</em> 就会递增 1：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">	<span class="variable">$i</span>=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span>(<span class="variable">$i</span>&lt;=<span class="number">5</span>)</span><br><span class="line">	&#123;</span><br><span class="line">	    <span class="keyword">echo</span> <span class="string">&quot;The number is &quot;</span> . <span class="variable">$i</span> . <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line">	    <span class="variable">$i</span>++;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
 <p>输出结果：</p>
-<p><img src="/2023/01/14/php%E5%AD%A6%E4%B9%A02023-01-14/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230114_210756.png" class="lazyload" data-srcset="/2023/01/14/php%E5%AD%A6%E4%B9%A02023-01-14/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230114_210756.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="/2023/01/14/php%E5%AD%A6%E4%B9%A02023-01-14/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230114_210756.png" class="lazyload" data-srcset="/2023/01/14/php%E5%AD%A6%E4%B9%A02023-01-14/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230114_210756.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
 <blockquote>
-<p>The number is 1<br>The number is 2<br>The number is 3<br>The number is 4<br>The number is 5</p>
+<p>The number is 1<br>
+The number is 2<br>
+The number is 3<br>
+The number is 4<br>
+The number is 5</p>
 </blockquote>
-<h2 id="do-while"><a href="#do-while" class="headerlink" title="do_while"></a>do_while</h2><p>do…while 语句会至少执行一次代码，然后检查条件，只要条件成立，就会重复进行循环。</p>
+<h2 id="do_while"><a class="markdownIt-Anchor" href="#do_while">#</a> do_while</h2>
+<p>do…while 语句会至少执行一次代码，然后检查条件，只要条件成立，就会重复进行循环。</p>
 <p>语法：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">    要执行的代码;</span><br><span class="line">&#125;</span><br><span class="line">while (条件);</span><br></pre></td></tr></table></figure>
-
 <p>示例：</p>
-<p>下面的实例首先设置变量 <em>i</em> 的值为 1 ($i&#x3D;1;)。</p>
+<p>下面的实例首先设置变量 <em>i</em> 的值为 1 ($i=1;)。</p>
 <p>然后，开始 do…while 循环。循环将变量 <em>i</em> 的值递增 1，然后输出。先检查条件（<em>i</em> 小于或者等于 5），只要 <em>i</em> 小于或者等于 5，循环将继续运行：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="variable">$i</span> = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="variable">$i</span>++;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;The number is &quot;</span> . <span class="variable">$i</span> . <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (<span class="variable">$i</span> &lt;= <span class="number">5</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
 <p>输出：</p>
-<p><img src="/2023/01/14/php%E5%AD%A6%E4%B9%A02023-01-14/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230114_211556.png" class="lazyload" data-srcset="/2023/01/14/php%E5%AD%A6%E4%B9%A02023-01-14/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230114_211556.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="/2023/01/14/php%E5%AD%A6%E4%B9%A02023-01-14/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230114_211556.png" class="lazyload" data-srcset="/2023/01/14/php%E5%AD%A6%E4%B9%A02023-01-14/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230114_211556.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
 <blockquote>
-<p>The number is 2<br>The number is 3<br>The number is 4<br>The number is 5<br>The number is 6</p>
+<p>The number is 2<br>
+The number is 3<br>
+The number is 4<br>
+The number is 5<br>
+The number is 6</p>
 </blockquote>
-<h2 id="for"><a href="#for" class="headerlink" title="for"></a>for</h2><p>语法：</p>
+<h2 id="for"><a class="markdownIt-Anchor" href="#for">#</a> for</h2>
+<p>语法：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for (初始值; 条件; 增量)</span><br><span class="line">&#123;</span><br><span class="line">    要执行的代码;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>示例：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="variable">$i</span> = <span class="number">1</span>; <span class="variable">$i</span> &lt;= <span class="number">5</span>; <span class="variable">$i</span>++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;数字为 &quot;</span> .  <span class="variable">$i</span> . <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
 <p>输出：</p>
-<p><img src="/2023/01/14/php%E5%AD%A6%E4%B9%A02023-01-14/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230114_212101.png" class="lazyload" data-srcset="/2023/01/14/php%E5%AD%A6%E4%B9%A02023-01-14/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230114_212101.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="/2023/01/14/php%E5%AD%A6%E4%B9%A02023-01-14/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230114_212101.png" class="lazyload" data-srcset="/2023/01/14/php%E5%AD%A6%E4%B9%A02023-01-14/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230114_212101.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
 <blockquote>
-<p>数字为 1<br>数字为 2<br>数字为 3<br>数字为 4<br>数字为 5</p>
+<p>数字为 1<br>
+ 数字为 2<br>
+ 数字为 3<br>
+ 数字为 4<br>
+ 数字为 5</p>
 </blockquote>
-<h2 id="foreach"><a href="#foreach" class="headerlink" title="foreach"></a>foreach</h2><p>语法：</p>
+<h2 id="foreach"><a class="markdownIt-Anchor" href="#foreach">#</a> foreach</h2>
+<p>语法：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">foreach ($array as $value)</span><br><span class="line">&#123;</span><br><span class="line">    要执行代码;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>每进行一次循环，当前数组元素的值就会被赋值给 $value 变量（数组指针会逐一地移动），在进行下一次循环时，您将看到数组中的下一个值。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">foreach ($array as $key =&gt; $value)</span><br><span class="line">&#123;</span><br><span class="line">    要执行代码;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>每一次循环，当前数组元素的键与值就都会被赋值给 $key 和 $value 变量（数字指针会逐一地移动），在进行下一次循环时，你将看到数组中的下一个键与值。</p>
 <p>示例：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="variable">$x</span> = <span class="keyword">array</span> ( <span class="string">&quot;Google&quot;</span>, <span class="string">&quot;Baidu&quot;</span>, <span class="string">&quot;Bing&quot;</span>);</span><br><span class="line">    <span class="keyword">foreach</span> (<span class="variable">$x</span> <span class="keyword">as</span> <span class="variable">$value</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="variable">$value</span> . <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
 <p>输出：</p>
-<p><img src="/2023/01/14/php%E5%AD%A6%E4%B9%A02023-01-14/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230114_212711.png" class="lazyload" data-srcset="/2023/01/14/php%E5%AD%A6%E4%B9%A02023-01-14/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230114_212711.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="/2023/01/14/php%E5%AD%A6%E4%B9%A02023-01-14/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230114_212711.png" class="lazyload" data-srcset="/2023/01/14/php%E5%AD%A6%E4%B9%A02023-01-14/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230114_212711.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
 <blockquote>
-<p>Google<br>Baidu<br>Bing</p>
+<p>Google<br>
+Baidu<br>
+Bing</p>
 </blockquote>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="variable">$x</span> = <span class="keyword">array</span> ( <span class="number">1</span> =&gt; <span class="string">&quot;Google&quot;</span>, <span class="number">2</span> =&gt; <span class="string">&quot;Baidu&quot;</span>, <span class="number">3</span> =&gt; <span class="string">&quot;Bing&quot;</span>);</span><br><span class="line">    <span class="keyword">foreach</span> ( <span class="variable">$x</span> <span class="keyword">as</span> <span class="variable">$key</span> =&gt; <span class="variable">$value</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;key 为&quot;</span> . <span class="variable">$key</span> . <span class="string">&quot;, 对应的 value 为 &quot;</span> . <span class="variable">$value</span> . <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
 <p>输出：</p>
-<p><img src="/2023/01/14/php%E5%AD%A6%E4%B9%A02023-01-14/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230114_213017.png" class="lazyload" data-srcset="/2023/01/14/php%E5%AD%A6%E4%B9%A02023-01-14/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230114_213017.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="/2023/01/14/php%E5%AD%A6%E4%B9%A02023-01-14/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230114_213017.png" class="lazyload" data-srcset="/2023/01/14/php%E5%AD%A6%E4%B9%A02023-01-14/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230114_213017.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
 <blockquote>
-<p>key 为1, 对应的 value 为 Google<br>key 为2, 对应的 value 为 Baidu<br>key 为3, 对应的 value 为 Bing</p>
+<p>key 为 1, 对应的 value 为 Google<br>
+key 为 2, 对应的 value 为 Baidu<br>
+key 为 3, 对应的 value 为 Bing</p>
 </blockquote>
 <p>尝试写了一道简单的冒泡排序</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="variable">$num</span> = <span class="keyword">array</span> ( <span class="number">3</span>, <span class="number">6</span>, <span class="number">2</span>, <span class="number">99</span>, <span class="number">7</span>, <span class="number">88</span> );</span><br><span class="line">    <span class="variable">$len</span> = <span class="title function_ invoke__">count</span>( <span class="variable">$num</span> );</span><br><span class="line">    <span class="keyword">for</span> ( <span class="variable">$i</span> = <span class="variable">$len</span> - <span class="number">1</span>; <span class="variable">$i</span> &gt; <span class="number">0</span>; <span class="variable">$i</span>-- )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> ( <span class="variable">$j</span> = <span class="number">0</span>; <span class="variable">$j</span> &lt; <span class="variable">$i</span>; <span class="variable">$j</span>++ )</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> ( <span class="variable">$num</span>[<span class="variable">$j</span>] &gt; <span class="variable">$num</span>[<span class="variable">$j</span> + <span class="number">1</span>] )</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="variable">$tmp</span> = <span class="variable">$num</span>[<span class="variable">$j</span>];</span><br><span class="line">                <span class="variable">$num</span>[<span class="variable">$j</span>] = <span class="variable">$num</span>[<span class="variable">$j</span> + <span class="number">1</span>];</span><br><span class="line">                <span class="variable">$num</span>[<span class="variable">$j</span> + <span class="number">1</span>] = <span class="variable">$tmp</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="variable">$t</span> = <span class="number">0</span>; <span class="variable">$t</span> &lt; <span class="variable">$len</span>; <span class="variable">$t</span>++ )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="variable">$num</span>[<span class="variable">$t</span>] . <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
 <p>输出：</p>
-<p><img src="/2023/01/14/php%E5%AD%A6%E4%B9%A02023-01-14/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230114_214909.png" class="lazyload" data-srcset="/2023/01/14/php%E5%AD%A6%E4%B9%A02023-01-14/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230114_214909.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="/2023/01/14/php%E5%AD%A6%E4%B9%A02023-01-14/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230114_214909.png" class="lazyload" data-srcset="/2023/01/14/php%E5%AD%A6%E4%B9%A02023-01-14/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230114_214909.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
 <blockquote>
-<p>2<br>3<br>6<br>7<br>88<br>99</p>
+<p>2<br>
+3<br>
+6<br>
+7<br>
+88<br>
+99</p>
 </blockquote>
 
   </div>
@@ -2712,7 +2726,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chenzhengkai10.github.io/2023/01/14/php%E5%AD%A6%E4%B9%A02023-01-14/&title=php学习2023-01-14 - Dr4x3zz&summary=php学习(while、for循环)"
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chenzhengkai10.github.io/2023/01/14/php%E5%AD%A6%E4%B9%A02023-01-14/&title=php学习2023-01-14 - Dr4x3zz&summary=# php 学习 (while、for 循环)"
           
           >
           
@@ -2724,7 +2738,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://chenzhengkai10.github.io/2023/01/14/php%E5%AD%A6%E4%B9%A02023-01-14/&title=php学习2023-01-14 - Dr4x3zz&summary=php学习(while、for循环)"
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://chenzhengkai10.github.io/2023/01/14/php%E5%AD%A6%E4%B9%A02023-01-14/&title=php学习2023-01-14 - Dr4x3zz&summary=# php 学习 (while、for 循环)"
           
           >
           
@@ -2736,7 +2750,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://chenzhengkai10.github.io/2023/01/14/php%E5%AD%A6%E4%B9%A02023-01-14/&title=php学习2023-01-14 - Dr4x3zz&summary=php学习(while、for循环)"
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://chenzhengkai10.github.io/2023/01/14/php%E5%AD%A6%E4%B9%A02023-01-14/&title=php学习2023-01-14 - Dr4x3zz&summary=# php 学习 (while、for 循环)"
           
           >
           
@@ -2771,23 +2785,24 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class='prev' href='/2023/01/15/sqli-labs-27-28a/'>
           <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>sqli-labs-27-28a</p>
-          <p class='content'>sqli-labs-27-28a
+          <p class='content'># sqli-labs-27-28a
 
-sqli-labs-27
-这里可以看到,我们需要混合大小写来绕过,源代码中多次过滤,双写过滤会被再次过滤掉select就无法双写
-单看源代码,我觉得union...</p>
+# sqli-labs-27
+
+这里可以看到，我们需要混合大小写来绕过，源代码中多次过滤，双写过滤会被再次过滤掉 select 就无法双写
+单看源代码，我...</p>
         </a>
       
       
         <a class='next' href='/2023/01/13/php%E5%AD%A6%E4%B9%A02023-01-13/'>
           <p class='title'>php学习2023-01-13<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>php学习(数组排序、超级全局变量)
+          <p class='content'># php 学习 (数组排序、超级全局变量)
 
-数组排序
-sort() - 对数组进行升序排列
-rsort() - 对数组进行降序排列
-asort() - 根据关联数组的值，对数组进行升序排列
-ksor...</p>
+# 数组排序
+
+sort () - 对数组进行升序排列
+rsort () - 对数组进行降序排列
+asort () - 根据关联数组的值，对数组进...</p>
         </a>
       
     </div>
@@ -2845,7 +2860,7 @@ ksor...</p>
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#while"><span class="toc-text">while</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#do-while"><span class="toc-text">do_while</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#for"><span class="toc-text">for</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#foreach"><span class="toc-text">foreach</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#while"><span class="toc-text"> while</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#do_while"><span class="toc-text"> do_while</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#for"><span class="toc-text"> for</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#foreach"><span class="toc-text"> foreach</span></a></li></ol>
     </div>
   </section>
 
@@ -3415,7 +3430,7 @@ ksor...</p>
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","sameAs":["https://github.com/volantis-x"],"description":"这是我的专属博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://chenzhengkai10.github.io/","name":"Dr4x3zz"}},{"@type":"ListItem","position":2,"item":{"@id":"https://chenzhengkai10.github.io/categories/php学习/","name":"php学习"}},{"@type":"ListItem","position":3,"item":{"@id":"https://chenzhengkai10.github.io/2023/01/14/php学习2023-01-14/","name":"php学习2023-01-14"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","keywords":null,"description":"这是我的专属博客","author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","description":"这是我的专属博客"},"publisher":{"@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://chenzhengkai10.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"php学习2023-01-14","description":"php学习(while、for循环)","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://chenzhengkai10.github.io/2023/01/14/php%E5%AD%A6%E4%B9%A02023-01-14/"},"author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/"},"publisher":{"@type":"Organization","name":"Dr4x3zz","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://chenzhengkai10.github.io/2023/01/14/php%E5%AD%A6%E4%B9%A02023-01-14/","wordCount":18,"datePublished":"2023-01-14T11:00:21.000Z","dateModified":"2023-01-15T11:10:44.000Z","articleSection":"php学习","keywords":"php学习","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","sameAs":["https://github.com/volantis-x"],"description":"这是我的专属博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://chenzhengkai10.github.io/","name":"Dr4x3zz"}},{"@type":"ListItem","position":2,"item":{"@id":"https://chenzhengkai10.github.io/categories/php学习/","name":"php学习"}},{"@type":"ListItem","position":3,"item":{"@id":"https://chenzhengkai10.github.io/2023/01/14/php学习2023-01-14/","name":"php学习2023-01-14"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","keywords":null,"description":"这是我的专属博客","author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","description":"这是我的专属博客"},"publisher":{"@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://chenzhengkai10.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"php学习2023-01-14","description":"# php 学习 (while、for 循环)","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://chenzhengkai10.github.io/2023/01/14/php%E5%AD%A6%E4%B9%A02023-01-14/"},"author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/"},"publisher":{"@type":"Organization","name":"Dr4x3zz","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://chenzhengkai10.github.io/2023/01/14/php%E5%AD%A6%E4%B9%A02023-01-14/","wordCount":23,"datePublished":"2023-01-14T11:00:21.000Z","dateModified":"2023-01-15T11:10:44.000Z","articleSection":"php学习","keywords":"php学习","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
