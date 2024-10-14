@@ -34,13 +34,13 @@
   <!-- 页面元数据 -->
   <title>php语法学习2022/10/23 - Dr4x3zz</title>
   <meta name="keywords" content="php学习,null">
-  <meta desc name="description" content="# php 学习 (global 和 static) - Dr4x3zz - Dr4x3zz">
+  <meta desc name="description" content="php学习(global和static) - Dr4x3zz - Dr4x3zz">
   
 <meta property="og:type" content="article">
 <meta property="og:title" content="php语法学习2022&#x2F;10&#x2F;23">
 <meta property="og:url" content="https://chenzhengkai10.github.io/2022/10/23/php%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A02022-10-23/index.html">
 <meta property="og:site_name" content="Dr4x3zz">
-<meta property="og:description" content="# php 学习 (global 和 static)">
+<meta property="og:description" content="php学习(global和static)">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2022-10-23T08:55:37.000Z">
@@ -1744,7 +1744,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1728903703248),
+    lastupdate: new Date(1728903825782),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2585,36 +2585,28 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <h1 id="php学习global和static"><a class="markdownIt-Anchor" href="#php学习global和static">#</a> php 学习 (global 和 static)</h1>
-<span id="more"></span>
+    <h1 id="php学习-global和static"><a href="#php学习-global和static" class="headerlink" title="php学习(global和static)"></a>php学习(global和static)</h1><span id="more"></span>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;h1&gt;My first PHP page&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">&lt;?php</span><br><span class="line">echo &quot;Hello World!&quot;;</span><br><span class="line">?&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>1、; 作为一种分隔符，php 代码都必须以分号结尾</p>
+<p>1、;作为一种分隔符，php代码都必须以分号结尾</p>
 </blockquote>
 <blockquote>
-<p>2、echo 和 print 是一种在浏览器输出文本的基础指令</p>
+<p>2、echo和print是一种在浏览器输出文本的基础指令</p>
 </blockquote>
 <blockquote>
-<p>3、变量以 $ 符号开始，后面跟着变量的名称<br>
-变量名必须以字母或者下划线字符开始<br>
-变量名只能包含字母、数字以及下划线（A-z、0-9 和 _ ）<br>
-变量名不能包含空格<br>
-变量名是区分大小写的（$y 和 $Y 是两个不同的变量）</p>
+<p>3、变量以 $ 符号开始，后面跟着变量的名称<br>    变量名必须以字母或者下划线字符开始<br>    变量名只能包含字母、数字以及下划线（A-z、0-9 和 _ ）<br>    变量名不能包含空格<br>    变量名是区分大小写的（$y 和 $Y 是两个不同的变量）</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$x=5;</span><br><span class="line">$y=10;</span><br><span class="line"> </span><br><span class="line">function myTest()</span><br><span class="line">&#123;</span><br><span class="line">    global $x,$y;</span><br><span class="line">    $y=$x+$y;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">myTest();</span><br><span class="line">echo $y; // 输出 15</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>4、在 PHP 函数内部声明的变量是局部变量，仅能在函数内部访问。<br>
-global 关键字用于函数内访问全局变量。<br>
-在函数内调用函数外定义的全局变量，我们需要在函数中的变量前加上 global 关键字</p>
+<p>4、在 PHP 函数内部声明的变量是局部变量，仅能在函数内部访问。<br>    global 关键字用于函数内访问全局变量。<br>    在函数内调用函数外定义的全局变量，我们需要在函数中的变量前加上 global 关键字</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">function test() &#123;</span><br><span class="line">    static $x=0;</span><br><span class="line">    echo $x . &quot; &quot;;</span><br><span class="line">    $x++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">test();</span><br><span class="line">test();</span><br><span class="line">test();</span><br><span class="line">test();</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
 <blockquote>
-<p>5、static()<br>
- 当一个函数执行完成时，它的所有变量通常都会被删除。<br>
-然而，有时需要局部变量不要被删除，要做到这一点，第一次声明变量时使用 static 关键字。</p>
+<p>5、static()<br>    当一个函数执行完成时，它的所有变量通常都会被删除。<br>    然而，有时需要局部变量不要被删除，要做到这一点，第一次声明变量时使用 static 关键字。</p>
 </blockquote>
 <p>结果：0 1 2 3</p>
-<p>学习参照于 https://www.runoob.com/php/php-variables.html</p>
+<p>学习参照于<a target="_blank" rel="noopener" href="https://www.runoob.com/php/php-variables.html">https://www.runoob.com/php/php-variables.html</a></p>
 
   </div>
   
@@ -2665,7 +2657,7 @@ global 关键字用于函数内访问全局变量。<br>
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chenzhengkai10.github.io/2022/10/23/php%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A02022-10-23/&title=php语法学习2022/10/23 - Dr4x3zz&summary=# php 学习 (global 和 static)"
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chenzhengkai10.github.io/2022/10/23/php%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A02022-10-23/&title=php语法学习2022/10/23 - Dr4x3zz&summary=php学习(global和static)"
           
           >
           
@@ -2677,7 +2669,7 @@ global 关键字用于函数内访问全局变量。<br>
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://chenzhengkai10.github.io/2022/10/23/php%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A02022-10-23/&title=php语法学习2022/10/23 - Dr4x3zz&summary=# php 学习 (global 和 static)"
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://chenzhengkai10.github.io/2022/10/23/php%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A02022-10-23/&title=php语法学习2022/10/23 - Dr4x3zz&summary=php学习(global和static)"
           
           >
           
@@ -2689,7 +2681,7 @@ global 关键字用于函数内访问全局变量。<br>
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://chenzhengkai10.github.io/2022/10/23/php%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A02022-10-23/&title=php语法学习2022/10/23 - Dr4x3zz&summary=# php 学习 (global 和 static)"
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://chenzhengkai10.github.io/2022/10/23/php%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A02022-10-23/&title=php语法学习2022/10/23 - Dr4x3zz&summary=php学习(global和static)"
           
           >
           
@@ -2724,8 +2716,7 @@ global 关键字用于函数内访问全局变量。<br>
       
         <a class='prev' href='/2022/10/30/php%E4%BC%AA%E5%8D%8F%E8%AE%AE%E5%AD%A6%E4%B9%A0/'>
           <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>php伪协议学习</p>
-          <p class='content'># php 伪协议学习笔记
-
+          <p class='content'>php伪协议学习笔记
 
 
 
@@ -2734,21 +2725,15 @@ global 关键字用于函数内访问全局变量。<br>
 
 
 
-
-file://
-?file=file://D:phpstuy/WWW/phpcode.txt
-
-
-php://filter
-?file=p...</p>
+file:&#x2F;&#x2F;
+?file&#x3D;file:&#x2F;&#x2F;D:phpstuy&#x2F;WWW&#x2F;phpc...</p>
         </a>
       
       
         <a class='next' href='/2022/10/23/web%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02022-10-23/'>
           <p class='title'>web学习笔记2022/10/23<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'># web 学习笔记
- 
-123456789&lt;?phpshow_source(_FLIE_);echo $_GET[&#x27;hello&#x27;];$page=$_GET[&#x27...</p>
+          <p class='content'>web学习笔记 
+123456789&lt;?phpshow_source(_FLIE_);echo $_GET[&#x27;hello&#x27;];$page=$_GET[&#x27;pag...</p>
         </a>
       
     </div>
@@ -3376,7 +3361,7 @@ php://filter
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","sameAs":["https://github.com/volantis-x"],"description":"这是我的专属博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://chenzhengkai10.github.io/","name":"Dr4x3zz"}},{"@type":"ListItem","position":2,"item":{"@id":"https://chenzhengkai10.github.io/categories/php学习/","name":"php学习"}},{"@type":"ListItem","position":3,"item":{"@id":"https://chenzhengkai10.github.io/2022/10/23/php语法学习2022-10-23/","name":"php语法学习2022/10/23"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","keywords":null,"description":"这是我的专属博客","author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","description":"这是我的专属博客"},"publisher":{"@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://chenzhengkai10.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"php语法学习2022/10/23","description":"# php 学习 (global 和 static)","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://chenzhengkai10.github.io/2022/10/23/php%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A02022-10-23/"},"author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/"},"publisher":{"@type":"Organization","name":"Dr4x3zz","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://chenzhengkai10.github.io/2022/10/23/php%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A02022-10-23/","wordCount":26,"datePublished":"2022-10-23T08:55:37.000Z","dateModified":"2022-12-24T04:35:24.000Z","articleSection":"php学习","keywords":"php学习","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","sameAs":["https://github.com/volantis-x"],"description":"这是我的专属博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://chenzhengkai10.github.io/","name":"Dr4x3zz"}},{"@type":"ListItem","position":2,"item":{"@id":"https://chenzhengkai10.github.io/categories/php学习/","name":"php学习"}},{"@type":"ListItem","position":3,"item":{"@id":"https://chenzhengkai10.github.io/2022/10/23/php语法学习2022-10-23/","name":"php语法学习2022/10/23"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","keywords":null,"description":"这是我的专属博客","author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","description":"这是我的专属博客"},"publisher":{"@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://chenzhengkai10.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"php语法学习2022/10/23","description":"php学习(global和static)","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://chenzhengkai10.github.io/2022/10/23/php%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A02022-10-23/"},"author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/"},"publisher":{"@type":"Organization","name":"Dr4x3zz","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://chenzhengkai10.github.io/2022/10/23/php%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A02022-10-23/","wordCount":20,"datePublished":"2022-10-23T08:55:37.000Z","dateModified":"2022-12-24T04:35:24.000Z","articleSection":"php学习","keywords":"php学习","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

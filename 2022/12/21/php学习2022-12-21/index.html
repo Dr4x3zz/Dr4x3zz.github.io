@@ -34,14 +34,13 @@
   <!-- 页面元数据 -->
   <title>php学习2022-12-21 - Dr4x3zz</title>
   <meta name="keywords" content="php学习,null">
-  <meta desc name="description" content="# php 学习 (常量、运算符、字符串函数)
-# - Dr4x3zz - Dr4x3zz">
+  <meta desc name="description" content="php学习(常量、运算符、字符串函数) - Dr4x3zz - Dr4x3zz">
   
 <meta property="og:type" content="article">
 <meta property="og:title" content="php学习2022-12-21">
 <meta property="og:url" content="https://chenzhengkai10.github.io/2022/12/21/php%E5%AD%A6%E4%B9%A02022-12-21/index.html">
 <meta property="og:site_name" content="Dr4x3zz">
-<meta property="og:description" content="# php 学习 (常量、运算符、字符串函数) #">
+<meta property="og:description" content="php学习(常量、运算符、字符串函数)">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2022-12-21T08:09:10.000Z">
@@ -1745,7 +1744,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1728903703248),
+    lastupdate: new Date(1728903825782),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2586,60 +2585,37 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <h1 id="php学习常量-运算符-字符串函数"><a class="markdownIt-Anchor" href="#php学习常量-运算符-字符串函数">#</a> php 学习 (常量、运算符、字符串函数)</h1>
-<h2 id="-more-"><a class="markdownIt-Anchor" href="#-more-">#</a> <span id="more"></span></h2>
-<h2 id="常量"><a class="markdownIt-Anchor" href="#常量">#</a> 常量</h2>
-<blockquote>
-<p>设置常量通常用 define () 函数<br>
- define (“常量的名称”,“常量的值”,(可定义为 true 也可不写));<br>
- 例：</p>
+    <h1 id="php学习-常量、运算符、字符串函数"><a href="#php学习-常量、运算符、字符串函数" class="headerlink" title="php学习(常量、运算符、字符串函数)"></a>php学习(常量、运算符、字符串函数)</h1><span id="more"></span>
+<hr>
+<h2 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h2><blockquote>
+<p>设置常量通常用define()函数<br>define(“常量的名称”,”常量的值”,(可定义为true也可不写));<br>例：</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    define(&quot;kx&quot;,&quot;czk Love ltx&quot;);    //常量名不需要加$,且常量是全局的</span><br><span class="line">    echo kx;    //输出：czk Love ltx</span><br><span class="line">    echo &#x27;&lt;br&gt;&#x27;;</span><br><span class="line">    echo KX;    //无法输出，未定义大写</span><br><span class="line">    echo &#x27;&lt;br&gt;&#x27;;</span><br><span class="line"></span><br><span class="line">    define(&quot;tz&quot;,&quot;czk Love ltx&quot;, true);</span><br><span class="line">    echo tz;    //输出：czk Love ltx</span><br><span class="line">    echo &#x27;&lt;br&gt;&#x27;;</span><br><span class="line">    echo TZ;    //输出：czk Love ltx</span><br><span class="line">    echo &#x27;&lt;br&gt;&#x27;;   </span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<p>1. 第一个”” 是 name: 必选参数，常量名称，即标志符’<br>
-2. 第二个”” 是 value：必选参数，常量的值。<br>
-3. 最后一个交 case_insensitive, 可选参数，如果设置为 TRUE，该常量则大小写不敏感，默认是大小写敏感的。</p>
-<h2 id="运算符"><a class="markdownIt-Anchor" href="#运算符">#</a> 运算符</h2>
-<h3 id="与c语言大致相同的运算符"><a class="markdownIt-Anchor" href="#与c语言大致相同的运算符">#</a> 与 c 语言大致相同的运算符</h3>
-<blockquote>
-<p>‘+’加  ‘-’减  ‘*’乘  ‘/’除  ‘%’取余  与 c 基本相同<br>
-赋值运算符也与 c 语言大致相同<br>
-递增 / 递减运算符也与 c 语言大致相同<br>
-比较运算符也大致与 c 相同<br>
-另外：<strong>‘&lt;&gt;’不等于  ‘！==’不全等 (完全不同)</strong></p>
-<p>逻辑运算符，大致也与 c 相同<br>
-‘and’与  ‘or’或  ‘xor’异或  ‘&amp;&amp;’与  ‘||’或  ‘!’非</p>
+<p>1.第一个””是name:必选参数，常量名称，即标志符’<br>2.第二个””是value：必选参数，常量的值。<br>3.最后一个交case_insensitive,可选参数，如果设置为TRUE，该常量则大小写不敏感，默认是大小写敏感的。</p>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><h3 id="与c语言大致相同的运算符"><a href="#与c语言大致相同的运算符" class="headerlink" title="与c语言大致相同的运算符"></a>与c语言大致相同的运算符</h3><blockquote>
+<p>‘+’加  ‘-’减  ‘<em>’乘  ‘&#x2F;’除  ‘%’取余  与c基本相同<br>赋值运算符也与c语言大致相同<br>递增&#x2F;递减运算符也与c语言大致相同<br>比较运算符也大致与c相同<br>另外：*<em>‘&lt;&gt;’不等于  ‘！&#x3D;&#x3D;’不全等(完全不同)</em></em></p>
+<p>逻辑运算符，大致也与c相同<br>‘and’与  ‘or’或  ‘xor’异或  ‘&amp;&amp;’与  ‘||’或  ‘!’非</p>
 </blockquote>
-<h3 id="和"><a class="markdownIt-Anchor" href="#和">#</a> <mark>和</mark> =</h3>
-<p>在 php 中<br>
-使用两个等号（<mark>）比较，只比较值，不比较类型<br>
-用三个等号（</mark>=）比较，都比较<br>
-例：</p>
+<h3 id="x3D-x3D-和-x3D-x3D-x3D"><a href="#x3D-x3D-和-x3D-x3D-x3D" class="headerlink" title="&#x3D;&#x3D;和&#x3D;&#x3D;&#x3D;"></a>&#x3D;&#x3D;和&#x3D;&#x3D;&#x3D;</h3><p>在php中<br>使用两个等号（&#x3D;&#x3D;）比较，只比较值，不比较类型<br>用三个等号（&#x3D;&#x3D;&#x3D;）比较，都比较<br>例：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    if(42 == &quot;42&quot;)</span><br><span class="line">    &#123;</span><br><span class="line">        echo &#x27;值相等&#x27;;</span><br><span class="line">    &#125;</span><br><span class="line">    echo &#x27;&lt;br&gt;&#x27;;</span><br><span class="line">    if(42 === &quot;42&quot;)</span><br><span class="line">    &#123;</span><br><span class="line">        echo &#x27;类型相等&#x27;;</span><br><span class="line">    &#125;</span><br><span class="line">    else</span><br><span class="line">    &#123;</span><br><span class="line">        echo &#x27;类型不相等&#x27;;</span><br><span class="line">    &#125;</span><br><span class="line">    echo &#x27;&lt;br&gt;&#x27;;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <p>输出为：值相等   类型不相等</p>
-<h3 id="串接-串接赋值"><a class="markdownIt-Anchor" href="#串接-串接赋值">#</a> ‘.’串接  ‘.=’串接赋值</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    $txt1 = &quot;Hello World!&quot;;</span><br><span class="line">    $txt2 = &quot;Hello PHP!&quot;;</span><br><span class="line">    echo $txt1 . &quot; &quot; . $txt2;   //输出Hello World! Hello PHP!</span><br><span class="line">    echo &#x27;&lt;br&gt;&#x27;;</span><br><span class="line"></span><br><span class="line">    $a = &quot;Hello&quot;;</span><br><span class="line">    $b = $a . &quot; world!&quot;;</span><br><span class="line">    echo $b;                    //输出 Hello world!</span><br><span class="line">    echo &#x27;&lt;br&gt;&#x27;;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="intdiv函数"><a class="markdownIt-Anchor" href="#intdiv函数">#</a> intdiv（）函数</h3>
-<p>intdiv（）函数：该函数返回值为第一个参数除于第二个参数的值并取等（向下取等）</p>
+<h3 id="‘-’串接-‘-x3D-’串接赋值"><a href="#‘-’串接-‘-x3D-’串接赋值" class="headerlink" title="‘.’串接  ‘.&#x3D;’串接赋值"></a>‘.’串接  ‘.&#x3D;’串接赋值</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    $txt1 = &quot;Hello World!&quot;;</span><br><span class="line">    $txt2 = &quot;Hello PHP!&quot;;</span><br><span class="line">    echo $txt1 . &quot; &quot; . $txt2;   //输出Hello World! Hello PHP!</span><br><span class="line">    echo &#x27;&lt;br&gt;&#x27;;</span><br><span class="line"></span><br><span class="line">    $a = &quot;Hello&quot;;</span><br><span class="line">    $b = $a . &quot; world!&quot;;</span><br><span class="line">    echo $b;                    //输出 Hello world!</span><br><span class="line">    echo &#x27;&lt;br&gt;&#x27;;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="intdiv（）函数"><a href="#intdiv（）函数" class="headerlink" title="intdiv（）函数"></a>intdiv（）函数</h3><p>intdiv（）函数：该函数返回值为第一个参数除于第二个参数的值并取等（向下取等）</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    var_dump(intdiv(10, 3));    //返回值为3</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="字符串函数"><a class="markdownIt-Anchor" href="#字符串函数">#</a> 字符串函数</h2>
-<blockquote>
-<p>定义一个 txt1, 供下方函数使用</p>
+
+<h2 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h2><blockquote>
+<p>定义一个txt1,供下方函数使用</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    $txt1 = &quot;Hello World!&quot;;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="strlen"><a class="markdownIt-Anchor" href="#strlen">#</a> strlen()</h3>
-<p>strlen () 返回字符串的长度</p>
+<h3 id="strlen"><a href="#strlen" class="headerlink" title="strlen()"></a>strlen()</h3><p>strlen()返回字符串的长度</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    echo strlen($txt1);     //输出字符串长度12</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="str_word_count"><a class="markdownIt-Anchor" href="#str_word_count">#</a> str_word_count()</h3>
-<p>str_word_count () 对字符串中的单词进行计数</p>
+<h3 id="str-word-count"><a href="#str-word-count" class="headerlink" title="str_word_count()"></a>str_word_count()</h3><p>str_word_count()对字符串中的单词进行计数</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    echo str_word_count(&quot;$txt1&quot;);   //输出2</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="strrev"><a class="markdownIt-Anchor" href="#strrev">#</a> strrev()</h3>
-<p>strrev () 反转字符串</p>
+<h3 id="strrev"><a href="#strrev" class="headerlink" title="strrev()"></a>strrev()</h3><p>strrev()反转字符串</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    echo strrev($txt1);     //输出!dlroW olleH</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="strpos"><a class="markdownIt-Anchor" href="#strpos">#</a> strpos()</h3>
-<p>strpos () 检索字符串内指定的字符或文本</p>
+<h3 id="strpos"><a href="#strpos" class="headerlink" title="strpos()"></a>strpos()</h3><p>strpos()检索字符串内指定的字符或文本</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    echo strpos(&quot;$txt1&quot;,&quot;World&quot;);   //输出6</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="str_replace"><a class="markdownIt-Anchor" href="#str_replace">#</a> str_replace()</h3>
-<p>str_replace () 替换字符串中的文本</p>
+<h3 id="str-replace"><a href="#str-replace" class="headerlink" title="str_replace()"></a>str_replace()</h3><p>str_replace()替换字符串中的文本</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    echo str_replace(&quot;World&quot;,&quot;Kitty&quot;,&quot;$txt1&quot;);  //输出Hello Kitty!</span><br><span class="line">    echo $txt1;     //输出：Hello World!  不改变变量的内容</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
   </div>
   
@@ -2690,8 +2666,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chenzhengkai10.github.io/2022/12/21/php%E5%AD%A6%E4%B9%A02022-12-21/&title=php学习2022-12-21 - Dr4x3zz&summary=# php 学习 (常量、运算符、字符串函数)
-#"
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chenzhengkai10.github.io/2022/12/21/php%E5%AD%A6%E4%B9%A02022-12-21/&title=php学习2022-12-21 - Dr4x3zz&summary=php学习(常量、运算符、字符串函数)"
           
           >
           
@@ -2703,8 +2678,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://chenzhengkai10.github.io/2022/12/21/php%E5%AD%A6%E4%B9%A02022-12-21/&title=php学习2022-12-21 - Dr4x3zz&summary=# php 学习 (常量、运算符、字符串函数)
-#"
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://chenzhengkai10.github.io/2022/12/21/php%E5%AD%A6%E4%B9%A02022-12-21/&title=php学习2022-12-21 - Dr4x3zz&summary=php学习(常量、运算符、字符串函数)"
           
           >
           
@@ -2716,8 +2690,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://chenzhengkai10.github.io/2022/12/21/php%E5%AD%A6%E4%B9%A02022-12-21/&title=php学习2022-12-21 - Dr4x3zz&summary=# php 学习 (常量、运算符、字符串函数)
-#"
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://chenzhengkai10.github.io/2022/12/21/php%E5%AD%A6%E4%B9%A02022-12-21/&title=php学习2022-12-21 - Dr4x3zz&summary=php学习(常量、运算符、字符串函数)"
           
           >
           
@@ -2752,23 +2725,19 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class='prev' href='/2022/12/21/sqli-labs-1-8/'>
           <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>sqli-labs-1-8</p>
-          <p class='content'># sqli-labs-1-8
+          <p class='content'>sqli-labs-1-8
 
-# SQL 注入
-# SQL 注入常用
-
-information_schema：表示所有信息，包括库、表、列
- information_schema.table...</p>
+SQL注入SQL注入常用
+information_schema：表示所有信息，包括库、表、列information_schema.tables：记录所有表名信息的表...</p>
         </a>
       
       
         <a class='next' href='/2022/12/20/php%E5%AD%A6%E4%B9%A02022-12-20/'>
           <p class='title'>php学习2022-12-20<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'># php 学习 (EOF、数据变量)
-# 
-# 打印 Hello World！
-123&lt;?php    echo &quot;Hello World!&quot;;?&gt;
-# php...</p>
+          <p class='content'>php学习(EOF、数据变量)
+
+打印Hello World！123&lt;?php    echo &quot;Hello World!&quot;;?&gt;
+php EOF输出一段要输出的...</p>
         </a>
       
     </div>
@@ -2826,7 +2795,7 @@ information_schema：表示所有信息，包括库、表、列
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#-more-"><span class="toc-text"> </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E9%87%8F"><span class="toc-text"> 常量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text"> 运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8Ec%E8%AF%AD%E8%A8%80%E5%A4%A7%E8%87%B4%E7%9B%B8%E5%90%8C%E7%9A%84%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text"> 与 c 语言大致相同的运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%92%8C"><span class="toc-text"> 和 &#x3D;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%B2%E6%8E%A5-%E4%B8%B2%E6%8E%A5%E8%B5%8B%E5%80%BC"><span class="toc-text"> ‘.’串接  ‘.&#x3D;’串接赋值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#intdiv%E5%87%BD%E6%95%B0"><span class="toc-text"> intdiv（）函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0"><span class="toc-text"> 字符串函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#strlen"><span class="toc-text"> strlen()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#str_word_count"><span class="toc-text"> str_word_count()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#strrev"><span class="toc-text"> strrev()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#strpos"><span class="toc-text"> strpos()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#str_replace"><span class="toc-text"> str_replace()</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E9%87%8F"><span class="toc-text">常量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text">运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8Ec%E8%AF%AD%E8%A8%80%E5%A4%A7%E8%87%B4%E7%9B%B8%E5%90%8C%E7%9A%84%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text">与c语言大致相同的运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#x3D-x3D-%E5%92%8C-x3D-x3D-x3D"><span class="toc-text">&#x3D;&#x3D;和&#x3D;&#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%80%98-%E2%80%99%E4%B8%B2%E6%8E%A5-%E2%80%98-x3D-%E2%80%99%E4%B8%B2%E6%8E%A5%E8%B5%8B%E5%80%BC"><span class="toc-text">‘.’串接  ‘.&#x3D;’串接赋值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#intdiv%EF%BC%88%EF%BC%89%E5%87%BD%E6%95%B0"><span class="toc-text">intdiv（）函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0"><span class="toc-text">字符串函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#strlen"><span class="toc-text">strlen()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#str-word-count"><span class="toc-text">str_word_count()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#strrev"><span class="toc-text">strrev()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#strpos"><span class="toc-text">strpos()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#str-replace"><span class="toc-text">str_replace()</span></a></li></ol></li></ol>
     </div>
   </section>
 
@@ -3396,7 +3365,7 @@ information_schema：表示所有信息，包括库、表、列
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","sameAs":["https://github.com/volantis-x"],"description":"这是我的专属博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://chenzhengkai10.github.io/","name":"Dr4x3zz"}},{"@type":"ListItem","position":2,"item":{"@id":"https://chenzhengkai10.github.io/categories/php学习/","name":"php学习"}},{"@type":"ListItem","position":3,"item":{"@id":"https://chenzhengkai10.github.io/2022/12/21/php学习2022-12-21/","name":"php学习2022-12-21"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","keywords":null,"description":"这是我的专属博客","author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","description":"这是我的专属博客"},"publisher":{"@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://chenzhengkai10.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"php学习2022-12-21","description":"# php 学习 (常量、运算符、字符串函数)\n#","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://chenzhengkai10.github.io/2022/12/21/php%E5%AD%A6%E4%B9%A02022-12-21/"},"author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/"},"publisher":{"@type":"Organization","name":"Dr4x3zz","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://chenzhengkai10.github.io/2022/12/21/php%E5%AD%A6%E4%B9%A02022-12-21/","wordCount":25,"datePublished":"2022-12-21T08:09:10.000Z","dateModified":"2022-12-24T04:18:34.000Z","articleSection":"php学习","keywords":"php学习","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","sameAs":["https://github.com/volantis-x"],"description":"这是我的专属博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://chenzhengkai10.github.io/","name":"Dr4x3zz"}},{"@type":"ListItem","position":2,"item":{"@id":"https://chenzhengkai10.github.io/categories/php学习/","name":"php学习"}},{"@type":"ListItem","position":3,"item":{"@id":"https://chenzhengkai10.github.io/2022/12/21/php学习2022-12-21/","name":"php学习2022-12-21"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","keywords":null,"description":"这是我的专属博客","author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","description":"这是我的专属博客"},"publisher":{"@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://chenzhengkai10.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"php学习2022-12-21","description":"php学习(常量、运算符、字符串函数)","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://chenzhengkai10.github.io/2022/12/21/php%E5%AD%A6%E4%B9%A02022-12-21/"},"author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/"},"publisher":{"@type":"Organization","name":"Dr4x3zz","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://chenzhengkai10.github.io/2022/12/21/php%E5%AD%A6%E4%B9%A02022-12-21/","wordCount":19,"datePublished":"2022-12-21T08:09:10.000Z","dateModified":"2022-12-24T04:18:34.000Z","articleSection":"php学习","keywords":"php学习","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

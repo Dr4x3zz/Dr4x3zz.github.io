@@ -34,13 +34,13 @@
   <!-- 页面元数据 -->
   <title>php学习2023-01-13 - Dr4x3zz</title>
   <meta name="keywords" content="php学习,null">
-  <meta desc name="description" content="# php 学习 (数组排序、超级全局变量) - Dr4x3zz - Dr4x3zz">
+  <meta desc name="description" content="php学习(数组排序、超级全局变量) - Dr4x3zz - Dr4x3zz">
   
 <meta property="og:type" content="article">
 <meta property="og:title" content="php学习2023-01-13">
 <meta property="og:url" content="https://chenzhengkai10.github.io/2023/01/13/php%E5%AD%A6%E4%B9%A02023-01-13/index.html">
 <meta property="og:site_name" content="Dr4x3zz">
-<meta property="og:description" content="# php 学习 (数组排序、超级全局变量)">
+<meta property="og:description" content="php学习(数组排序、超级全局变量)">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2023-01-13T11:58:23.000Z">
@@ -1744,7 +1744,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1728903703248),
+    lastupdate: new Date(1728903825782),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2585,27 +2585,27 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <h1 id="php学习数组排序-超级全局变量"><a class="markdownIt-Anchor" href="#php学习数组排序-超级全局变量">#</a> php 学习 (数组排序、超级全局变量)</h1>
-<span id="more"></span>
-<h2 id="数组排序"><a class="markdownIt-Anchor" href="#数组排序">#</a> 数组排序</h2>
-<ul>
-<li>sort () - 对数组进行升序排列</li>
-<li>rsort () - 对数组进行降序排列</li>
-<li>asort () - 根据关联数组的值，对数组进行升序排列</li>
-<li>ksort () - 根据关联数组的键，对数组进行升序排列</li>
-<li>arsort () - 根据关联数组的值，对数组进行降序排列</li>
-<li>krsort () - 根据关联数组的键，对数组进行降序排列</li>
+    <h1 id="php学习-数组排序、超级全局变量"><a href="#php学习-数组排序、超级全局变量" class="headerlink" title="php学习(数组排序、超级全局变量)"></a>php学习(数组排序、超级全局变量)</h1><span id="more"></span>
+
+<h2 id="数组排序"><a href="#数组排序" class="headerlink" title="数组排序"></a>数组排序</h2><ul>
+<li>sort() - 对数组进行升序排列</li>
+<li>rsort() - 对数组进行降序排列</li>
+<li>asort() - 根据关联数组的值，对数组进行升序排列</li>
+<li>ksort() - 根据关联数组的键，对数组进行升序排列</li>
+<li>arsort() - 根据关联数组的值，对数组进行降序排列</li>
+<li>krsort() - 根据关联数组的键，对数组进行降序排列</li>
 </ul>
-<p><strong>sort () - 对数组进行升序排列</strong></p>
+<p><strong>sort() - 对数组进行升序排列</strong></p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">    <span class="variable">$car</span> = <span class="keyword">array</span>( <span class="string">&quot;Volvo&quot;</span>, <span class="string">&quot;BMW&quot;</span>, <span class="string">&quot;Toyota&quot;</span> );</span><br><span class="line">    <span class="title function_ invoke__">sort</span>(<span class="variable">$car</span>);</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$car</span>[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&#x27;&lt;br&gt;&#x27;</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$car</span>[<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&#x27;&lt;br&gt;&#x27;</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$car</span>[<span class="number">2</span>];</span><br><span class="line">    </span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="/2023/01/13/php%E5%AD%A6%E4%B9%A02023-01-13/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230113_201007.png" class="lazyload" data-srcset="/2023/01/13/php%E5%AD%A6%E4%B9%A02023-01-13/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230113_201007.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt></p>
+
+<p><img src="/2023/01/13/php%E5%AD%A6%E4%B9%A02023-01-13/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230113_201007.png" class="lazyload" data-srcset="/2023/01/13/php%E5%AD%A6%E4%B9%A02023-01-13/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230113_201007.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
 <p>再来通过一个全是数字的数组来看看</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"> 	<span class="variable">$num</span> = <span class="keyword">array</span>( <span class="number">4</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">22</span>, <span class="number">24</span>, <span class="number">1</span> );</span><br><span class="line">    <span class="title function_ invoke__">sort</span>(<span class="variable">$num</span>);</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$num</span>[<span class="number">0</span>] . <span class="string">&quot;,&quot;</span> . <span class="variable">$num</span>[<span class="number">1</span>] . <span class="string">&quot;,&quot;</span> . <span class="variable">$num</span>[<span class="number">2</span>] . <span class="string">&quot;,&quot;</span> . <span class="variable">$num</span>[<span class="number">3</span>] . <span class="string">&quot;,&quot;</span> . <span class="variable">$num</span>[<span class="number">4</span>] . <span class="string">&quot;,&quot;</span> . <span class="variable">$num</span>[<span class="number">5</span>];</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>输出 1,3,4,6,22,24</p>
-<p>其余的函数就不一一列举出来了，用法是一致的</p>
-<p>具体的可以通过菜鸟教程学习<a target="_blank" rel="noopener" href="https://www.runoob.com/php/php-arrays-sort.html"> PHP 数组排序 | 菜鸟教程 (runoob.com)</a></p>
-<h2 id="超级全局变量"><a class="markdownIt-Anchor" href="#超级全局变量">#</a> 超级全局变量</h2>
-<p>PHP 超级全局变量列表:</p>
+
+<p>输出1,3,4,6,22,24</p>
+<p>其余的函数就不一一列举出来了,用法是一致的</p>
+<p>具体的可以通过菜鸟教程学习<a target="_blank" rel="noopener" href="https://www.runoob.com/php/php-arrays-sort.html">PHP 数组排序 | 菜鸟教程 (runoob.com)</a></p>
+<h2 id="超级全局变量"><a href="#超级全局变量" class="headerlink" title="超级全局变量"></a>超级全局变量</h2><p>PHP 超级全局变量列表:</p>
 <ul>
 <li>$GLOBALS</li>
 <li>$_SERVER</li>
@@ -2617,146 +2617,145 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>$_COOKIE</li>
 <li>$_SESSION</li>
 </ul>
-<h3 id="globals"><a class="markdownIt-Anchor" href="#globals">#</a> <strong>$GLOBALS</strong></h3>
-<p>例子如下:</p>
+<h3 id="GLOBALS"><a href="#GLOBALS" class="headerlink" title="$GLOBALS"></a><strong>$GLOBALS</strong></h3><p>例子如下:</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line">	<span class="variable">$x</span> = <span class="number">75</span>; </span><br><span class="line">	<span class="variable">$y</span> = <span class="number">25</span>;</span><br><span class="line"> </span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">addition</span>(<span class="params"></span>) </span></span><br><span class="line"><span class="function">	</span>&#123; </span><br><span class="line">        <span class="variable">$GLOBALS</span>[<span class="string">&#x27;z&#x27;</span>] = <span class="variable">$GLOBALS</span>[<span class="string">&#x27;x&#x27;</span>] + <span class="variable">$GLOBALS</span>[<span class="string">&#x27;y&#x27;</span>]; </span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	<span class="title function_ invoke__">addition</span>(); </span><br><span class="line">	<span class="keyword">echo</span> <span class="variable">$z</span>; </span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>以上实例中 z 是一个 $GLOBALS 数组中的超级全局变量，该变量同样可以在函数外访问。</p>
+
+<p>以上实例中 z 是一个$GLOBALS数组中的超级全局变量，该变量同样可以在函数外访问。</p>
 <p>输出结果是 100</p>
-<h3 id="_server"><a class="markdownIt-Anchor" href="#_server">#</a> <strong>$_SERVER</strong></h3>
-<p>$_SERVER 是一个包含了诸如头信息 (header)、路径 (path)、以及脚本位置 (script locations) 等等信息的数组。这个数组中的项目由 Web 服务器创建。不能保证每个服务器都提供全部项目；服务器可能会忽略一些，或者提供一些没有在这里列举出来的项目。</p>
+<h3 id="SERVER"><a href="#SERVER" class="headerlink" title="$_SERVER"></a><strong>$_SERVER</strong></h3><p>$_SERVER 是一个包含了诸如头信息(header)、路径(path)、以及脚本位置(script locations)等等信息的数组。这个数组中的项目由 Web 服务器创建。不能保证每个服务器都提供全部项目；服务器可能会忽略一些，或者提供一些没有在这里列举出来的项目。</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line">	<span class="keyword">echo</span> <span class="variable">$_SERVER</span>[<span class="string">&#x27;PHP_SELF&#x27;</span>];</span><br><span class="line">	<span class="keyword">echo</span> <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line">	<span class="keyword">echo</span> <span class="variable">$_SERVER</span>[<span class="string">&#x27;SERVER_NAME&#x27;</span>];</span><br><span class="line">	<span class="keyword">echo</span> <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line">	<span class="keyword">echo</span> <span class="variable">$_SERVER</span>[<span class="string">&#x27;HTTP_HOST&#x27;</span>];</span><br><span class="line">	<span class="keyword">echo</span> <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line">	<span class="keyword">echo</span> <span class="variable">$_SERVER</span>[<span class="string">&#x27;HTTP_REFERER&#x27;</span>];</span><br><span class="line">	<span class="keyword">echo</span> <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line">	<span class="keyword">echo</span> <span class="variable">$_SERVER</span>[<span class="string">&#x27;HTTP_USER_AGENT&#x27;</span>];</span><br><span class="line">	<span class="keyword">echo</span> <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line">	<span class="keyword">echo</span> <span class="variable">$_SERVER</span>[<span class="string">&#x27;SCRIPT_NAME&#x27;</span>];</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
 <table>
 <thead>
 <tr>
-<th style="text-align:left">元素 / 代码</th>
-<th style="text-align:left">描述</th>
+<th align="left">元素&#x2F;代码</th>
+<th align="left">描述</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left">$_SERVER[‘PHP_SELF’]</td>
-<td style="text-align:left">当前执行脚本的文件名，与 document root 有关。例如，在地址为 <a target="_blank" rel="noopener" href="http://example.com/test.php/foo.bar">http://example.com/test.php/foo.bar</a> 的脚本中使用 $_SERVER [‘PHP_SELF’] 将得到 /test.php/foo.bar。<strong>FILE</strong> 常量包含当前 (例如包含) 文件的完整路径和文件名。 从 PHP 4.3.0 版本开始，如果 PHP 以命令行模式运行，这个变量将包含脚本名。之前的版本该变量不可用。</td>
+<tbody><tr>
+<td align="left">$_SERVER[‘PHP_SELF’]</td>
+<td align="left">当前执行脚本的文件名，与 document root 有关。例如，在地址为 <a target="_blank" rel="noopener" href="http://example.com/test.php/foo.bar">http://example.com/test.php/foo.bar</a> 的脚本中使用 $<em>SERVER[‘PHP_SELF’] 将得到 &#x2F;test.php&#x2F;foo.bar。__FILE</em>_ 常量包含当前(例如包含)文件的完整路径和文件名。 从 PHP 4.3.0 版本开始，如果 PHP 以命令行模式运行，这个变量将包含脚本名。之前的版本该变量不可用。</td>
 </tr>
 <tr>
-<td style="text-align:left">$_SERVER[‘GATEWAY_INTERFACE’]</td>
-<td style="text-align:left">服务器使用的 CGI 规范的版本；例如，“CGI/1.1”。</td>
+<td align="left">$_SERVER[‘GATEWAY_INTERFACE’]</td>
+<td align="left">服务器使用的 CGI 规范的版本；例如，”CGI&#x2F;1.1”。</td>
 </tr>
 <tr>
-<td style="text-align:left">$_SERVER[‘SERVER_ADDR’]</td>
-<td style="text-align:left">当前运行脚本所在的服务器的 IP 地址。</td>
+<td align="left">$_SERVER[‘SERVER_ADDR’]</td>
+<td align="left">当前运行脚本所在的服务器的 IP 地址。</td>
 </tr>
 <tr>
-<td style="text-align:left">$_SERVER[‘SERVER_NAME’]</td>
-<td style="text-align:left">当前运行脚本所在的服务器的主机名。如果脚本运行于虚拟主机中，该名称是由那个虚拟主机所设置的值决定。(如: <a target="_blank" rel="noopener" href="http://www.runoob.com">www.runoob.com</a>)</td>
+<td align="left">$_SERVER[‘SERVER_NAME’]</td>
+<td align="left">当前运行脚本所在的服务器的主机名。如果脚本运行于虚拟主机中，该名称是由那个虚拟主机所设置的值决定。(如: <a target="_blank" rel="noopener" href="http://www.runoob.com/">www.runoob.com</a>)</td>
 </tr>
 <tr>
-<td style="text-align:left">$_SERVER[‘SERVER_SOFTWARE’]</td>
-<td style="text-align:left">服务器标识字符串，在响应请求时的头信息中给出。 (如：Apache/2.2.24)</td>
+<td align="left">$_SERVER[‘SERVER_SOFTWARE’]</td>
+<td align="left">服务器标识字符串，在响应请求时的头信息中给出。 (如：Apache&#x2F;2.2.24)</td>
 </tr>
 <tr>
-<td style="text-align:left">$_SERVER[‘SERVER_PROTOCOL’]</td>
-<td style="text-align:left">请求页面时通信协议的名称和版本。例如，“HTTP/1.0”。</td>
+<td align="left">$_SERVER[‘SERVER_PROTOCOL’]</td>
+<td align="left">请求页面时通信协议的名称和版本。例如，”HTTP&#x2F;1.0”。</td>
 </tr>
 <tr>
-<td style="text-align:left">$_SERVER[‘REQUEST_METHOD’]</td>
-<td style="text-align:left">访问页面使用的请求方法；例如，“GET”, “HEAD”，“POST”，“PUT”。</td>
+<td align="left">$_SERVER[‘REQUEST_METHOD’]</td>
+<td align="left">访问页面使用的请求方法；例如，”GET”, “HEAD”，”POST”，”PUT”。</td>
 </tr>
 <tr>
-<td style="text-align:left">$_SERVER[‘REQUEST_TIME’]</td>
-<td style="text-align:left">请求开始时的时间戳。从 PHP 5.1.0 起可用。 (如：1377687496)</td>
+<td align="left">$_SERVER[‘REQUEST_TIME’]</td>
+<td align="left">请求开始时的时间戳。从 PHP 5.1.0 起可用。 (如：1377687496)</td>
 </tr>
 <tr>
-<td style="text-align:left">$_SERVER[‘QUERY_STRING’]</td>
-<td style="text-align:left">query string（查询字符串），如果有的话，通过它进行页面访问。</td>
+<td align="left">$_SERVER[‘QUERY_STRING’]</td>
+<td align="left">query string（查询字符串），如果有的话，通过它进行页面访问。</td>
 </tr>
 <tr>
-<td style="text-align:left">$_SERVER[‘HTTP_ACCEPT’]</td>
-<td style="text-align:left">当前请求头中 Accept: 项的内容，如果存在的话。</td>
+<td align="left">$_SERVER[‘HTTP_ACCEPT’]</td>
+<td align="left">当前请求头中 Accept: 项的内容，如果存在的话。</td>
 </tr>
 <tr>
-<td style="text-align:left">$_SERVER[‘HTTP_ACCEPT_CHARSET’]</td>
-<td style="text-align:left">当前请求头中 Accept-Charset: 项的内容，如果存在的话。例如：“iso-8859-1,*,utf-8”。</td>
+<td align="left">$_SERVER[‘HTTP_ACCEPT_CHARSET’]</td>
+<td align="left">当前请求头中 Accept-Charset: 项的内容，如果存在的话。例如：”iso-8859-1,*,utf-8”。</td>
 </tr>
 <tr>
-<td style="text-align:left">$_SERVER[‘HTTP_HOST’]</td>
-<td style="text-align:left">当前请求头中 Host: 项的内容，如果存在的话。</td>
+<td align="left">$_SERVER[‘HTTP_HOST’]</td>
+<td align="left">当前请求头中 Host: 项的内容，如果存在的话。</td>
 </tr>
 <tr>
-<td style="text-align:left">$_SERVER[‘HTTP_REFERER’]</td>
-<td style="text-align:left">引导用户代理到当前页的前一页的地址（如果存在）。由 user agent 设置决定。并不是所有的用户代理都会设置该项，有的还提供了修改 HTTP_REFERER 的功能。简言之，该值并不可信。)</td>
+<td align="left">$_SERVER[‘HTTP_REFERER’]</td>
+<td align="left">引导用户代理到当前页的前一页的地址（如果存在）。由 user agent 设置决定。并不是所有的用户代理都会设置该项，有的还提供了修改 HTTP_REFERER 的功能。简言之，该值并不可信。)</td>
 </tr>
 <tr>
-<td style="text-align:left">$_SERVER[‘HTTPS’]</td>
-<td style="text-align:left">如果脚本是通过 HTTPS 协议被访问，则被设为一个非空的值。</td>
+<td align="left">$_SERVER[‘HTTPS’]</td>
+<td align="left">如果脚本是通过 HTTPS 协议被访问，则被设为一个非空的值。</td>
 </tr>
 <tr>
-<td style="text-align:left">$_SERVER[‘REMOTE_ADDR’]</td>
-<td style="text-align:left">浏览当前页面的用户的 IP 地址。</td>
+<td align="left">$_SERVER[‘REMOTE_ADDR’]</td>
+<td align="left">浏览当前页面的用户的 IP 地址。</td>
 </tr>
 <tr>
-<td style="text-align:left">$_SERVER[‘REMOTE_HOST’]</td>
-<td style="text-align:left">浏览当前页面的用户的主机名。DNS 反向解析不依赖于用户的 REMOTE_ADDR。</td>
+<td align="left">$_SERVER[‘REMOTE_HOST’]</td>
+<td align="left">浏览当前页面的用户的主机名。DNS 反向解析不依赖于用户的 REMOTE_ADDR。</td>
 </tr>
 <tr>
-<td style="text-align:left">$_SERVER[‘REMOTE_PORT’]</td>
-<td style="text-align:left">用户机器上连接到 Web 服务器所使用的端口号。</td>
+<td align="left">$_SERVER[‘REMOTE_PORT’]</td>
+<td align="left">用户机器上连接到 Web 服务器所使用的端口号。</td>
 </tr>
 <tr>
-<td style="text-align:left">$_SERVER[‘SCRIPT_FILENAME’]</td>
-<td style="text-align:left">当前执行脚本的绝对路径。</td>
+<td align="left">$_SERVER[‘SCRIPT_FILENAME’]</td>
+<td align="left">当前执行脚本的绝对路径。</td>
 </tr>
 <tr>
-<td style="text-align:left">$_SERVER[‘SERVER_ADMIN’]</td>
-<td style="text-align:left">该值指明了 Apache 服务器配置文件中的 SERVER_ADMIN 参数。如果脚本运行在一个虚拟主机上，则该值是那个虚拟主机的值。(如：someone@runoob.com)</td>
+<td align="left">$_SERVER[‘SERVER_ADMIN’]</td>
+<td align="left">该值指明了 Apache 服务器配置文件中的 SERVER_ADMIN 参数。如果脚本运行在一个虚拟主机上，则该值是那个虚拟主机的值。(如：<a href="mailto:&#x73;&#x6f;&#x6d;&#x65;&#111;&#x6e;&#x65;&#x40;&#x72;&#x75;&#x6e;&#x6f;&#x6f;&#x62;&#x2e;&#99;&#x6f;&#x6d;">&#x73;&#x6f;&#x6d;&#x65;&#111;&#x6e;&#x65;&#x40;&#x72;&#x75;&#x6e;&#x6f;&#x6f;&#x62;&#x2e;&#99;&#x6f;&#x6d;</a>)</td>
 </tr>
 <tr>
-<td style="text-align:left">$_SERVER[‘SERVER_PORT’]</td>
-<td style="text-align:left">Web 服务器使用的端口。默认值为 “80”。如果使用 SSL 安全连接，则这个值为用户设置的 HTTP 端口。</td>
+<td align="left">$_SERVER[‘SERVER_PORT’]</td>
+<td align="left">Web 服务器使用的端口。默认值为 “80”。如果使用 SSL 安全连接，则这个值为用户设置的 HTTP 端口。</td>
 </tr>
 <tr>
-<td style="text-align:left">$_SERVER[‘SERVER_SIGNATURE’]</td>
-<td style="text-align:left">包含了服务器版本和虚拟主机名的字符串。</td>
+<td align="left">$_SERVER[‘SERVER_SIGNATURE’]</td>
+<td align="left">包含了服务器版本和虚拟主机名的字符串。</td>
 </tr>
 <tr>
-<td style="text-align:left">$_SERVER[‘PATH_TRANSLATED’]</td>
-<td style="text-align:left">当前脚本所在文件系统（非文档根目录）的基本路径。这是在服务器进行虚拟到真实路径的映像后的结果。</td>
+<td align="left">$_SERVER[‘PATH_TRANSLATED’]</td>
+<td align="left">当前脚本所在文件系统（非文档根目录）的基本路径。这是在服务器进行虚拟到真实路径的映像后的结果。</td>
 </tr>
 <tr>
-<td style="text-align:left">$_SERVER[‘SCRIPT_NAME’]</td>
-<td style="text-align:left">包含当前脚本的路径。这在页面需要指向自己时非常有用。<strong>FILE</strong> 常量包含当前脚本 (例如包含文件) 的完整路径和文件名。</td>
+<td align="left">$_SERVER[‘SCRIPT_NAME’]</td>
+<td align="left">包含当前脚本的路径。这在页面需要指向自己时非常有用。<strong>FILE</strong> 常量包含当前脚本(例如包含文件)的完整路径和文件名。</td>
 </tr>
 <tr>
-<td style="text-align:left">$_SERVER[‘SCRIPT_URI’]</td>
-<td style="text-align:left">URI 用来指定要访问的页面。例如 “/index.html”。</td>
+<td align="left">$_SERVER[‘SCRIPT_URI’]</td>
+<td align="left">URI 用来指定要访问的页面。例如 “&#x2F;index.html”。</td>
 </tr>
-</tbody>
-</table>
-<h3 id="_request"><a class="markdownIt-Anchor" href="#_request">#</a> <strong>$_REQUEST</strong></h3>
-<p>PHP $_REQUEST 用于收集 HTML 表单提交的数据。</p>
-<p>以下实例显示了一个输入字段（input）及提交按钮 (submit) 的表单 (form)。 当用户通过点击 “Submit” 按钮提交表单数据时，表单数据将发送至<form>标签中 action 属性中指定的脚本文件。 在这个实例中，我们指定文件来处理表单数据。如果你希望其他的 PHP 文件来处理该数据，你可以修改该指定的脚本文件名。 然后，我们可以使用超级全局变量 $_REQUEST 来收集表单中的 input 字段数据:</form></p>
-<p><strong>补充一下</strong>：REQUEST：具有<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow></mrow><mi>P</mi></msub><mi>O</mi><mi>S</mi><mi>T</mi><mo stretchy="false">[</mo><mo stretchy="false">]</mo><mtext>和</mtext></mrow><annotation encoding="application/x-tex">_POST[]和</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">P</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mopen">[</span><span class="mclose">]</span><span class="mord cjk_fallback">和</span></span></span></span>_GET [] 的功能，但是<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow></mrow><mi>R</mi></msub><mi>E</mi><mi>Q</mi><mi>U</mi><mi>E</mi><mi>S</mi><mi>T</mi><mo stretchy="false">[</mo><mo stretchy="false">]</mo><mtext>会比较慢。通过</mtext><mi>p</mi><mi>o</mi><mi>s</mi><mi>t</mi><mtext>和</mtext><mi>g</mi><mi>e</mi><mi>t</mi><mtext>方法提交的所有数据都可以通过</mtext></mrow><annotation encoding="application/x-tex">_REQUEST[]会比较慢。通过post和get方法提交的所有数据都可以通过</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.00773em;">R</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord mathnormal">Q</span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mopen">[</span><span class="mclose">]</span><span class="mord cjk_fallback">会</span><span class="mord cjk_fallback">比</span><span class="mord cjk_fallback">较</span><span class="mord cjk_fallback">慢</span><span class="mord cjk_fallback">。</span><span class="mord cjk_fallback">通</span><span class="mord cjk_fallback">过</span><span class="mord mathnormal">p</span><span class="mord mathnormal">o</span><span class="mord mathnormal">s</span><span class="mord mathnormal">t</span><span class="mord cjk_fallback">和</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">e</span><span class="mord mathnormal">t</span><span class="mord cjk_fallback">方</span><span class="mord cjk_fallback">法</span><span class="mord cjk_fallback">提</span><span class="mord cjk_fallback">交</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">所</span><span class="mord cjk_fallback">有</span><span class="mord cjk_fallback">数</span><span class="mord cjk_fallback">据</span><span class="mord cjk_fallback">都</span><span class="mord cjk_fallback">可</span><span class="mord cjk_fallback">以</span><span class="mord cjk_fallback">通</span><span class="mord cjk_fallback">过</span></span></span></span> REQUEST 数组获得</p>
+</tbody></table>
+<h3 id="REQUEST"><a href="#REQUEST" class="headerlink" title="$_REQUEST"></a><strong>$_REQUEST</strong></h3><p>PHP $_REQUEST 用于收集HTML表单提交的数据。</p>
+<p>以下实例显示了一个输入字段（input）及提交按钮(submit)的表单(form)。 当用户通过点击 “Submit” 按钮提交表单数据时, 表单数据将发送至<form>标签中 action 属性中指定的脚本文件。 在这个实例中，我们指定文件来处理表单数据。如果你希望其他的PHP文件来处理该数据，你可以修改该指定的脚本文件名。 然后，我们可以使用超级全局变量 $_REQUEST 来收集表单中的 input 字段数据:</form></p>
+<p><strong>补充一下</strong>：REQUEST：具有$_POST[]和$_GET[]的功能，但是$_REQUEST[]会比较慢。通过post和get方法提交的所有数据都可以通过$REQUEST数组获得</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"> </span><br><span class="line">&lt;form method=&quot;post&quot; action=&quot;&lt;?php echo $_SERVER[&#x27;PHP_SELF&#x27;];?&gt;&quot;&gt;</span><br><span class="line">Name: &lt;input type=&quot;text&quot; name=&quot;fname&quot;&gt;</span><br><span class="line">&lt;input type=&quot;submit&quot;&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line"> </span><br><span class="line">&lt;?php </span><br><span class="line">$name = $_REQUEST[&#x27;fname&#x27;]; </span><br><span class="line">echo $name; </span><br><span class="line">?&gt;</span><br><span class="line"> </span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="_post"><a class="markdownIt-Anchor" href="#_post">#</a> <strong>$_POST</strong></h3>
-<p>PHP $_POST 被广泛应用于收集表单数据，在 HTML form 标签的指定该属性：&quot;method=“post”。</p>
-<p>以下实例显示了一个输入字段（input）及提交按钮 (submit) 的表单 (form)。 当用户通过点击 “Submit” 按钮提交表单数据时，表单数据将发送至<form>标签中 action 属性中指定的脚本文件。 在这个实例中，我们指定文件来处理表单数据。如果你希望其他的 PHP 文件来处理该数据，你可以修改该指定的脚本文件名。 然后，我们可以使用超级全局变量 $_POST 来收集表单中的 input 字段数据:</form></p>
+
+<h3 id="POST"><a href="#POST" class="headerlink" title="$_POST"></a><strong>$_POST</strong></h3><p>PHP $_POST 被广泛应用于收集表单数据，在HTML form标签的指定该属性：”method&#x3D;”post”。</p>
+<p>以下实例显示了一个输入字段（input）及提交按钮(submit)的表单(form)。 当用户通过点击 “Submit” 按钮提交表单数据时, 表单数据将发送至<form>标签中 action 属性中指定的脚本文件。 在这个实例中，我们指定文件来处理表单数据。如果你希望其他的PHP文件来处理该数据，你可以修改该指定的脚本文件名。 然后，我们可以使用超级全局变量 $_POST 来收集表单中的 input 字段数据:</form></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"> </span><br><span class="line">&lt;form method=&quot;post&quot; action=&quot;&lt;?php echo $_SERVER[&#x27;PHP_SELF&#x27;];?&gt;&quot;&gt;</span><br><span class="line">Name: &lt;input type=&quot;text&quot; name=&quot;fname&quot;&gt;</span><br><span class="line">&lt;input type=&quot;submit&quot;&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line"> </span><br><span class="line">&lt;?php </span><br><span class="line">$name = $_POST[&#x27;fname&#x27;]; </span><br><span class="line">echo $name; </span><br><span class="line">?&gt;</span><br><span class="line"> </span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="_get"><a class="markdownIt-Anchor" href="#_get">#</a> <strong>$_GET</strong></h3>
-<p>PHP $_GET 同样被广泛应用于收集表单数据，在 HTML form 标签的指定该属性：&quot;method=“get”。</p>
-<p>$_GET 也可以收集 URL 中发送的数据。</p>
-<p>假定我们有一个包含参数的超链接 HTML 页面：</p>
+
+<h3 id="GET"><a href="#GET" class="headerlink" title="$_GET"></a><strong>$_GET</strong></h3><p>PHP $_GET 同样被广泛应用于收集表单数据，在HTML form标签的指定该属性：”method&#x3D;”get”。</p>
+<p>$_GET 也可以收集URL中发送的数据。</p>
+<p>假定我们有一个包含参数的超链接HTML页面：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;test_get.php?subject=PHP&amp;web=runoob.com&quot;</span>&gt;</span>Test $GET<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>当用户点击链接 “Test $GET”, 参数 “subject” 和 “web” 将发送至 &quot;test_get.php&quot;, 你可以在 “test_get.php” 文件中使用 $_GET 变量来获取这些数据。</p>
+
+<p>当用户点击链接 “Test $GET”, 参数 “subject” 和 “web” 将发送至”test_get.php”,你可以在 “test_get.php” 文件中使用 $_GET 变量来获取这些数据。</p>
 <p>以下实例显示了 “test_get.php” 文件的代码:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"> </span><br><span class="line">&lt;?php </span><br><span class="line">echo &quot;Study &quot; . $_GET[&#x27;subject&#x27;] . &quot; @ &quot; . $_GET[&#x27;web&#x27;];</span><br><span class="line">?&gt;</span><br><span class="line"> </span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>附上学习链接:<a target="_blank" rel="noopener" href="https://www.runoob.com/php/php-superglobals.html">PHP 超级全局变量 | 菜鸟教程 (runoob.com)</a></p>
 <p>补充:</p>
-<p><strong>get 和 post</strong></p>
+<p><strong>get和post</strong></p>
 <ol>
-<li>get 是从服务器上获取数据，post 是向服务器传送数据。</li>
-<li>get 是把参数数据队列加到提交表单的 ACTION 属性所指的 URL 中，值和表单内各个字段一一对应，在 URL 中可以看到。post 是通过 HTTP post 机制，将表单内各个字段与其内容放置在 HTML HEADER 内一起传送到 ACTION 属性所指的 URL 地址。用户看不到这个过程。</li>
-<li>对于 get 方式，服务器端用 Request.QueryString 获取变量的值，对于 post 方式，服务器端用 Request.Form 获取提交的数据。</li>
-<li>get 传送的数据量较小，不能大于 2KB。post 传送的数据量较大，一般被默认为不受限制。但理论上，IIS4 中最大量为 80KB，IIS5 中为 100KB。</li>
-<li>get 安全性非常低，post 安全性较高。</li>
+<li>get是从服务器上获取数据，post是向服务器传送数据。</li>
+<li>get是把参数数据队列加到提交表单的ACTION属性所指的URL中，值和表单内各个字段一一对应，在URL中可以看到。post是通过HTTP post机制，将表单内各个字段与其内容放置在HTML HEADER内一起传送到ACTION属性所指的URL地址。用户看不到这个过程。</li>
+<li>对于get方式，服务器端用Request.QueryString获取变量的值，对于post方式，服务器端用Request.Form获取提交的数据。</li>
+<li>get传送的数据量较小，不能大于2KB。post传送的数据量较大，一般被默认为不受限制。但理论上，IIS4中最大量为80KB，IIS5中为100KB。</li>
+<li>get安全性非常低，post安全性较高。</li>
 </ol>
 
   </div>
@@ -2808,7 +2807,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chenzhengkai10.github.io/2023/01/13/php%E5%AD%A6%E4%B9%A02023-01-13/&title=php学习2023-01-13 - Dr4x3zz&summary=# php 学习 (数组排序、超级全局变量)"
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chenzhengkai10.github.io/2023/01/13/php%E5%AD%A6%E4%B9%A02023-01-13/&title=php学习2023-01-13 - Dr4x3zz&summary=php学习(数组排序、超级全局变量)"
           
           >
           
@@ -2820,7 +2819,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://chenzhengkai10.github.io/2023/01/13/php%E5%AD%A6%E4%B9%A02023-01-13/&title=php学习2023-01-13 - Dr4x3zz&summary=# php 学习 (数组排序、超级全局变量)"
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://chenzhengkai10.github.io/2023/01/13/php%E5%AD%A6%E4%B9%A02023-01-13/&title=php学习2023-01-13 - Dr4x3zz&summary=php学习(数组排序、超级全局变量)"
           
           >
           
@@ -2832,7 +2831,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://chenzhengkai10.github.io/2023/01/13/php%E5%AD%A6%E4%B9%A02023-01-13/&title=php学习2023-01-13 - Dr4x3zz&summary=# php 学习 (数组排序、超级全局变量)"
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://chenzhengkai10.github.io/2023/01/13/php%E5%AD%A6%E4%B9%A02023-01-13/&title=php学习2023-01-13 - Dr4x3zz&summary=php学习(数组排序、超级全局变量)"
           
           >
           
@@ -2867,20 +2866,20 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class='prev' href='/2023/01/14/php%E5%AD%A6%E4%B9%A02023-01-14/'>
           <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>php学习2023-01-14</p>
-          <p class='content'># php 学习 (while、for 循环)
+          <p class='content'>php学习(while、for循环)
 
 在 PHP 中，提供了下列循环语句：
 
 while - 只要指定的条件成立，则循环执行代码块
-do…while - 首先执行一次代码块，然后在指...</p>
+do…while - 首先执行一次代码块，然后在指定的条件成...</p>
         </a>
       
       
         <a class='next' href='/2023/01/10/%E5%85%B3%E4%BA%8Eand-1-1%E5%92%8Cand-1-2%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/'>
           <p class='title'>关于and 1=1和and 1=2学习记录<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'># 关于 and 1=1 和 and 1=2 学习记录
+          <p class='content'>关于and 1&#x3D;1和and 1&#x3D;2学习记录
 
-在 23 关时，我又重新对于这个 and 1=1 和 and 1=2 以及在注入时用一个错误的 id 后面的 union  select...</p>
+在23关时，我又重新对于这个and 1&#x3D;1和and 1&#x3D;2以及在注入时用一个错误的id后面的union  s...</p>
         </a>
       
     </div>
@@ -2938,7 +2937,7 @@ do…while - 首先执行一次代码块，然后在指...</p>
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E6%8E%92%E5%BA%8F"><span class="toc-text"> 数组排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B6%85%E7%BA%A7%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F"><span class="toc-text"> 超级全局变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#globals"><span class="toc-text"> $GLOBALS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_server"><span class="toc-text"> $_SERVER</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_request"><span class="toc-text"> $_REQUEST</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_post"><span class="toc-text"> $_POST</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_get"><span class="toc-text"> $_GET</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E6%8E%92%E5%BA%8F"><span class="toc-text">数组排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B6%85%E7%BA%A7%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F"><span class="toc-text">超级全局变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GLOBALS"><span class="toc-text">$GLOBALS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SERVER"><span class="toc-text">$_SERVER</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#REQUEST"><span class="toc-text">$_REQUEST</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#POST"><span class="toc-text">$_POST</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GET"><span class="toc-text">$_GET</span></a></li></ol></li></ol>
     </div>
   </section>
 
@@ -3508,7 +3507,7 @@ do…while - 首先执行一次代码块，然后在指...</p>
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","sameAs":["https://github.com/volantis-x"],"description":"这是我的专属博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://chenzhengkai10.github.io/","name":"Dr4x3zz"}},{"@type":"ListItem","position":2,"item":{"@id":"https://chenzhengkai10.github.io/categories/php学习/","name":"php学习"}},{"@type":"ListItem","position":3,"item":{"@id":"https://chenzhengkai10.github.io/2023/01/13/php学习2023-01-13/","name":"php学习2023-01-13"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","keywords":null,"description":"这是我的专属博客","author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","description":"这是我的专属博客"},"publisher":{"@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://chenzhengkai10.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"php学习2023-01-13","description":"# php 学习 (数组排序、超级全局变量)","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://chenzhengkai10.github.io/2023/01/13/php%E5%AD%A6%E4%B9%A02023-01-13/"},"author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/"},"publisher":{"@type":"Organization","name":"Dr4x3zz","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://chenzhengkai10.github.io/2023/01/13/php%E5%AD%A6%E4%B9%A02023-01-13/","wordCount":22,"datePublished":"2023-01-13T11:58:23.000Z","dateModified":"2023-01-13T13:19:30.000Z","articleSection":"php学习","keywords":"php学习","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","sameAs":["https://github.com/volantis-x"],"description":"这是我的专属博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://chenzhengkai10.github.io/","name":"Dr4x3zz"}},{"@type":"ListItem","position":2,"item":{"@id":"https://chenzhengkai10.github.io/categories/php学习/","name":"php学习"}},{"@type":"ListItem","position":3,"item":{"@id":"https://chenzhengkai10.github.io/2023/01/13/php学习2023-01-13/","name":"php学习2023-01-13"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","keywords":null,"description":"这是我的专属博客","author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","description":"这是我的专属博客"},"publisher":{"@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://chenzhengkai10.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"php学习2023-01-13","description":"php学习(数组排序、超级全局变量)","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://chenzhengkai10.github.io/2023/01/13/php%E5%AD%A6%E4%B9%A02023-01-13/"},"author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/"},"publisher":{"@type":"Organization","name":"Dr4x3zz","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://chenzhengkai10.github.io/2023/01/13/php%E5%AD%A6%E4%B9%A02023-01-13/","wordCount":18,"datePublished":"2023-01-13T11:58:23.000Z","dateModified":"2023-01-13T13:19:30.000Z","articleSection":"php学习","keywords":"php学习","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
