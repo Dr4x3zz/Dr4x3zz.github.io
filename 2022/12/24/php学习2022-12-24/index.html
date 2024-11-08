@@ -20,12 +20,12 @@
   <title>php学习2022-12-24 - Dr4x3zz</title>
 
   
-    <meta name="description" content="# php 学习 (array)">
+    <meta name="description" content="php学习(array)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="php学习2022-12-24">
 <meta property="og:url" content="https://dr4x3zz.github.io/2022/12/24/php%E5%AD%A6%E4%B9%A02022-12-24/index.html">
 <meta property="og:site_name" content="Dr4x3zz">
-<meta property="og:description" content="# php 学习 (array)">
+<meta property="og:description" content="php学习(array)">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-12-24T03:36:38.000Z">
 <meta property="article:modified_time" content="2022-12-24T05:25:06.000Z">
@@ -91,97 +91,64 @@
     </div>
     
   </div>
-  </div><article class="md-text content"><h1 id="php学习array"><a class="markdownIt-Anchor" href="#php学习array">#</a> php 学习 (array)</h1>
-<span id="more"></span>
-<h2 id="数值数组数组"><a class="markdownIt-Anchor" href="#数值数组数组">#</a> 数值数组数组</h2>
-<h3 id="自动分配id"><a class="markdownIt-Anchor" href="#自动分配id">#</a> 自动分配 ID</h3>
-<p>第一种方法是自动分配 ID 键，和 C 语言一样都是从 0 开始分配 ID<br>
- 代码如下：</p>
+  </div><article class="md-text content"><h1 id="php学习-array"><a href="#php学习-array" class="headerlink" title="php学习(array)"></a>php学习(array)</h1><span id="more"></span>
+<h2 id="数值数组数组"><a href="#数值数组数组" class="headerlink" title="数值数组数组"></a>数值数组数组</h2><h3 id="自动分配ID"><a href="#自动分配ID" class="headerlink" title="自动分配ID"></a>自动分配ID</h3><p>第一种方法是自动分配ID键，和C语言一样都是从0开始分配ID<br>代码如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    $color = array( &quot;red&quot;, &quot;blue&quot;, &quot;green&quot; );</span><br><span class="line">    echo &quot;I like&quot; . &quot; &quot; . $color[0] . &quot;,&quot; . $color[1] . &quot;,&quot; . $color[2] . &quot;.&quot;;</span><br><span class="line">    //输出结果：I like red,blue,green.</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="直接创建"><a class="markdownIt-Anchor" href="#直接创建">#</a> 直接创建</h3>
-<p>第二种方法是直接创建<br>
-代码如下：</p>
+<h3 id="直接创建"><a href="#直接创建" class="headerlink" title="直接创建"></a>直接创建</h3><p>第二种方法是直接创建<br>代码如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    $phone[0] = &quot;vivo&quot;;</span><br><span class="line">    $phone[1] = &quot;Redmi&quot;;</span><br><span class="line">    $phone[2] = &quot;iphone&quot;;</span><br><span class="line"></span><br><span class="line">    echo &quot;I like&quot; . &quot; &quot; . $phone[0] . &quot;,&quot; . $phone[1] . &quot;,&quot; . $phone[2] . &quot;.&quot;;</span><br><span class="line">    //输出结果：I like vivo,Redmi,iphone.</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="count"><a class="markdownIt-Anchor" href="#count">#</a> count()</h2>
-<p>count () 函数用于返回数组的长度（元素的数量）</p>
+<h2 id="count"><a href="#count" class="headerlink" title="count()"></a>count()</h2><p>count() 函数用于返回数组的长度（元素的数量）</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    $phone[0] = &quot;vivo&quot;;</span><br><span class="line">    $phone[1] = &quot;Redmi&quot;;</span><br><span class="line">    $phone[2] = &quot;iphone&quot;;</span><br><span class="line">    echo count($phone);</span><br><span class="line">    //输出结果：3</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="遍历数值数组"><a class="markdownIt-Anchor" href="#遍历数值数组">#</a> 遍历数值数组</h2>
-<p>遍历并打印数值数组中的所有值<br>
-遍历，是指沿着某条搜索路线，依次对树（或图）中每个节点均做一次访问。</p>
+<h2 id="遍历数值数组"><a href="#遍历数值数组" class="headerlink" title="遍历数值数组"></a>遍历数值数组</h2><p>遍历并打印数值数组中的所有值<br>遍历，是指沿着某条搜索路线，依次对树（或图）中每个节点均做一次访问。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    $cars = array( &quot;Volvo&quot;, &quot;BMW&quot;, &quot;Toyota&quot; );</span><br><span class="line">    $arrlength = count( $cars );</span><br><span class="line"> </span><br><span class="line">    for($x=0; $x &lt; $arrlength; $x++)</span><br><span class="line">    &#123;</span><br><span class="line">        echo $cars[$x];</span><br><span class="line">        echo &quot;&lt;br&gt;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="关联数组"><a class="markdownIt-Anchor" href="#关联数组">#</a> 关联数组</h2>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    $age = array( &quot;Peter&quot; =&gt; &quot;35&quot;, &quot;Ben&quot; =&gt; &quot;37&quot;, &quot;Joe&quot; =&gt; &quot;43&quot; );</span><br><span class="line">/*  相当于：</span><br><span class="line">    $age[&#x27;Peter&#x27;] = &quot;35&quot;;</span><br><span class="line">    $age[&#x27;Ben&#x27;] = &quot;37&quot;;</span><br><span class="line">    $age[&#x27;Joe&#x27;] = &quot;43&quot;;</span><br><span class="line">*/</span><br><span class="line">    echo &quot;Peter is &quot; . $age[&#x27;Peter&#x27;] . &quot; years old.&quot;;</span><br><span class="line">    //输出：Peter is 35 years old.</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="遍历关联数组"><a class="markdownIt-Anchor" href="#遍历关联数组">#</a> 遍历关联数组</h2>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    $age=array( &quot;Peter&quot;=&gt;&quot;35&quot;, &quot;Ben&quot;=&gt;&quot;37&quot;, &quot;Joe&quot;=&gt;&quot;43&quot; );</span><br><span class="line">    foreach( $age as $key =&gt; $key_value )</span><br><span class="line">    &#123;</span><br><span class="line">        echo &quot;Key = &quot; . $key . &quot;, Value = &quot; . $key_value;</span><br><span class="line">        echo &quot;&lt;br&gt;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    /*</span><br><span class="line">    输出结果：</span><br><span class="line">    Key = Peter, Value = 35</span><br><span class="line">    Key = Ben, Value = 37</span><br><span class="line">    Key = Joe, Value = 43</span><br><span class="line">    */</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="foreach循环"><a class="markdownIt-Anchor" href="#foreach循环">#</a> foreach 循环</h2>
-<p><strong>foreach</strong> 是一种特殊的循环语句，只适用于数组和对象。<br>
-<strong>foreach</strong> 可以以两种方式使用。</p>
-<h3 id="用法一"><a class="markdownIt-Anchor" href="#用法一">#</a> 用法一：</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">foreach ( $array as $value )</span><br><span class="line">&#123; </span><br><span class="line">   // (对于$value执行的语句) </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<h2 id="关联数组"><a href="#关联数组" class="headerlink" title="关联数组"></a>关联数组</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    $age = array( &quot;Peter&quot; =&gt; &quot;35&quot;, &quot;Ben&quot; =&gt; &quot;37&quot;, &quot;Joe&quot; =&gt; &quot;43&quot; );</span><br><span class="line">/*  相当于：</span><br><span class="line">    $age[&#x27;Peter&#x27;] = &quot;35&quot;;</span><br><span class="line">    $age[&#x27;Ben&#x27;] = &quot;37&quot;;</span><br><span class="line">    $age[&#x27;Joe&#x27;] = &quot;43&quot;;</span><br><span class="line">*/</span><br><span class="line">    echo &quot;Peter is &quot; . $age[&#x27;Peter&#x27;] . &quot; years old.&quot;;</span><br><span class="line">    //输出：Peter is 35 years old.</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="遍历关联数组"><a href="#遍历关联数组" class="headerlink" title="遍历关联数组"></a>遍历关联数组</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    $age=array( &quot;Peter&quot;=&gt;&quot;35&quot;, &quot;Ben&quot;=&gt;&quot;37&quot;, &quot;Joe&quot;=&gt;&quot;43&quot; );</span><br><span class="line">    foreach( $age as $key =&gt; $key_value )</span><br><span class="line">    &#123;</span><br><span class="line">        echo &quot;Key = &quot; . $key . &quot;, Value = &quot; . $key_value;</span><br><span class="line">        echo &quot;&lt;br&gt;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    /*</span><br><span class="line">    输出结果：</span><br><span class="line">    Key = Peter, Value = 35</span><br><span class="line">    Key = Ben, Value = 37</span><br><span class="line">    Key = Joe, Value = 43</span><br><span class="line">    */</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="foreach循环"><a href="#foreach循环" class="headerlink" title="foreach循环"></a>foreach循环</h2><p><strong>foreach</strong> 是一种特殊的循环语句，只适用于数组和对象。<br><strong>foreach</strong> 可以以两种方式使用。</p>
+<h3 id="用法一："><a href="#用法一：" class="headerlink" title="用法一："></a>用法一：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">foreach ( $array as $value )</span><br><span class="line">&#123; </span><br><span class="line">   // (对于$value执行的语句) </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
 <p>例如：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">   $authors = array( &quot;Java&quot;, &quot;PHP&quot;, &quot;CSS&quot;, &quot;HTML&quot; ); </span><br><span class="line"></span><br><span class="line">   foreach ( $authors as $value )</span><br><span class="line">   &#123; </span><br><span class="line">       echo $value;</span><br><span class="line">       echo &quot;&lt;br&gt;&quot;; </span><br><span class="line">   &#125;   </span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <p>输出结果：</p>
 <blockquote>
-<p>Java<br>
-PHP<br>
-CSS<br>
-HTML</p>
+<p>Java<br>PHP<br>CSS<br>HTML</p>
 </blockquote>
-<h3 id="用法二"><a class="markdownIt-Anchor" href="#用法二">#</a> 用法二：</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">foreach ( $array as $key =&gt;  $value )</span><br><span class="line">&#123; </span><br><span class="line">   // (对$key and/or $value执行的语句)</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+<h3 id="用法二："><a href="#用法二：" class="headerlink" title="用法二："></a>用法二：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">foreach ( $array as $key =&gt;  $value )</span><br><span class="line">&#123; </span><br><span class="line">   // (对$key and/or $value执行的语句)</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
 <p>例如：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$myBook = array( &quot;title&quot; =&gt;  &quot;Learn PHP from www.w3cschool.cn&quot;, </span><br><span class="line">                &quot;author&quot; =&gt;  &quot;www.w3cschool.cn&quot;, </span><br><span class="line">                &quot;pubYear&quot; =&gt;  2000 ); </span><br><span class="line"></span><br><span class="line">foreach ( $myBook as $key =&gt;  $value )</span><br><span class="line">&#123; </span><br><span class="line">   echo &quot;$key&quot;;</span><br><span class="line">   echo &quot;&lt;br&gt;&quot;; </span><br><span class="line">   echo &quot;$value&quot;;</span><br><span class="line">   echo &quot;&lt;br&gt;&quot;; </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
 <p>输出结果：</p>
 <blockquote>
-<p>title<br>
-Learn PHP from <a target="_blank" rel="noopener" href="http://www.w3cschool.cn">www.w3cschool.cn</a><br>
-author<br>
-<a target="_blank" rel="noopener" href="http://www.w3cschool.cn">www.w3cschool.cn</a><br>
-pubYear<br>
-2000</p>
+<p>title<br>Learn PHP from <a target="_blank" rel="noopener" href="http://www.w3cschool.cn/">www.w3cschool.cn</a><br>author<br><a target="_blank" rel="noopener" href="http://www.w3cschool.cn/">www.w3cschool.cn</a><br>pubYear<br>2000</p>
 </blockquote>
-<h3 id="使用foreach更改数组值"><a class="markdownIt-Anchor" href="#使用foreach更改数组值">#</a> 使用 foreach 更改数组值</h3>
-<p>当使用 foreach 时，循环中的值是值的副本。<br>
-如果你改变了值，你 “不影响值在原始数组中。<br>
-例如：</p>
+<h3 id="使用foreach更改数组值"><a href="#使用foreach更改数组值" class="headerlink" title="使用foreach更改数组值"></a>使用foreach更改数组值</h3><p>当使用foreach时，循环中的值是值的副本。<br>如果你改变了值，你“不影响值在原始数组中。<br>例如：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$authors = array( &quot;Java&quot;, &quot;PHP&quot;, &quot;CSS&quot;, &quot;HTML&quot; ); </span><br><span class="line"></span><br><span class="line">// Displays &quot;Java PHP Javascript HTML&quot;; </span><br><span class="line">foreach ( $authors as $val )</span><br><span class="line">&#123; </span><br><span class="line">   if ( $val == &quot;CSS&quot; ) $val = &quot;Javascript&quot;; </span><br><span class="line">   echo $val . &quot; &quot;; </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">print_r ( $authors );   //print_r()函数用于打印变量</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
 <p>输出结果为：</p>
 <blockquote>
-<p>Java PHP Javascript HTML Array<br>
-(<br>
-[0] =&gt; Java<br>
-[1] =&gt; PHP<br>
-[2] =&gt; CSS<br>
-[3] =&gt; HTML<br>
-)</p>
+<p>Java PHP Javascript HTML Array<br>(<br>    [0] &#x3D;&gt; Java<br>    [1] &#x3D;&gt; PHP<br>    [2] &#x3D;&gt; CSS<br>    [3] &#x3D;&gt; HTML<br>) </p>
 </blockquote>
-<p>虽然 $ val 在循环中从 “CSS&quot;改为 “Javascript&quot; 原始的 $ authors 数组保持不变。</p>
-<p>要修改数组值，我们需要得到 foreach () 返回一个引用数组中的值，而不是副本。<br>
-添加一个在 foreach 语句中的变量名之前的 <strong>&amp; (和号) 符号</strong> :</p>
+<p>虽然$ val在循环中从“CSS”改为“Javascript”原始的$ authors数组保持不变。</p>
+<p>要修改数组值，我们需要得到foreach()返回一个引用数组中的值，而不是副本。<br>添加一个在foreach语句中的变量名之前的 <strong>&amp; (和号)符号</strong> :</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">foreach ( $array as &amp; $value ) </span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>例如：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"> $authors = array( &quot;Java&quot;, &quot;PHP&quot;, &quot;CSS&quot;, &quot;HTML&quot; ); </span><br><span class="line"> foreach ( $authors as  &amp; $val ) &#123; </span><br><span class="line">   if ( $val == &quot;CSS&quot; ) $val = &quot;Javascript&quot;; </span><br><span class="line">   echo $val . &quot; &quot;; </span><br><span class="line"> &#125; </span><br><span class="line"> unset( $val );     //unset()销毁指定的变量。</span><br><span class="line"> print_r ( $authors );   </span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
 <p>输出结果：</p>
 <blockquote>
-<p>Java PHP Javascript HTML Array<br>
-(<br>
-[0] =&gt; Java<br>
-[1] =&gt; PHP<br>
-[2] =&gt; Javascript<br>
-[3] =&gt; HTML<br>
-)</p>
+<p>Java PHP Javascript HTML Array<br>  (<br>    [0] &#x3D;&gt; Java<br>    [1] &#x3D;&gt; PHP<br>    [2] &#x3D;&gt; Javascript<br>    [3] &#x3D;&gt; HTML<br>)</p>
 </blockquote>
-<p>这一次，成功将第三个元素的值在数组本身中从 “CSS&quot;更改为 “Javascript&quot;。<br>
-<strong>注意</strong></p>
+<p>这一次，成功将第三个元素的值在数组本身中从“CSS”更改为“Javascript”。<br><strong>注意</strong></p>
 <blockquote>
-<p>unset ($ val) 确保 $ val 变量在循环已完成。<br>
-当循环结束时，$ val 仍然保存对最后一个元素的引用。在我们的代码中更改 $ val 改变 $ authors 数组的最后一个元素。通过取消设置 $ val，我们避免潜在的错误。</p>
+<p>unset($ val) 确保 $ val 变量在循环已完成。<br>当循环结束时，$ val仍然保存对最后一个元素的引用。在我们的代码中更改$ val改变$ authors数组的最后一个元素。通过取消设置$ val，我们避免潜在的错误。</p>
 </blockquote>
 
 <div class="article-footer fs14">
     <section id="license">
       <div class="header"><span>许可协议</span></div>
-      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名 - 非商业性使用 - 相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
 </div>
     </section>
     </div>
@@ -193,15 +160,14 @@ pubYear<br>
 
 
 
-<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">Dr4x3zz</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.1">Stellar 1.29.1</a> 主题创建。<br>
-本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">Dr4x3zz</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.1">Stellar 1.29.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
 </div></footer>
 <div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
 <div class="widgets">
 
 
 
-<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#php%E5%AD%A6%E4%B9%A0array"><span class="toc-text"> php 学习 (array)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%80%BC%E6%95%B0%E7%BB%84%E6%95%B0%E7%BB%84"><span class="toc-text"> 数值数组数组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E5%88%86%E9%85%8Did"><span class="toc-text"> 自动分配 ID</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B4%E6%8E%A5%E5%88%9B%E5%BB%BA"><span class="toc-text"> 直接创建</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#count"><span class="toc-text"> count()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%81%8D%E5%8E%86%E6%95%B0%E5%80%BC%E6%95%B0%E7%BB%84"><span class="toc-text"> 遍历数值数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E8%81%94%E6%95%B0%E7%BB%84"><span class="toc-text"> 关联数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%81%8D%E5%8E%86%E5%85%B3%E8%81%94%E6%95%B0%E7%BB%84"><span class="toc-text"> 遍历关联数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#foreach%E5%BE%AA%E7%8E%AF"><span class="toc-text"> foreach 循环</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%B3%95%E4%B8%80"><span class="toc-text"> 用法一：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%B3%95%E4%BA%8C"><span class="toc-text"> 用法二：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8foreach%E6%9B%B4%E6%94%B9%E6%95%B0%E7%BB%84%E5%80%BC"><span class="toc-text"> 使用 foreach 更改数组值</span></a></li></ol></li></ol></li></ol></div><div class="widget-footer">
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#php%E5%AD%A6%E4%B9%A0-array"><span class="toc-text">php学习(array)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%80%BC%E6%95%B0%E7%BB%84%E6%95%B0%E7%BB%84"><span class="toc-text">数值数组数组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E5%88%86%E9%85%8DID"><span class="toc-text">自动分配ID</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B4%E6%8E%A5%E5%88%9B%E5%BB%BA"><span class="toc-text">直接创建</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#count"><span class="toc-text">count()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%81%8D%E5%8E%86%E6%95%B0%E5%80%BC%E6%95%B0%E7%BB%84"><span class="toc-text">遍历数值数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E8%81%94%E6%95%B0%E7%BB%84"><span class="toc-text">关联数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%81%8D%E5%8E%86%E5%85%B3%E8%81%94%E6%95%B0%E7%BB%84"><span class="toc-text">遍历关联数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#foreach%E5%BE%AA%E7%8E%AF"><span class="toc-text">foreach循环</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%B3%95%E4%B8%80%EF%BC%9A"><span class="toc-text">用法一：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%B3%95%E4%BA%8C%EF%BC%9A"><span class="toc-text">用法二：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8foreach%E6%9B%B4%E6%94%B9%E6%95%B0%E7%BB%84%E5%80%BC"><span class="toc-text">使用foreach更改数组值</span></a></li></ol></li></ol></li></ol></div><div class="widget-footer">
 
 <a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/></g></svg><span>回到顶部</span></a></div></widget>
 </div></aside><div class='float-panel blur'>

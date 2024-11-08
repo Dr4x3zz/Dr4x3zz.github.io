@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://dr4x3zz.github.io/about/index.html</loc>
+    
+    <lastmod>2024-11-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://dr4x3zz.github.io/2024/11/03/MeiYa2022-Individual/</loc>
     
     <lastmod>2024-11-08</lastmod>
@@ -435,15 +444,6 @@
   
   <url>
     <loc>https://dr4x3zz.github.io/categories/index.html</loc>
-    
-    <lastmod>2022-09-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://dr4x3zz.github.io/about/index.html</loc>
     
     <lastmod>2022-09-24</lastmod>
     

@@ -20,12 +20,12 @@
   <title>web学习笔记2022/10/23 - Dr4x3zz</title>
 
   
-    <meta name="description" content="# web 学习笔记">
+    <meta name="description" content="web学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="web学习笔记2022&#x2F;10&#x2F;23">
 <meta property="og:url" content="https://dr4x3zz.github.io/2022/10/23/web%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02022-10-23/index.html">
 <meta property="og:site_name" content="Dr4x3zz">
-<meta property="og:description" content="# web 学习笔记">
+<meta property="og:description" content="web学习笔记">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-10-22T17:09:38.000Z">
 <meta property="article:modified_time" content="2023-04-30T15:39:12.000Z">
@@ -91,29 +91,28 @@
     </div>
     
   </div>
-  </div><article class="md-text content"><h1 id="web学习笔记"><a class="markdownIt-Anchor" href="#web学习笔记">#</a> web 学习笔记</h1>
- <span id="more"></span>
+  </div><article class="md-text content"><h1 id="web学习笔记"><a href="#web学习笔记" class="headerlink" title="web学习笔记"></a>web学习笔记</h1> <span id="more"></span>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">show_source(_FLIE_);</span><br><span class="line">echo $_GET[&#x27;hello&#x27;];</span><br><span class="line">$page=$_GET[&#x27;page&#x27;];</span><br><span class="line">while (strstr($page,  &quot;php://&quot;))  &#123;</span><br><span class="line">    $page=str_replace(&quot;php://&quot;, &quot;&quot;, $page);</span><br><span class="line"> &#125;</span><br><span class="line"> include($page);</span><br><span class="line"> ?&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>show_source ()(与 highlight_file () 函数作用相同) 函数的作用是将括号中的 PHP 文件高亮显示，而_FILE_是 PHP 中的常量，代表本 PHP 文件的绝对路径，因此 show_source (<em>FILE</em>) 即将本 PHP 文件高亮显示。</p>
+<p>show_source()(与highlight_file()函数作用相同)函数的作用是将括号中的PHP文件高亮显示，而_FILE_是PHP中的常量，代表本PHP文件的绝对路径，因此show_source(<em>FILE</em>)即将本PHP文件高亮显示。</p>
 </blockquote>
 <blockquote>
-<p>strstr () 函数：strstr (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mi>x</mi><mi>t</mi><mn>1</mn><mo separator="true">,</mo></mrow><annotation encoding="application/x-tex">txt1,</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">t</span><span class="mord mathnormal">x</span><span class="mord mathnormal">t</span><span class="mord">1</span><span class="mpunct">,</span></span></span></span>txt2)，查找 txt2 是否在 txt1 中存在，如果是则返回 txt1 中 txt2 及其后面的部分。因此 while (strstr (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mi>a</mi><mi>g</mi><mi>e</mi><mo separator="true">,</mo><mi mathvariant="normal">&quot;</mi><mi>p</mi><mi>h</mi><mi>p</mi><mo>:</mo><mi mathvariant="normal">/</mi><mi mathvariant="normal">/</mi><mi mathvariant="normal">&quot;</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mtext>即查找</mtext></mrow><annotation encoding="application/x-tex">page, &quot;php://&quot;))即查找</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">p</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">e</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">&quot;</span><span class="mord mathnormal">p</span><span class="mord mathnormal">h</span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">/</span><span class="mord">/</span><span class="mord">&quot;</span><span class="mclose">)</span><span class="mclose">)</span><span class="mord cjk_fallback">即</span><span class="mord cjk_fallback">查</span><span class="mord cjk_fallback">找</span></span></span></span> page 变量中有无包含 php：//, 当没有时退出循环。</p>
+<p>strstr()函数：strstr($txt1,$txt2)，查找txt2是否在txt1中存在，如果是则返回txt1中txt2及其后面的部分。因此while(strstr($page, “php:&#x2F;&#x2F;“))即查找$page变量中有无包含php：&#x2F;&#x2F;,当没有时退出循环。</p>
 </blockquote>
 <blockquote>
-<p>str_replace () 函数：str_replace (“txt1”,”txt2”,”txt3”), 将 txt3 中的 txt1 换成 txt2。</p>
+<p>str_replace()函数：str_replace(“txt1”,”txt2”,”txt3”),将txt3中的txt1换成txt2。</p>
 </blockquote>
 <blockquote>
-<p>Include ()(函数 (require ())：引用文件中的内容并显示。</p>
+<p>Include()(函数(require())：引用文件中的内容并显示。</p>
 </blockquote>
 <blockquote>
-<p>摘自：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_51637038/article/details/119833232?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522166645807016800192236551%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&amp;request_id=166645807016800192236551&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2">https://blog.csdn.net/qq_51637038/article/details/119833232?ops_request_misc=%7B%22request%5Fid%22%3A%22166645807016800192236551%22%2C%22scm%22%3A%2220140713.130102334.pc%5Fall.%22%7D&amp;request_id=166645807016800192236551&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2</a><sub>all</sub>first_rank_ecpm_v1~rank_v31_ecpm-1-119833232-null-null.142<sup>v59</sup>pc_rank_34_2,201<sup>v3</sup>control&amp;utm_term=php%E4%B8%ADstrstr%28%24file%2Cdata%29&amp;spm=1018.2226.3001.4187</p>
+<p>摘自：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_51637038/article/details/119833232?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522166645807016800192236551%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=166645807016800192236551&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-1-119833232-null-null.142%5Ev59%5Epc_rank_34_2,201%5Ev3%5Econtrol&utm_term=php%E4%B8%ADstrstr($file,data)&spm=1018.2226.3001.4187">https://blog.csdn.net/qq_51637038/article/details/119833232?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522166645807016800192236551%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&amp;request_id=166645807016800192236551&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-1-119833232-null-null.142^v59^pc_rank_34_2,201^v3^control&amp;utm_term=php%E4%B8%ADstrstr%28%24file%2Cdata%29&amp;spm=1018.2226.3001.4187</a></p>
 </blockquote>
 
 <div class="article-footer fs14">
     <section id="license">
       <div class="header"><span>许可协议</span></div>
-      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名 - 非商业性使用 - 相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
 </div>
     </section>
     </div>
@@ -125,15 +124,14 @@
 
 
 
-<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">Dr4x3zz</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.1">Stellar 1.29.1</a> 主题创建。<br>
-本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">Dr4x3zz</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.1">Stellar 1.29.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
 </div></footer>
 <div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
 <div class="widgets">
 
 
 
-<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#web%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"><span class="toc-text"> web 学习笔记</span></a></li></ol></div><div class="widget-footer">
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#web%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"><span class="toc-text">web学习笔记</span></a></li></ol></div><div class="widget-footer">
 
 <a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/></g></svg><span>回到顶部</span></a></div></widget>
 </div></aside><div class='float-panel blur'>

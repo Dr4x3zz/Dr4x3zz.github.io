@@ -20,12 +20,12 @@
   <title>反序列化 - Dr4x3zz</title>
 
   
-    <meta name="description" content="# PHP 反序列化">
+    <meta name="description" content="PHP反序列化">
 <meta property="og:type" content="article">
 <meta property="og:title" content="反序列化">
 <meta property="og:url" content="https://dr4x3zz.github.io/2023/04/21/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/index.html">
 <meta property="og:site_name" content="Dr4x3zz">
-<meta property="og:description" content="# PHP 反序列化">
+<meta property="og:description" content="PHP反序列化">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-04-20T16:49:19.000Z">
 <meta property="article:modified_time" content="2023-04-30T15:40:30.000Z">
@@ -91,47 +91,46 @@
     </div>
     
   </div>
-  </div><article class="md-text content"><h1 id="php反序列化"><a class="markdownIt-Anchor" href="#php反序列化">#</a> PHP 反序列化</h1>
-<span id="more"></span>
-<h2 id="序列化与反序列化"><a class="markdownIt-Anchor" href="#序列化与反序列化">#</a> 序列化与反序列化</h2>
-<p>序列化可以将变量转换为字符串，并且在转换的过程中可以保存 当前变量的值</p>
-<p s:8:username;s:5:admin;s:8:password;s:3:100;>O:4:“Name”:2:</p>
+  </div><article class="md-text content"><h1 id="PHP反序列化"><a href="#PHP反序列化" class="headerlink" title="PHP反序列化"></a>PHP反序列化</h1><span id="more"></span>
+
+<h2 id="序列化与反序列化"><a href="#序列化与反序列化" class="headerlink" title="序列化与反序列化"></a>序列化与反序列化</h2><p>序列化可以将变量转换为字符串，并且在转换的过程中可以保存 当前变量的值 </p>
+<p>O:4:”Name”:2:{s:8:”username”;s:5:”admin”;s:8:”password”;s:3:”100”;} </p>
 <p>反序列化可以将序列化生成的字符串转换回变量。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> object(Name)#2 (2) &#123; </span><br><span class="line">	[&quot;username&quot;]=&gt; </span><br><span class="line">	string(5) &quot;admin&quot; </span><br><span class="line">	[&quot;password&quot;]=&gt; </span><br><span class="line">	string(3) &quot;100&quot; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li>布尔型：b:value =&gt; b:0</li>
-<li>整数型：i:value =&gt; i:1</li>
-<li>字符串型：s:length:value =&gt;s:4 “aaaa”</li>
-<li i:1;s:1 a>数组型：a::{key, value pairs} =&gt;a:1:</li>
-<li>对象型：O:</li>
-<li>NULL 型：</li>
+<li>布尔型：b:value &#x3D;&gt; b:0</li>
+<li>整数型：i:value &#x3D;&gt; i:1 </li>
+<li>字符串型：s:length:value &#x3D;&gt;s:4 “aaaa” </li>
+<li>数组型：a::{key, value pairs} &#x3D;&gt;a:1:{i:1;s:1 “a”} </li>
+<li>对象型：O: </li>
+<li>NULL型：</li>
 </ul>
-<h3 id="序列化"><a class="markdownIt-Anchor" href="#序列化">#</a> 序列化</h3>
-<p>序列化说通俗点就是把一个对象变成可以传输的字符串。</p>
-<p>序列化实际是为了传输的方便，以整个对象为单位进行传输，而序列化一个对象将会保存对象的所有变量，但是不会保存对象的方法，只会保存类的名字。如果了解底层的同学可以知道，类中的方法本就不在类中。</p>
-<p>而在 php 中，使用函数 serialize () 来返回一个包含字节流的字符串来表示</p>
+<h3 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h3><p>序列化说通俗点就是把一个对象变成可以传输的字符串。</p>
+<p>序列化实际是为了传输的方便,以整个对象为单位进行传输, 而序列化一个对象将会保存对象的所有变量，但是不会保存对象的方法，只会保存类的名字。如果了解底层的同学可以知道,类中的方法本就不在类中。</p>
+<p>而在php中,使用函数serialize()来返回一个包含字节流的字符串来表示</p>
 <p>比如:</p>
 <p>class S{</p>
-<p>public $test=“sd”;</p>
+<p>public $test&#x3D;”sd”;</p>
 <p>}</p>
-<p>$s=new S (); // 创建一个对象</p>
-<p>serialize ($s); // 把这个对象进行序列化</p>
+<p>$s&#x3D;new S(); &#x2F;&#x2F;创建一个对象</p>
+<p>serialize($s); &#x2F;&#x2F;把这个对象进行序列化</p>
 <p>序列化的结果是:</p>
-<p s:4:test;s:2:sd;>O:1:“S”:1:</p>
+<p>O:1:”S”:1:{s:4:”test”;s:2:”sd”;}</p>
 <p>代表的含义依次是:</p>
 <ul>
-<li>O: 代表 object</li>
-<li>1: 代表对象名字长度为一个字符</li>
-<li>S: 对象的名称</li>
-<li>1: 代表对象里面有一个变量</li>
-<li>s: 数据类型 (string)</li>
-<li>4: 变量名称的长度</li>
-<li>test: 变量名称</li>
-<li>s: 数据类型</li>
-<li>2: 变量值的长度</li>
-<li>sd: 变量值</li>
+<li>O:代表object</li>
+<li>1:代表对象名字长度为一个字符</li>
+<li>S:对象的名称</li>
+<li>1:代表对象里面有一个变量</li>
+<li>s:数据类型(string)</li>
+<li>4:变量名称的长度</li>
+<li>test:变量名称</li>
+<li>s:数据类型</li>
+<li>2:变量值的长度</li>
+<li>sd:变量值</li>
 </ul>
-<p>顺便说一下 PHP 对不同类型的数据用不同的字母进行标示</p>
+<p>顺便说一下PHP 对不同类型的数据用不同的字母进行标示</p>
 <ul>
 <li>a - array</li>
 <li>b - boolean</li>
@@ -146,37 +145,35 @@
 <li>R - pointer reference</li>
 <li>U - unicode string</li>
 </ul>
-<h3 id="反序列化"><a class="markdownIt-Anchor" href="#反序列化">#</a> 反序列化</h3>
-<p><strong>反序列化</strong></p>
-<p>就是把被序列化的字符串还原为对象，然后在接下来的代码中继续使用。</p>
-<p>使用 unserialize () 函数</p>
-<p>$u=unserialize(“O:1:“S”:1:{s:4:“test”;s:2:“sd”;}”);</p>
-<p>echo $u-&gt;test; // 得到的结果为 sd</p>
-<h2 id="魔术方法"><a class="markdownIt-Anchor" href="#魔术方法">#</a> 魔术方法</h2>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">__construct() //类的构造函数</span><br><span class="line">__wakeup() //执行unserialize()时，先会调用这个函数</span><br><span class="line">__sleep() //执行serialize()时，先会调用这个函数</span><br><span class="line">__destruct() //对象被销毁时触发</span><br><span class="line">__call() //在对象上下文中调用不可访问的方法时触发</span><br><span class="line">__callStatic() //在静态上下文中调用不可访问的方法时触发</span><br><span class="line">__get() //用于从不可访问的属性读取数据或者不存在这个键都会调用此方法</span><br><span class="line">__set() //用于将数据写入不可访问的属性</span><br><span class="line">__isset() //在不可访问的属性上调用isset()或empty()触发</span><br><span class="line">__unset() //在不可访问的属性上使用unset()时触发</span><br><span class="line">__toString() //把类当作字符串使用时触发</span><br><span class="line">__invoke() //当尝试将对象调用为函数时触发</span><br></pre></td></tr></table></figure>
-<h2 id="原生类"><a class="markdownIt-Anchor" href="#原生类">#</a> 原生类</h2>
-<p>遍历目录：</p>
-<p>1、DirectoryIterator</p>
-<p>2、FilesystemIterator</p>
-<p>3、GlobIterator</p>
-<p>读取文件：</p>
-<p>4、SplFileObject</p>
-<p>错误类（绕过 hash 比较）：</p>
-<p>5、Error</p>
-<p>6、Exception</p>
-<p>压缩处理类（删除文件）：</p>
-<p>7、ZipArchive</p>
-<p>进行 SSRF：</p>
+<h3 id="反序列化"><a href="#反序列化" class="headerlink" title="反序列化"></a>反序列化</h3><p><strong>反序列化</strong></p>
+<p>就是把被序列化的字符串还原为对象,然后在接下来的代码中继续使用。</p>
+<p>使用unserialize()函数</p>
+<p>$u&#x3D;unserialize(“O:1:”S”:1:{s:4:”test”;s:2:”sd”;}”);</p>
+<p>echo $u-&gt;test; &#x2F;&#x2F;得到的结果为sd</p>
+<h2 id="魔术方法"><a href="#魔术方法" class="headerlink" title="魔术方法"></a>魔术方法</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">__construct() //类的构造函数</span><br><span class="line">__wakeup() //执行unserialize()时，先会调用这个函数</span><br><span class="line">__sleep() //执行serialize()时，先会调用这个函数</span><br><span class="line">__destruct() //对象被销毁时触发</span><br><span class="line">__call() //在对象上下文中调用不可访问的方法时触发</span><br><span class="line">__callStatic() //在静态上下文中调用不可访问的方法时触发</span><br><span class="line">__get() //用于从不可访问的属性读取数据或者不存在这个键都会调用此方法</span><br><span class="line">__set() //用于将数据写入不可访问的属性</span><br><span class="line">__isset() //在不可访问的属性上调用isset()或empty()触发</span><br><span class="line">__unset() //在不可访问的属性上使用unset()时触发</span><br><span class="line">__toString() //把类当作字符串使用时触发</span><br><span class="line">__invoke() //当尝试将对象调用为函数时触发</span><br></pre></td></tr></table></figure>
+
+<h2 id="原生类"><a href="#原生类" class="headerlink" title="原生类"></a>原生类</h2><p>遍历目录： </p>
+<p>1、DirectoryIterator </p>
+<p>2、FilesystemIterator </p>
+<p>3、GlobIterator </p>
+<p>读取文件： </p>
+<p>4、SplFileObject </p>
+<p>错误类（绕过hash比较）：</p>
+<p>5、Error </p>
+<p>6、Exception </p>
+<p>压缩处理类（删除文件）： </p>
+<p>7、ZipArchive </p>
+<p>进行SSRF： </p>
 <p>8、SoapClient</p>
 <p>目前还没有使用过只是蛮记录一下</p>
 <p>学习链接：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/458866772">https://zhuanlan.zhihu.com/p/458866772</a></p>
-<p>根据链接里面学习，我的理解是原生类就是 php 自带的大类，可以理解为不用我们 class 定义的一个类，php 自带的</p>
+<p>根据链接里面学习，我的理解是原生类就是php自带的大类，可以理解为不用我们class定义的一个类，php自带的</p>
 <p>等遇到了再回来补充学习一下</p>
 
 <div class="article-footer fs14">
     <section id="license">
       <div class="header"><span>许可协议</span></div>
-      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名 - 非商业性使用 - 相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
 </div>
     </section>
     </div>
@@ -188,15 +185,14 @@
 
 
 
-<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">Dr4x3zz</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.1">Stellar 1.29.1</a> 主题创建。<br>
-本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">Dr4x3zz</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.1">Stellar 1.29.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
 </div></footer>
 <div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
 <div class="widgets">
 
 
 
-<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-text"> PHP 反序列化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-text"> 序列化与反序列化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-text"> 序列化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-text"> 反序列化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AD%94%E6%9C%AF%E6%96%B9%E6%B3%95"><span class="toc-text"> 魔术方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E7%94%9F%E7%B1%BB"><span class="toc-text"> 原生类</span></a></li></ol></li></ol></div><div class="widget-footer">
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-text">PHP反序列化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-text">序列化与反序列化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-text">序列化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-text">反序列化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AD%94%E6%9C%AF%E6%96%B9%E6%B3%95"><span class="toc-text">魔术方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E7%94%9F%E7%B1%BB"><span class="toc-text">原生类</span></a></li></ol></li></ol></div><div class="widget-footer">
 
 <a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/></g></svg><span>回到顶部</span></a></div></widget>
 </div></aside><div class='float-panel blur'>

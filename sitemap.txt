@@ -1,3 +1,4 @@
+https://dr4x3zz.github.io/about/index.html
 https://dr4x3zz.github.io/2024/11/03/MeiYa2022-Individual/
 https://dr4x3zz.github.io/2024/06/06/Vulnstack%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA/
 https://dr4x3zz.github.io/2023/04/05/upload-labs/
@@ -47,7 +48,6 @@ https://dr4x3zz.github.io/2022/12/22/php%E5%AD%A6%E4%B9%A02022-12-22/
 https://dr4x3zz.github.io/friends/index.html
 https://dr4x3zz.github.io/tags/index.html
 https://dr4x3zz.github.io/categories/index.html
-https://dr4x3zz.github.io/about/index.html
 https://dr4x3zz.github.io/
 https://dr4x3zz.github.io/tags/ctfweb/
 https://dr4x3zz.github.io/tags/%E5%8F%96%E8%AF%81/
